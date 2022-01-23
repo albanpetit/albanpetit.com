@@ -1,6 +1,6 @@
 baseurl: https://example.com
 languageCode: en-us
-theme: stack
+theme: hugo-theme-stack
 paginate: 5
 title: Alban Petit
 
