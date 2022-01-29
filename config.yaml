@@ -31,7 +31,7 @@ params:
     sidebar:
         subtitle: IT expert, electronic hobbyist in my free time, here are my personal projects and the content of my training "learn how to make almost anything" from the fab academy
         avatar:
-            enabled: true
+            enabled: false
             local: true
             src: img/avatar.png
 
