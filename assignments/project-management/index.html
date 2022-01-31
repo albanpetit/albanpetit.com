@@ -42,7 +42,7 @@ Week 1
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-5 minute read
+8 minute read
 </time>
 </div>
 </footer>
@@ -202,8 +202,80 @@ No &ldquo;.&rdquo; at the end of the description</li>
 <li><strong>Description</strong> allows to detail in more detail the motivations behind the change. The rules are the same as for the Subject part.</li>
 </ul>
 <p>To define the type of commit, you can use another solution : <a class=link href=https://github.com/carloscuesta/gitmoji target=_blank rel=noopener>Gitmoji</a></p>
-<h2 id=docusaurus>Docusaurus</h2>
-<h2 id=hugo>Hugo</h2>
+<h2 id=static-site-generator>Static site generator</h2>
+<h3 id=docusaurus>Docusaurus</h3>
+<p>
+<img src=https://docusaurus.io/img/docusaurus.svg style=float:left>
+Docusaurus is a Facebook dev team project for easily building, deploying, and maintaining open source project websites.</p>
+<p>This website is running with the alpha release Docusaurus : Docusaurus 2.
+Docusaurus 1 used to be a pure documentation site generator. Docusaurus 2, was rebuilt, allowing for more customizability, so now it can feat to content-driven websites (Documentation, Blogs, Product Landing and Marketing Pages, etc) extremely fast.</p>
+<h4 id=install>Install</h4>
+<p>The easiest way to install Docusaurus is to use the command line tool that helps you scaffold a skeleton Docusaurus website :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npx @docusaurus/init@next init <span class=o>[</span>name<span class=o>]</span> <span class=o>[</span>template<span class=o>]</span>
+Replace <span class=o>[</span>name<span class=o>]</span> and <span class=o>[</span>template<span class=o>]</span>.
+</code></pre></div><h4 id=development-server>Development server</h4>
+<p>Command to run the dev server :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> <span class=o>[</span>name<span class=o>]</span>
+yarn start
+</code></pre></div><p>By default, a browser window will open at <code>http://localhost:3000</code>.</p>
+<h4 id=build>Build</h4>
+<p>Docusaurus is a static website generator so we need to build the website into a directory of static contents and put it on a web server so that it can be viewed. To build the website :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>yarn run build
+</code></pre></div><h4 id=gitlab-pages>Gitlab Pages</h4>
+<img src=https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png style=float:left>
+<ul>
+<li><strong>Continuous Integration</strong> is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.</li>
+<li><strong>Continuous Delivery</strong> adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.</li>
+<li><strong>Continuous Deployment</strong> goes further and pushes changes to production automatically.</li>
+</ul>
+<p>This project is put into production with each modification of the <strong>Master branch</strong> of the gitlab repository.
+So I use for this the integrated solution to gitlab, <strong>Gitlab CI</strong> to do this.</p>
+<p>So each time a commit is sent, a docker container instance will be launched by gitlab to build the application.
+This procedure is described in the yaml file: <code>.gitlab-ci.yml</code>.</p>
+<p>The container will therefore build the application and transfer the final files from the application to a second feature of gitlab, <strong>Gitlab Pages</strong> which allows hosting of static websites.</p>
+<p>The <code>.gitlab-ci.yml</code> of this <strong>Docusaurus</strong> project :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>node:9.11.1</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>pages</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>script</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span>- <span class=l>ls -al</span><span class=w>
+</span><span class=w>    </span>- <span class=l>yarn install</span><span class=w>
+</span><span class=w>    </span>- <span class=l>yarn build</span><span class=w>
+</span><span class=w>    </span>- <span class=l>mkdir ./public</span><span class=w>
+</span><span class=w>    </span>- <span class=l>mv ./build/* ./public</span><span class=w>
+</span><span class=w>  </span><span class=nt>artifacts</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>paths</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- <span class=l>public</span><span class=w>
+</span><span class=w>  </span><span class=nt>only</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span>- <span class=l>master</span><span class=w>
+</span></code></pre></div><h3 id=hugo>Hugo</h3>
+<h4 id=install-1>Install</h4>
+<p>The quickest way to install hugo is to download the appropriate binary version on the official github and put in <code>/usr/local/bin</code> or any directory in yout <code>PATH</code>. But better way to install is to use a package manager so :</p>
+<ul>
+<li>macOs :</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>brew install hugo
+</code></pre></div><ul>
+<li>linux :</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install hugo
+</code></pre></div><ul>
+<li>windows with <code>chocolatey</code> :</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>choco install hugo -confirm
+</code></pre></div><blockquote>
+<p>Fun fact, on my mac hugo work fine, but on the linux side, the development server won&rsquo;t run, after some research multiple version of Hugo are available, to build and minify <code>sccs</code> the extended version is needed, so to install it :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Linux-64bit.deb
+sudo dpkg --install hugo_extended_0.88.1_Linux-64bit.deb
+</code></pre></div><p>The same problem occur on windows : <a class=link href=https://gohugo.io/getting-started/installing/#windows target=_blank rel=noopener>Hugo extended on windows</a></p>
+</blockquote>
+<h4 id=development-server-1>Development server</h4>
+<p>Command to run the dev server :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo server
+</code></pre></div><p>By default, a browser window will open at <code>http://localhost:1313</code>.</p>
+<h4 id=build-1>Build</h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo
+</code></pre></div>
 </section>
 <footer class=article-footer>
 <section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
@@ -290,8 +362,25 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#commit-name-convention>Commit name convention</a></li>
 </ol>
 </li>
-<li><a href=#docusaurus>Docusaurus</a></li>
-<li><a href=#hugo>Hugo</a></li>
+<li><a href=#static-site-generator>Static site generator</a>
+<ol>
+<li><a href=#docusaurus>Docusaurus</a>
+<ol>
+<li><a href=#install>Install</a></li>
+<li><a href=#development-server>Development server</a></li>
+<li><a href=#build>Build</a></li>
+<li><a href=#gitlab-pages>Gitlab Pages</a></li>
+</ol>
+</li>
+<li><a href=#hugo>Hugo</a>
+<ol>
+<li><a href=#install-1>Install</a></li>
+<li><a href=#development-server-1>Development server</a></li>
+<li><a href=#build-1>Build</a></li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 </nav>
 </div>
