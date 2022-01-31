@@ -1,0 +1,304 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Week 1"><title>Project management</title>
+<link rel=canonical href=/assignments/project-management/>
+<link rel=stylesheet href=/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css><meta property="og:title" content="Project management">
+<meta property="og:description" content="Week 1">
+<meta property="og:url" content="/assignments/project-management/">
+<meta property="og:site_name" content="Alban Petit">
+<meta property="og:type" content="article"><meta property="article:section" content="Assignments"><meta property="article:published_time" content="2022-01-25T00:00:00+00:00"><meta property="article:modified_time" content="2022-01-25T00:00:00+00:00"><meta property="og:image" content="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd">
+<meta name=twitter:site content="@Padh_">
+<meta name=twitter:creator content="@Padh_"><meta name=twitter:title content="Project management">
+<meta name=twitter:description content="Week 1"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/assignments/project-management/>
+<img src=https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd loading=lazy alt="Featured image of post Project management">
+</a>
+</div>
+<div class=article-details>
+<h2 class=article-title>
+<a href=/assignments/project-management/>Project management</a>
+</h2>
+<h3 class=article-subtitle>
+Week 1
+</h3>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jan 25, 2022</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+5 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<p>First of all,</p>
+<h2 id=git>Git</h2>
+<p>
+<img src=https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGit.png style=float:left>
+Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository, Github, Gitlab, Bitbucket&mldr;</p>
+<p><a class=link href=https://git-scm.com/doc target=_blank rel=noopener>More informations about git here</a></p>
+<h3 id=setup-git>Setup git</h3>
+<h4 id=install-git>Install git</h4>
+<p>Before starting anything, git is needed to deal with repository, so, let&rsquo;s install it. Even if it&rsquo;s installed, it&rsquo;s a good idea to update it.</p>
+<ul>
+<li>macOs :
+On Mac, the easiest way is to install it with <code>Xcode</code> command line tool, you can do this simply by trying to run a git command from the terminal :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git --version
+</code></pre></div>If you don&rsquo;t have it installed already, it will prompt you to install it.</li>
+<li>linux:
+On linux you can use <code>apt</code>, it&rsquo;s a command line interface for the package management system on debian based distribution, so with a terminal, run :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt update
+sudo apt install git
+</code></pre></div></li>
+<li>windows ( best idea is to install linux )
+Managing windows software can be really annoying and time-consuming, some software can resolve this problem like <code>chocolatey</code>, so with powershell :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nb>Set-ExecutionPolicy</span> <span class=n>Bypass</span> <span class=n>-Scope</span> <span class=k>Process</span> <span class=n>-Force</span><span class=p>;</span> <span class=no>[System.Net.ServicePointManager]</span><span class=p>::</span><span class=n>SecurityProtocol</span> <span class=p>=</span> <span class=no>[System.Net.ServicePointManager]</span><span class=p>::</span><span class=n>SecurityProtocol</span> <span class=o>-bor</span> <span class=n>3072</span><span class=p>;</span> <span class=nb>iex </span><span class=p>((</span><span class=nb>New-Object</span> <span class=n>System</span><span class=p>.</span><span class=n>Net</span><span class=p>.</span><span class=n>WebClient</span><span class=p>).</span><span class=n>DownloadString</span><span class=p>(</span><span class=s1>&#39;https://community.chocolatey.org/install.ps1&#39;</span><span class=p>))</span>
+</code></pre></div>Now you can install git, also with powershell :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>choco</span> <span class=n>install</span> <span class=n>git</span>
+</code></pre></div></li>
+</ul>
+<h4 id=generate-ssh-key>Generate ssh key</h4>
+<p>To create a new SSH key pair:</p>
+<ol>
+<li>Open a terminal</li>
+<li>Generate a new SSH key pair:
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>ssh-keygen -C <span class=s2>&#34;email@example.com&#34;</span>
+</code></pre></div></li>
+<li>Copy the ssh <strong>public key</strong> :
+<ul>
+<li>macOs :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre></div></li>
+<li>linux (require xclip**) :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>xclip -sel clip &lt; ~/.ssh/id_rsa.pub
+</code></pre></div></li>
+<li>windows git bash :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat ~/.ssh/id_rsa.pub <span class=p>|</span> clip
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p>** Command to install xclip, debian/ubuntu :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install xclip
+</code></pre></div><h4 id=define-git-user-parameters>Define git user parameters</h4>
+<h5 id=git-indentity>Git indentity</h5>
+<p>The first thing you should do when you install Git is to set your user name and email address. This is important because every Git commit uses this information, and it’s immutably baked into the commits you start creating:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git config --global user.name <span class=s2>&#34;firstname lastname&#34;</span>
+git config --global user.email email@example.com
+</code></pre></div><p>You need to do this only once if you pass the &ndash;global option, because then Git will always use that information for anything you do on that system. If you want to override this with a different name or email address for specific projects, you can run the command without the &ndash;global option when you’re in that project.</p>
+<h5 id=git-default-editor>Git default editor</h5>
+<p>you can configure the default text editor that will be used when Git needs you to type in a message. If not configured, Git uses your system’s default editor.
+If you want to use a different text editor, such as Emacs, you can do the following:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git config --global core.editor emacs
+</code></pre></div><p>On a Windows system, if you want to use a different text editor, you must specify the full path to its executable file. This can be different depending on how your editor is packaged.</p>
+<h5 id=review-the-configuration>Review the configuration</h5>
+<p>Git provide a command to check the configuration settings :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git config --list
+</code></pre></div><h3 id=git-command-line>Git command line</h3>
+<p>Here is a list of basic git command to interact with repostories.</p>
+<h4 id=git-clone>Git clone</h4>
+<p><code>git clone</code> allow to make a local copy of an online repository. See below how to use it :</p>
+<ol>
+<li>Open a terminal</li>
+<li>Point at the folder of your choice :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /ideal/path
+</code></pre></div></li>
+<li>Clone the repo with the command “git clone”, two solutions with ssh or http:
+If you have a ssh key configured with the gitlab of the fabacademy :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone git@gitlab.fabcloud.org:academany/fabacademy/2020/labs/lamachinerie/students/alban-petit.git
+</code></pre></div>Else:
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone https://gitlab.fabcloud.org/academany/fabacademy/2020/labs/lamachinerie/students/alban-petit.git
+</code></pre></div></li>
+<li>Now, you can run ls command to list the fils in the current directory :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>ls -al
+</code></pre></div></li>
+</ol>
+<h4 id=git-pull>Git pull</h4>
+<p>Incorporates changes from a remote repository into the current branch.</p>
+<ol>
+<li>Go to a git repository in your local files :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /my/awesome/repository
+</code></pre></div></li>
+<li>Now you can update your local files with changes available online :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git pull
+</code></pre></div></li>
+</ol>
+<h4 id=git-add>Git add</h4>
+<p>This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit.</p>
+<ul>
+<li>To take a snapshot of the contents of all files under the current directory :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git add .
+</code></pre></div></li>
+<li>To take a snapshot of all files :
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git add -A
+</code></pre></div></li>
+</ul>
+<h4 id=git-commit>Git commit</h4>
+<p><code>git commit</code> updates the index using the current content found in the working tree, to prepare the content staged for the next commit.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git commit -m <span class=s2>&#34;message&#34;</span>
+</code></pre></div><p>You can replace &ldquo;message&rdquo; with your commit message. For example: &ldquo;:tada: initial commit&rdquo;.
+A second <code>-m</code> parameter allow you to add a second message to the commit, the first one must be short, but the second allows to go further in the explanations concerning the modifications made with this commit, see below :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git commit -m <span class=s2>&#34;message&#34;</span> -m <span class=s2>&#34;full description about the modifications&#34;</span>
+</code></pre></div><h4 id=git-push>Git push</h4>
+<p>Updates remote repository using local snapshot of the content.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git push
+</code></pre></div><h3 id=vscode>VScode</h3>
+<p>
+<img src=https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoVSCode.png style=float:left>
+As I said before, I personally use VScode to program and work on my project.</p>
+<p>VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named &ldquo;Souce Control&rdquo; in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
+<figure>
+<a href=https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png>
+<img src=https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png loading=lazy>
+</a>
+</figure></p>
+<h3 id=commit-name-convention>Commit name convention</h3>
+<p>Good commit messages serve at least three important purposes:</p>
+<ul>
+<li>To speed up the reviewing process.</li>
+<li>To help us write a good release note.</li>
+<li>To help the future/other maintainers of the project.</li>
+</ul>
+<p>So you can structure your commit message like this:</p>
+<pre tabindex=0><code>&lt;type&gt; &lt;sujet&gt;
+
+&lt;description&gt;
+</code></pre><ul>
+<li><strong>Type</strong> defines the type of commit
+<ul>
+<li><strong>build</strong>: build solution (gulp, webpack, npm)</li>
+<li><strong>ci</strong>: Continuous integration (Travis, Circle, BrowserStack, SauceLabs)</li>
+<li><strong>docs</strong>: Documentation</li>
+<li><strong>feat</strong>: Add feature</li>
+<li><strong>fix</strong>: bug fix</li>
+<li><strong>perf</strong>: Performance improvement</li>
+<li><strong>refactor</strong>: Code changement which does not change the usage</li>
+<li><strong>style</strong>: Style modification</li>
+<li><strong>test</strong>: Tests modification</li>
+</ul>
+</li>
+<li><strong>Sujet</strong> contains a brief description of the changes
+Using the present imperative (&ldquo;change&rdquo;, not &ldquo;changed&rdquo; or &ldquo;changes&rdquo;)
+Without capital letter at the beginning
+No &ldquo;.&rdquo; at the end of the description</li>
+<li><strong>Description</strong> allows to detail in more detail the motivations behind the change. The rules are the same as for the Subject part.</li>
+</ul>
+<p>To define the type of commit, you can use another solution : <a class=link href=https://github.com/carloscuesta/gitmoji target=_blank rel=noopener>Gitmoji</a></p>
+<h2 id=docusaurus>Docusaurus</h2>
+<h2 id=hugo>Hugo</h2>
+</section>
+<footer class=article-footer>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2022 Alban Petit
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.6.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#git>Git</a>
+<ol>
+<li><a href=#setup-git>Setup git</a>
+<ol>
+<li><a href=#install-git>Install git</a></li>
+<li><a href=#generate-ssh-key>Generate ssh key</a></li>
+<li><a href=#define-git-user-parameters>Define git user parameters</a></li>
+</ol>
+</li>
+<li><a href=#git-command-line>Git command line</a>
+<ol>
+<li><a href=#git-clone>Git clone</a></li>
+<li><a href=#git-pull>Git pull</a></li>
+<li><a href=#git-add>Git add</a></li>
+<li><a href=#git-commit>Git commit</a></li>
+<li><a href=#git-push>Git push</a></li>
+</ol>
+</li>
+<li><a href=#vscode>VScode</a></li>
+<li><a href=#commit-name-convention>Commit name convention</a></li>
+</ol>
+</li>
+<li><a href=#docusaurus>Docusaurus</a></li>
+<li><a href=#hugo>Hugo</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
