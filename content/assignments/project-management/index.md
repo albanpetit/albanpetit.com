@@ -174,5 +174,91 @@ So you can structure your commit message like this:
 - **Description** allows to detail in more detail the motivations behind the change. The rules are the same as for the Subject part.
 
 To define the type of commit, you can use another solution : [Gitmoji](https://github.com/carloscuesta/gitmoji)
-## Docusaurus
-## Hugo
+## Static site generator
+### Docusaurus
+{{< image src="https://docusaurus.io/img/docusaurus.svg" position="left" >}}
+Docusaurus is a Facebook dev team project for easily building, deploying, and maintaining open source project websites.
+
+This website is running with the alpha release Docusaurus : Docusaurus 2.
+Docusaurus 1 used to be a pure documentation site generator. Docusaurus 2, was rebuilt, allowing for more customizability, so now it can feat to content-driven websites (Documentation, Blogs, Product Landing and Marketing Pages, etc) extremely fast.
+#### Install
+The easiest way to install Docusaurus is to use the command line tool that helps you scaffold a skeleton Docusaurus website :
+```bash
+npx @docusaurus/init@next init [name] [template]
+Replace [name] and [template].
+```
+#### Development server
+Command to run the dev server :
+```bash
+cd [name]
+yarn start
+```
+By default, a browser window will open at `http://localhost:3000`.
+#### Build
+Docusaurus is a static website generator so we need to build the website into a directory of static contents and put it on a web server so that it can be viewed. To build the website :
+```bash
+yarn run build
+```
+#### Gitlab Pages
+{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" >}}
+- **Continuous Integration** is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.
+- **Continuous Delivery** adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.
+- **Continuous Deployment** goes further and pushes changes to production automatically.
+
+This project is put into production with each modification of the **Master branch** of the gitlab repository.
+So I use for this the integrated solution to gitlab, **Gitlab CI** to do this.
+
+So each time a commit is sent, a docker container instance will be launched by gitlab to build the application.
+This procedure is described in the yaml file: `.gitlab-ci.yml`.
+
+The container will therefore build the application and transfer the final files from the application to a second feature of gitlab, **Gitlab Pages** which allows hosting of static websites.
+
+The `.gitlab-ci.yml` of this **Docusaurus** project : 
+
+```yaml
+image: node:9.11.1
+
+pages:
+  script:
+    - ls -al
+    - yarn install
+    - yarn build
+    - mkdir ./public
+    - mv ./build/* ./public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+```
+### Hugo
+#### Install
+The quickest way to install hugo is to download the appropriate binary version on the official github and put in `/usr/local/bin` or any directory in yout `PATH`. But better way to install is to use a package manager so :
+- macOs : 
+```bash
+brew install hugo
+```
+- linux :
+```bash
+sudo apt install hugo
+```
+- windows with `chocolatey` :
+```bash
+choco install hugo -confirm
+```
+> Fun fact, on my mac hugo work fine, but on the linux side, the development server won't run, after some research multiple version of Hugo are available, to build and minify `sccs` the extended version is needed, so to install it : 
+> ```bash
+> wget https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Linux-64bit.deb
+> sudo dpkg --install hugo_extended_0.88.1_Linux-64bit.deb
+> ```
+> The same problem occur on windows : [Hugo extended on windows](https://gohugo.io/getting-started/installing/#windows)
+#### Development server
+Command to run the dev server :
+```bash
+hugo server
+```
+By default, a browser window will open at `http://localhost:1313`.
+#### Build
+```bash
+hugo
+```
