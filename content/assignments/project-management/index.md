@@ -10,7 +10,7 @@ First of all,
 
 
 ## Git
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGit.png" position="left" >}}
+{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGit.png" position="left" width="150" right="20" >}}
 Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository, Github, Gitlab, Bitbucket...
 
 [More informations about git here](https://git-scm.com/doc)
@@ -140,7 +140,7 @@ Updates remote repository using local snapshot of the content.
 git push
 ```
 ### VScode
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoVSCode.png" position="left" >}}
+{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoVSCode.png" position="left" width="150" right="10" >}}
 As I said before, I personally use VScode to program and work on my project. 
 
 VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named "Souce Control" in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
@@ -176,7 +176,7 @@ So you can structure your commit message like this:
 To define the type of commit, you can use another solution : [Gitmoji](https://github.com/carloscuesta/gitmoji)
 ## Static site generator
 ### Docusaurus
-{{< image src="https://docusaurus.io/img/docusaurus.svg" position="left" >}}
+{{< image src="https://docusaurus.io/img/docusaurus.svg" position="left" width="150" right="20" >}}
 Docusaurus is a Facebook dev team project for easily building, deploying, and maintaining open source project websites.
 
 This website is running with the alpha release Docusaurus : Docusaurus 2.
@@ -200,7 +200,7 @@ Docusaurus is a static website generator so we need to build the website into a 
 yarn run build
 ```
 #### Gitlab Pages
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" >}}
+{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" width="150" right="20"  >}}
 - **Continuous Integration** is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.
 - **Continuous Delivery** adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.
 - **Continuous Deployment** goes further and pushes changes to production automatically.
@@ -246,11 +246,8 @@ sudo apt install hugo
 ```bash
 choco install hugo -confirm
 ```
-> Fun fact, on my mac hugo work fine, but on the linux side, the development server won't run, after some research multiple version of Hugo are available, to build and minify `sccs` the extended version is needed, so to install it : 
-> ```bash
-> wget https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Linux-64bit.deb
-> sudo dpkg --install hugo_extended_0.88.1_Linux-64bit.deb
-> ```
+> Fun fact, on my mac hugo work fine, but on the linux side, the development server won't run, after some research multiple version of Hugo are available, to build and minify `sccs` the extended version is needed, so to install it : [Hugo extended version](https://vdshk.me/post/how-to-install-hugo-extended-on-ubuntu-20-04/)
+>
 > The same problem occur on windows : [Hugo extended on windows](https://gohugo.io/getting-started/installing/#windows)
 #### Development server
 Command to run the dev server :
