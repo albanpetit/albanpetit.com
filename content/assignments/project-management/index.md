@@ -6,14 +6,20 @@ image: "https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd"
 description: Week 1
 ---
 
-First of all,
+First of all, I'm web developer, so I'm quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don't know.
 
+Also note that this site will also serve me as a blog, so it is available on the url of the Fabacademy : https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/, but also on my personal domain name : https://albanpetit.com.
+
+Finally this is my second year of fabacademy, not having been able to validate the first, I preferred for this assignment to change SSG, so there is documentation for Docusaurus and for Hugo.
+
+Enjoy :)
 
 ## Git
 {{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGit.png" position="left" width="150" right="20" >}}
 Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository, Github, Gitlab, Bitbucket...
 
 [More informations about git here](https://git-scm.com/doc)
+
 ### Setup git
 #### Install git
 Before starting anything, git is needed to deal with repository, so, let's install it. Even if it's installed, it's a good idea to update it.
@@ -38,8 +44,9 @@ Before starting anything, git is needed to deal with repository, so, let's insta
     ```powershell
     choco install git
     ```
-#### Generate ssh key
-To create a new SSH key pair:
+
+#### Generate SSH key
+When you work with git, a good idea to commit a small amount of modifications so that you can roll back anytime, if something goes wrong. But with a basic configuration each time you want to push a commit gitlab or github requires authentification. I'm a lazy guy, so I use `SSH`, ssh-key security is a very good way to authentify everywhere. ssh-key are based on asymetric cryptography protocol. Which mean that when you generate a key, the program gives you a public key which can be shared with every one, and a private one which shouldn’t. When a website want to check you’re identity it can send a bunch of data encrypted using your public key, then to decrypt the data, the private key is needed, in theory only you’re computer should be able to decrypt the data and autentify. To create a new SSH key pair:
 1. Open a terminal
 2. Generate a new SSH key pair:
     ```bash
@@ -58,10 +65,9 @@ To create a new SSH key pair:
         ```bash
         cat ~/.ssh/id_rsa.pub | clip
         ```
-** Command to install xclip, debian/ubuntu :
-```bash
-sudo apt install xclip
-```
+4. Put the `SSH` to gitlab or github parameters
+> **Tips** : Command to install xclip, debian/ubuntu, `sudo apt install xclip`
+
 #### Define git user parameters
 ##### Git indentity
 The first thing you should do when you install Git is to set your user name and email address. This is important because every Git commit uses this information, and it’s immutably baked into the commits you start creating:
@@ -70,20 +76,24 @@ git config --global user.name "firstname lastname"
 git config --global user.email email@example.com
 ```
 You need to do this only once if you pass the --global option, because then Git will always use that information for anything you do on that system. If you want to override this with a different name or email address for specific projects, you can run the command without the --global option when you’re in that project.
+
 ##### Git default editor
-you can configure the default text editor that will be used when Git needs you to type in a message. If not configured, Git uses your system’s default editor.
+You can configure the default text editor that will be used when Git needs you to type in a message. If not configured, Git uses your system’s default editor.
 If you want to use a different text editor, such as Emacs, you can do the following:
 ```bash
 git config --global core.editor emacs
 ```
 On a Windows system, if you want to use a different text editor, you must specify the full path to its executable file. This can be different depending on how your editor is packaged.
+
 ##### Review the configuration
 Git provide a command to check the configuration settings :
 ```bash
 git config --list
 ```
+
 ### Git command line
 Here is a list of basic git command to interact with repostories.
+
 #### Git clone 
 `git clone` allow to make a local copy of an online repository. See below how to use it :
 1. Open a terminal
@@ -91,19 +101,19 @@ Here is a list of basic git command to interact with repostories.
     ```bash
     cd /ideal/path
     ```
-3. Clone the repo with the command “git clone”, two solutions with ssh or http:
-    If you have a ssh key configured with the gitlab of the fabacademy :
+3. Clone the repo with the command `git clone`, two solutions with `ssh` or `http`:
+    If you have a ssh key configured, with the gitlab of the fabacademy :
     ```bash
+    # SSH version
     git clone git@gitlab.fabcloud.org:academany/fabacademy/2020/labs/lamachinerie/students/alban-petit.git
-    ```
-    Else:
-    ```bash
+    # HTTP version
     git clone https://gitlab.fabcloud.org/academany/fabacademy/2020/labs/lamachinerie/students/alban-petit.git
     ```
-4. Now, you can run ls command to list the fils in the current directory :
+4. Now, you can run `ls` command to list the files in the current directory :
     ```bash
     ls -al
     ```
+
 #### Git pull
 Incorporates changes from a remote repository into the current branch.
 1. Go to a git repository in your local files :
@@ -114,6 +124,7 @@ Incorporates changes from a remote repository into the current branch.
     ```bash
     git pull
     ```
+
 #### Git add
 This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit.
 - To take a snapshot of the contents of all files under the current directory :
@@ -124,6 +135,7 @@ This command updates the index using the current content found in the working tr
     ```bash
     git add -A
     ```
+
 #### Git commit
 `git commit` updates the index using the current content found in the working tree, to prepare the content staged for the next commit.
 ```bash
@@ -134,24 +146,27 @@ A second `-m` parameter allow you to add a second message to the commit, the fir
 ```bash
 git commit -m "message" -m "full description about the modifications"
 ```
+
 #### Git push
 Updates remote repository using local snapshot of the content.
 ```bash
 git push
 ```
+
 ### VScode
 {{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoVSCode.png" position="left" width="150" right="10" >}}
-As I said before, I personally use VScode to program and work on my project. 
+I personally use VScode to program and work on my project. 
 
 VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named "Souce Control" in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
 ![](https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png)
-### Commit name convention
-Good commit messages serve at least three important purposes:
-- To speed up the reviewing process.
-- To help us write a good release note.
-- To help the future/other maintainers of the project.
 
-So you can structure your commit message like this:
+### Commit name convention
+With Git, and big projects, commits can get messy quickly, especially if several people work on it, trust me, so it can be good to use a convention. Good commit messages serve at least three important purposes:
+- To speed up the reviewing process
+- To help us write a good release note
+- To help the future/other maintainers of the project
+
+Personally I try to use this method as often as possible :
 ```
 <type> <sujet>
 
@@ -174,6 +189,7 @@ So you can structure your commit message like this:
 - **Description** allows to detail in more detail the motivations behind the change. The rules are the same as for the Subject part.
 
 To define the type of commit, you can use another solution : [Gitmoji](https://github.com/carloscuesta/gitmoji)
+
 ## Static site generator
 ### Docusaurus
 {{< image src="https://docusaurus.io/img/docusaurus.svg" position="left" width="150" right="20" >}}
@@ -181,24 +197,30 @@ Docusaurus is a Facebook dev team project for easily building, deploying, and ma
 
 This website is running with the alpha release Docusaurus : Docusaurus 2.
 Docusaurus 1 used to be a pure documentation site generator. Docusaurus 2, was rebuilt, allowing for more customizability, so now it can feat to content-driven websites (Documentation, Blogs, Product Landing and Marketing Pages, etc) extremely fast.
+
 #### Install
 The easiest way to install Docusaurus is to use the command line tool that helps you scaffold a skeleton Docusaurus website :
 ```bash
 npx @docusaurus/init@next init [name] [template]
-Replace [name] and [template].
+# Replace [name] and [template].
 ```
+
 #### Development server
 Command to run the dev server :
 ```bash
 cd [name]
+# Replace [name]
 yarn start
 ```
 By default, a browser window will open at `http://localhost:3000`.
+
 #### Build
-Docusaurus is a static website generator so we need to build the website into a directory of static contents and put it on a web server so that it can be viewed. To build the website :
+So, Docusaurus is a static site generator, the end goal is to transform all the markdown into an HTML file, to be able to host it on a server and then open it with a browser. Soon, gitlab or github will work there for us, but for the moment, we must check that the site is building correctly, for that :
 ```bash
 yarn run build
 ```
+Contents will be generated within the `/build` directory.
+
 #### Gitlab Pages
 {{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" width="160" right="20"  >}}
 - **Continuous Integration** is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.
@@ -213,8 +235,7 @@ This procedure is described in the yaml file: `.gitlab-ci.yml`.
 
 The container will therefore build the application and transfer the final files from the application to a second feature of gitlab, **Gitlab Pages** which allows hosting of static websites.
 
-The `.gitlab-ci.yml` of this **Docusaurus** project : 
-
+Here is the file to put at the root of the project, `/.gitlab-ci.yml` : 
 ```yaml
 image: node:9.11.1
 
@@ -231,9 +252,20 @@ pages:
   only:
     - master
 ```
+Now let's push the modification to the repository :
+```bash
+git add -A
+git commit -m ":construction_worker: init gitlab pages"
+git push origin master
+```
+And just watch gitlab do the work for us :
+![Deploy success with gitlab](/assignments/project-management/gitlab-success.png)
+
 ### Hugo
+Unlike Docusaus, which was built with the idea of quickly making documentation sites for IT projects, Hugo was built to be more flexible. Small bonus it is developed in `Go` which allows it to be extremely fast.
+
 #### Install
-The quickest way to install hugo is to download the appropriate binary version on the official github and put in `/usr/local/bin` or any directory in yout `PATH`. But better way to install is to use a package manager so :
+The quickest way to install hugo is to download the appropriate binary version on the official github and put in `/usr/local/bin` or any directory in yout `PATH`. But better way to install it, is to use a package manager so :
 - macOs : 
 ```bash
 brew install hugo
@@ -246,16 +278,89 @@ sudo apt install hugo
 ```bash
 choco install hugo -confirm
 ```
-> Fun fact, on my mac hugo work fine, but on the linux side, the development server won't run, after some research multiple version of Hugo are available, to build and minify `sccs` the extended version is needed, so to install it : [Hugo extended version](https://vdshk.me/post/how-to-install-hugo-extended-on-ubuntu-20-04/)
+> **Fun fact**: On my mac hugo work fine, but on the linux side, the development server won't run, after some research multiple version of Hugo are available, to build and minify `sccs` the extended version is needed, so to install it : [Hugo extended version](https://vdshk.me/post/how-to-install-hugo-extended-on-ubuntu-20-04/)
 >
 > The same problem occur on windows : [Hugo extended on windows](https://gohugo.io/getting-started/installing/#windows)
+
 #### Development server
 Command to run the dev server :
 ```bash
 hugo server
 ```
 By default, a browser window will open at `http://localhost:1313`.
+
 #### Build
+Exactly like Docusaurus, you must first check that the generation of HTML files is done correctly :
 ```bash
 hugo
 ```
+
+#### Gitlab Pages
+```yaml
+image: registry.gitlab.com/pages/hugo:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+pages:
+  script:
+  - hugo
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+```
+#### Github Pages
+Unlike Gitlab Pages, the configuration must be in a folder with a specific name so :
+```bash
+cd myAwesomeProject
+mkdir .github
+mkdir .github/workflows
+touch .github/workflows/gh-pages.yml
+```
+And here is the content of the file :
+```yaml
+name: github-pages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+```
+> **Fun fact**: with a custom domain name, the DNS configuration of github reset at each push and build, after some research, Github pages need a `CNAME` file at the root folder of the builded elements with as unique content the target domain. it took me a few days to understand ...
+
+Time to push the modifications to the repository :
+```bash
+git add -A
+git commit -m ":construction_worker: init gitlab pages"
+git push origin master
+```
+**And finally :**
+![Deploy success with github to albanpetit.com](/assignments/project-management/github-success.png)
