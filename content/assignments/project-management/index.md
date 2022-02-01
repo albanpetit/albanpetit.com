@@ -200,7 +200,7 @@ Docusaurus is a static website generator so we need to build the website into a 
 yarn run build
 ```
 #### Gitlab Pages
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" width="150" right="20"  >}}
+{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" width="160" right="20"  >}}
 - **Continuous Integration** is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.
 - **Continuous Delivery** adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.
 - **Continuous Deployment** goes further and pushes changes to production automatically.
