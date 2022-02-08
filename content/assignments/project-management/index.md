@@ -282,6 +282,12 @@ choco install hugo -confirm
 >
 > The same problem occur on windows : [Hugo extended on windows](https://gohugo.io/getting-started/installing/#windows)
 
+#### Generate Hugo files
+Time to generate the hugo files structure :
+```bash
+hugo new site myAwesomeWebsite
+```
+
 #### Development server
 Command to run the dev server :
 ```bash
