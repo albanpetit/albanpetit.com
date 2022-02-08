@@ -284,7 +284,10 @@ git push origin master
 <p><strong>Fun fact</strong>: On my mac hugo work fine, but on the linux side, the development server won&rsquo;t run, after some research multiple version of Hugo are available, to build and minify <code>sccs</code> the extended version is needed, so to install it : <a class=link href=https://vdshk.me/post/how-to-install-hugo-extended-on-ubuntu-20-04/ target=_blank rel=noopener>Hugo extended version</a></p>
 <p>The same problem occur on windows : <a class=link href=https://gohugo.io/getting-started/installing/#windows target=_blank rel=noopener>Hugo extended on windows</a></p>
 </blockquote>
-<h4 id=development-server-1>Development server</h4>
+<h4 id=generate-hugo-files>Generate Hugo files</h4>
+<p>Time to generate the hugo files structure :</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo new site myAwesomeWebsite
+</code></pre></div><h4 id=development-server-1>Development server</h4>
 <p>Command to run the dev server :</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo server
 </code></pre></div><p>By default, a browser window will open at <code>http://localhost:1313</code>.</p>
@@ -457,6 +460,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#hugo>Hugo</a>
 <ol>
 <li><a href=#install-1>Install</a></li>
+<li><a href=#generate-hugo-files>Generate Hugo files</a></li>
 <li><a href=#development-server-1>Development server</a></li>
 <li><a href=#build-1>Build</a></li>
 <li><a href=#gitlab-pages-1>Gitlab Pages</a></li>
