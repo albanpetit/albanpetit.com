@@ -1,3 +1,4 @@
+baseurl: "https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/"
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
