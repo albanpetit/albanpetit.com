@@ -5,7 +5,7 @@ variables:
 
 pages:
   script:
-  - hugo
+  - hugo --baseURL="/2020/labs/lamachinerie/students/alban-petit/"
   artifacts:
     paths:
     - public

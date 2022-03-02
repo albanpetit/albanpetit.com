@@ -1,5 +1,4 @@
-baseurl: https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/
-canonifyURLs: false
+baseurl: /
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
