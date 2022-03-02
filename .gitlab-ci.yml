@@ -5,7 +5,7 @@ variables:
 
 pages:
   script:
-  - hugo
+  - hugo --baseURL="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/"
   artifacts:
     paths:
     - public
