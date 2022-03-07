@@ -48,7 +48,7 @@ params:
         provider: disqus
 
     widgets:
-      homepage:
+        homepage:
             - type: search
             - type: archives
               params:
@@ -56,8 +56,8 @@ params:
             - type: tag-cloud
               params:
                   limit: 10
-    page:
-        - type: toc
+        page:
+            - type: toc
 
     opengraph:
         twitter:
