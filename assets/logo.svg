@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg856"
+   width="495.88611"
+   height="557.38275"
+   viewBox="0 0 495.88613 557.38275"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   inkscape:export-filename="/Users/alban/Documents/resource/logo/logo.png"
+   inkscape:export-xdpi="832.37"
+   inkscape:export-ydpi="832.37"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs860" />
+  <sodipodi:namedview
+     id="namedview858"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.45254834"
+     inkscape:cx="-520.3864"
+     inkscape:cy="464.03883"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g862" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g862"
+     transform="translate(-418.72359,-189.33333)">
+    <path
+       style="fill:#f73859;fill-opacity:1;stroke-width:1.33333"
+       d="m 418.72359,616.93975 0.60973,-285.30602 247.30774,-142.3004 247.35892,142.32951 0.60972,285.27943 -224.60972,129.76532 -0.13609,-439.6826 134.09761,76.30834 -0.62819,88.42398 -89.99999,51.92705 0.75858,145.64897 135.25584,-77.68449 -0.6811,-234.75565 L 666.66,240.24271 464.66666,356.91845 l -0.6811,234.72906 134.68109,77.01396 -0.0388,-171.32814 H 553.3674 l -0.70079,93.19528 -42.66666,-24.84924 -0.62819,-182.34604 134.09761,-76.30834 -0.13609,439.69108 z m 359.27639,-170.59264 0.66667,-36.92568 C 777.7267,408.02955 736.02258,384 734.54689,384 c -0.71731,0 -1.21357,37.07629 -1.21357,90.66667 z m -179.8499,-61.97479 -44.81676,25.23383 0.91997,42.86938 44.59268,0.19114 z"
+       id="path964"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccsccccccc"
+       inkscape:export-filename="/Users/alban/Documents/project/albanpetit.com/assets/logo.png"
+       inkscape:export-xdpi="832.37"
+       inkscape:export-ydpi="832.37" />
+  </g>
+</svg>

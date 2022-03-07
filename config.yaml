@@ -31,9 +31,9 @@ params:
     sidebar:
         subtitle: Web developer, electronic hobbyist in my free time, here are my personal projects and the content of my training "learn how to make almost anything" from the fab academy
         avatar:
-            enabled: false
+            enabled: true
             local: true
-            src: img/avatar.png
+            src: logo.png
 
     article:
         math: false
