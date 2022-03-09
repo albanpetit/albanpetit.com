@@ -4,6 +4,36 @@ date: 2022-01-25
 slug: project-management
 image: "https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd"
 description: Week 1
+weight: 20
+tags:
+    - Git
+    - Github
+    - Gitlab
+    - Hugo
+    - Docusaurus
+    - Static site generator
+    - CI / CD
+links:
+  - title: Git
+    description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
+    website: https://git-scm.com/
+    image: https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png
+  - title: GitHub
+    description: GitHub is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own 
+    website: https://github.com
+    image: https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg
+  - title: GitLab
+    description: GitLab's DevOps platform is a single application for unparalleled collaboration, visibility, and development velocity. 
+    website: https://github.com
+    image: https://cdn.icon-icons.com/icons2/2415/PNG/512/gitlab_original_logo_icon_146503.png
+  - title: Hugo
+    description: Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+    website: https://gohugo.io/
+    image: https://gitlab.com/uploads/-/system/project/avatar/912096/hugo.png
+  - title: Hugo
+    description: An optimized site generator in React. Docusaurus helps you to move fast and write content. Build documentation websites, blogs, marketing pages, and more.
+    website: https://docusaurus.io/
+    image: https://docusaurus.io/img/docusaurus.svg
 ---
 
 First of all, I'm web developer, so I'm quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don't know.
