@@ -4,7 +4,7 @@ date: 2022-01-25
 slug: project-management
 image: "https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd"
 description: Week 1
-weight: 20
+weight: 10
 tags:
     - Git
     - Github
@@ -45,7 +45,7 @@ Finally this is my second year of fabacademy, not having been able to validate t
 Enjoy :)
 
 ## Git
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGit.png" position="left" width="150" right="20" >}}
+{{< image src="git.png" position="left" width="150" right="20" >}}
 Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository, Github, Gitlab, Bitbucket...
 
 [More informations about git here](https://git-scm.com/doc)
@@ -184,10 +184,11 @@ git push
 ```
 
 ### VScode
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoVSCode.png" position="left" width="150" right="10" >}}
+{{< image src="logoVSCode.png" position="left" width="160" right="10" >}}
 I personally use VScode to program and work on my project. 
 
 VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named "Souce Control" in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
+
 ![](https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png)
 
 ### Commit name convention
@@ -252,8 +253,9 @@ yarn run build
 Contents will be generated within the `/build` directory.
 
 #### Gitlab Pages
-{{< image src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" position="left" width="160" right="20"  >}}
+{{< image src="gitlab.png" position="left" width="150" right="20"  >}}
 - **Continuous Integration** is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.
+
 - **Continuous Delivery** adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.
 - **Continuous Deployment** goes further and pushes changes to production automatically.
 
@@ -289,6 +291,7 @@ git commit -m ":construction_worker: init gitlab pages"
 git push origin master
 ```
 And just watch gitlab do the work for us :
+
 ![Deploy success with gitlab](/assignments/project-management/gitlab-success.png)
 
 ### Hugo
@@ -399,4 +402,5 @@ git commit -m ":construction_worker: init gitlab pages"
 git push origin master
 ```
 **And finally :**
+
 ![Deploy success with github to albanpetit.com](/assignments/project-management/github-success.png)
