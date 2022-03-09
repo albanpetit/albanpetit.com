@@ -30,7 +30,7 @@ links:
     description: Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
     website: https://gohugo.io/
     image: https://gitlab.com/uploads/-/system/project/avatar/912096/hugo.png
-  - title: Hugo
+  - title: Docusaurus
     description: An optimized site generator in React. Docusaurus helps you to move fast and write content. Build documentation websites, blogs, marketing pages, and more.
     website: https://docusaurus.io/
     image: https://docusaurus.io/img/docusaurus.svg
