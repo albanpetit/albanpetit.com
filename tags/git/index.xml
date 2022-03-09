@@ -5,7 +5,7 @@
 &lt;p>Finally this is my second year of fabacademy, not having been able to validate the first, I preferred for this assignment to change SSG, so there is documentation for Docusaurus and for Hugo.&lt;/p>
 &lt;p>Enjoy :)&lt;/p>
 &lt;h2 id="git">Git&lt;/h2>
-&lt;p>&lt;img src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGit.png" style="float:left; width:150px; margin-right:20px">
+&lt;p>&lt;img src="git.png" style="float:left; width:150px; margin-right:20px">
 Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository, Github, Gitlab, Bitbucket&amp;hellip;&lt;/p>
 &lt;p>&lt;a class="link" href="https://git-scm.com/doc" target="_blank" rel="noopener"
 >More informations about git here&lt;/a>&lt;/p>
@@ -118,10 +118,10 @@ A second &lt;code>-m&lt;/code> parameter allow you to add a second message to th
 &lt;p>Updates remote repository using local snapshot of the content.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git push
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="vscode">VScode&lt;/h3>
-&lt;p>&lt;img src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoVSCode.png" style="float:left; width:150px; margin-right:10px">
+&lt;p>&lt;img src="logoVSCode.png" style="float:left; width:160px; margin-right:10px">
 I personally use VScode to program and work on my project.&lt;/p>
-&lt;p>VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named &amp;ldquo;Souce Control&amp;rdquo; in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
-&lt;img src="https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png"
+&lt;p>VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named &amp;ldquo;Souce Control&amp;rdquo; in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.&lt;/p>
+&lt;p>&lt;img src="https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png"
 loading="lazy"
 >&lt;/p>
 &lt;h3 id="commit-name-convention">Commit name convention&lt;/h3>
@@ -177,11 +177,17 @@ Docusaurus 1 used to be a pure documentation site generator. Docusaurus 2, was r
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yarn run build
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Contents will be generated within the &lt;code>/build&lt;/code> directory.&lt;/p>
 &lt;h4 id="gitlab-pages">Gitlab Pages&lt;/h4>
-&lt;img src="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/img/logoGitlab.png" style="float:left; width:160px; margin-right:20px">
+&lt;img src="gitlab.png" style="float:left; width:150px; margin-right:20px">
 &lt;ul>
-&lt;li>&lt;strong>Continuous Integration&lt;/strong> is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.&lt;/li>
-&lt;li>&lt;strong>Continuous Delivery&lt;/strong> adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.&lt;/li>
-&lt;li>&lt;strong>Continuous Deployment&lt;/strong> goes further and pushes changes to production automatically.&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Continuous Integration&lt;/strong> is the practice of merging all the code that is being produced by developers. The merging usually takes place several times a day in a shared repository. From within the repository, or production environment, building and automated testing are carried out that ensure no integration issues and the early identification of any problems.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Continuous Delivery&lt;/strong> adds that the software can be released to production at any time, often by automatically pushing changes to a staging system.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Continuous Deployment&lt;/strong> goes further and pushes changes to production automatically.&lt;/p>
+&lt;/li>
 &lt;/ul>
 &lt;p>This project is put into production with each modification of the &lt;strong>Master branch&lt;/strong> of the gitlab repository.
 So I use for this the integrated solution to gitlab, &lt;strong>Gitlab CI&lt;/strong> to do this.&lt;/p>
@@ -207,8 +213,8 @@ This procedure is described in the yaml file: &lt;code>.gitlab-ci.yml&lt;/code>.
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add -A
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :
-&lt;img src="/assignments/project-management/gitlab-success.png"
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :&lt;/p>
+&lt;p>&lt;img src="/assignments/project-management/gitlab-success.png"
 loading="lazy"
 alt="Deploy success with gitlab"
 >&lt;/p>
@@ -304,8 +310,8 @@ alt="Deploy success with gitlab"
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add -A
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>
-&lt;img src="/assignments/project-management/github-success.png"
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="/assignments/project-management/github-success.png"
 loading="lazy"
 alt="Deploy success with github to albanpetit.com"
 >&lt;/p></description></item></channel></rss>
