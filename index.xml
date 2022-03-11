@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Principles and practices</title><link>/assignments/principles-pratices/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principles and practices" />&lt;h2 id="first-idea">First idea&lt;/h2></description></item><item><title>Project management</title><link>/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Principles and practices</title><link>/assignments/principles-pratices/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principles and practices" />&lt;p>After a long reflection on my final FabAcademy project. I keep two, a splitflap display and a pick and place. I still can&amp;rsquo;t choose between these two projects, I will make the choice later during my FabAcademy. So here&amp;rsquo;s a quick rundown of those ideas.&lt;/p>
+&lt;h2 id="splitflap-display">Splitflap display&lt;/h2>
+&lt;p>So my first idea is to make an opensource splitflap display, or sometimes simply a flap display, is a digital electromechanical display device that presents changeable alphanumeric text, and occasionally fixed graphics.&lt;/p>
+&lt;p>&lt;img src="/assignments/principles-pratices/splitflap-1.jpg"
+width="674"
+height="800"
+srcset="/assignments/principles-pratices/splitflap-1_hu673fe54d9307bbd42f3d15c81e781d45_50988_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/splitflap-1_hu673fe54d9307bbd42f3d15c81e781d45_50988_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="splitflap module"
+class="gallery-image"
+data-flex-grow="84"
+data-flex-basis="202px"
+> &lt;img src="/assignments/principles-pratices/splitflap-2.jpg"
+width="1650"
+height="870"
+srcset="/assignments/principles-pratices/splitflap-2_hub820eaf2247b92cfab2cd6e4560b5a6e_667878_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/splitflap-2_hub820eaf2247b92cfab2cd6e4560b5a6e_667878_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="splitflap display"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>Often used as a public transport timetable in airports or railway stations, as such they are often called Solari boards after Italian display manufacturer Solari di Udine, or in Central European countries they are called Pragotron after the Czech manufacturer.&lt;/p>
+&lt;p>Split-flap displays were once commonly used in consumer digital clocks known as flip clocks.&lt;/p>
+&lt;p>Each character position or graphic position has a collection of flaps on which the characters or graphics are painted or silkscreened. These flaps are precisely rotated to show the desired character or graphic.&lt;/p>
+&lt;h3 id="concept">Concept&lt;/h3>
+&lt;p>The idea of this project is to design a splitflap display module capable of displaying a character. But that it is connectable in chain and addressed to control them individually as could be addressable LEDs for example.&lt;/p>
+&lt;p>The display module would have its internal logic, with the ability to initialize (some sort of zero position), to manage its voltage levels, the rotation according to the character sent in the data bus, etc.&lt;/p>
+&lt;h3 id="interrogations">Interrogations&lt;/h3>
+&lt;h3 id="links">Links&lt;/h3>
+&lt;h2 id="pick-and-place">Pick and place&lt;/h2>
+&lt;p>Surface-mount technology component placement systems, commonly called pick-and-place machines or P&amp;amp;Ps, are robotic machines which are used to place surface-mount devices onto a printed circuit board.&lt;/p>
+&lt;p>&lt;img src="/assignments/principles-pratices/pnp-1.jpg"
+width="1920"
+height="1080"
+srcset="/assignments/principles-pratices/pnp-1_huabe2956f5a4a8e284b2906dde73c75a3_385481_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/pnp-1_huabe2956f5a4a8e284b2906dde73c75a3_385481_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="pnp nozzles"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+> &lt;img src="/assignments/principles-pratices/pnp-2.jpg"
+width="1280"
+height="720"
+srcset="/assignments/principles-pratices/pnp-2_huff4c09089251af9e8ebab2cb35016a6b_101391_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/pnp-2_huff4c09089251af9e8ebab2cb35016a6b_101391_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="pnp"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p>
+&lt;p>They are used for high speed, high precision placing of a broad range of electronic components, like capacitors, resistors, integrated circuits onto the PCBs which are in turn used in computers, consumer electronics as well as industrial, medical, automotive, military and telecommunications equipment.&lt;/p>
+&lt;p>Similar equipment exists for through-hole components. This type of equipment is sometimes also used to package microchips using the flip chip method.&lt;/p>
+&lt;h3 id="design">Design&lt;/h3>
+&lt;h3 id="interrogations-1">Interrogations&lt;/h3>
+&lt;h3 id="links-1">Links&lt;/h3>
+&lt;h2 id="other-ideas">Other ideas&lt;/h2></description></item><item><title>Project management</title><link>/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
 &lt;p>Also note that this site will also serve me as a blog, so it is available on the url of the Fabacademy : &lt;a class="link" href="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/" target="_blank" rel="noopener"
 >https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/&lt;/a>, but also on my personal domain name : &lt;a class="link" href="https://albanpetit.com" target="_blank" rel="noopener"
 >https://albanpetit.com&lt;/a>.&lt;/p>
@@ -121,8 +177,15 @@ A second &lt;code>-m&lt;/code> parameter allow you to add a second message to th
 &lt;p>&lt;img src="logoVSCode.png" style="float:left; width:160px; margin-right:10px">
 I personally use VScode to program and work on my project.&lt;/p>
 &lt;p>VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named &amp;ldquo;Souce Control&amp;rdquo; in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.&lt;/p>
-&lt;p>&lt;img src="https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png"
+&lt;p>&lt;img src="/assignments/project-management/vscode-source-control.png"
+width="1334"
+height="538"
+srcset="/assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_480x0_resize_box_3.png 480w, /assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_1024x0_resize_box_3.png 1024w"
 loading="lazy"
+alt="vscode source control"
+class="gallery-image"
+data-flex-grow="247"
+data-flex-basis="595px"
 >&lt;/p>
 &lt;h3 id="commit-name-convention">Commit name convention&lt;/h3>
 &lt;p>With Git, and big projects, commits can get messy quickly, especially if several people work on it, trust me, so it can be good to use a convention. Good commit messages serve at least three important purposes:&lt;/p>
@@ -215,8 +278,14 @@ This procedure is described in the yaml file: &lt;code>.gitlab-ci.yml&lt;/code>.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :&lt;/p>
 &lt;p>&lt;img src="/assignments/project-management/gitlab-success.png"
+width="1268"
+height="748"
+srcset="/assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_480x0_resize_box_3.png 480w, /assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Deploy success with gitlab"
+class="gallery-image"
+data-flex-grow="169"
+data-flex-basis="406px"
 >&lt;/p>
 &lt;h3 id="hugo">Hugo&lt;/h3>
 &lt;p>Unlike Docusaus, which was built with the idea of quickly making documentation sites for IT projects, Hugo was built to be more flexible. Small bonus it is developed in &lt;code>Go&lt;/code> which allows it to be extremely fast.&lt;/p>
@@ -312,6 +381,12 @@ alt="Deploy success with gitlab"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="/assignments/project-management/github-success.png"
+width="1301"
+height="580"
+srcset="/assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_480x0_resize_box_3.png 480w, /assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Deploy success with github to albanpetit.com"
+class="gallery-image"
+data-flex-grow="224"
+data-flex-basis="538px"
 >&lt;/p></description></item><item><title>Computer aided design</title><link>/assignments/computer-aided-design/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/computer-aided-design/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Computer aided design" /></description></item><item><title>Computer controlled cutting</title><link>/assignments/computer-controlled-cutting/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/computer-controlled-cutting/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Computer controlled cutting" /></description></item><item><title>Electronic production</title><link>/assignments/electronic-production/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/electronic-production/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Electronic production" /></description></item><item><title>Raspberry Pi remote development as SSH with VScode</title><link>/posts/raspberry-remote-development/</link><pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate><guid>/posts/raspberry-remote-development/</guid><description>&lt;img src="https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/optim/i/edit/ne/2019/02/Raspberry%20Pi%20620__w1200.jpg" alt="Featured image of post Raspberry Pi remote development as SSH with VScode" /></description></item><item><title>3D scanning and printing</title><link>/assignments/3d-scanning-printing/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/3d-scanning-printing/</guid><description>&lt;img src="https://images.unsplash.com/photo-1610081574260-e61e93e6e1aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Featured image of post 3D scanning and printing" /></description></item><item><title>Computer controlled machining</title><link>/assignments/computer-controlled-machining/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/computer-controlled-machining/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Computer controlled machining" /></description></item><item><title>Electronic design</title><link>/assignments/electronic-design/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/electronic-design/</guid><description>&lt;img src="https://w.wallhaven.cc/full/8x/wallhaven-8x5dm2.jpg" alt="Featured image of post Electronic design" /></description></item><item><title>Embedded programming</title><link>/assignments/embedded-programming/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/embedded-programming/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Embedded programming" /></description></item><item><title>Input devices</title><link>/assignments/input-devices/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/input-devices/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Input devices" /></description></item><item><title>Interface and application programming</title><link>/assignments/application-programming/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/application-programming/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Interface and application programming" /></description></item><item><title>Molding and casting</title><link>/assignments/molding-casting/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/molding-casting/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Molding and casting" /></description></item><item><title>Networking and communication</title><link>/assignments/networking-communication/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/networking-communication/</guid><description>&lt;img src="/hello.jpg" alt="Featured image of post Networking and communication" /></description></item><item><title>Archives</title><link>/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>/archives/</guid><description/></item><item><title>About</title><link>/about/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>/about/</guid><description/></item><item><title>Search</title><link>/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/search/</guid><description/></item></channel></rss>

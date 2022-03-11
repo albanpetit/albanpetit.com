@@ -121,8 +121,15 @@ A second &lt;code>-m&lt;/code> parameter allow you to add a second message to th
 &lt;p>&lt;img src="logoVSCode.png" style="float:left; width:160px; margin-right:10px">
 I personally use VScode to program and work on my project.&lt;/p>
 &lt;p>VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named &amp;ldquo;Souce Control&amp;rdquo; in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.&lt;/p>
-&lt;p>&lt;img src="https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png"
+&lt;p>&lt;img src="/assignments/project-management/vscode-source-control.png"
+width="1334"
+height="538"
+srcset="/assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_480x0_resize_box_3.png 480w, /assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_1024x0_resize_box_3.png 1024w"
 loading="lazy"
+alt="vscode source control"
+class="gallery-image"
+data-flex-grow="247"
+data-flex-basis="595px"
 >&lt;/p>
 &lt;h3 id="commit-name-convention">Commit name convention&lt;/h3>
 &lt;p>With Git, and big projects, commits can get messy quickly, especially if several people work on it, trust me, so it can be good to use a convention. Good commit messages serve at least three important purposes:&lt;/p>
@@ -215,8 +222,14 @@ This procedure is described in the yaml file: &lt;code>.gitlab-ci.yml&lt;/code>.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :&lt;/p>
 &lt;p>&lt;img src="/assignments/project-management/gitlab-success.png"
+width="1268"
+height="748"
+srcset="/assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_480x0_resize_box_3.png 480w, /assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Deploy success with gitlab"
+class="gallery-image"
+data-flex-grow="169"
+data-flex-basis="406px"
 >&lt;/p>
 &lt;h3 id="hugo">Hugo&lt;/h3>
 &lt;p>Unlike Docusaus, which was built with the idea of quickly making documentation sites for IT projects, Hugo was built to be more flexible. Small bonus it is developed in &lt;code>Go&lt;/code> which allows it to be extremely fast.&lt;/p>
@@ -312,6 +325,12 @@ alt="Deploy success with gitlab"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="/assignments/project-management/github-success.png"
+width="1301"
+height="580"
+srcset="/assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_480x0_resize_box_3.png 480w, /assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Deploy success with github to albanpetit.com"
+class="gallery-image"
+data-flex-grow="224"
+data-flex-basis="538px"
 >&lt;/p></description></item></channel></rss>
