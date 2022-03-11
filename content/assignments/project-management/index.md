@@ -189,7 +189,7 @@ I personally use VScode to program and work on my project.
 
 VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named "Souce Control" in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
 
-![](https://code.visualstudio.com/assets/docs/editor/versioncontrol/scm-providers-list.png)
+![vscode source control](vscode-source-control.png)
 
 ### Commit name convention
 With Git, and big projects, commits can get messy quickly, especially if several people work on it, trust me, so it can be good to use a convention. Good commit messages serve at least three important purposes:
@@ -292,7 +292,7 @@ git push origin master
 ```
 And just watch gitlab do the work for us :
 
-![Deploy success with gitlab](/assignments/project-management/gitlab-success.png)
+![Deploy success with gitlab](gitlab-success.png)
 
 ### Hugo
 Unlike Docusaus, which was built with the idea of quickly making documentation sites for IT projects, Hugo was built to be more flexible. Small bonus it is developed in `Go` which allows it to be extremely fast.
@@ -403,4 +403,4 @@ git push origin master
 ```
 **And finally :**
 
-![Deploy success with github to albanpetit.com](/assignments/project-management/github-success.png)
+![Deploy success with github to albanpetit.com](github-success.png)
