@@ -24,8 +24,8 @@ links:
     image: https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg
   - title: GitLab
     description: GitLab's DevOps platform is a single application for unparalleled collaboration, visibility, and development velocity. 
-    website: https://github.com
-    image: https://cdn.icon-icons.com/icons2/2415/PNG/512/gitlab_original_logo_icon_146503.png
+    website: https://gitlab.com
+    image: gitlab.png
   - title: Hugo
     description: Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
     website: https://gohugo.io/
