@@ -25,9 +25,88 @@ data-flex-basis="455px"
 &lt;p>Each character position or graphic position has a collection of flaps on which the characters or graphics are painted or silkscreened. These flaps are precisely rotated to show the desired character or graphic.&lt;/p>
 &lt;h3 id="concept">Concept&lt;/h3>
 &lt;p>The idea of this project is to design a splitflap display module capable of displaying a character. But that it is connectable in chain and addressed to control them individually as could be addressable LEDs for example.&lt;/p>
-&lt;p>The display module would have its internal logic, with the ability to initialize (some sort of zero position), to manage its voltage levels, the rotation according to the character sent in the data bus, etc.&lt;/p>
-&lt;h3 id="interrogations">Interrogations&lt;/h3>
+&lt;p>The display module would have its internal logic, with the ability to initialize (some sort of zero position), to manage its voltage levels, the rotation according to the character sent in the data bus, etc. The modules must be connectable to each other in all directions, a system for selecting the next module is necessary to allow the formation of a matrix of modules.&lt;/p>
+&lt;p>&lt;img src="/assignments/principles-pratices/schema.svg"
+loading="lazy"
+alt="Display schematic"
+>&lt;/p>
+&lt;p>A control PCB for the whole module matrix is also necessary, it will support a wifi connection to be able to select the information to be displayed from a web interface.&lt;/p>
+&lt;p>Here is a short video of &lt;code>Oat foundry&lt;/code> split flap display :&lt;/p>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/pINtnKBfqLE"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
 &lt;h3 id="links">Links&lt;/h3>
+&lt;p>Here is a list of resources that is close to what I would like to achieve with this project, these are potential points of inspiration.&lt;/p>
+&lt;h4 id="oat-foundry">Oat Foundry&lt;/h4>
+&lt;p>&lt;img src="https://www.oatfoundry.com/wp-content/uploads/2016/05/Oat-Foundry-logo.png" style="float:left; width:150px; margin-right:20px">
+&lt;a class="link" href="https://www.oatfoundry.com/split-flap/" target="_blank" rel="noopener"
+>Oat foundry&lt;/a> manufactures and sells custom split flap displays. Their displays are manufactured with the same operating principle as the original splitflap display but with a control system allowing them to display data streams such as weather, temperature, social networks, from a web interface.&lt;/p>
+&lt;p>&lt;img src="/assignments/principles-pratices/oatfoundry-1.jpg"
+width="1280"
+height="854"
+srcset="/assignments/principles-pratices/oatfoundry-1_hud2f795f73979e3a632d713a990785e4d_330346_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/oatfoundry-1_hud2f795f73979e3a632d713a990785e4d_330346_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="google splitflap"
+class="gallery-image"
+data-flex-grow="149"
+data-flex-basis="359px"
+> &lt;img src="/assignments/principles-pratices/oatfoundry-2.jpeg"
+width="1500"
+height="1500"
+srcset="/assignments/principles-pratices/oatfoundry-2_hu8d3b1c8a17eecc7b8779ce9bd95b38e6_408922_480x0_resize_q75_box.jpeg 480w, /assignments/principles-pratices/oatfoundry-2_hu8d3b1c8a17eecc7b8779ce9bd95b38e6_408922_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="white splitflap"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;h4 id="unknown-domain">Unknown Domain&lt;/h4>
+&lt;p>&lt;a class="link" href="http://unknowndomain.co.uk" target="_blank" rel="noopener"
+>Unknow Domain&lt;/a> is the blog of Mark Lynch a maker, who designed a splitflap display solution, the files are not opensource but he writes the different stages of the design. Some technical choices are quite interesting, other projects are also available on his blog.&lt;/p>
+&lt;p>Here are some pictures of his projects:&lt;/p>
+&lt;p>&lt;img src="/assignments/principles-pratices/unknowdomain-1.jpeg"
+width="576"
+height="384"
+srcset="/assignments/principles-pratices/unknowdomain-1_hu8ad4ba0210d027b50dda8fa59b91eaf7_47214_480x0_resize_q75_box.jpeg 480w, /assignments/principles-pratices/unknowdomain-1_hu8ad4ba0210d027b50dda8fa59b91eaf7_47214_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="unknow domain small display"
+class="gallery-image"
+data-flex-grow="150"
+data-flex-basis="360px"
+> &lt;img src="/assignments/principles-pratices/unknowdomain-2.png"
+width="576"
+height="432"
+srcset="/assignments/principles-pratices/unknowdomain-2_hu310e2a4e0cb48817224074eb43bbfbd1_181442_480x0_resize_box_3.png 480w, /assignments/principles-pratices/unknowdomain-2_hu310e2a4e0cb48817224074eb43bbfbd1_181442_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="unknow domain module"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Hackaday blog post :&lt;/strong> &lt;a class="link" href="https://hackaday.com/2014/10/04/split-flap-display-if-cant-find-it-built-it/" target="_blank" rel="noopener"
+>split flap display: if you can&amp;rsquo;t find it, built it&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="thingiverse-projects">Thingiverse projects&lt;/h4>
+&lt;p>&lt;img src="thingiverse.png" style="float:left; width:130px; margin-right:20px">
+And here is the magic of Thingiverse. Thingiverse is a website dedicated to the sharing of user-created digital design files.&lt;/p>
+&lt;p>Several similar projects are available on Thingiverse, rarely complete, rarely finished, but they are great source of inspiration to determine valid technical solutions.&lt;/p>
+&lt;p>Here is a non-exhaustive list :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:2369832" target="_blank" rel="noopener"
+>Dead simple split flap display&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:815981" target="_blank" rel="noopener"
+>Lasercut weather station&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:841058" target="_blank" rel="noopener"
+>Weather in one hour&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:3402311" target="_blank" rel="noopener"
+>Split-flap display&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="pick-and-place">Pick and place&lt;/h2>
 &lt;p>Surface-mount technology component placement systems, commonly called pick-and-place machines or P&amp;amp;Ps, are robotic machines which are used to place surface-mount devices onto a printed circuit board.&lt;/p>
 &lt;p>&lt;img src="/assignments/principles-pratices/pnp-1.jpg"
@@ -51,10 +130,53 @@ data-flex-basis="426px"
 >&lt;/p>
 &lt;p>They are used for high speed, high precision placing of a broad range of electronic components, like capacitors, resistors, integrated circuits onto the PCBs which are in turn used in computers, consumer electronics as well as industrial, medical, automotive, military and telecommunications equipment.&lt;/p>
 &lt;p>Similar equipment exists for through-hole components. This type of equipment is sometimes also used to package microchips using the flip chip method.&lt;/p>
-&lt;h3 id="design">Design&lt;/h3>
-&lt;h3 id="interrogations-1">Interrogations&lt;/h3>
+&lt;h3 id="concept-1">Concept&lt;/h3>
+&lt;p>The description of this project will be rather quick, the idea is to design a small opensource automatic electronic component placement machine. Several opensource projects already exist, but in general, these machines are big.&lt;/p>
+&lt;p>&lt;img src="openpnp.png" style="float:left; width:120px; margin-right:20px">
+A fairly large maker community offers hardware solutions, the &lt;a class="link" href="https://openpnp.org" target="_blank" rel="noopener"
+>OpenPnp&lt;/a> website includes most of them. OpenPnp also offers software to run an opensource pick and place machine, but also existing commercial machines, giving them abilities they never had with their OEM software.&lt;/p>
+&lt;p>The idea would be to rely on the OpenPnp software to design a small format automatic placement solution.&lt;/p>
 &lt;h3 id="links-1">Links&lt;/h3>
-&lt;h2 id="other-ideas">Other ideas&lt;/h2></description></item><item><title>Project management</title><link>/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
+&lt;p>Here is a list of resources that is close to what I would like to achieve with this project, these are potential points of inspiration.&lt;/p>
+&lt;h4 id="lumenpnp">LumenPnp&lt;/h4>
+&lt;p>&lt;a class="link" href="https://opulo.io/products/lumenpnp-kit" target="_blank" rel="noopener"
+>LumenPnp&lt;/a> is a fully open source PNP machine designed by Stephen Hawes. He describes each stage of his design on his youtube channel. He has been selling kits recently, to be able to mount this machine which relies on the OpenPnp solution for its control.&lt;/p>
+&lt;p>&lt;img src="/assignments/principles-pratices/lumenpnp-1.jpg"
+width="2000"
+height="1500"
+srcset="/assignments/principles-pratices/lumenpnp-1_hu88e812515d6938308e877384806350a0_200861_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/lumenpnp-1_hu88e812515d6938308e877384806350a0_200861_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="pnp nozzles"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+> &lt;img src="/assignments/principles-pratices/lumenpnp-2.jpg"
+width="5736"
+height="3784"
+srcset="/assignments/principles-pratices/lumenpnp-2_hudf5cc100a3fa0381ddaef46de09f42e8_593017_480x0_resize_q75_box.jpg 480w, /assignments/principles-pratices/lumenpnp-2_hudf5cc100a3fa0381ddaef46de09f42e8_593017_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="pnp"
+class="gallery-image"
+data-flex-grow="151"
+data-flex-basis="363px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Github repository :&lt;/strong> &lt;a class="link" href="https://github.com/index-machines/index" target="_blank" rel="noopener"
+>Index pnp&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="liteplacer">LitePlacer&lt;/h4>
+&lt;p>&lt;a class="link" href="https://liteplacer.com/" target="_blank" rel="noopener"
+>LitePlacer&lt;/a> is a machine designed by Juha Kuusama, who needed an automatic electronic component placement machine for his company to speed up the development process and to save the cost of outsourcing the assembly. This machine also relies on the OpenPnp software to work, it is even now one of the official designs of OpenPnp.&lt;/p>
+&lt;p>Introduction video to LitePlacer :
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/T_v2VJKNZQ0"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;/p></description></item><item><title>Project management</title><link>/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
 &lt;p>Also note that this site will also serve me as a blog, so it is available on the url of the Fabacademy : &lt;a class="link" href="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/" target="_blank" rel="noopener"
 >https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/&lt;/a>, but also on my personal domain name : &lt;a class="link" href="https://albanpetit.com" target="_blank" rel="noopener"
 >https://albanpetit.com&lt;/a>.&lt;/p>
