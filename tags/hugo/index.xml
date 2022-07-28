@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on Alban Petit</title><link>/tags/hugo/</link><description>Recent content in Hugo on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Project management</title><link>/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on Alban Petit</title><link>albanpetit.com/tags/hugo/</link><description>Recent content in Hugo on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="albanpetit.com/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Project management</title><link>albanpetit.com/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>albanpetit.com/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
 &lt;p>Also note that this site will also serve me as a blog, so it is available on the url of the Fabacademy : &lt;a class="link" href="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/" target="_blank" rel="noopener"
 >https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/&lt;/a>, but also on my personal domain name : &lt;a class="link" href="https://albanpetit.com" target="_blank" rel="noopener"
 >https://albanpetit.com&lt;/a>.&lt;/p>
@@ -121,10 +121,10 @@ A second &lt;code>-m&lt;/code> parameter allow you to add a second message to th
 &lt;p>&lt;img src="logoVSCode.png" style="float:left; width:160px; margin-right:10px">
 I personally use VScode to program and work on my project.&lt;/p>
 &lt;p>VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named &amp;ldquo;Souce Control&amp;rdquo; in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.&lt;/p>
-&lt;p>&lt;img src="/assignments/project-management/vscode-source-control.png"
+&lt;p>&lt;img src="albanpetit.com/albanpetit.com/assignments/project-management/vscode-source-control.png"
 width="1334"
 height="538"
-srcset="/assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_480x0_resize_box_3.png 480w, /assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_1024x0_resize_box_3.png 1024w"
+srcset="albanpetit.com/albanpetit.com/assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_480x0_resize_box_3.png 480w, albanpetit.com/albanpetit.com/assignments/project-management/vscode-source-control_hu0ef9d05858284b956f407efdf951c117_34262_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="vscode source control"
 class="gallery-image"
@@ -221,10 +221,10 @@ This procedure is described in the yaml file: &lt;code>.gitlab-ci.yml&lt;/code>.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :&lt;/p>
-&lt;p>&lt;img src="/assignments/project-management/gitlab-success.png"
+&lt;p>&lt;img src="albanpetit.com/albanpetit.com/assignments/project-management/gitlab-success.png"
 width="1268"
 height="748"
-srcset="/assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_480x0_resize_box_3.png 480w, /assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_1024x0_resize_box_3.png 1024w"
+srcset="albanpetit.com/albanpetit.com/assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_480x0_resize_box_3.png 480w, albanpetit.com/albanpetit.com/assignments/project-management/gitlab-success_hucf31e8a3dc443f7fb36100f2f6f33a25_46140_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Deploy success with gitlab"
 class="gallery-image"
@@ -324,10 +324,10 @@ data-flex-basis="406px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="/assignments/project-management/github-success.png"
+&lt;p>&lt;img src="albanpetit.com/albanpetit.com/assignments/project-management/github-success.png"
 width="1301"
 height="580"
-srcset="/assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_480x0_resize_box_3.png 480w, /assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_1024x0_resize_box_3.png 1024w"
+srcset="albanpetit.com/albanpetit.com/assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_480x0_resize_box_3.png 480w, albanpetit.com/albanpetit.com/assignments/project-management/github-success_hubed6250b0c03d39587c6287556385e91_55895_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Deploy success with github to albanpetit.com"
 class="gallery-image"
