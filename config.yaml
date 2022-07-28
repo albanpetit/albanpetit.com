@@ -1,4 +1,4 @@
-baseurl: /
+baseurl: albanpetit.com
 languageCode: en-us
 theme: albanpetit.com-theme
 paginate: 5
@@ -10,7 +10,7 @@ DefaultContentLanguage: en
 
 permalinks:
     page: /:slug/
-    post: /posts/:slug/
+    post: /projects/:slug/
     fabacademy: /assignments/:slug/
 
 params:
@@ -92,9 +92,9 @@ menu:
               icon: book
 
         - identifier: posts
-          name: Blog posts
+          name: Projects
           url: /
-          weight: -100
+          weight: -110
           params:
               newTab: false
               icon: home
