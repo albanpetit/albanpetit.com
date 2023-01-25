@@ -1,8 +1,8 @@
 ---
 menu:
   main:
-    name: FabAcademy
-    weight: -95
+    name: Projets
+    weight: -100
     params:
       icon: home
 ---

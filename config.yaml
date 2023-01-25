@@ -1,12 +1,25 @@
+# TODO: Reflechir a l'integration de disqus pour les commentaires
 baseurl: https://albanpetit.com
 languageCode: en-us
 theme: albanpetit.com-theme
 paginate: 5
 title: Alban Petit
+enableEmoji: true
+
+languages:
+    en:
+        languageName: English
+        weight: 1
+        description: Web developer, electronic hobbyist in my free time, here are my personal projects and the content of my training "learn how to make almost anything" from the fab academy
+    fr:
+        languageName: Francais
+        weight: 2
+        description: Développeur web, amateur d'électronique à mes heures perdues, voici mes projets personnels et le contenu de ma formation "learn how to make almost anything" de la fab academy
+        
+DefaultContentLanguage: en
 
 # GA Tracking ID
 googleAnalytics: G-ZXXQQEG3J8
-DefaultContentLanguage: en
 
 permalinks:
     page: /:slug/
@@ -20,16 +33,15 @@ params:
     rssFullContent: true
     favicon:
 
+
     footer:
-        since: 2022
-        customText:
+        since: 2023
 
     dateFormat:
         published: Jan 02, 2006
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
-        subtitle: Web developer, electronic hobbyist in my free time, here are my personal projects and the content of my training "learn how to make almost anything" from the fab academy
         avatar:
             enabled: true
             local: true
@@ -41,8 +53,8 @@ params:
         readingTime: true
         license:
             enabled: true
-            default: Licensed under CC BY-NC-SA 4.0
-
+            default: Licensed under CC BY-NC-SA 4.0 # TODO: Verifier les informations sur le type de licence
+            
     comments:
         enabled: false
         provider: disqus
@@ -79,25 +91,9 @@ params:
             enabled: true
         content:
             enabled: true
-            # Waline client configuration see: https://waline.js.org/en/reference/client.html
 
 menu:
-    main:
-        - identifier: assignments
-          name: Fabacademy
-          url: /assignments
-          weight: -100
-          params:
-              newTab: false
-              icon: book
-
-        - identifier: posts
-          name: Projects
-          url: /
-          weight: -110
-          params:
-              newTab: false
-              icon: home
+    main: []
     
     social:
         - identifier: github
