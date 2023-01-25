@@ -14,3 +14,4 @@ $RECYCLE.BIN/
 resources/*
 .lock
 .idea
+.nova
