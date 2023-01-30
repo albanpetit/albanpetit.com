@@ -1,7 +1,7 @@
 ---
-title: About
+title: About me
 license: CC BY-NC-ND
-lastmod: '2022-01-23'
+date: '2022-01-23'
 lastmod: '2022-01-23'
 image: lamachinerie.jpg
 menu:
