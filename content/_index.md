@@ -5,6 +5,5 @@ menu:
     weight: -100
     params:
       icon: home
-description: coucou
 --- 
 
