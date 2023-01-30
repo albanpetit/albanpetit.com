@@ -82,7 +82,7 @@ params:
             src:
 
     colorScheme:
-        toggle: false
+        toggle: true
         default: light
 
     imageProcessing:
