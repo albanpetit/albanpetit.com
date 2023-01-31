@@ -83,6 +83,7 @@ params:
 
     colorScheme:
         toggle: true
+        default: auto
 
     imageProcessing:
         cover:
