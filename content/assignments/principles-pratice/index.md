@@ -105,3 +105,10 @@ Here is a list of resources that is close to what I would like to achieve with t
 
 Introduction video to LitePlacer :
 {{< youtube T_v2VJKNZQ0 >}}
+
+## Final Checklist
+
+For this week we had to :
+
+- [X] Describe and sketch your final project
+- [X] Describe what it will do and who will use it
