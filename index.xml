@@ -176,7 +176,13 @@ title="YouTube Video"
 >
 &lt;/iframe>
 &lt;/div>
-&lt;/p></description></item><item><title>Project management</title><link>https://albanpetit.com/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
+&lt;/p>
+&lt;h2 id="final-checklist">Final Checklist&lt;/h2>
+&lt;p>For this week we had to :&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Describe and sketch your final project&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Describe what it will do and who will use it&lt;/li>
+&lt;/ul></description></item><item><title>Project management</title><link>https://albanpetit.com/assignments/project-management/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/project-management/</guid><description>&lt;img src="https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd" alt="Featured image of post Project management" />&lt;p>First of all, I&amp;rsquo;m web developer, so I&amp;rsquo;m quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don&amp;rsquo;t know.&lt;/p>
 &lt;p>Also note that this site will also serve me as a blog, so it is available on the url of the Fabacademy : &lt;a class="link" href="https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/" target="_blank" rel="noopener"
 >https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/&lt;/a>, but also on my personal domain name : &lt;a class="link" href="https://albanpetit.com" target="_blank" rel="noopener"
 >https://albanpetit.com&lt;/a>.&lt;/p>
