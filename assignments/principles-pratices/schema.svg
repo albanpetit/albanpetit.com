@@ -25,11 +25,11 @@
      showgrid="false"
      inkscape:zoom="0.49575348"
      inkscape:cx="345.93807"
-     inkscape:cy="28.239842"
+     inkscape:cy="27.231276"
      inkscape:window-width="1920"
-     inkscape:window-height="1080"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="1027"
+     inkscape:window-x="105"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
   <defs
@@ -38,6 +38,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#ffffff;stroke-width:0.215514;stroke-miterlimit:10"
+       id="rect1191"
+       width="297"
+       height="109"
+       x="2.220446e-14"
+       y="-1.7763568e-15" />
     <g
        id="g29346"
        transform="translate(-2.395642,-48.629541)">
@@ -48,8 +55,7 @@
            id="g9133"
            transform="translate(-18.946329,-1.8679479)">
           <g
-             aria-label="Splitflap
-Module"
+             aria-label="Splitflap Module"
              id="text1596"
              style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
             <path
@@ -107,8 +113,7 @@ Module"
            id="g9139"
            transform="translate(-18.501588,-1.8679479)">
           <g
-             aria-label="Splitflap
-Module"
+             aria-label="Splitflap Module"
              id="text1596-1"
              style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
             <path
@@ -166,8 +171,7 @@ Module"
            id="g9145"
            transform="translate(-20.85876,-1.8679479)">
           <g
-             aria-label="Splitflap
-Module"
+             aria-label="Splitflap Module"
              id="text1596-6"
              style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
             <path
@@ -225,8 +229,7 @@ Module"
            id="g9151"
            transform="translate(-18.946329,-1.8679479)">
           <g
-             aria-label="Splitflap
-Module"
+             aria-label="Splitflap Module"
              id="text1596-14"
              style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
             <path
@@ -297,8 +300,7 @@ Module"
          id="g9133-8"
          transform="translate(-59.774333,24.883733)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-8"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -356,8 +358,7 @@ Module"
          id="g9139-5"
          transform="translate(-59.329592,24.883733)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-1-3"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -415,8 +416,7 @@ Module"
          id="g9145-6"
          transform="translate(-61.686764,24.883733)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-6-5"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -474,8 +474,7 @@ Module"
          id="g9151-9"
          transform="translate(-59.774333,24.883733)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-14-1"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -545,8 +544,7 @@ Module"
          id="g9133-3"
          transform="translate(-59.774333,51.368569)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-5"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -604,8 +602,7 @@ Module"
          id="g9139-7"
          transform="translate(-59.329592,51.368569)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-1-8"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -663,8 +660,7 @@ Module"
          id="g9145-1"
          transform="translate(-61.686764,51.368569)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-6-8"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -722,8 +718,7 @@ Module"
          id="g9151-7"
          transform="translate(-59.774333,51.368569)">
         <g
-           aria-label="Splitflap
-Module"
+           aria-label="Splitflap Module"
            id="text1596-14-4"
            style="font-size:4.23333px;line-height:1.25;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
@@ -801,9 +796,7 @@ Module"
            style="fill:none;stroke:#000000;stroke-width:1.47459"
            d="m 226.92705,107.64523 h 48.89075 v 33.68032 h -48.89075 z" />
         <g
-           aria-label="Display
-controller
-WiFi capable"
+           aria-label="Display controller WiFi capable"
            id="text11100"
            style="font-size:5.82083px;line-height:1.25;text-align:center;text-anchor:middle;stroke-width:0.264583">
           <path
