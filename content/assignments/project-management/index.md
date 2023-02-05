@@ -1,6 +1,7 @@
 ---
 title: Project management
 date: 2022-01-25
+lastmod: 2023-01-25
 slug: project-management
 image: "https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd"
 description: Week 1
@@ -36,17 +37,19 @@ links:
     image: https://docusaurus.io/img/docusaurus.svg
 ---
 
+<!-- TODO: Ajouter les checklists de l'assignment -->
+
 First of all, I'm web developer, so I'm quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don't know.
 
 Also note that this site will also serve me as a blog, so it is available on the url of the Fabacademy : https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/, but also on my personal domain name : https://albanpetit.com.
 
 Finally this is my second year of fabacademy, not having been able to validate the first, I preferred for this assignment to change SSG, so there is documentation for Docusaurus and for Hugo.
 
-Enjoy :)
+Enjoy :smile:
 
 ## Git
 {{< image src="git.png" position="left" width="150" right="20" >}}
-Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository, Github, Gitlab, Bitbucket...
+Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository : Github, Gitlab, Bitbucket...
 
 [More informations about git here](https://git-scm.com/doc)
 
@@ -404,3 +407,13 @@ git push origin master
 **And finally :**
 
 ![Deploy success with github to albanpetit.com](github-success.png)
+
+## Final Checklist
+
+For this week we had to :
+
+- [X] Build our Site :
+  - [X] Edit the template site
+  - [X] Describe ourself : [About me](/about)
+  - [X] Describe our final project : [Principles and practices](/assignments/principles-pratices)
+- [X] Document our work using git 
