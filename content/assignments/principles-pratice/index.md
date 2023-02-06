@@ -28,7 +28,7 @@ The idea of this project is to design a splitflap display module capable of disp
 The display module would have its internal logic, with the ability to initialize (some sort of zero position), to manage its voltage levels, the rotation according to the character sent in the data bus, etc. The modules must be connectable to each other in all directions, a system for selecting the next module is necessary to allow the formation of a matrix of modules. 
 
 ![Display schematic](schema.svg)
-
+<!-- TODO: check theme html generation to remove margin on svg markdown tag -->
 A control PCB for the whole module matrix is also necessary, it will support a wifi connection to be able to select the information to be displayed from a web interface.
 
 Here is a short video of ```Oat foundry``` split flap display :
