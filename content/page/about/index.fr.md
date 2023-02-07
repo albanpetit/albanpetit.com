@@ -5,6 +5,7 @@ date: '2022-01-23'
 lastmod: '2022-01-23'
 image: lamachinerie.jpg
 slug: about
+status: Work in progress !
 menu:
     main: 
         weight: -90
@@ -39,7 +40,7 @@ Cette structure et les expériences professionnelles présentées ci-dessous, on
 ## La Machinerie
 L’association est née en avril 2014 de la rencontre d’utopistes amiénois aspirant à « fabriquer et travailler autrement ». Créant un atelier de fabrication numérique (fablab) associé à un espace de travail partagé (un coworking). S’inspirant du fonctionnement des fablabs, ils ont créé un lieu accessible à tous, mettant à disposition une ressource communautaire (lieu, outils, compétences) à laquelle chaque utilisateur contribue. Depuis l’origine, ce collectif est porteur d’aspirations diverses (innovation citoyenne et écologie, culture du libre, entrepreneuriat) qui donnent lieu à une pluralité d’expériences. 
 
-![Coworking](coworking.jpg) ![Fablab](fablab.jpeg)
+![Coworking](coworking.jpeg) ![Fablab](fablab.jpeg)
 
 Aujourd'hui, [La Machinerie](https://lamachinerie.org) regroupe 4 grands pôles d'activités :
 - Un incubateur d'entreprise 
