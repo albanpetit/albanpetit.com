@@ -30,6 +30,7 @@ data-flex-basis="455px"
 loading="lazy"
 alt="Display schematic"
 >&lt;/p>
+&lt;!-- raw HTML omitted -->
 &lt;p>A control PCB for the whole module matrix is also necessary, it will support a wifi connection to be able to select the information to be displayed from a web interface.&lt;/p>
 &lt;p>Here is a short video of &lt;code>Oat foundry&lt;/code> split flap display :&lt;/p>
 &lt;div class="video-wrapper">
