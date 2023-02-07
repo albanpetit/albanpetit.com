@@ -7,13 +7,13 @@ image: "https://miro.medium.com/max/1838/0*cDOBWTUhmdzmVkTd"
 description: Week 1
 weight: 10
 tags:
-    - Git
-    - Github
-    - Gitlab
-    - Hugo
-    - Docusaurus
-    - Static site generator
-    - CI / CD
+  - Git
+  - Github
+  - Gitlab
+  - Hugo
+  - Docusaurus
+  - Static site generator
+  - CI / CD
 links:
   - title: Git
     description: Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
@@ -36,8 +36,6 @@ links:
     website: https://docusaurus.io/
     image: https://docusaurus.io/img/docusaurus.svg
 ---
-
-<!-- TODO: Ajouter les checklists de l'assignment -->
 
 First of all, I'm web developer, so I'm quite comfortable with Git, continuous integration principles, markdown, bash and static site generators. So for this assignment I tried to go to unknown lands with the aim of discovering some static site generator that I don't know.
 
@@ -187,12 +185,13 @@ git push
 ```
 
 ### VScode
+<!-- TODO: change image source -->
 {{< image src="logoVSCode.png" position="left" width="160" right="10" >}}
 I personally use VScode to program and work on my project. 
 
 VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named "Souce Control" in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
 
-![vscode source control](vscode-source-control.png)
+![VScode source control](vscode-source-control.png)
 
 ### Commit name convention
 With Git, and big projects, commits can get messy quickly, especially if several people work on it, trust me, so it can be good to use a convention. Good commit messages serve at least three important purposes:
