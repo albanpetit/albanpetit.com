@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>A propos</title><link>https://albanpetit.com/fr/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/about/</guid><description>&lt;img src="https://albanpetit.com/fr/about/lamachinerie.jpg" alt="Featured image of post A propos" />&lt;!-- raw HTML omitted -->
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Conception assistée par ordinateur</title><link>https://albanpetit.com/fr/assignments/computer-aided-design/</link><pubDate>Sat, 04 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/assignments/computer-aided-design/</guid><description>&lt;img src="https://github.com/LaMachinerie/Meuble-Facile-a-Lire/raw/main/Image/1.3.png" alt="Featured image of post Conception assistée par ordinateur" />&lt;p>Cette mission sera découpé en deux grandes étapes, la partie concernant les logiciels en relation avec la 2D Gimp et Inkscape et la seconde sur Fusion360 un logiciel capable de faire énormément de choses mais dans notre cas il sera principalement utilise pour faire de la modélisation 3D et le rendu de cette dernière.&lt;/p>
+&lt;h2 id="logiciel-2d">Logiciel 2D&lt;/h2>
+&lt;h3 id="gimp--trame-dimprimerie">Gimp &amp;amp; Trame d&amp;rsquo;imprimerie&lt;/h3>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/The_GIMP_icon_-_gnome.svg/1024px-The_GIMP_icon_-_gnome.svg.png" style="float:left; width:150px; margin-right:20px">
+GIMP est un éditeur graphique gratuit et open source utilisé pour la manipulation et l&amp;rsquo;édition d&amp;rsquo;images, le dessin de forme libre, le transcodage entre différents formats de fichiers image et des tâches plus spécialisées. Il n&amp;rsquo;est pas conçu pour être utilisé pour le dessin, bien que certains artistes et créateurs l&amp;rsquo;utilise pour cela.&lt;/p>
+&lt;p>Dans le cadre de mon travail j&amp;rsquo;utilise parfois Gimp pour la conversion de format d&amp;rsquo;image, le recadrage, le redimensionnement d&amp;rsquo;image sans l&amp;rsquo;utilisation du terminal, &lt;a class="link" href="" >Image Magick&lt;/a> me semble être une bien meilleure solution pour cela. Mais certains utilisateurs des mes applications web souhaitent parfois effectuer des modifications avant la mise en ligne de leurs images. Pour ces besoins j&amp;rsquo;utilise donc Gimp qui convient parfaitement, bien sur, des logiciels propriétaires existent également pour cet usage, comme &lt;a class="link" href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener"
+>Photoshop&lt;/a> pour ne citer que le plus gros concurrent.&lt;/p>
+&lt;p>Ces modifications simples ne m&amp;rsquo;ont donc pas encore permis d&amp;rsquo;explorer l&amp;rsquo;ensemble des possibilités de gimp, pour cette mission je vais donc essayer d&amp;rsquo;explorer la partie des filtres de Gimp. Inkscape prendra ensuite le relai pour preparer le fichier a la fabrication avec la découpeuse laser.&lt;/p>
+&lt;h4 id="installation">Installation&lt;/h4>
+&lt;p>Gimp est donc entièrement libre et opensource, le &lt;a class="link" href="https://www.gimp.org" target="_blank" rel="noopener"
+>site web&lt;/a> dispose d&amp;rsquo;une page de téléchargement proposant une version pour presque toutes les plateformes. Dans mon cas, la version apple, est meme disponible avec une version native et optimise pour les processeurs apple, voila de quoi me rendre heureux ! 🎉&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Attention&lt;/strong>: Une version est disponible dans l&amp;rsquo;app store mais ce n&amp;rsquo;est une version maintenu par la team GIMP, il s&amp;rsquo;agit d&amp;rsquo;une équipe indépendante de développeur.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="utilisation">Utilisation&lt;/h4>
+&lt;p>D&amp;rsquo;abord voila le fichier original, ma conjointe, ainsi que la page d&amp;rsquo;accueil de Gimp, qui ne parait de pas grand chose, mais malgré les apparences c&amp;rsquo;est un logiciel tres performant. Bien sur, le fichier original est compresse dans ce repo pour éviter de surcharger la page, mais je travail sur un fichier de plus grande resolution.&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/fr/assignments/computer-aided-design/girlfriend.jpeg"
+width="480"
+height="640"
+srcset="https://albanpetit.com/fr/assignments/computer-aided-design/girlfriend_hue8809023e63696ff023dae6b529de093_25009_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/fr/assignments/computer-aided-design/girlfriend_hue8809023e63696ff023dae6b529de093_25009_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="Fichier original"
+class="gallery-image"
+data-flex-grow="75"
+data-flex-basis="180px"
+> &lt;img src="https://albanpetit.com/fr/assignments/computer-aided-design/homepage.jpg"
+width="1970"
+height="1167"
+srcset="https://albanpetit.com/fr/assignments/computer-aided-design/homepage_hu5d4d4af13a53f9dee6df2227e73445ae_74392_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/fr/assignments/computer-aided-design/homepage_hu5d4d4af13a53f9dee6df2227e73445ae_74392_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="Accueil"
+class="gallery-image"
+data-flex-grow="168"
+data-flex-basis="405px"
+>&lt;/p>
+&lt;h5 id="ouverture-dun-fichier">Ouverture d&amp;rsquo;un fichier&lt;/h5>
+&lt;h3 id="inkscape--vectorisation">Inkscape &amp;amp; Vectorisation&lt;/h3>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Inkscape_Logo.svg" style="float:left; width:150px; margin-right:20px">
+Inkscape est un éditeur de graphiques vectoriels gratuit et open source utilisé pour créer des images vectorielles, principalement au format Scalable Vector Graphics. D&amp;rsquo;autres formats peuvent être importés et exportés.&lt;/p>
+&lt;p>Personnellement j&amp;rsquo;utilise deja Inkscape depuis quelques années pour les découpeuses laser du fablab, le logo de ce &lt;a class="link" href="albanpetit.com" >site&lt;/a> a été fait sur Inkscape. Un logiciel parfait pour entreprendre des modifications sur les fichiers vectoriels pour ensuite passer a la fabrication.&lt;/p></description></item><item><title>A propos</title><link>https://albanpetit.com/fr/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/about/</guid><description>&lt;img src="https://albanpetit.com/fr/about/lamachinerie.jpg" alt="Featured image of post A propos" />&lt;!-- raw HTML omitted -->
 &lt;p>Salut ! Je suis Alban Petit, un développeur web français, travaillant dans une structure qui accueil un fablab (La Machinerie), que je connais depuis maintenant 7 ans. Initialement bénévole, j’ai pu évoluer au sein de cette structure pour aujourd’hui être responsable d’un pôle s’occupant exclusivement de faire de la prestation de services sur de multiples domaines technique : électronique, informatique, fabrication numérique, etc&amp;hellip;&lt;/p>
 &lt;p>Cette structure et les expériences professionnelles présentées ci-dessous, on mit au jour une passion pour le développement informatique, l&amp;rsquo;électronique et le prototypage en général.&lt;/p>
 &lt;h2 id="mes-experiences">Mes experiences&lt;/h2>
