@@ -23,7 +23,7 @@ googleAnalytics: G-ZXXQQEG3J8
 permalinks:
     page: /:slug/
     post: /projects/:slug/
-    fabacademy: /assignments/:slug/
+    fabacademy-assignment: /fabacademy-assignments/:slug/
 
 params:
     mainSections:
