@@ -13,7 +13,7 @@ menu:
             icon: user
 ---
 
-<!-- TODO: Modifier le texte long d'etre parfait -->
+<!-- TODO: Modifier le texte loin d'etre parfait -->
 
 Salut ! Je suis Alban Petit, un développeur web français, travaillant dans une structure qui accueil un fablab (La Machinerie), que je connais depuis maintenant 7 ans. Initialement bénévole, j’ai pu évoluer au sein de cette structure pour aujourd’hui être responsable d’un pôle s’occupant exclusivement de faire de la prestation de services sur de multiples domaines technique : électronique, informatique, fabrication numérique, etc...
 

@@ -44,7 +44,7 @@ Gimp est donc entièrement libre et opensource, le [site web](https://www.gimp.o
 > **Attention**: Une version est disponible dans l'app store mais ce n'est une version maintenu par la team GIMP, il s'agit d'une équipe indépendante de développeur.
 
 #### Utilisation
-D'abord voila le fichier original, ma conjointe, ainsi que la page d'accueil de Gimp, qui ne parait de pas grand chose, mais malgré les apparences c'est un logiciel tres performant. Bien sur, le fichier original est compresse dans ce repo pour éviter de surcharger la page, mais je travail sur un fichier de plus grande resolution.
+D'abord voila le fichier original, ma conjointe, ainsi que la page d'accueil de Gimp, qui ne parait de pas grand chose, mais malgré les apparences c'est un logiciel tres performant. Bien sur, le fichier original est compresse dans ce repo pour éviter de surcharger la page, mais je travaille sur un fichier de plus grande resolution.
 
 ![Fichier original](girlfriend.jpeg) ![Accueil](homepage.jpg)
 
