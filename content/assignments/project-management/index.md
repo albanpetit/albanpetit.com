@@ -186,7 +186,7 @@ git push
 
 ### VScode
 <!-- TODO: change image source -->
-{{< image src="logoVSCode.png" position="left" width="160" right="10" >}}
+{{< image src="vscode.png" position="left" width="160" right="10" >}}
 I personally use VScode to program and work on my project. 
 
 VScode have Git possibilities integrated, and you can make all the commit/push/pull command directly inside it. Just click on the icon named "Souce Control" in the left panel inside VScode, and you will find all the command to commit/push/pull your modifications.
