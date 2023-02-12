@@ -531,27 +531,35 @@ data-flex-basis="538px"
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Document our work using git&lt;/li>
-&lt;/ul></description></item><item><title>Computer aided design</title><link>https://albanpetit.com/assignments/computer-aided-design/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/computer-aided-design/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Computer aided design" /></description></item><item><title>Computer controlled cutting</title><link>https://albanpetit.com/assignments/computer-controlled-cutting/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/computer-controlled-cutting/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Computer controlled cutting" /></description></item><item><title>Electronic production</title><link>https://albanpetit.com/assignments/electronic-production/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/electronic-production/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Electronic production" /></description></item><item><title>FabAcademy Student agreement</title><link>https://albanpetit.com/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fabacademy-student-agreement/</guid><description>&lt;h2 id="the-fab-academy-is-responsible-for-">The Fab Academy is responsible for :&lt;/h2>
-&lt;p>Teaching principles and practices of digital fabrication
-Arranging lectures, recitations, meetings, and events for the class
-Evaluating and providing feedback on student work
-Offering clear standards for completing assignments
-Certifying and archiving student progress
-Supervising class preparation
-Reviewing prospective students, instructors, and labs
-Providing central staff and infrastructure for students, instructors, and labs
-Fund-raising for costs not covered by student tuition
-Managing and reporting on the program’s finances, results, and impacts
-Publicizing the program
-Promoting a respectful environment free of harassment and discrimination&lt;/p>
-&lt;h2 id="i-am-a-fab-academy-student-responsible-for-">I am a Fab Academy student, responsible for :&lt;/h2>
-&lt;p>Attending class lectures and participating in reviews
-Developing and documenting projects assigned to introduce and demonstrate skills
-Honestly reporting on my work
-Working safely
-Leaving workspaces in the same (or better) condition than I found them
-Participating in the upkeep of my lab
-Ensuring that my tuition to cover local and central class costs is covered
-Promoting a respectful environment free of harassment and discrimination&lt;/p>
+&lt;/ul></description></item><item><title>Computer aided design</title><link>https://albanpetit.com/assignments/computer-aided-design/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/computer-aided-design/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Computer aided design" /></description></item><item><title>Computer controlled cutting</title><link>https://albanpetit.com/assignments/computer-controlled-cutting/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/computer-controlled-cutting/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Computer controlled cutting" /></description></item><item><title>Electronic production</title><link>https://albanpetit.com/assignments/electronic-production/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/electronic-production/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Electronic production" /></description></item><item><title>FabAcademy Student agreement</title><link>https://albanpetit.com/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fabacademy-student-agreement/</guid><description>&lt;p>&lt;strong>Fab Academy Student Agreement&lt;/strong>&lt;/p>
+&lt;p>&lt;em>The Fab Academy is responsible for:&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Teaching principles and practices of digital fabrication&lt;/li>
+&lt;li>Arranging lectures, recitations, meetings, and events for the class&lt;/li>
+&lt;li>Evaluating and providing feedback on student work&lt;/li>
+&lt;li>Offering clear standards for completing assignments&lt;/li>
+&lt;li>Certifying and archiving student progress&lt;/li>
+&lt;li>Supervising class preparation&lt;/li>
+&lt;li>Reviewing prospective students, instructors, and labs&lt;/li>
+&lt;li>Providing central staff and infrastructure for students, instructors, and labs&lt;/li>
+&lt;li>Fund-raising for costs not covered by student tuition&lt;/li>
+&lt;li>Managing and reporting on the program&amp;rsquo;s finances, results, and impacts&lt;/li>
+&lt;li>Publicizing the program&lt;/li>
+&lt;li>Promoting a respectful environment free of harassment and discrimination&lt;/li>
+&lt;li>Encourage a diverse, accessible, and equitable community&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>I am a Fab Academy student, responsible for:&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Attending class lectures and participating in reviews&lt;/li>
+&lt;li>Developing and documenting projects assigned to introduce and demonstrate skills&lt;/li>
+&lt;li>Allowing the Fab Academy to share my work (with attribution) in the class for purposes compatible with its mission&lt;/li>
+&lt;li>Honestly reporting on my work, and appropriately attributing the work of others (both human and machine)&lt;/li>
+&lt;li>Working safely&lt;/li>
+&lt;li>Leaving workspaces in the same (or better) condition than I found them&lt;/li>
+&lt;li>Participating in the upkeep of my lab&lt;/li>
+&lt;li>Ensuring that my tuition for local and central class costs is covered&lt;/li>
+&lt;li>Following locally applicable health and safety guidance&lt;/li>
+&lt;li>Promoting a respectful environment free of harassment and discrimination&lt;/li>
+&lt;/ul>
 &lt;p>Signed by committing this file in my repository,
 &lt;strong>Alban Petit&lt;/strong>&lt;/p></description></item><item><title>About me</title><link>https://albanpetit.com/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/about/</guid><description>&lt;img src="https://albanpetit.com/about/lamachinerie.jpg" alt="Featured image of post About me" />&lt;!-- raw HTML omitted --></description></item><item><title>Raspberry Pi remote development as SSH with VScode</title><link>https://albanpetit.com/projects/raspberry-remote-development/</link><pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/projects/raspberry-remote-development/</guid><description>&lt;img src="https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/optim/i/edit/ne/2019/02/Raspberry%20Pi%20620__w1200.jpg" alt="Featured image of post Raspberry Pi remote development as SSH with VScode" /></description></item><item><title>3D scanning and printing</title><link>https://albanpetit.com/assignments/3d-scanning-printing/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/3d-scanning-printing/</guid><description>&lt;img src="https://images.unsplash.com/photo-1610081574260-e61e93e6e1aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Featured image of post 3D scanning and printing" /></description></item><item><title>Computer controlled machining</title><link>https://albanpetit.com/assignments/computer-controlled-machining/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/computer-controlled-machining/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Computer controlled machining" /></description></item><item><title>Electronic design</title><link>https://albanpetit.com/assignments/electronic-design/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/electronic-design/</guid><description>&lt;img src="https://w.wallhaven.cc/full/8x/wallhaven-8x5dm2.jpg" alt="Featured image of post Electronic design" /></description></item><item><title>Embedded programming</title><link>https://albanpetit.com/assignments/embedded-programming/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/embedded-programming/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Embedded programming" /></description></item><item><title>Input devices</title><link>https://albanpetit.com/assignments/input-devices/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/input-devices/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Input devices" /></description></item><item><title>Interface and application programming</title><link>https://albanpetit.com/assignments/application-programming/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/application-programming/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Interface and application programming" /></description></item><item><title>Molding and casting</title><link>https://albanpetit.com/assignments/molding-casting/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/molding-casting/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Molding and casting" /></description></item><item><title>Networking and communication</title><link>https://albanpetit.com/assignments/networking-communication/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/networking-communication/</guid><description>&lt;img src="https://albanpetit.com/hello.jpg" alt="Featured image of post Networking and communication" /></description></item><item><title>Archives</title><link>https://albanpetit.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/archives/</guid><description/></item><item><title>Search</title><link>https://albanpetit.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/search/</guid><description/></item></channel></rss>
