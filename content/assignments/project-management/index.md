@@ -185,7 +185,6 @@ git push
 ```
 
 ### VScode
-<!-- TODO: change image source -->
 {{< image src="vscode.png" position="left" width="160" right="10" >}}
 I personally use VScode to program and work on my project. 
 
