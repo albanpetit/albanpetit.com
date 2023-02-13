@@ -5,4 +5,5 @@ slug: electronic-production
 image: "hello.jpg"
 description: Week 4
 weight: 25
+draft: true
 ---
