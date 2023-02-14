@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FabAcademy assignments on Alban Petit</title><link>https://albanpetit.com/assignments/</link><description>Recent content in FabAcademy assignments on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/assignments/index.xml" rel="self" type="application/rss+xml"/><item><title>Principles and practices</title><link>https://albanpetit.com/assignments/principles-pratices/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principles and practices" />&lt;p>After a long reflection on my final FabAcademy project. I keep two, a splitflap display and a pick and place. I still can&amp;rsquo;t choose between these two projects, I will make the choice later during my FabAcademy. So here&amp;rsquo;s a quick rundown of those ideas.&lt;/p>
-&lt;h2 id="splitflap-display">Splitflap display&lt;/h2>
-&lt;p>So my first idea is to make an opensource splitflap display, or sometimes simply a flap display, is a digital electromechanical display device that presents changeable alphanumeric text, and occasionally fixed graphics.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FabAcademy assignments on Alban Petit</title><link>https://albanpetit.com/assignments/</link><description>Recent content in FabAcademy assignments on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 25 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/assignments/index.xml" rel="self" type="application/rss+xml"/><item><title>Principles and practices</title><link>https://albanpetit.com/assignments/principles-pratices/</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principles and practices" />&lt;p>After a long reflection on my final FabAcademy project. I keep two, a split-flap display and a pick and place. I still can&amp;rsquo;t choose between these two projects, I will make the choice later during my FabAcademy. So here&amp;rsquo;s a quick rundown of those ideas.&lt;/p>
+&lt;h2 id="split-flap-display">Split flap display&lt;/h2>
+&lt;p>So my first idea is to make an open source split-flap display, or sometimes simply a flap display, is a digital electromechanical display device that presents changeable alphanumeric text, and occasionally fixed graphics.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/principles-pratices/splitflap-1.jpg"
 width="674"
 height="800"
 srcset="https://albanpetit.com/assignments/principles-pratices/splitflap-1_hu673fe54d9307bbd42f3d15c81e781d45_50988_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/assignments/principles-pratices/splitflap-1_hu673fe54d9307bbd42f3d15c81e781d45_50988_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="splitflap module"
+alt="Split flap module"
 class="gallery-image"
 data-flex-grow="84"
 data-flex-basis="202px"
@@ -15,24 +15,25 @@ width="1650"
 height="870"
 srcset="https://albanpetit.com/assignments/principles-pratices/splitflap-2_hub820eaf2247b92cfab2cd6e4560b5a6e_667878_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/assignments/principles-pratices/splitflap-2_hub820eaf2247b92cfab2cd6e4560b5a6e_667878_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="splitflap display"
+alt="Splitflap display"
 class="gallery-image"
 data-flex-grow="189"
 data-flex-basis="455px"
 >&lt;/p>
-&lt;p>Often used as a public transport timetable in airports or railway stations, as such they are often called Solari boards after Italian display manufacturer Solari di Udine, or in Central European countries they are called Pragotron after the Czech manufacturer.&lt;/p>
+&lt;p>Often used as a public transport timetable in airports or railway stations, as such they are often called Solari boards after Italian display manufacturer &lt;a class="link" href="https://www.solari.it/it/" target="_blank" rel="noopener"
+>Solari di Udine&lt;/a>, or in Central European countries they are called Pragotron after the Czech manufacturer.&lt;/p>
 &lt;p>Split-flap displays were once commonly used in consumer digital clocks known as flip clocks.&lt;/p>
 &lt;p>Each character position or graphic position has a collection of flaps on which the characters or graphics are painted or silkscreened. These flaps are precisely rotated to show the desired character or graphic.&lt;/p>
 &lt;h3 id="concept">Concept&lt;/h3>
-&lt;p>The idea of this project is to design a splitflap display module capable of displaying a character. But that it is connectable in chain and addressed to control them individually as could be addressable LEDs for example.&lt;/p>
-&lt;p>The display module would have its internal logic, with the ability to initialize (some sort of zero position), to manage its voltage levels, the rotation according to the character sent in the data bus, etc. The modules must be connectable to each other in all directions, a system for selecting the next module is necessary to allow the formation of a matrix of modules.&lt;/p>
+&lt;p>The idea of this project is to design a split-flap display module capable of displaying a character. But that it is connectable in chains and addressed to control them individually as could be addressable LEDs, for example.&lt;/p>
+&lt;p>The display module would have its internal logic, with the ability to initialize (some sort of zero position), to manage its voltage levels, the rotation according to the character sent to the data bus, etc. The modules must be connectable to each other in all directions, a system for selecting the next module is necessary to allow the formation of a matrix of modules.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/principles-pratices/schema.svg"
 loading="lazy"
 alt="Display schematic"
 >&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;p>A control PCB for the whole module matrix is also necessary, it will support a wifi connection to be able to select the information to be displayed from a web interface.&lt;/p>
-&lt;p>Here is a short video of &lt;code>Oat foundry&lt;/code> split flap display :&lt;/p>
+&lt;p>Here is a short video of &lt;code>Oat foundry&lt;/code> split-flap display :&lt;/p>
 &lt;div class="video-wrapper">
 &lt;iframe loading="lazy"
 src="https://www.youtube.com/embed/pINtnKBfqLE"
@@ -46,13 +47,13 @@ title="YouTube Video"
 &lt;h4 id="oat-foundry">Oat Foundry&lt;/h4>
 &lt;p>&lt;img src="https://www.oatfoundry.com/wp-content/uploads/2016/05/Oat-Foundry-logo.png" style="float:left; width:150px; margin-right:20px">
 &lt;a class="link" href="https://www.oatfoundry.com/split-flap/" target="_blank" rel="noopener"
->Oat foundry&lt;/a> manufactures and sells custom split flap displays. Their displays are manufactured with the same operating principle as the original splitflap display but with a control system allowing them to display data streams such as weather, temperature, social networks, from a web interface.&lt;/p>
+>Oat foundry&lt;/a> manufactures and sells custom split flap displays. Their displays are manufactured with the same operating principle as the original split-flap display but with a control system allowing them to display data streams such as weather, temperature, social networks, from a web interface.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/principles-pratices/oatfoundry-1.jpg"
 width="1280"
 height="854"
 srcset="https://albanpetit.com/assignments/principles-pratices/oatfoundry-1_hud2f795f73979e3a632d713a990785e4d_330346_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/assignments/principles-pratices/oatfoundry-1_hud2f795f73979e3a632d713a990785e4d_330346_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="google splitflap"
+alt="google split-flap"
 class="gallery-image"
 data-flex-grow="149"
 data-flex-basis="359px"
@@ -61,14 +62,14 @@ width="1500"
 height="1500"
 srcset="https://albanpetit.com/assignments/principles-pratices/oatfoundry-2_hu8d3b1c8a17eecc7b8779ce9bd95b38e6_408922_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/assignments/principles-pratices/oatfoundry-2_hu8d3b1c8a17eecc7b8779ce9bd95b38e6_408922_1024x0_resize_q75_box.jpeg 1024w"
 loading="lazy"
-alt="white splitflap"
+alt="white split-flap"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"
 >&lt;/p>
 &lt;h4 id="unknown-domain">Unknown Domain&lt;/h4>
 &lt;p>&lt;a class="link" href="http://unknowndomain.co.uk" target="_blank" rel="noopener"
->Unknow Domain&lt;/a> is the blog of Mark Lynch a maker, who designed a splitflap display solution, the files are not opensource but he writes the different stages of the design. Some technical choices are quite interesting, other projects are also available on his blog.&lt;/p>
+>Unknow Domain&lt;/a> is the blog by Mark Lynch a maker, who designed a split-flap display solution, the files are not open source but he writes in the different stages of the design. Some technical choices are quite interesting, other projects are also available on his blog.&lt;/p>
 &lt;p>Here are some pictures of his projects:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/principles-pratices/unknowdomain-1.jpeg"
 width="576"
@@ -91,7 +92,7 @@ data-flex-basis="320px"
 >&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Hackaday blog post :&lt;/strong> &lt;a class="link" href="https://hackaday.com/2014/10/04/split-flap-display-if-cant-find-it-built-it/" target="_blank" rel="noopener"
->split flap display: if you can&amp;rsquo;t find it, built it&lt;/a>&lt;/p>
+>split flaps display: if you can&amp;rsquo;t find it, built it&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;h4 id="thingiverse-projects">Thingiverse projects&lt;/h4>
 &lt;p>&lt;img src="thingiverse.png" style="float:left; width:130px; margin-right:20px">
@@ -102,7 +103,7 @@ And here is the magic of Thingiverse. Thingiverse is a website dedicated to the 
 &lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:2369832" target="_blank" rel="noopener"
 >Dead simple split flap display&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:815981" target="_blank" rel="noopener"
->Lasercut weather station&lt;/a>&lt;/li>
+>Laser cut weather station&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:841058" target="_blank" rel="noopener"
 >Weather in one hour&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.thingiverse.com/thing:3402311" target="_blank" rel="noopener"
@@ -115,7 +116,7 @@ width="1920"
 height="1080"
 srcset="https://albanpetit.com/assignments/principles-pratices/pnp-1_huabe2956f5a4a8e284b2906dde73c75a3_385481_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/assignments/principles-pratices/pnp-1_huabe2956f5a4a8e284b2906dde73c75a3_385481_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="pnp nozzles"
+alt="PnP nozzles"
 class="gallery-image"
 data-flex-grow="177"
 data-flex-basis="426px"
@@ -132,22 +133,22 @@ data-flex-basis="426px"
 &lt;p>They are used for high speed, high precision placing of a broad range of electronic components, like capacitors, resistors, integrated circuits onto the PCBs which are in turn used in computers, consumer electronics as well as industrial, medical, automotive, military and telecommunications equipment.&lt;/p>
 &lt;p>Similar equipment exists for through-hole components. This type of equipment is sometimes also used to package microchips using the flip chip method.&lt;/p>
 &lt;h3 id="concept-1">Concept&lt;/h3>
-&lt;p>The description of this project will be rather quick, the idea is to design a small opensource automatic electronic component placement machine. Several opensource projects already exist, but in general, these machines are big.&lt;/p>
+&lt;p>The description of this project will be rather quick, the idea is to design a small open source automatic electronic component placement machine. Several open source projects already exist, but in general, these machines are big.&lt;/p>
 &lt;p>&lt;img src="openpnp.png" style="float:left; width:120px; margin-right:20px">
 A fairly large maker community offers hardware solutions, the &lt;a class="link" href="https://openpnp.org" target="_blank" rel="noopener"
->OpenPnp&lt;/a> website includes most of them. OpenPnp also offers software to run an opensource pick and place machine, but also existing commercial machines, giving them abilities they never had with their OEM software.&lt;/p>
+>OpenPnp&lt;/a> website includes most of them. OpenPnp also offers software to run an open source pick and place machine, but also existing commercial machines, giving them abilities they never had with their OEM software.&lt;/p>
 &lt;p>The idea would be to rely on the OpenPnp software to design a small format automatic placement solution.&lt;/p>
 &lt;h3 id="links-1">Links&lt;/h3>
 &lt;p>Here is a list of resources that is close to what I would like to achieve with this project, these are potential points of inspiration.&lt;/p>
 &lt;h4 id="lumenpnp">LumenPnp&lt;/h4>
 &lt;p>&lt;a class="link" href="https://opulo.io/products/lumenpnp-kit" target="_blank" rel="noopener"
->LumenPnp&lt;/a> is a fully open source PNP machine designed by Stephen Hawes. He describes each stage of his design on his youtube channel. He has been selling kits recently, to be able to mount this machine which relies on the OpenPnp solution for its control.&lt;/p>
+>LumenPnp&lt;/a> is a fully open source PNP machine designed by Stephen Hawes. He describes each stage of his design on his YouTube channel. He has been selling kits recently, to be able to mount this machine which relies on the OpenPnp solution for its control.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/principles-pratices/lumenpnp-1.jpg"
 width="2000"
 height="1500"
 srcset="https://albanpetit.com/assignments/principles-pratices/lumenpnp-1_hu88e812515d6938308e877384806350a0_200861_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/assignments/principles-pratices/lumenpnp-1_hu88e812515d6938308e877384806350a0_200861_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="pnp nozzles"
+alt="PnP nozzles"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
@@ -156,7 +157,7 @@ width="5736"
 height="3784"
 srcset="https://albanpetit.com/assignments/principles-pratices/lumenpnp-2_hudf5cc100a3fa0381ddaef46de09f42e8_593017_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/assignments/principles-pratices/lumenpnp-2_hudf5cc100a3fa0381ddaef46de09f42e8_593017_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
-alt="pnp"
+alt="PnP"
 class="gallery-image"
 data-flex-grow="151"
 data-flex-basis="363px"
@@ -179,7 +180,7 @@ title="YouTube Video"
 &lt;/div>
 &lt;/p>
 &lt;h2 id="final-checklist">Final Checklist&lt;/h2>
-&lt;p>For this week we had to :&lt;/p>
+&lt;p>Here are the objectives of this assignment of the Fabacademy and the verification of the good realization of these:&lt;/p>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Describe and sketch your final project&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Describe what it will do and who will use it&lt;/li>
