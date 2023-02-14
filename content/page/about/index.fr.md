@@ -1,11 +1,13 @@
 ---
 title: A propos
 license: CC BY-NC-ND
-date: '2022-01-23'
-lastmod: '2022-01-23'
+date: 2022-01-23
+lastmod: 2022-01-23
 image: lamachinerie.jpg
 slug: about
-status: Work in progress !
+status: 
+description:
+weight: 
 menu:
     main: 
         weight: -90
