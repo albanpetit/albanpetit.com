@@ -1,14 +1,18 @@
 ---
 title: FabAcademy Student agreement
 license: CC BY-NC-ND
-date: '2023-02-05'
-lastmod: '2023-02-05'
+date: 2023-02-05
+lastmod: 2023-02-05
+image:
 slug: fabacademy-student-agreement
+status:
+description:
+weight:
 ---
 
-**Fab Academy Student Agreement**
+**FabAcademy Student Agreement**
 
-*The Fab Academy is responsible for:*
+*The FabAcademy is responsible for:*
 - Teaching principles and practices of digital fabrication
 - Arranging lectures, recitations, meetings, and events for the class
 - Evaluating and providing feedback on student work
@@ -23,10 +27,10 @@ slug: fabacademy-student-agreement
 - Promoting a respectful environment free of harassment and discrimination
 - Encourage a diverse, accessible, and equitable community
 
-*I am a Fab Academy student, responsible for:*
+*I am a FabAcademy student, responsible for:*
 - Attending class lectures and participating in reviews
 - Developing and documenting projects assigned to introduce and demonstrate skills
-- Allowing the Fab Academy to share my work (with attribution) in the class for purposes compatible with its mission
+- Allowing the FabAcademy to share my work (with attribution) in the class for purposes compatible with its mission
 - Honestly reporting on my work, and appropriately attributing the work of others (both human and machine)
 - Working safely
 - Leaving workspaces in the same (or better) condition than I found them
