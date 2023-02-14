@@ -1,1 +1,3 @@
 # albanpetit.com
+[![github-pages](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/gh-pages.yml)
+[![pages-build-deployment](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/pages/pages-build-deployment)
