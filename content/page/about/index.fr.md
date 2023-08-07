@@ -15,8 +15,6 @@ menu:
             icon: user
 ---
 
-<!-- TODO: Modifier le texte loin d'être parfait -->
-
 Salut ! Je suis Alban Petit, un développeur web français passionné travaillant au sein de La Machinerie, une structure qui héberge un Fablab. J'ai eu la chance de connaître cette organisation depuis 7 ans maintenant, commençant comme bénévole pour finalement devenir responsable d'un pôle dédié à la prestation de services dans divers domaines techniques tels que l'électronique, l'informatique et la fabrication numérique.
 
 Ces expériences professionnelles m'ont révélé une véritable passion pour le développement informatique, l'électronique et le prototypage en général.
@@ -25,13 +23,13 @@ Ces expériences professionnelles m'ont révélé une véritable passion pour le
 - **Assistant FabManager, Association La Machinerie**, 2015 - 2016, Amiens
 
     La Machinerie abrite un Fablab qui s'adresse à divers passionnés tels que les entrepreneurs, les designers, les artistes, les bricoleurs, les étudiants ou encore les hackers. En tant que FabManager, j'étais responsable de la gestion de cet espace.
-- **BTS en alternance, Entreprise Etoele**, 2016 - 2018 Amiens
+- **BTS en alternance, Entreprise Etoele**, 2016 - 2018, Amiens
 
     Chez Etoele, un bureau de recherche qui travaille aussi bien avec les particuliers qu'avec les professionnels et les grandes entreprises, j'ai pu intervenir sur différentes missions, notamment dans le développement embarqué, le prototypage électronique, les sites web et applications sur mesure, l'architecture de services web, le développement IoT, le traitement du signal, la robotique, la numérisation 3D, et la rétroconception de systèmes.
-- **Licence informatique en alternance, Entreprise Etoele**, 2018 - 2019 Amiens
+- **Licence informatique en alternance, Entreprise Etoele**, 2018 - 2019, Amiens
     
     Durant cette période, j'ai poursuivi mes activités en tant que développeur web et embarqué chez Etoele.
-- **Développeur Web & Embarqué, Entreprise Etoele**, 2019 - 2021 Amiens
+- **Développeur Web & Embarqué, Entreprise Etoele**, 2019 - 2021, Amiens
 - **Responsable du pôle manufacture, Association La Machinerie**, 2022 - 2023, Amiens
     
     Actuellement, je suis responsable du pôle manufacture de La Machinerie, où nous aidons les professionnels à développer des prototypes dans des domaines tels que l'électronique, le mobilier, les pièces fonctionnelles et les objets connectés.
