@@ -34,23 +34,23 @@
 &lt;h2 id="mes-experiences">Mes experiences&lt;/h2>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;strong>Assistant FabManager, Association La Machinerie&lt;/strong>, 2015 - 2016, Amiens&lt;/p>
+&lt;p>2015 - 2016, &lt;strong>Assistant FabManager, Association La Machinerie&lt;/strong>, Amiens&lt;/p>
 &lt;p>La Machinerie abrite un Fablab qui s&amp;rsquo;adresse à divers passionnés tels que les entrepreneurs, les designers, les artistes, les bricoleurs, les étudiants ou encore les hackers. En tant que FabManager, j&amp;rsquo;étais responsable de la gestion de cet espace.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>BTS en alternance, Entreprise Etoele&lt;/strong>, 2016 - 2018, Amiens&lt;/p>
+&lt;p>2016 - 2018, &lt;strong>Dévelopeur Web, BTS SIO en alternance, Entreprise Etoele&lt;/strong>, Amiens&lt;/p>
 &lt;p>Chez Etoele, un bureau de recherche qui travaille aussi bien avec les particuliers qu&amp;rsquo;avec les professionnels et les grandes entreprises, j&amp;rsquo;ai pu intervenir sur différentes missions, notamment dans le développement embarqué, le prototypage électronique, les sites web et applications sur mesure, l&amp;rsquo;architecture de services web, le développement IoT, le traitement du signal, la robotique, la numérisation 3D, et la rétroconception de systèmes.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Licence informatique en alternance, Entreprise Etoele&lt;/strong>, 2018 - 2019, Amiens&lt;/p>
+&lt;p>2018 - 2019, &lt;strong>Responsable développement Web, Licence informatique en alternance, Entreprise Etoele&lt;/strong>, Amiens&lt;/p>
 &lt;p>Durant cette période, j&amp;rsquo;ai poursuivi mes activités en tant que développeur web et embarqué chez Etoele.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Développeur Web &amp;amp; Embarqué, Entreprise Etoele&lt;/strong>, 2019 - 2021, Amiens&lt;/p>
+&lt;p>2019 - 2021, &lt;strong>Développeur Web &amp;amp; Embarqué, Entreprise Etoele&lt;/strong>, Amiens&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Responsable du pôle manufacture, Association La Machinerie&lt;/strong>, 2022 - 2023, Amiens&lt;/p>
-&lt;p>Actuellement, je suis responsable du pôle manufacture de La Machinerie, où nous aidons les professionnels à développer des prototypes dans des domaines tels que l&amp;rsquo;électronique, le mobilier, les pièces fonctionnelles et les objets connectés.&lt;/p>
+&lt;p>2022 - 2023, &lt;strong>Responsable du pôle Manufacture, Association La Machinerie&lt;/strong>, Amiens&lt;/p>
+&lt;p>Actuellement, je suis responsable du pôle Manufacture de La Machinerie, où nous aidons les professionnels à développer des prototypes dans des domaines tels que l&amp;rsquo;électronique, le mobilier, les pièces fonctionnelles et les objets connectés.&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="la-machinerie">La Machinerie&lt;/h2>
@@ -80,7 +80,7 @@ data-flex-basis="359px"
 &lt;li>Un incubateur d&amp;rsquo;entreprise&lt;/li>
 &lt;li>Un espace de coworking&lt;/li>
 &lt;li>Un Fablab&lt;/li>
-&lt;li>La Manufacture, un service orienté vers les professionnels désireux de développer des prototypes. (électronique, mobilier, pièce fonctionnelle, objet connecté)&lt;/li>
+&lt;li>Une Manufacture, un service orienté vers les professionnels désireux de développer et de produire des prototypes diverses (électronique, mobilier, pièce fonctionnelle, objet connecté).&lt;/li>
 &lt;/ul>
 &lt;p>Le Fablab, situé en plein cœur d&amp;rsquo;Amiens près de la gare, accueille régulièrement des visiteurs que j&amp;rsquo;assiste lors de sessions libres dans leurs différents projets techniques. De nombreux étudiants amiénois viennent également pour leurs projets d&amp;rsquo;études.&lt;/p>
 &lt;div class="mapouter">
@@ -88,10 +88,11 @@ data-flex-basis="359px"
 &lt;iframe style="width: 100%;" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=1B%20rue%20de%20la%20vall%C3%A9e,%2080000&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">&lt;/iframe>
 &lt;/div>
 &lt;/div>
-&lt;h2 id="fabacademy--projets-personnels">FabAcademy &amp;amp; Projets personnels&lt;/h2>
-&lt;p>En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel. La plupart de &lt;a class="link" href="https://albanpetit.com/assignments/" >mes missions&lt;/a> de la &lt;a class="link" href="https://fabacademy.org" target="_blank" rel="noopener"
+&lt;h2 id="projets-personnels--fabacademy">Projets personnels &amp;amp; FabAcademy&lt;/h2>
+&lt;p>En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel.&lt;/p>
+&lt;p>La plupart de &lt;a class="link" href="https://albanpetit.com/assignments/" >mes missions&lt;/a> de la &lt;a class="link" href="https://fabacademy.org" target="_blank" rel="noopener"
 >FabAcademy&lt;/a> sont également réalisées dans le Fablab de La Machinerie.&lt;/p>
 &lt;h2 id="contact">Contact&lt;/h2>
 &lt;p>N&amp;rsquo;hésitez pas à me contacter par e-mail à &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> ou sur &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
->Twitter&lt;/a> pour toute information, conseil, question ou modification de ce site web.&lt;/p>
+>Twitter&lt;/a> pour toute information, conseil, question ou suggestion de modification de ce site web.&lt;/p>
 &lt;p>Bonne visite ! 😄&lt;/p></description></item><item><title>Archives</title><link>https://albanpetit.com/fr/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/archives/</guid><description/></item><item><title>Recherche</title><link>https://albanpetit.com/fr/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/search/</guid><description/></item></channel></rss>
