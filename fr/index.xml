@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 07 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Principes et pratiques</title><link>https://albanpetit.com/fr/assignments/principles-pratices/</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principes et pratiques" />&lt;p>Après une longue réflexion sur mon projet final de FabAcademy. J&amp;rsquo;en garde deux, un écran splitflap et une machine de placement automatique de composant électronique. Actuellement, je n&amp;rsquo;arrive toujours pas à choisir entre ces deux projets, je ferai donc ce choix plus tard au cours de ma FabAcademy. Voici donc un aperçu de ces idées.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 07 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Principes et pratiques</title><link>https://albanpetit.com/fr/assignments/principles-pratices/</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principes et pratiques" />&lt;p>Après une longue réflexion sur mon projet final de FabAcademy. J&amp;rsquo;en garde deux, un écran &lt;em>Splitflap&lt;/em> et une machine de placement automatique de composant électronique. Actuellement, je n&amp;rsquo;arrive toujours pas à choisir entre ces deux projets, je ferai donc ce choix plus tard au cours de ma FabAcademy. Voici un aperçu de ces idées.&lt;/p>
 &lt;h2 id="affichage-à-écran-splitflap">Affichage à écran Splitflap&lt;/h2>
-&lt;p>Ma première idée est donc de faire un écran Splitflap open source, ou parfois simplement appelé afficheur Flap, c&amp;rsquo;est un dispositif d&amp;rsquo;affichage électromécanique qui présente un texte alphanumérique modifiable et parfois des graphiques fixes.&lt;/p>
+&lt;p>Ma première idée est donc de faire un écran &lt;em>Splitflap&lt;/em> open source, ou parfois simplement appelé afficheur &lt;em>Flap&lt;/em>. C&amp;rsquo;est un dispositif d&amp;rsquo;affichage électromécanique qui présente un texte alphanumérique modifiable et parfois des graphiques fixes.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/assignments/principles-pratices/splitflap-1.jpg"
 width="674"
 height="800"
@@ -20,25 +20,24 @@ class="gallery-image"
 data-flex-grow="189"
 data-flex-basis="455px"
 >&lt;/p>
-&lt;p>Souvent utilisés comme tableau des horaires dans les aéroports ou les gares ferroviaires, ils sont souvent appelés panneaux Solari d&amp;rsquo;après le fabricant italien d&amp;rsquo;affichage &lt;a class="link" href="https://www.solari.it/it/" target="_blank" rel="noopener"
->Solari di Udine&lt;/a>, ou dans les pays d&amp;rsquo;Europe centrale, ils sont appelés Pragotron via le fabricant tchèque.&lt;/p>
-&lt;p>Les écrans Splitflap étaient également autrefois couramment utilisés dans les horloges numériques grand public connues sous le nom d&amp;rsquo;horloges à rabat.&lt;/p>
+&lt;p>Souvent utilisés comme indicateur horaire dans les aéroports ou les gares ferroviaires, ils sont souvent appelés panneaux &lt;em>Solari&lt;/em> d&amp;rsquo;après le fabricant italien d&amp;rsquo;affichage &lt;a class="link" href="https://www.solari.it/it/" target="_blank" rel="noopener"
+>Solari di Udine&lt;/a>, ou dans les pays d&amp;rsquo;Europe centrale, ils sont appelés &lt;em>Pragotron&lt;/em> via le fabricant tchèque.&lt;/p>
+&lt;p>Les écrans &lt;em>Splitflap&lt;/em> étaient également autrefois couramment utilisés dans les horloges numériques grand public connues sous le nom d&amp;rsquo;horloges à rabats.&lt;/p>
 &lt;p>Chaque position de caractère ou position graphique a une collection de volets sur lesquels les caractères ou graphiques sont peints ou sérigraphiés. Ces volets sont tournés avec précision pour afficher le caractère ou le graphique souhaité.&lt;/p>
 &lt;h3 id="concept">Concept&lt;/h3>
-&lt;p>L&amp;rsquo;idée de ce projet est de concevoir un module d&amp;rsquo;affichage Splitflap capable d&amp;rsquo;afficher un caractère. Mais que ce dernier soit connectable en chaine et adressé pour les contrôler individuellement comme pourraient l&amp;rsquo;être des LED adressables par exemple.&lt;/p>
+&lt;p>L&amp;rsquo;idée de ce projet est de concevoir un module d&amp;rsquo;affichage &lt;em>Splitflap&lt;/em> capable d&amp;rsquo;afficher un caractère. Mais que ce dernier soit connectable en chaine et adressé pour les contrôler individuellement comme pourraient l&amp;rsquo;être des LED adressables par exemple.&lt;/p>
 &lt;p>Le module d&amp;rsquo;affichage aurait sa logique interne, avec la possibilité de s&amp;rsquo;initialiser (une sorte de position zéro), de gérer ses niveaux de tension, la rotation en fonction du caractère envoyé dans le bus de données, etc. Les modules doivent être connectables entre eux dans toutes les directions, un système de sélection de l’ordre des modules est nécessaire pour permettre la formation d&amp;rsquo;une matrice de ces derniers.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/assignments/principles-pratices/schema.svg"
 loading="lazy"
 alt="Schéma de fonctionnement des modules"
 >&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;p>Un PCB de contrôle pour l&amp;rsquo;ensemble de la matrice de module est également nécessaire, il supportera une connexion wifi pour pouvoir faire transiter les flux de données depuis internet.&lt;/p>
+&lt;p>Un PCB de contrôle pour l&amp;rsquo;ensemble de la matrice de modules est également nécessaire, il supportera une connexion wifi pour pouvoir faire transiter les flux de données depuis internet.&lt;/p>
 &lt;h3 id="ressources">Ressources&lt;/h3>
 &lt;p>Voici une liste de ressources qui sont proches de ce que j&amp;rsquo;aimerais réaliser avec ce projet, ce sont des points d&amp;rsquo;inspiration potentiels.&lt;/p>
 &lt;h4 id="oat-foundry">Oat Foundry&lt;/h4>
 &lt;p>&lt;img src="https://www.oatfoundry.com/wp-content/uploads/2016/05/Oat-Foundry-logo.png" style="float:left; width:150px; margin-right:20px">
 &lt;a class="link" href="https://www.oatfoundry.com/split-flap/" target="_blank" rel="noopener"
->Oat foundry&lt;/a> fabrique et vend des afficheurs Splitflap personnalisés. Leurs afficheurs sont fabriqués avec le même principe de fonctionnement que les afficheurs Splitflap d&amp;rsquo;origine, mais avec un système de contrôle leur permettant d&amp;rsquo;afficher des flux de données comme la météo, la température, les réseaux sociaux, depuis une interface web.&lt;/p>
+>Oat foundry&lt;/a> fabrique et vend des afficheurs &lt;em>Splitflap&lt;/em> personnalisés. Leurs afficheurs sont fabriqués avec le même principe de fonctionnement que les afficheurs &lt;em>Splitflap&lt;/em> d&amp;rsquo;origine, mais avec un système de contrôle leur permettant d&amp;rsquo;afficher des flux de données comme la météo, la température, les réseaux sociaux, depuis une interface web.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/assignments/principles-pratices/oatfoundry-1.jpg"
 width="1280"
 height="854"
@@ -58,7 +57,7 @@ class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"
 >&lt;/p>
-&lt;p>Voici une courte vidéo de &lt;code>Oat foundry&lt;/code> a propos de leur afficheur Splitflap :&lt;/p>
+&lt;p>Voici une courte vidéo de &lt;code>Oat foundry&lt;/code> a propos de leur afficheur &lt;em>Splitflap&lt;/em> :&lt;/p>
 &lt;div class="video-wrapper">
 &lt;iframe loading="lazy"
 src="https://www.youtube.com/embed/pINtnKBfqLE"
@@ -69,14 +68,14 @@ title="YouTube Video"
 &lt;/div>
 &lt;h4 id="unknown-domain">Unknown Domain&lt;/h4>
 &lt;p>&lt;a class="link" href="http://unknowndomain.co.uk" target="_blank" rel="noopener"
->Unknow Domain&lt;/a> est le blog de Mark Lynch un maker, qui a conçu une solution d&amp;rsquo;affichage Splitflap, les fichiers ne sont pas open source, mais il y décrit les différentes étapes de la conception. Certains choix techniques sont assez intéressants, d&amp;rsquo;autres projets sont également disponibles sur son blog.&lt;/p>
+>Unknow Domain&lt;/a> est le blog de Mark Lynch, un maker qui a conçu une solution d&amp;rsquo;affichage &lt;em>Splitflap&lt;/em>. Les fichiers ne sont pas open source, mais il y décrit les différentes étapes de la conception. Certains choix techniques sont assez intéressants, d&amp;rsquo;autres projets sont également disponibles sur son blog.&lt;/p>
 &lt;p>Voici quelques photos de ses projets :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/assignments/principles-pratices/unknowdomain-1.jpeg"
 width="576"
 height="384"
 srcset="https://albanpetit.com/fr/assignments/principles-pratices/unknowdomain-1_hu8ad4ba0210d027b50dda8fa59b91eaf7_47214_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/fr/assignments/principles-pratices/unknowdomain-1_hu8ad4ba0210d027b50dda8fa59b91eaf7_47214_1024x0_resize_q75_box.jpeg 1024w"
 loading="lazy"
-alt="unknow domain petit afficheur"
+alt="Unknow domain petit afficheur"
 class="gallery-image"
 data-flex-grow="150"
 data-flex-basis="360px"
@@ -85,7 +84,7 @@ width="576"
 height="432"
 srcset="https://albanpetit.com/fr/assignments/principles-pratices/unknowdomain-2_hu310e2a4e0cb48817224074eb43bbfbd1_181442_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/assignments/principles-pratices/unknowdomain-2_hu310e2a4e0cb48817224074eb43bbfbd1_181442_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="unknow domain module"
+alt="Unknow domain module"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
@@ -110,7 +109,7 @@ Et voici la magie de Thingiverse. Thingiverse est un site web dédié au partage
 >Afficheur Splitflap&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pick-and-place">Pick and place&lt;/h2>
-&lt;p>Les Pick-and-Place ou PnP, sont des machines robotisées qui sont utilisées pour placer des composants électroniques &lt;a class="link" href="https://en.wikipedia.org/wiki/Surface-mount_technology" target="_blank" rel="noopener"
+&lt;p>Les Pick and Place ou PnP sont des machines robotisées utilisées pour placer des composants électroniques &lt;a class="link" href="https://en.wikipedia.org/wiki/Surface-mount_technology" target="_blank" rel="noopener"
 >SMT&lt;/a> (montage en surface) sur une carte de circuit imprimé.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/assignments/principles-pratices/pnp-1.jpg"
 width="1920"
@@ -131,7 +130,7 @@ class="gallery-image"
 data-flex-grow="177"
 data-flex-basis="426px"
 >&lt;/p>
-&lt;p>Ils sont utilisés pour le placement à grande vitesse et de haute précision d&amp;rsquo;une large gamme de composants électroniques, tels que des condensateurs, des résistances, des circuits intégrés sur les PCB. Ces circuits sont ensuite utilisés dans la fabrication des ordinateurs, de l&amp;rsquo;électronique, l&amp;rsquo;industrie, le médical, l&amp;rsquo;automobile, l&amp;rsquo;armée et les télécommunications.&lt;/p>
+&lt;p>Ils sont utilisés pour le placement à grande vitesse et de haute précision d&amp;rsquo;une large gamme de composants électroniques, tels que des condensateurs, des résistances, des circuits intégrés sur les PCB. Ces circuits sont ensuite utilisés dans les industries informatique, électronique, médical et automobile.&lt;/p>
 &lt;p>Un équipement similaire existe pour les composants traversants.&lt;/p>
 &lt;h3 id="concept-1">Concept&lt;/h3>
 &lt;p>La description de ce projet sera assez rapide, l&amp;rsquo;idée est de concevoir une petite machine de placement automatique de composants électroniques open source. Plusieurs projets open source existent déjà, mais en général, ces machines sont imposantes.&lt;/p>
@@ -143,7 +142,7 @@ Une communauté de fabricants assez importante propose des solutions matérielle
 &lt;p>Voici une liste de ressources qui se rapprochent de ce que j&amp;rsquo;aimerais réaliser avec ce projet, ce sont des points d&amp;rsquo;inspiration potentiels.&lt;/p>
 &lt;h4 id="lumenpnp">LumenPnp&lt;/h4>
 &lt;p>&lt;a class="link" href="https://opulo.io/products/lumenpnp-kit" target="_blank" rel="noopener"
->LumenPnp&lt;/a> est une machine PnP entièrement open source conçue par Stephen Hawes. Il décrit chaque étape de sa conception sur sa chaîne YouTube. Il vend depuis peu des kits, pour pouvoir monter cette machine qui s&amp;rsquo;appuie sur la solution OpenPnp pour son pilotage.&lt;/p>
+>LumenPnp&lt;/a> est une machine PnP entièrement open source conçue par Stephen Hawes. Il décrit chaque étape de sa conception sur sa chaîne YouTube. Il vend depuis peu des kits, pour monter cette machine qui s&amp;rsquo;appuie sur la solution OpenPnp pour son pilotage.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/assignments/principles-pratices/lumenpnp-1.jpg"
 width="2000"
 height="1500"
@@ -164,7 +163,7 @@ data-flex-grow="151"
 data-flex-basis="363px"
 >&lt;/p>
 &lt;blockquote>
-&lt;p>&lt;strong>Github repository :&lt;/strong> &lt;a class="link" href="https://github.com/index-machines/index" target="_blank" rel="noopener"
+&lt;p>&lt;strong>Depot Github :&lt;/strong> &lt;a class="link" href="https://github.com/index-machines/index" target="_blank" rel="noopener"
 >Index pnp&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;h4 id="liteplacer">LitePlacer&lt;/h4>
@@ -181,7 +180,7 @@ title="YouTube Video"
 &lt;/div>
 &lt;/p>
 &lt;h2 id="checklist-finale-de-la-fabacademy">Checklist finale de la fabacademy&lt;/h2>
-&lt;p>Voici les objectifs de cet assignment de la Fabacademy et la vérification de la bonne réalisation des ces derniers:&lt;/p>
+&lt;p>Voici les objectifs de cet assignment de la Fabacademy et la vérification de la bonne réalisation de ces derniers:&lt;/p>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Décrivez et esquissez votre projet final&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Décrivez ce qu&amp;rsquo;il fera et qui l&amp;rsquo;utilisera&lt;/li>
@@ -227,15 +226,15 @@ Inkscape est un éditeur de graphiques vectoriels gratuit et open source utilis�
 &lt;p>Personnellement j&amp;rsquo;utilise deja Inkscape depuis quelques années pour les découpeuses laser du fablab, le logo de ce &lt;a class="link" href="albanpetit.com" >site&lt;/a> a été fait sur Inkscape. Un logiciel parfait pour entreprendre des modifications sur les fichiers vectoriels pour ensuite passer a la fabrication.&lt;/p></description></item><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/fr/projects/adxl335-accelerometer/</link><pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/projects/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/fr/projects/adxl335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" /></description></item><item><title>Accord étudiant de la FabAcademy</title><link>https://albanpetit.com/fr/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/fabacademy-student-agreement/</guid><description>&lt;p>&lt;strong>Accord étudiant de la FabAcademy&lt;/strong>&lt;/p>
 &lt;p>&lt;em>La FabAcademy est responsable de :&lt;/em>&lt;/p>
 &lt;ul>
-&lt;li>Enseignement des principes et pratiques de la fabrication numérique&lt;/li>
-&lt;li>Organisation de conférences, de récitations, de réunions et d&amp;rsquo;événements pour la classe&lt;/li>
-&lt;li>Évaluation et retour d&amp;rsquo;expérience sur les travaux des étudiants&lt;/li>
+&lt;li>Enseigner des principes et pratiques de la fabrication numérique&lt;/li>
+&lt;li>Organiser de conférences, de récitations, de réunions et d&amp;rsquo;événements pour la classe&lt;/li>
+&lt;li>Évaluer et faire un retour d&amp;rsquo;expérience sur les travaux des étudiants&lt;/li>
 &lt;li>Offrir des normes claires pour mener à bien les missions&lt;/li>
 &lt;li>Certifier et archiver les progrès des étudiants&lt;/li>
 &lt;li>Superviser la préparation des cours&lt;/li>
 &lt;li>Examiner les étudiants potentiels, les instructeurs et les laboratoires&lt;/li>
 &lt;li>Fournir un personnel central et une infrastructure pour les étudiants, les instructeurs et les laboratoires&lt;/li>
-&lt;li>Collecte de fonds pour les frais non couverts par les frais de scolarité des étudiants&lt;/li>
+&lt;li>Collecter des fonds pour les frais non couverts par les frais de scolarité des étudiants&lt;/li>
 &lt;li>Gérer et rendre compte des finances, des résultats et des impacts du programme&lt;/li>
 &lt;li>Faire connaître le programme&lt;/li>
 &lt;li>Promouvoir un environnement respectueux, exempt de harcèlement et de discrimination&lt;/li>
@@ -254,8 +253,8 @@ Inkscape est un éditeur de graphiques vectoriels gratuit et open source utilis�
 &lt;li>Suivre les directives de santé et de sécurité applicables localement&lt;/li>
 &lt;li>Promouvoir un environnement respectueux, exempt de harcèlement et de discrimination&lt;/li>
 &lt;/ul>
-&lt;p>Signé via un commit de ce fichier dans mon repo,
-&lt;strong>Alban Petit&lt;/strong>&lt;/p></description></item><item><title>A propos</title><link>https://albanpetit.com/fr/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/about/</guid><description>&lt;img src="https://albanpetit.com/fr/about/lamachinerie.jpg" alt="Featured image of post A propos" />&lt;p>Salut ! Je suis Alban Petit, un développeur web français passionné travaillant au sein de La Machinerie, une structure qui héberge un Fablab. J&amp;rsquo;ai eu la chance de connaître cette organisation depuis 7 ans maintenant, commençant comme bénévole pour finalement devenir responsable d&amp;rsquo;un pôle dédié à la prestation de services dans divers domaines techniques tels que l&amp;rsquo;électronique, l&amp;rsquo;informatique et la fabrication numérique.&lt;/p>
+&lt;p>Signé via un commit de ce fichier dans mon depot,&lt;/p>
+&lt;p>&lt;strong>Alban Petit&lt;/strong>&lt;/p></description></item><item><title>A propos</title><link>https://albanpetit.com/fr/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/about/</guid><description>&lt;img src="https://albanpetit.com/fr/about/lamachinerie.jpg" alt="Featured image of post A propos" />&lt;p>Salut ! Je suis Alban Petit, un développeur web français passionné travaillant au sein de La Machinerie, une structure qui héberge un Fablab. J&amp;rsquo;ai eu la chance de connaître cette organisation depuis 7 ans maintenant, commençant comme bénévole pour finalement devenir responsable d&amp;rsquo;un pôle dédié à la prestation de services dans divers domaines techniques tels que l&amp;rsquo;électronique, l&amp;rsquo;informatique et la fabrication numérique.&lt;/p>
 &lt;p>Ces expériences professionnelles m&amp;rsquo;ont révélé une véritable passion pour le développement informatique, l&amp;rsquo;électronique et le prototypage en général.&lt;/p>
 &lt;h2 id="mes-experiences">Mes experiences&lt;/h2>
 &lt;ul>
