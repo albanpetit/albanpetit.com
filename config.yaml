@@ -24,7 +24,6 @@ permalinks:
     page: /:slug/
     project: /projects/:slug/
     post: /posts/:slug
-    fabacademy-assignment: /fabacademy-assignments/:slug/
 
 params:
     mainSections:
