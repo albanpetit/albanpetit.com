@@ -22,12 +22,13 @@ googleAnalytics: G-ZXXQQEG3J8
 
 permalinks:
     page: /:slug/
-    post: /projects/:slug/
+    project: /projects/:slug/
+    post: /posts/:slug
     fabacademy-assignment: /fabacademy-assignments/:slug/
 
 params:
     mainSections:
-        - post
+        - project
     featuredImageField: image
     rssFullContent: true
     favicon:
