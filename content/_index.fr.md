@@ -4,6 +4,5 @@ menu:
     name: Projets
     weight: -100
     params:
-      icon: home
+      icon: book-2
 ---
-
