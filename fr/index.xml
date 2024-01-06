@@ -387,7 +387,22 @@ Dans ce même fichier il faut ajouter les lignes de configuration suivantes just
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface default inet dhcp
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Un redémarrage du Raspberry permet de vérifier le bon fonctionnement de la configuration :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/fr/posts/adxl335-accelerometer/</link><pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/adxl335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" /></description></item><item><title>Accord étudiant de la FabAcademy</title><link>https://albanpetit.com/fr/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/fabacademy-student-agreement/</guid><description>&lt;p>&lt;strong>Accord étudiant de la FabAcademy&lt;/strong>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/fr/projects/adxl335-accelerometer/</link><pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/projects/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/fr/projects/adxl335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Pour cette premiere publication on va commencer par un projet simple, une toute petite carte électronique supportant un accéléromètre trois axes.
+Elle permet une alimentation en 5 volts et fournie trois sorties analogiques pour les informations des trois axes via des connecteurs JST PH. En finissant par une led d&amp;rsquo;alimentation pour faciliter l&amp;rsquo;utilisation et le debug des circuits l&amp;rsquo;utilisant.&lt;/p>
+&lt;p>Avec cette carte je veux apprehender ces composants particulier, les accéléromètres MEMS. Ils sont au coeur de tous nos appareils actuels et peuvent presenter un gros intérêt dans mes futurs développements en robotique.&lt;/p>
+&lt;h3 id="microsystème-électromécanique">Microsystème électromécanique&lt;/h3>
+&lt;img src="https://albanpetit.com/projects/adxl335-accelerometer/mems.jpg" style="float:left; width:200px; margin-right:10px">
+&lt;p>Un microsystème électromécanique est un microsystème fabriqué à partir de matériaux semi-conducteurs. Il comprend un ou plusieurs éléments mécaniques et utilise l’électricité comme source d’énergie, en vue de réaliser une fonction de capteur ou d’actionneur, avec au moins une structure présentant des dimensions micrométriques ; la fonction du système étant en partie assurée par la forme de cette structure. Le terme, systèmes microélectromécaniques, est la version française de l’acronyme anglais MEMS (Microelectromechanical systems).&lt;/p>
+&lt;h2 id="composants">Composants&lt;/h2>
+&lt;div style="display: flex;">
+&lt;object data="/projects/adxl335-accelerometer/datasheet-adxl-335.pdf" type="application/pdf" width="50%" style="aspect-ratio: 1 / 1.3;">
+&lt;p>Unable to display PDF file. &lt;a href="https://albanpetit.com/projects/adxl335-accelerometer/datasheet-adxl-335.pdf">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+&lt;object data="/projects/adxl335-accelerometer/datasheet-adxl-335.pdf" type="application/pdf" width="50%" style="aspect-ratio: 1 / 1.3;">
+&lt;p>Unable to display PDF file. &lt;a href="https://albanpetit.com/projects/adxl335-accelerometer/datasheet-adxl-335.pdf">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+&lt;/div></description></item><item><title>Accord étudiant de la FabAcademy</title><link>https://albanpetit.com/fr/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/fabacademy-student-agreement/</guid><description>&lt;p>&lt;strong>Accord étudiant de la FabAcademy&lt;/strong>&lt;/p>
 &lt;p>&lt;em>La FabAcademy est responsable de :&lt;/em>&lt;/p>
 &lt;ul>
 &lt;li>Enseigner des principes et pratiques de la fabrication numérique&lt;/li>
