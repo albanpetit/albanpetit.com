@@ -189,7 +189,7 @@ title="YouTube Video"
 >https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/&lt;/a>, but also on my personal domain name : &lt;a class="link" href="https://albanpetit.com" target="_blank" rel="noopener"
 >https://albanpetit.com&lt;/a>.&lt;/p>
 &lt;p>Finally this is my second year of fabacademy, not having been able to validate the first, I preferred for this assignment to change SSG, so there is documentation for Docusaurus and for Hugo.&lt;/p>
-&lt;p>Enjoy 😄&lt;/p>
+&lt;p>Enjoy &amp;#x1f604;&lt;/p>
 &lt;h2 id="git">Git&lt;/h2>
 &lt;p>&lt;img src="git.png" style="float:left; width:150px; margin-right:20px">
 Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository : Github, Gitlab, Bitbucket&amp;hellip;&lt;/p>
@@ -297,7 +297,7 @@ If you have a ssh key configured, with the gitlab of the fabacademy :
 &lt;h4 id="git-commit">Git commit&lt;/h4>
 &lt;p>&lt;code>git commit&lt;/code> updates the index using the current content found in the working tree, to prepare the content staged for the next commit.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;message&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can replace &amp;ldquo;message&amp;rdquo; with your commit message. For example: &amp;ldquo;🎉 initial commit&amp;rdquo;.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can replace &amp;ldquo;message&amp;rdquo; with your commit message. For example: &amp;ldquo;&amp;#x1f389; initial commit&amp;rdquo;.
 A second &lt;code>-m&lt;/code> parameter allow you to add a second message to the commit, the first one must be short, but the second allows to go further in the explanations concerning the modifications made with this commit, see below :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;message&amp;#34;&lt;/span> -m &lt;span class="s2">&amp;#34;full description about the modifications&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="git-push">Git push&lt;/h4>
@@ -404,7 +404,7 @@ This procedure is described in the yaml file: &lt;code>.gitlab-ci.yml&lt;/code>.
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">master&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now let&amp;rsquo;s push the modification to the repository :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add -A
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;👷‍♂️ init gitlab pages&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/project-management/gitlab-success.png"
@@ -507,7 +507,7 @@ data-flex-basis="406px"
 &lt;/blockquote>
 &lt;p>Time to push the modifications to the repository :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add -A
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;👷‍♂️ init gitlab pages&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/project-management/github-success.png"

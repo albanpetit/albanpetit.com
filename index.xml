@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 07 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Principles and practices</title><link>https://albanpetit.com/assignments/principles-pratices/</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principles and practices" />&lt;p>After a long reflection on my final FabAcademy project. I keep two, a split-flap display and a pick and place. I still can&amp;rsquo;t choose between these two projects, I will make the choice later during my FabAcademy. So here&amp;rsquo;s a quick rundown of those ideas.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Principles and practices</title><link>https://albanpetit.com/assignments/principles-pratices/</link><pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/assignments/principles-pratices/</guid><description>&lt;img src="https://blog.arduino.cc/wp-content/uploads/2018/08/F2AF455JKIKCY2N.LARGE_-1024x761.jpg" alt="Featured image of post Principles and practices" />&lt;p>After a long reflection on my final FabAcademy project. I keep two, a split-flap display and a pick and place. I still can&amp;rsquo;t choose between these two projects, I will make the choice later during my FabAcademy. So here&amp;rsquo;s a quick rundown of those ideas.&lt;/p>
 &lt;h2 id="split-flap-display">Split flap display&lt;/h2>
 &lt;p>So my first idea is to make an open source split-flap display, or sometimes simply a flap display, is a digital electromechanical display device that presents changeable alphanumeric text, and occasionally fixed graphics.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/principles-pratices/splitflap-1.jpg"
@@ -189,7 +189,7 @@ title="YouTube Video"
 >https://fabacademy.org/2020/labs/lamachinerie/students/alban-petit/&lt;/a>, but also on my personal domain name : &lt;a class="link" href="https://albanpetit.com" target="_blank" rel="noopener"
 >https://albanpetit.com&lt;/a>.&lt;/p>
 &lt;p>Finally this is my second year of fabacademy, not having been able to validate the first, I preferred for this assignment to change SSG, so there is documentation for Docusaurus and for Hugo.&lt;/p>
-&lt;p>Enjoy 😄&lt;/p>
+&lt;p>Enjoy &amp;#x1f604;&lt;/p>
 &lt;h2 id="git">Git&lt;/h2>
 &lt;p>&lt;img src="git.png" style="float:left; width:150px; margin-right:20px">
 Git is a version control system, widely adopted in the software development and opensource community. Multiple web platform provide free or lowcost solution to host repository : Github, Gitlab, Bitbucket&amp;hellip;&lt;/p>
@@ -297,7 +297,7 @@ If you have a ssh key configured, with the gitlab of the fabacademy :
 &lt;h4 id="git-commit">Git commit&lt;/h4>
 &lt;p>&lt;code>git commit&lt;/code> updates the index using the current content found in the working tree, to prepare the content staged for the next commit.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;message&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can replace &amp;ldquo;message&amp;rdquo; with your commit message. For example: &amp;ldquo;🎉 initial commit&amp;rdquo;.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can replace &amp;ldquo;message&amp;rdquo; with your commit message. For example: &amp;ldquo;&amp;#x1f389; initial commit&amp;rdquo;.
 A second &lt;code>-m&lt;/code> parameter allow you to add a second message to the commit, the first one must be short, but the second allows to go further in the explanations concerning the modifications made with this commit, see below :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;message&amp;#34;&lt;/span> -m &lt;span class="s2">&amp;#34;full description about the modifications&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="git-push">Git push&lt;/h4>
@@ -404,7 +404,7 @@ This procedure is described in the yaml file: &lt;code>.gitlab-ci.yml&lt;/code>.
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">master&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now let&amp;rsquo;s push the modification to the repository :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add -A
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;👷‍♂️ init gitlab pages&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And just watch gitlab do the work for us :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/project-management/gitlab-success.png"
@@ -507,7 +507,7 @@ data-flex-basis="406px"
 &lt;/blockquote>
 &lt;p>Time to push the modifications to the repository :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add -A
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;👷‍♂️ init gitlab pages&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;:construction_worker: init gitlab pages&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin master
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>And finally :&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/assignments/project-management/github-success.png"
@@ -531,7 +531,7 @@ data-flex-basis="538px"
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Document our work using git&lt;/li>
-&lt;/ul></description></item><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/projects/adxl335-accelerometer/</link><pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/projects/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/projects/adxl335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" /></description></item><item><title>FabAcademy Student agreement</title><link>https://albanpetit.com/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fabacademy-student-agreement/</guid><description>&lt;p>&lt;strong>FabAcademy Student Agreement&lt;/strong>&lt;/p>
+&lt;/ul></description></item><item><title>Raspberry wifi configuration</title><link>https://albanpetit.com/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Raspberry wifi configuration" /></description></item><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl335-accelerometer/</link><pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" /></description></item><item><title>FabAcademy Student agreement</title><link>https://albanpetit.com/fabacademy-student-agreement/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fabacademy-student-agreement/</guid><description>&lt;p>&lt;strong>FabAcademy Student Agreement&lt;/strong>&lt;/p>
 &lt;p>&lt;em>The FabAcademy is responsible for:&lt;/em>&lt;/p>
 &lt;ul>
 &lt;li>Teaching principles and practices of digital fabrication&lt;/li>
@@ -626,4 +626,4 @@ data-flex-basis="359px"
 &lt;h2 id="contact">Contact&lt;/h2>
 &lt;p>Please feel free to contact me via email at &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> or on &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
 >Twitter&lt;/a> for any information, advice, questions, or modifications regarding this website.&lt;/p>
-&lt;p>Enjoy your visit ! 😄&lt;/p></description></item><item><title>Archives</title><link>https://albanpetit.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/archives/</guid><description/></item><item><title>Search</title><link>https://albanpetit.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/search/</guid><description/></item></channel></rss>
+&lt;p>Enjoy your visit ! &amp;#x1f604;&lt;/p></description></item><item><title>Archives</title><link>https://albanpetit.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/archives/</guid><description/></item><item><title>Search</title><link>https://albanpetit.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/search/</guid><description/></item></channel></rss>
