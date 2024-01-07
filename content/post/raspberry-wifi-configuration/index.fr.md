@@ -11,25 +11,25 @@ slug: /raspberry-wifi-config
 status: Done
 ---
 
-Dans plusieurs de mes projets du moment (professionnels et personnels), j'utilise des Raspberry, et je passe mon temps à oublier comment effectuer la configuration wifi de ces derniers. Deux grandes options sont possibles : la configuration avant et après le premier démarrage. C'est généralement une étape importante, surtout avec l'utilisation de **Raspbian Lite**, qui ne dispose pas d'interface graphique et nécessite une connexion **SSH** pour son utilisation.
+Dans plusieurs de mes projets du moment (professionnels et personnels), j’utilise des Raspberry, mais je passe mon temps à oublier comment effectuer la configuration wifi de ces derniers. Deux grandes options sont possibles : la configuration avant ou après le premier démarrage. C’est généralement une étape importante, surtout avec l’utilisation de **Raspbian Lite**, qui ne dispose pas d’interface graphique et nécessite une connexion **SSH** pour son utilisation.
 
 ## Raspberry Pi Imager
 
-Cette partie concerne donc la configuration du **Wifi** et du **SSH** avant même le premier lancement du Raspberry. Grâce à la [Raspberry Pi Foundation](https://www.raspberrypi.org), il n'est même plus nécessaire d'avoir un clavier et un écran pour cela. Ils nous fournissent un utilitaire disponible sur toutes les plateformes : Windows, Apple, Linux, qui permet de produire des cartes SD fonctionnelles avec de multiples systèmes d'exploitation. En plus de graver pour nous les images des systèmes d'exploitation, cet utilitaire permet même la configuration des éléments les plus importants pour la mise en place d'un **Raspberry**.
+Cette partie concerne donc la configuration du **Wifi** et du **SSH** avant même le premier lancement du Raspberry. Grâce à la [Raspberry Pi Foundation](https://www.raspberrypi.org), il n’est même plus nécessaire d’avoir un clavier et un écran pour cela. Ils nous fournissent un utilitaire disponible sur toutes les plateformes, Windows, Apple et Linux, qui permet de produire des cartes SD fonctionnelles avec de multiples systèmes d’exploitation. En plus de graver pour nous les images des systèmes d’exploitation, cet utilitaire permet même la configuration des éléments les plus importants pour la mise en place d’un **Raspberry**.
 
 ![Raspberry Pi Imager](raspberry-pi-imager-1.png)
 
-Cet utilitaire est disponible en téléchargement directement sur la page des logiciels du site **Raspberry** : [Raspberry Software](https://www.raspberrypi.com/software/). Il suffit de sélectionner le système d'exploitation que vous voulez utiliser et votre périphérique de stockage (carte SD ou USB), puis d'appuyer sur **WRITE** pour lancer l'écriture de l'image sur le périphérique.
+Cet utilitaire est disponible en téléchargement directement sur la page des logiciels du site **Raspberry** : [Raspberry Software](https://www.raspberrypi.com/software/). Il suffit de sélectionner le système d’exploitation que vous voulez utiliser et votre périphérique de stockage (carte SD ou USB), puis d’appuyer sur **WRITE** pour lancer l’écriture de l’image sur le périphérique.
 
 ### Options avancées
 
-En bas à droite de l'interface, un bouton en forme d'engrenage permet d'accéder aux fonctions avancées de cet utilitaire, au sein de ces fonctions nous pouvons configurer le **SSH**, le nom du **Raspberry** sur le réseau mais aussi les informations nécessaires pour qu'il puisse se connecter sur le réseau **Wifi** :
+En bas à droite de l’interface, un bouton en forme d’engrenage permet d’accéder aux fonctions avancées de cet utilitaire, au sein de ces fonctions nous pouvons configurer le **SSH**, le nom du **Raspberry** sur le réseau mais aussi les informations nécessaires pour qu’il puisse se connecter sur le réseau **Wifi** :
 
 ![Raspberry Pi Imager options avancées](raspberry-pi-imager-2.png)
 
-Il s'agira de remplir : le **SSID**, le mot de passe du réseau, et la localisation du routeur émettant le Wifi. Lors de son premier démarrage et pour tous les suivants le Raspberry qui accueillera cette carte SD pourra donc se connecter au Wifi via les informations saisies durant la gravure de cette image.
+Il s'agira de remplir : le **SSID**, le mot de passe du réseau, et la localisation du routeur émettant le Wifi. Lors de son premier démarrage et pour tous les suivants le **Raspberry** qui accueille cette carte SD pourra donc se connecter au Wifi via les informations saisies durant la gravure de cette image.
 
-> Le **SSID**, sigle de l'anglais : service set identifier (« identifiant défini de service »), est le nom d'un réseau sans fil selon la norme IEEE 802.11. Ce nom est constitué par une chaîne de caractères de 0 à 32 octets.
+> Le **SSID**, sigle de l'anglais : *service set identifier* (« identifiant défini de service »), est le nom d'un réseau sans fil selon la norme IEEE 802.11. Ce nom est constitué par une chaîne de caractères de 0 à 32 octets.
 
 ## Configuration en ligne de commande
 
@@ -37,7 +37,7 @@ L'application **Raspberry pi imager** permet de configurer le wifi avant même l
 
 ### Configuration manuelle
 
-D'abord il est nécessaire de configurer les interfaces réseaux, pour cela, l'utilitaire d'édition de fichier texte par défaut de **Raspbian**, **nano** nous aidera :
+Il est d'abord nécessaire de configurer les interfaces réseaux, pour cela, l’utilitaire d’édition de fichier texte par défaut de **Raspbian**, **nano** nous aidera :
 ```bash
 sudo nano /etc/network/interfaces
 ```
@@ -80,7 +80,7 @@ Pour vérifier la connexion après un redémarrage, un simple `ping` fera l'affa
 ping google.com
 ```
 
-Voilà le genre de réponse attendue :
+Voici le genre de réponse attendue :
 
 ![Ping google](ping-google.png)
 
@@ -96,7 +96,7 @@ Voici l'interface qui s'ouvre à nous, elle permet la configuration de beaucoup 
 ![raspi-config menu 1](raspi-config-1.png)
 ![raspi-config menu 2](raspi-config-2.png)
 
-Raspi-config demandera ensuite de configurer le pays dans lequel le raspberry sera utilisé :
+Raspi-config demande de configurer le pays dans lequel le raspberry sera utilisé :
 
 ![raspi-config menu 3](raspi-config-3.png)
 ![raspi-config menu 4](raspi-config-4.png)
@@ -106,19 +106,17 @@ L'utilitaire demandera ensuite le **SSID** et le **mot de passe** du réseau.
 ![raspi-config SSID](raspi-config-5.png)
 ![raspi-config mot de passe](raspi-config-6.png)
 
-Il ne reste ensuite plus qu'à quitter l'outil pour appliquer la configuration. Le Raspberry se connectera automatiquement à chaque redémarrage.
+Il suffit maintenant de quitter l'outil pour appliquer la configuration. Le Raspberry se connectera automatiquement à chaque redémarrage.
 
 ### Une IP statique ?
 
-L'objectif de ce genre de configuration est généralement
-
- d'utiliser le **Raspberry** sans clavier ni souris, donc avec une connexion **SSH**. Il est donc intéressant de s'assurer que ce dernier ne va pas changer d'adresse **IP**.
+L'objectif de ce genre de configuration est généralement d'utiliser le **Raspberry** sans clavier, ni souris : avec une connexion **SSH**. Il est donc intéressant de s'assurer que ce dernier ne va pas changer d'adresse **IP**.
 
 La configuration de l'interface a encore lieu dans **/etc/network/interfaces**:
 ```bash
 sudo nano /etc/network/interfaces
 ```
-Il faut y changer la ligne `iface wlan0 inet dhcp` en `iface wlan0 inet static`, cela va permettre de changer l'interface `wlan0` de DHCP à static.
+Il faut y changer la ligne `iface wlan0 inet dhcp` en `iface wlan0 inet static`, cela va permettre de faire evoluer l'interface `wlan0` de DHCP à static.
 Dans ce même fichier il faut ajouter les lignes de configuration suivantes juste avant `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf`:
 ```bash
 address 192.168.1.155 # IP statique souhaitée
