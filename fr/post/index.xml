@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Articles on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Tue, 26 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuration du Wifi sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Configuration du Wifi sur un Raspberry" />&lt;p>Dans plusieurs de mes projets du moment (professionnels et personnels), j&amp;rsquo;utilise des Raspberry, et je passe mon temps à oublier comment effectuer la configuration wifi de ces derniers. Deux grandes options sont possibles : la configuration avant et après le premier démarrage. C&amp;rsquo;est généralement une étape importante, surtout avec l&amp;rsquo;utilisation de &lt;strong>Raspbian Lite&lt;/strong>, qui ne dispose pas d&amp;rsquo;interface graphique et nécessite une connexion &lt;strong>SSH&lt;/strong> pour son utilisation.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Articles on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Tue, 26 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuration du Wifi sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Configuration du Wifi sur un Raspberry" />&lt;p>Dans plusieurs de mes projets du moment (professionnels et personnels), j’utilise des Raspberry, mais je passe mon temps à oublier comment effectuer la configuration wifi de ces derniers. Deux grandes options sont possibles : la configuration avant ou après le premier démarrage. C’est généralement une étape importante, surtout avec l’utilisation de &lt;strong>Raspbian Lite&lt;/strong>, qui ne dispose pas d’interface graphique et nécessite une connexion &lt;strong>SSH&lt;/strong> pour son utilisation.&lt;/p>
 &lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager&lt;/h2>
 &lt;p>Cette partie concerne donc la configuration du &lt;strong>Wifi&lt;/strong> et du &lt;strong>SSH&lt;/strong> avant même le premier lancement du Raspberry. Grâce à la &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
->Raspberry Pi Foundation&lt;/a>, il n&amp;rsquo;est même plus nécessaire d&amp;rsquo;avoir un clavier et un écran pour cela. Ils nous fournissent un utilitaire disponible sur toutes les plateformes : Windows, Apple, Linux, qui permet de produire des cartes SD fonctionnelles avec de multiples systèmes d&amp;rsquo;exploitation. En plus de graver pour nous les images des systèmes d&amp;rsquo;exploitation, cet utilitaire permet même la configuration des éléments les plus importants pour la mise en place d&amp;rsquo;un &lt;strong>Raspberry&lt;/strong>.&lt;/p>
+>Raspberry Pi Foundation&lt;/a>, il n’est même plus nécessaire d’avoir un clavier et un écran pour cela. Ils nous fournissent un utilitaire disponible sur toutes les plateformes, Windows, Apple et Linux, qui permet de produire des cartes SD fonctionnelles avec de multiples systèmes d’exploitation. En plus de graver pour nous les images des systèmes d’exploitation, cet utilitaire permet même la configuration des éléments les plus importants pour la mise en place d’un &lt;strong>Raspberry&lt;/strong>.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-1.png"
 width="1064"
 height="745"
@@ -13,9 +13,9 @@ data-flex-grow="142"
 data-flex-basis="342px"
 >&lt;/p>
 &lt;p>Cet utilitaire est disponible en téléchargement directement sur la page des logiciels du site &lt;strong>Raspberry&lt;/strong> : &lt;a class="link" href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener"
->Raspberry Software&lt;/a>. Il suffit de sélectionner le système d&amp;rsquo;exploitation que vous voulez utiliser et votre périphérique de stockage (carte SD ou USB), puis d&amp;rsquo;appuyer sur &lt;strong>WRITE&lt;/strong> pour lancer l&amp;rsquo;écriture de l&amp;rsquo;image sur le périphérique.&lt;/p>
+>Raspberry Software&lt;/a>. Il suffit de sélectionner le système d’exploitation que vous voulez utiliser et votre périphérique de stockage (carte SD ou USB), puis d’appuyer sur &lt;strong>WRITE&lt;/strong> pour lancer l’écriture de l’image sur le périphérique.&lt;/p>
 &lt;h3 id="options-avancées">Options avancées&lt;/h3>
-&lt;p>En bas à droite de l&amp;rsquo;interface, un bouton en forme d&amp;rsquo;engrenage permet d&amp;rsquo;accéder aux fonctions avancées de cet utilitaire, au sein de ces fonctions nous pouvons configurer le &lt;strong>SSH&lt;/strong>, le nom du &lt;strong>Raspberry&lt;/strong> sur le réseau mais aussi les informations nécessaires pour qu&amp;rsquo;il puisse se connecter sur le réseau &lt;strong>Wifi&lt;/strong> :&lt;/p>
+&lt;p>En bas à droite de l’interface, un bouton en forme d’engrenage permet d’accéder aux fonctions avancées de cet utilitaire, au sein de ces fonctions nous pouvons configurer le &lt;strong>SSH&lt;/strong>, le nom du &lt;strong>Raspberry&lt;/strong> sur le réseau mais aussi les informations nécessaires pour qu’il puisse se connecter sur le réseau &lt;strong>Wifi&lt;/strong> :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-2.png"
 width="1108"
 height="789"
@@ -26,14 +26,14 @@ class="gallery-image"
 data-flex-grow="140"
 data-flex-basis="337px"
 >&lt;/p>
-&lt;p>Il s&amp;rsquo;agira de remplir : le &lt;strong>SSID&lt;/strong>, le mot de passe du réseau, et la localisation du routeur émettant le Wifi. Lors de son premier démarrage et pour tous les suivants le Raspberry qui accueillera cette carte SD pourra donc se connecter au Wifi via les informations saisies durant la gravure de cette image.&lt;/p>
+&lt;p>Il s&amp;rsquo;agira de remplir : le &lt;strong>SSID&lt;/strong>, le mot de passe du réseau, et la localisation du routeur émettant le Wifi. Lors de son premier démarrage et pour tous les suivants le &lt;strong>Raspberry&lt;/strong> qui accueille cette carte SD pourra donc se connecter au Wifi via les informations saisies durant la gravure de cette image.&lt;/p>
 &lt;blockquote>
-&lt;p>Le &lt;strong>SSID&lt;/strong>, sigle de l&amp;rsquo;anglais : service set identifier (« identifiant défini de service »), est le nom d&amp;rsquo;un réseau sans fil selon la norme IEEE 802.11. Ce nom est constitué par une chaîne de caractères de 0 à 32 octets.&lt;/p>
+&lt;p>Le &lt;strong>SSID&lt;/strong>, sigle de l&amp;rsquo;anglais : &lt;em>service set identifier&lt;/em> (« identifiant défini de service »), est le nom d&amp;rsquo;un réseau sans fil selon la norme IEEE 802.11. Ce nom est constitué par une chaîne de caractères de 0 à 32 octets.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="configuration-en-ligne-de-commande">Configuration en ligne de commande&lt;/h2>
 &lt;p>L&amp;rsquo;application &lt;strong>Raspberry pi imager&lt;/strong> permet de configurer le wifi avant même le premier démarrage du Raspberry, mais parfois cette configuration doit être faite après le démarrage, dans ce cas là plusieurs possibilités s&amp;rsquo;offrent à nous, une configuration entièrement manuelle en ligne de commande ou alors l&amp;rsquo;utilitaire : &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
 &lt;h3 id="configuration-manuelle">Configuration manuelle&lt;/h3>
-&lt;p>D&amp;rsquo;abord il est nécessaire de configurer les interfaces réseaux, pour cela, l&amp;rsquo;utilitaire d&amp;rsquo;édition de fichier texte par défaut de &lt;strong>Raspbian&lt;/strong>, &lt;strong>nano&lt;/strong> nous aidera :&lt;/p>
+&lt;p>Il est d&amp;rsquo;abord nécessaire de configurer les interfaces réseaux, pour cela, l’utilitaire d’édition de fichier texte par défaut de &lt;strong>Raspbian&lt;/strong>, &lt;strong>nano&lt;/strong> nous aidera :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/network/interfaces
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ce fichier liste toutes les interfaces réseaux existantes, il ne sera donc probablement pas vide. Il faut ajouter une ligne en haut du fichier :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">auto wlan0
@@ -58,7 +58,7 @@ data-flex-basis="337px"
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour vérifier la connexion après un redémarrage, un simple &lt;code>ping&lt;/code> fera l&amp;rsquo;affaire :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ping google.com
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Voilà le genre de réponse attendue :&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Voici le genre de réponse attendue :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/ping-google.png"
 width="885"
 height="497"
@@ -93,7 +93,7 @@ class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
-&lt;p>Raspi-config demandera ensuite de configurer le pays dans lequel le raspberry sera utilisé :&lt;/p>
+&lt;p>Raspi-config demande de configurer le pays dans lequel le raspberry sera utilisé :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-3.png"
 width="857"
 height="595"
@@ -135,13 +135,12 @@ class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
-&lt;p>Il ne reste ensuite plus qu&amp;rsquo;à quitter l&amp;rsquo;outil pour appliquer la configuration. Le Raspberry se connectera automatiquement à chaque redémarrage.&lt;/p>
+&lt;p>Il suffit maintenant de quitter l&amp;rsquo;outil pour appliquer la configuration. Le Raspberry se connectera automatiquement à chaque redémarrage.&lt;/p>
 &lt;h3 id="une-ip-statique-">Une IP statique ?&lt;/h3>
-&lt;p>L&amp;rsquo;objectif de ce genre de configuration est généralement&lt;/p>
-&lt;p>d&amp;rsquo;utiliser le &lt;strong>Raspberry&lt;/strong> sans clavier ni souris, donc avec une connexion &lt;strong>SSH&lt;/strong>. Il est donc intéressant de s&amp;rsquo;assurer que ce dernier ne va pas changer d&amp;rsquo;adresse &lt;strong>IP&lt;/strong>.&lt;/p>
+&lt;p>L&amp;rsquo;objectif de ce genre de configuration est généralement d&amp;rsquo;utiliser le &lt;strong>Raspberry&lt;/strong> sans clavier, ni souris : avec une connexion &lt;strong>SSH&lt;/strong>. Il est donc intéressant de s&amp;rsquo;assurer que ce dernier ne va pas changer d&amp;rsquo;adresse &lt;strong>IP&lt;/strong>.&lt;/p>
 &lt;p>La configuration de l&amp;rsquo;interface a encore lieu dans &lt;strong>/etc/network/interfaces&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/network/interfaces
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il faut y changer la ligne &lt;code>iface wlan0 inet dhcp&lt;/code> en &lt;code>iface wlan0 inet static&lt;/code>, cela va permettre de changer l&amp;rsquo;interface &lt;code>wlan0&lt;/code> de DHCP à static.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il faut y changer la ligne &lt;code>iface wlan0 inet dhcp&lt;/code> en &lt;code>iface wlan0 inet static&lt;/code>, cela va permettre de faire evoluer l&amp;rsquo;interface &lt;code>wlan0&lt;/code> de DHCP à static.
 Dans ce même fichier il faut ajouter les lignes de configuration suivantes juste avant &lt;code>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">address 192.168.1.155 &lt;span class="c1"># IP statique souhaitée&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">netmask 255.255.255.0
