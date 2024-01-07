@@ -1,1 +1,163 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog posts on Alban Petit</title><link>https://albanpetit.com/post/</link><description>Recent content in Blog posts on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Raspberry wifi configuration</title><link>https://albanpetit.com/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Raspberry wifi configuration" /></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog posts on Alban Petit</title><link>https://albanpetit.com/post/</link><description>Recent content in Blog posts on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 26 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Raspberry wifi configuration</title><link>https://albanpetit.com/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Raspberry wifi configuration" />&lt;p>In several of my current projects (both professional and personal), I use Raspberry Pis, but I often find myself forgetting how to configure their Wi-Fi settings. Two main options are available: configuring before or after the initial startup. This is usually a crucial step, especially when using &lt;strong>Raspbian Lite&lt;/strong>, which lacks a graphical interface and requires an &lt;strong>SSH&lt;/strong> connection for usage.&lt;/p>
+&lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager&lt;/h2>
+&lt;p>This section focuses on configuring &lt;strong>Wi-Fi&lt;/strong> and &lt;strong>SSH&lt;/strong> even before the first Raspberry startup. Thanks to the &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
+>Raspberry Pi Foundation&lt;/a>, there&amp;rsquo;s no longer a need for a keyboard and screen. They provide a utility available on all platforms—Windows, Apple, and Linux—that enables the creation of functional SD cards with multiple operating systems. Besides writing OS images, this utility even allows the configuration of essential elements for setting up a &lt;strong>Raspberry Pi&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1.png"
+width="1064"
+height="745"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu545a8556e294b95fc5055bc87c5bbd7c_117478_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu545a8556e294b95fc5055bc87c5bbd7c_117478_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Raspberry Pi Imager"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="342px"
+>&lt;/p>
+&lt;p>You can download this utility directly from the &lt;strong>Raspberry Pi&lt;/strong> software page: &lt;a class="link" href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener"
+>Raspberry Software&lt;/a>. Simply select the operating system you want to use and your storage device (SD card or USB), then press &lt;strong>WRITE&lt;/strong> to start writing the image to the device.&lt;/p>
+&lt;h3 id="advanced-options">Advanced Options&lt;/h3>
+&lt;p>At the bottom right of the interface, a gear-shaped button provides access to the advanced functions of this utility. Within these functions, you can configure &lt;strong>SSH&lt;/strong>, the name of the &lt;strong>Raspberry Pi&lt;/strong> on the network, and also the necessary information for it to connect to the &lt;strong>Wi-Fi&lt;/strong> network:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2.png"
+width="1108"
+height="789"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu1f8e2986170e4e6fc14d485f8cad55b6_165189_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu1f8e2986170e4e6fc14d485f8cad55b6_165189_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Raspberry Pi Imager advanced options"
+class="gallery-image"
+data-flex-grow="140"
+data-flex-basis="337px"
+>&lt;/p>
+&lt;p>You&amp;rsquo;ll need to fill in the &lt;strong>SSID&lt;/strong>, the network password, and the location of the router emitting the Wi-Fi signal. During its first startup and all subsequent ones, the Raspberry Pi that hosts this SD card will be able to connect to Wi-Fi using the information entered during the image writing.&lt;/p>
+&lt;blockquote>
+&lt;p>The &lt;strong>SSID&lt;/strong>, an acronym for &lt;em>service set identifier&lt;/em> (meaning &amp;ldquo;service set identifier&amp;rdquo;), is the name of a wireless network according to IEEE 802.11 standards. This name consists of a character string of 0 to 32 octets.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="command-line-configuration">Command Line Configuration&lt;/h2>
+&lt;p>The &lt;strong>Raspberry Pi Imager&lt;/strong> application allows configuring Wi-Fi even before the first Raspberry startup. However, sometimes this configuration must be done after startup. In this case, several options are available to us: a fully manual command-line configuration or the utility: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
+&lt;h3 id="manual-configuration">Manual Configuration&lt;/h3>
+&lt;p>First, it is necessary to configure the network interfaces. For this, the default text file editing utility in &lt;strong>Raspbian&lt;/strong>, &lt;strong>nano&lt;/strong>, will help us:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/network/interfaces
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This file lists all existing network interfaces, so it probably won&amp;rsquo;t be empty. Add a line at the top of the file:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">auto wlan0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Next, allow the &lt;strong>Raspberry Pi&lt;/strong> to use Wi-Fi as the method of connecting to the internet and use the configuration file &lt;code>/etc/wpa_supplicant/wpa_supplicant.conf&lt;/code>. Also, add the following lines to the end of the same file:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">allow-hotplug wlan0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface wlan0 inet dhcp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface default inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Save the changes and then exit &lt;strong>nano&lt;/strong> with the following shortcuts: &lt;code>ctrl+x&lt;/code>, &lt;code>ctrl+y&lt;/code>.&lt;/p>
+&lt;p>The rest of the configuration takes place in the file &lt;code>/etc/wpa_supplicant/wpa_supplicant.conf&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This file is probably not empty either. Add the following configuration lines to the end of the file (making sure to change &lt;strong>NETWORK_NAME&lt;/strong> and &lt;strong>PASSWORD&lt;/strong>):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">country&lt;/span>&lt;span class="o">=&lt;/span>US
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">ctrl_interface&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">DIR&lt;/span>&lt;span class="o">=&lt;/span>/var/run/wpa_supplicant &lt;span class="nv">GROUP&lt;/span>&lt;span class="o">=&lt;/span>netdev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">update_config&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">network&lt;/span>&lt;span class="o">={&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ssid&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;NETWORK_NAME&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">psk&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;PASSWORD&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Similarly, save the file and exit &lt;strong>nano&lt;/strong> using the shortcuts: &lt;code>ctrl+x&lt;/code>, &lt;code>ctrl+y&lt;/code>.&lt;/p>
+&lt;p>Following this, the configuration should be operational. A restart will verify it:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To check the connection after a restart, a simple &lt;code>ping&lt;/code> will do:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ping google.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here&amp;rsquo;s the expected response:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/ping-google.png"
+width="885"
+height="497"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/ping-google_hucf2992d6ed901688f7848058661adc99_105795_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/ping-google_hucf2992d6ed901688f7848058661adc99_105795_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Ping google"
+class="gallery-image"
+data-flex-grow="178"
+data-flex-basis="427px"
+>&lt;/p>
+&lt;h3 id="raspi-config">Raspi-config&lt;/h3>
+&lt;p>The Raspberry Pi Foundation also provides a tool to facilitate this type of configuration. Although it is less comprehensive than manual configuration, it is much simpler to use: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo raspi-config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here&amp;rsquo;s the interface that opens up. It allows configuration for many things, but concerning Wi-Fi, it is available in &lt;strong>System Options&lt;/strong>, then &lt;strong>Wireless Lan&lt;/strong>:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1.png"
+width="857"
+height="595"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1_hue8092d57cbe9c66a5d98b79fcbc0dc82_107090_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1_hue8092d57cbe9c66a5d98b79fcbc0dc82_107090_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="raspi-config menu 1"
+class="gallery-image"
+data-flex-grow="144"
+data-flex-basis="345px"
+>
+&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2.png"
+width="857"
+height="595"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2_hu92d5ea2143a29ed4d9c784913081d7f6_104135_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2_hu92d5ea2143a29ed4d9c784913081d7f6_104135_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="raspi-config menu 2"
+class="gallery-image"
+data-flex-grow="144"
+data-flex-basis="345px"
+>&lt;/p>
+&lt;p>Raspi-config will then ask to configure the country in which the Raspberry will be used:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3.png"
+width="857"
+height="595"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3_hu6b085c53bed49fdb5ee7a50289ab841a_95184_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3_hu6b085c53bed49fdb5ee7a50289ab841a_95184_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="raspi-config menu 3"
+class="gallery-image"
+data-flex-grow="144"
+data-flex-basis="345px"
+>
+&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4.png"
+width="857"
+height="595"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4_huda5f0479c87521d8b6bb9f946e532812_77876_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4_huda5f0479c87521d8b6bb9f946e532812_77876_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="raspi-config menu 4"
+class="gallery-image"
+data-flex-grow="144"
+data-flex-basis="345px"
+>&lt;/p>
+&lt;p>The utility will then ask for the &lt;strong>SSID&lt;/strong> and &lt;strong>password&lt;/strong> of the network.&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5.png"
+width="857"
+height="595"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5_hu0b57c46fdd66cdfc75b55814abc5951e_78520_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5_hu0b57c46fdd66cdfc75b55814abc5951e_78520_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="raspi-config SSID"
+class="gallery-image"
+data-flex-grow="144"
+data-flex-basis="345px"
+>
+&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6.png"
+width="857"
+height="595"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6_hu4a114d96bf514baeb558cd5062d7227a_79547_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6_hu4a114d96bf514baeb558cd5062d7227a_79547_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="raspi-config password"
+class="gallery-image"
+data-flex-grow="144"
+data-flex-basis="345px"
+>&lt;/p>
+&lt;p>Now, simply exit the tool to apply the configuration. The Raspberry will connect automatically upon each restart.&lt;/p>
+&lt;h3 id="static-ip">Static IP?&lt;/h3>
+&lt;p>The goal of this kind of configuration is generally to use the Raspberry without a keyboard or mouse, with an &lt;strong>SSH&lt;/strong> connection. Therefore, it is essential to ensure that it does not change its &lt;strong>IP&lt;/strong> address.&lt;/p>
+&lt;p>The interface configuration still takes place in &lt;strong>/etc/network/interfaces&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/network/interfaces
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Change the line &lt;code>iface wlan0 inet dhcp&lt;/code> to &lt;code>iface wlan0 inet static&lt;/code>. This will change the &lt;code>wlan0&lt;/code> interface from DHCP to static. In the same file, add the following configuration lines just before &lt;code>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">address 192.168.1.155 &lt;span class="c1"># Desired static IP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">netmask 255.255.255.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gateway 192.168.1.1 &lt;span class="c1"># Router IP&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The file &lt;code>/etc/network/interfaces&lt;/code> should now look something like this after all configurations:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">auto wlan0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface lo inet loopback
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface eth0 inet dhcp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">allow-hotplug wlan0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface wlan0 inet static
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">address 192.168.1.155
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">netmask 255.255.255.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gateway 192.168.1.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface default inet dhcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A restart of the Raspberry will confirm the proper functioning of the configuration:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
