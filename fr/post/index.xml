@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Articles on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Tue, 26 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuration du Wifi sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Configuration du Wifi sur un Raspberry" />&lt;p>Dans plusieurs de mes projets du moment (professionnels et personnels), j’utilise des Raspberry, mais je passe mon temps à oublier comment effectuer la configuration wifi de ces derniers. Deux grandes options sont possibles : la configuration avant ou après le premier démarrage. C’est généralement une étape importante, surtout avec l’utilisation de &lt;strong>Raspbian Lite&lt;/strong>, qui ne dispose pas d’interface graphique et nécessite une connexion &lt;strong>SSH&lt;/strong> pour son utilisation.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Articles on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuration SSH sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-ssh-config/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-ssh-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-ssh-config/main.jpg" alt="Featured image of post Configuration SSH sur un Raspberry" />&lt;p>L&amp;rsquo;accès à distance à votre Raspberry Pi est essentiel pour simplifier la gestion sans avoir besoin d&amp;rsquo;un écran, d&amp;rsquo;un clavier et d&amp;rsquo;une souris physiques. La configuration de l&amp;rsquo;accès SSH (Secure Shell) est une étape cruciale pour établir une connexion sécurisée avec votre Raspberry Pi.&lt;/p>
+&lt;p>Comme dans l&amp;rsquo;article sur la &lt;a class="link" href="https://albanpetit.com/fr/posts/raspberry-wifi-config/" >configuration du wifi&lt;/a>, vous pouvez configurer une partie des éléments importants du serveur &lt;strong>SSH&lt;/strong> avant même le premier démarrage du Raspberry via l&amp;rsquo;utilitaire &lt;strong>Raspberry Pi Imager&lt;/strong>.&lt;/p>
+&lt;h2 id="openssh-server">openssh-server&lt;/h2>
+&lt;p>Avant de commencer, assurez-vous que votre &lt;strong>Raspberry Pi&lt;/strong> est équipé d&amp;rsquo;un système d&amp;rsquo;exploitation compatible. Les systèmes couramment utilisés, tels que &lt;strong>Raspbian&lt;/strong>, prennent en charge &lt;strong>SSH&lt;/strong> dès l&amp;rsquo;installation. Assurez-vous également que votre Raspberry Pi est connecté à votre réseau local.
+Vous pouvez vérifier le bon fonctionnement du serveur &lt;strong>SSH&lt;/strong> de votre &lt;strong>Raspberry&lt;/strong> avec la commande suivante :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Si le serveur &lt;strong>SSH&lt;/strong> fonctionne correctement, la réponse à cette commande doit ressembler à cela :
+&lt;img src="https://albanpetit.com/fr/posts/raspberry-ssh-config/systemctl-sshd.png"
+width="1004"
+height="567"
+srcset="https://albanpetit.com/fr/posts/raspberry-ssh-config/systemctl-sshd_hu636a3b8dfac440bb476e59d03e58d194_144723_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-ssh-config/systemctl-sshd_hu636a3b8dfac440bb476e59d03e58d194_144723_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="systemctl status sshd.service"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="424px"
+>
+Si la commande retourne une erreur comme : &lt;code>Unit sshd.service could not be found.&lt;/code>, il est nécessaire d&amp;rsquo;installer le serveur &lt;strong>SSH&lt;/strong>. Pour cela, les commandes suivantes pourront vous aider :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt upgrade
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install openssh-server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="activation-du-ssh">Activation du SSH&lt;/h2>
+&lt;p>La manière la plus simple d&amp;rsquo;activer le service SSH est d&amp;rsquo;utiliser l&amp;rsquo;outil &lt;strong>raspi-config&lt;/strong> de la &lt;strong>Raspberry Foundation&lt;/strong>. Pour ce faire, suivez ces étapes :&lt;/p>
+&lt;ol>
+&lt;li>Ouvrez un terminal sur votre Raspberry Pi.&lt;/li>
+&lt;li>Tapez la commande suivante pour ouvrir l&amp;rsquo;outil de configuration :
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo raspi-config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Sélectionnez l&amp;rsquo;option &lt;strong>Interface Options&lt;/strong>.&lt;/li>
+&lt;li>Naviguez jusqu&amp;rsquo;à &lt;strong>SSH&lt;/strong> et appuyez sur &lt;strong>Enter&lt;/strong>.&lt;/li>
+&lt;li>Choisissez &lt;strong>Yes&lt;/strong> pour activer le service SSH.&lt;/li>
+&lt;li>Appuyez sur &lt;strong>Finish&lt;/strong> pour quitter l&amp;rsquo;outil de configuration.&lt;/li>
+&lt;/ol>
+&lt;p>Pour la suite, vous devez connaître l&amp;rsquo;adresse &lt;strong>IP&lt;/strong> du &lt;strong>Raspberry&lt;/strong> sur votre réseau. Pour cela, vous pouvez utiliser l&amp;rsquo;interface de votre routeur réseau ou la commande suivante sur le &lt;strong>Raspberry&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hostname -I &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;{print $1}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="connexion-ssh-depuis-un-autre-appareil">Connexion SSH depuis un autre appareil&lt;/h2>
+&lt;p>Une fois le service SSH activé, vous pouvez vous connecter à votre Raspberry Pi à partir d&amp;rsquo;un autre ordinateur sur le même réseau. Utilisez l&amp;rsquo;adresse IP de votre Raspberry Pi pour établir la connexion SSH. La commande standard est la suivante (remplacez &lt;code>adresse_ip&lt;/code> par l&amp;rsquo;adresse réelle) :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@adresse_ip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Vous serez invité à entrer le mot de passe par défaut, qui est généralement &lt;strong>raspberry&lt;/strong> pour l&amp;rsquo;utilisateur &lt;strong>pi&lt;/strong>.&lt;/p>
+&lt;h2 id="changement-du-mot-de-passe-par-défaut">Changement du mot de passe par défaut&lt;/h2>
+&lt;p>Il est fortement recommandé de changer le mot de passe par défaut de votre Raspberry Pi pour renforcer la sécurité. Utilisez la commande suivante pour changer le mot de passe de l&amp;rsquo;utilisateur &lt;strong>pi&lt;/strong> :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">passwd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Suivez les instructions pour définir un nouveau mot de passe robuste.&lt;/p>
+&lt;h2 id="configuration-avancée">Configuration avancée&lt;/h2>
+&lt;p>Pour des mesures de sécurité, vous pouvez effectuer quelques modifications supplémentaires.&lt;/p>
+&lt;h3 id="utilisation-de-clés-ssh">Utilisation de clés SSH&lt;/h3>
+&lt;p>Utiliser une clé SSH sur votre Raspberry Pi est une excellente pratique pour sécuriser l&amp;rsquo;accès à distance à votre appareil. Cela élimine la nécessité d&amp;rsquo;entrer un mot de passe chaque fois que vous vous connectez via SSH, tout en renforçant la sécurité de votre connexion.&lt;/p>
+&lt;h4 id="génération-de-la-paire-de-clés">Génération de la Paire de Clés&lt;/h4>
+&lt;p>&lt;strong>Sur Votre Ordinateur :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Utilisez la commande suivante pour générer une paire de clés :
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-keygen -t rsa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Suivez les instructions à l&amp;rsquo;écran. Appuyez simplement sur &lt;code>Enter&lt;/code> pour accepter les paramètres par défaut, à moins que vous ne souhaitiez spécifier un emplacement ou un nom de fichier différent.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Copiez la Clé Publique sur le Raspberry Pi :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Utilisez la commande suivante pour copier la clé publique sur votre Raspberry Pi (remplacez &lt;code>pi&lt;/code> et &lt;code>adresse_ip&lt;/code> par votre nom d&amp;rsquo;utilisateur et l&amp;rsquo;adresse IP de votre Raspberry Pi) :
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh-copy-id pi@adresse_ip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Vous serez invité à saisir le mot de passe de votre Raspberry Pi.&lt;/li>
+&lt;/ul>
+&lt;h4 id="connexion-ssh-avec-la-clé">Connexion SSH avec la Clé&lt;/h4>
+&lt;p>Maintenant, vous devriez pouvoir vous connecter à votre Raspberry Pi sans être invité à entrer un mot de passe :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@raspberrypi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Vous devriez être connecté sans avoir à saisir de mot de passe.&lt;/p>
+&lt;h4 id="désactivation-de-la-connexion-par-mot-de-passe-optionnel-">Désactivation de la Connexion par Mot de Passe (Optionnel) :&lt;/h4>
+&lt;p>Pour renforcer la sécurité, vous pouvez désactiver la connexion par mot de passe sur votre Raspberry Pi. Éditez le fichier de configuration SSH :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/ssh/sshd_config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Modifiez &lt;code>PasswordAuthentication yes&lt;/code> en &lt;code>PasswordAuthentication no&lt;/code>, ensuite redémarrez le service SSH :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="changement-du-port-ssh">Changement du port SSH&lt;/h3>
+&lt;p>Le port &lt;strong>SSH&lt;/strong> par défaut sur tous les serveurs est le port 22. Un changement de ce port permet de rendre plus difficile les attaques automatisées. Pour effectuer cette modification, vous devez éditer le fichier &lt;code>/etc/ssh/sshd_config&lt;/code> avec les droits administrateurs :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/ssh/sshd_config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Vous pouvez ensuite retirer le &lt;code>#&lt;/code> à la ligne &lt;code>#Port 22&lt;/code> et changer la valeur 22 par le port de votre choix entre 1024 et 65536. Enregistrez et quittez &lt;strong>nano&lt;/strong> avec les raccourcis clavier : &lt;code>ctrl+o&lt;/code>, &lt;code>ctrl+x&lt;/code>.&lt;/p>
+&lt;p>Ensuite, vous devez relancer openssh-server pour appliquer les modifications :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La connexion à votre Raspberry s&amp;rsquo;effectuera avec un nouveau paramètre pour spécifier le port de connexion (remplacez &lt;code>pi&lt;/code> par votre nom d&amp;rsquo;utilisateur, &lt;code>adresse_ip&lt;/code> par l&amp;rsquo;adresse IP réelle et &lt;code>port_de_connexion&lt;/code> par le nouveau port) :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@adresse_ip -p port_de_connexion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La configuration du SSH sur votre Raspberry Pi est une étape essentielle pour garantir un accès à distance sécurisé. En suivant ces étapes simples, vous améliorez la gestion de votre Raspberry Pi tout en renforçant la sécurité de votre système. N&amp;rsquo;hésitez pas à explorer des options avancées pour personnaliser davantage votre configuration SSH en fonction de vos besoins spécifiques.&lt;/p></description></item><item><title>Configuration du Wifi sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Configuration du Wifi sur un Raspberry" />&lt;p>Le Raspberry Pi est un formidable micro-ordinateur qui, grâce à sa polyvalence, est utilisé dans divers projets, de l’automatisation domestique à la création de serveurs personnels. La configuration du WiFi sur ces derniers est presque indispensable pour exploiter au maximum leurs possibilités. Deux grandes options s&amp;rsquo;offrent aux utilisateurs : la configuration avant ou après le premier démarrage. Il s&amp;rsquo;agit généralement d&amp;rsquo;une étape importante, surtout avec l&amp;rsquo;utilisation de &lt;strong>Raspbian Lite&lt;/strong>, qui ne dispose pas d&amp;rsquo;interface graphique et nécessite une connexion &lt;strong>SSH&lt;/strong> pour son utilisation.&lt;/p>
 &lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager&lt;/h2>
 &lt;p>Cette partie concerne donc la configuration du &lt;strong>Wifi&lt;/strong> et du &lt;strong>SSH&lt;/strong> avant même le premier lancement du Raspberry. Grâce à la &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
 >Raspberry Pi Foundation&lt;/a>, il n’est même plus nécessaire d’avoir un clavier et un écran pour cela. Ils nous fournissent un utilitaire disponible sur toutes les plateformes, Windows, Apple et Linux, qui permet de produire des cartes SD fonctionnelles avec de multiples systèmes d’exploitation. En plus de graver pour nous les images des systèmes d’exploitation, cet utilitaire permet même la configuration des éléments les plus importants pour la mise en place d’un &lt;strong>Raspberry&lt;/strong>.&lt;/p>
@@ -42,7 +121,7 @@ data-flex-basis="337px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface wlan0 inet dhcp
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface default inet dhcp
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il faut ensuite enregistrer les modifications, puis quitter &lt;strong>nano&lt;/strong> avec les raccourcis suivants : &lt;code>ctrl+x&lt;/code>, &lt;code>ctrl+y&lt;/code>.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il faut ensuite enregistrer les modifications, puis quitter &lt;strong>nano&lt;/strong> avec les raccourcis suivants : &lt;code>ctrl+o&lt;/code>, &lt;code>ctrl+x&lt;/code>.&lt;/p>
 &lt;p>La suite de la configuration aura lieu dans le fichier &lt;code>/etc/wpa_supplicant/wpa_supplicant.conf&lt;/code> :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ce fichier n&amp;rsquo;est encore une fois probablement pas vide, il faut ajouter les lignes de configurations suivantes à la fin du fichier (en changeant bien sûr &lt;strong>LE_NOM_DU_RESEAU&lt;/strong> et &lt;strong>LE_MOT_DE_PASSE&lt;/strong>):&lt;/p>
@@ -53,7 +132,7 @@ data-flex-basis="337px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ssid&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;LE_NOM_DU_RESEAU&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">psk&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;LE_MOT_DE_PASSE&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>De la même façon, il faut enregistrer le fichier et quitter &lt;strong>nano&lt;/strong> avec les raccourcis : &lt;code>ctrl+x&lt;/code>, &lt;code>ctrl+y&lt;/code>.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>De la même façon, il faut enregistrer le fichier et quitter &lt;strong>nano&lt;/strong> avec les raccourcis : &lt;code>ctrl+o&lt;/code>, &lt;code>ctrl+x&lt;/code>.&lt;/p>
 &lt;p>Suite à cela, la configuration est normalement fonctionnelle. Un redémarrage permet de le vérifier :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour vérifier la connexion après un redémarrage, un simple &lt;code>ping&lt;/code> fera l&amp;rsquo;affaire :&lt;/p>
