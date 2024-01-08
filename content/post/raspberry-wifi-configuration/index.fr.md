@@ -9,9 +9,14 @@ type: post
 image: main.jpg
 slug: /raspberry-wifi-config
 status: Done
+links:
+  - title: raspi-config
+    description: L'outil raspi config est utilisé dans Raspbian pour définir des paramètres importants.
+    website: https://www.raspberrypi.com/documentation/computers/configuration.html
+    image: raspberry-logo.png
 ---
 
-Dans plusieurs de mes projets du moment (professionnels et personnels), j’utilise des Raspberry, mais je passe mon temps à oublier comment effectuer la configuration wifi de ces derniers. Deux grandes options sont possibles : la configuration avant ou après le premier démarrage. C’est généralement une étape importante, surtout avec l’utilisation de **Raspbian Lite**, qui ne dispose pas d’interface graphique et nécessite une connexion **SSH** pour son utilisation.
+Le Raspberry Pi est un formidable micro-ordinateur qui, grâce à sa polyvalence, est utilisé dans divers projets, de l’automatisation domestique à la création de serveurs personnels. La configuration du WiFi sur ces derniers est presque indispensable pour exploiter au maximum leurs possibilités. Deux grandes options s'offrent aux utilisateurs : la configuration avant ou après le premier démarrage. Il s'agit généralement d'une étape importante, surtout avec l'utilisation de **Raspbian Lite**, qui ne dispose pas d'interface graphique et nécessite une connexion **SSH** pour son utilisation.
 
 ## Raspberry Pi Imager
 
@@ -52,7 +57,7 @@ iface wlan0 inet dhcp
 wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 ```
-Il faut ensuite enregistrer les modifications, puis quitter **nano** avec les raccourcis suivants : `ctrl+x`, `ctrl+y`.
+Il faut ensuite enregistrer les modifications, puis quitter **nano** avec les raccourcis suivants : `ctrl+o`, `ctrl+x`.
 
 La suite de la configuration aura lieu dans le fichier `/etc/wpa_supplicant/wpa_supplicant.conf` :
 ```bash
@@ -68,7 +73,7 @@ network={
   psk="LE_MOT_DE_PASSE"
 }
 ```
-De la même façon, il faut enregistrer le fichier et quitter **nano** avec les raccourcis  : `ctrl+x`, `ctrl+y`.
+De la même façon, il faut enregistrer le fichier et quitter **nano** avec les raccourcis  : `ctrl+o`, `ctrl+x`.
 
 Suite à cela, la configuration est normalement fonctionnelle. Un redémarrage permet de le vérifier :
 ```bash

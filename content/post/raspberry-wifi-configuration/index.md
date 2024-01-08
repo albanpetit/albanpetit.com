@@ -1,6 +1,7 @@
 ---
 title: Raspberry wifi configuration
 date: 2023-12-26
+lastmod: 2024-01-06
 tags:
   - Bash
   - Raspberry pi
@@ -9,9 +10,14 @@ type: post
 image: main.jpg
 slug: /raspberry-wifi-config
 status: Done
+links:
+  - title: raspi-config
+    description: The raspi config tool is used in Raspbian to set important settings.
+    website: https://www.raspberrypi.com/documentation/computers/configuration.html
+    image: raspberry-logo.png
 ---
 
-In several of my current projects (both professional and personal), I use Raspberry Pis, but I often find myself forgetting how to configure their Wi-Fi settings. Two main options are available: configuring before or after the initial startup. This is usually a crucial step, especially when using **Raspbian Lite**, which lacks a graphical interface and requires an **SSH** connection for usage.
+The Raspberry Pi is a fantastic microcomputer that, thanks to its versatility, is used in various projects, from home automation to the creation of personal servers. Configuring WiFi on these devices is almost essential to fully exploit their capabilities. Users have two main options: configuration before or after the first boot. This is generally a crucial step, especially when using **Raspbian Lite**, which lacks a graphical interface and requires an **SSH** connection for usage.
 
 ## Raspberry Pi Imager
 
@@ -29,7 +35,7 @@ At the bottom right of the interface, a gear-shaped button provides access to th
 
 You'll need to fill in the **SSID**, the network password, and the location of the router emitting the Wi-Fi signal. During its first startup and all subsequent ones, the Raspberry Pi that hosts this SD card will be able to connect to Wi-Fi using the information entered during the image writing.
 
-> The **SSID**, an acronym for *service set identifier* (meaning "service set identifier"), is the name of a wireless network according to IEEE 802.11 standards. This name consists of a character string of 0 to 32 octets.
+> The **SSID**, an acronym for *service set identifier*, is the name of a wireless network according to IEEE 802.11 standards. This name consists of a character string of 0 to 32 octets.
 
 ## Command Line Configuration
 
@@ -55,7 +61,7 @@ wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 ```
 
-Save the changes and then exit **nano** with the following shortcuts: `ctrl+x`, `ctrl+y`.
+Save the changes and then exit **nano** with the following shortcuts: `ctrl+o`, `ctrl+x`.
 
 The rest of the configuration takes place in the file `/etc/wpa_supplicant/wpa_supplicant.conf`:
 ```bash
@@ -73,7 +79,7 @@ network={
 }
 ```
 
-Similarly, save the file and exit **nano** using the shortcuts: `ctrl+x`, `ctrl+y`.
+Similarly, save the file and exit **nano** using the shortcuts: `ctrl+o`, `ctrl+x`.
 
 Following this, the configuration should be operational. A restart will verify it:
 ```bash
