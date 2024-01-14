@@ -38,7 +38,7 @@ Il s'agira de remplir : le **SSID**, le mot de passe du réseau, et la localisat
 
 ## Configuration en ligne de commande
 
-L'application **Raspberry pi imager** permet de configurer le wifi avant même le premier démarrage du Raspberry, mais parfois cette configuration doit être faite après le démarrage, dans ce cas là plusieurs possibilités s'offrent à nous, une configuration entièrement manuelle en ligne de commande ou alors l'utilitaire : **Raspi-config**.
+L'application **Raspberry pi imager** permet de configurer le wifi avant même le premier démarrage du Raspberry, mais parfois cette configuration doit être faite après le démarrage, dans ce cas plusieurs possibilités s'offrent à nous : une configuration entièrement manuelle en ligne de commande ou alors l'utilitaire : **Raspi-config**.
 
 ### Configuration manuelle
 
@@ -121,7 +121,7 @@ La configuration de l'interface a encore lieu dans **/etc/network/interfaces**:
 ```bash
 sudo nano /etc/network/interfaces
 ```
-Il faut y changer la ligne `iface wlan0 inet dhcp` en `iface wlan0 inet static`, cela va permettre de faire evoluer l'interface `wlan0` de DHCP à static.
+Il faut y changer la ligne `iface wlan0 inet dhcp` en `iface wlan0 inet static`, cela va permettre de faire évoluer l'interface `wlan0` de DHCP à static.
 Dans ce même fichier il faut ajouter les lignes de configuration suivantes juste avant `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf`:
 ```bash
 address 192.168.1.155 # IP statique souhaitée
@@ -129,7 +129,7 @@ netmask 255.255.255.0
 gateway 192.168.1.1   # IP du routeur
 ```
 
-Le fichier `/etc/network/interfaces` doit normalement ressembler à cela après toutes les configurations:
+Le fichier `/etc/network/interfaces` doit normalement ressembler à cela après toutes les configurations :
 ```bash
 
 auto wlan0
