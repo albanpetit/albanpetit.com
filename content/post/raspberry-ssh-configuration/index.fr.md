@@ -16,9 +16,9 @@ links:
     image: raspberry-logo.png
 ---
 
-L'accès à distance à votre Raspberry Pi est essentiel pour simplifier la gestion sans avoir besoin d'un écran, d'un clavier et d'une souris physiques. La configuration de l'accès SSH (Secure Shell) est une étape cruciale pour établir une connexion sécurisée avec votre Raspberry Pi.
+L'accès à distance à votre Raspberry Pi est essentiel pour simplifier la gestion sans avoir besoin d'un écran, d'un clavier et d'une souris. La configuration de l'accès SSH (Secure Shell) est une étape cruciale pour établir une connexion sécurisée avec votre Raspberry Pi.
 
-Comme dans l'article sur la [configuration du wifi](/fr/posts/raspberry-wifi-config/), vous pouvez configurer une partie des éléments importants du serveur **SSH** avant même le premier démarrage du Raspberry via l'utilitaire **Raspberry Pi Imager**.
+Comme pour la [configuration du wifi](/fr/posts/raspberry-wifi-config/), vous pouvez configurer une partie des éléments importants du serveur **SSH** avant même le premier démarrage du Raspberry via l'utilitaire **Raspberry Pi Imager**.
 
 ## openssh-server
 
@@ -76,7 +76,7 @@ Pour des mesures de sécurité, vous pouvez effectuer quelques modifications sup
 
 ### Utilisation de clés SSH
 
-Utiliser une clé SSH sur votre Raspberry Pi est une excellente pratique pour sécuriser l'accès à distance à votre appareil. Cela élimine la nécessité d'entrer un mot de passe chaque fois que vous vous connectez via SSH, tout en renforçant la sécurité de votre connexion.
+Utiliser une clé SSH sur votre Raspberry Pi est une excellente pratique pour sécuriser l'accès à distance à votre appareil. Cela élimine la nécessité d'entrer un mot de passe à chaque fois que vous vous connectez via SSH, tout en renforçant la sécurité de votre connexion.
 
 #### Génération de la Paire de Clés
 
