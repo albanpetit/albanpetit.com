@@ -106,6 +106,12 @@ menu:
           url: https://twitter.com/Padh_
           params:
             icon: brand-twitter
+        
+        - identifier: email
+          name: Email
+          url: mailto:“contact@albanpetit.com”
+          params:
+            icon: email
 
 related:
     includeNewer: true
