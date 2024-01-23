@@ -11,6 +11,7 @@
 - **Type** defines the type of commit
 	- **build**: build solution (gulp, webpack, npm)
 	- **ci**: Continuous integration (Travis, Circle, BrowserStack, SauceLabs)
+	- **git**: gitignore modification. submodule update, merging
 	- **docs**: Documentation
 	- **feat**: Add feature
 	- **fix**: bug fix
