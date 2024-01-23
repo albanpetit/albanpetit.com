@@ -17,6 +17,7 @@ Hello! I'm Alban Petit, a passionate French web developer working at La Machiner
 Through my work experiences and interactions at La Machinerie, I discovered a strong passion for software development, electronics, and prototyping in general.
 
 ## My Experiences
+
 - **Assistant FabManager, La Machinerie Association**, 2015 - 2016, Amiens
 
     La Machinerie houses a Fablab that caters to entrepreneurs, designers, artists, DIY enthusiasts, students, and hackers, providing a space to rapidly transition from concept to prototyping. As a FabManager, I was in charge of managing this facility.
@@ -32,6 +33,7 @@ Through my work experiences and interactions at La Machinerie, I discovered a st
     Currently, I hold the position of head of the manufacturing department at La Machinerie, where we assist professionals in developing prototypes in areas such as electronics, furniture, functional parts, and connected devices.
 
 ## La Machinerie
+
 La Machinerie is an association that was founded in April 2014 by a group of idealistic individuals in Amiens who aspired to "create and work differently." It encompasses a Fablab and coworking space, drawing inspiration from the Fablab movement to provide an accessible community resource where users contribute their skills, tools, and knowledge. The collective embraces various aspirations, including citizen innovation, ecology, open culture, and entrepreneurship, leading to a diverse range of experiences.
 
 ![Coworking](coworking.jpeg) ![Fablab](fablab.jpeg)
@@ -52,10 +54,12 @@ Situated in the heart of Amiens, near the train station, the Fablab frequently w
 </div>
 {{< /html >}}
 
-## FabAcademy & Personal projects
-In addition to my activities at La Machinerie, I am utilizing this website as a platform to document my personal projects, which are undertaken both within La Machinerie's Fablab and my personal workshop. Most of the [FabAcademy missions](/assignments/) are also completed within La Machinerie's Fablab.
+## Personal projects
+
+In addition to my activities at La Machinerie, I am utilizing this website as a platform to document my personal projects, which are undertaken both within La Machinerie's Fablab and my personal workshop. 
 
 ## Contact
+
 Please feel free to contact me via email at contact@albanpetit.com or on [Twitter](https://twitter.com/Padh_) for any information, advice, questions, or modifications regarding this website.
 
 Enjoy your visit ! :smile:

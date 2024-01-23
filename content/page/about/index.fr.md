@@ -55,10 +55,8 @@ Le Fablab, situé en plein cœur d'Amiens près de la gare, accueille régulièr
 </div>
 {{< /html >}}
 
-##  Projets personnels & FabAcademy
+##  Projets personnels
 En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel. 
-
-La plupart de [mes missions](/assignments/) de la [FabAcademy](https://fabacademy.org) sont également réalisées dans le Fablab de La Machinerie.
 
 ## Contact
 N'hésitez pas à me contacter par e-mail à contact@albanpetit.com ou sur [Twitter](https://twitter.com/Padh_) pour toute information, conseil, question ou suggestion de modification de ce site web.
