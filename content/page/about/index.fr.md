@@ -20,6 +20,7 @@ Salut ! Je suis Alban Petit, un développeur web français passionné travaillan
 Ces expériences professionnelles m'ont révélé une véritable passion pour le développement informatique, l'électronique et le prototypage en général.
 
 ## Mes experiences
+
 - 2015 - 2016, **Assistant FabManager, Association La Machinerie**, Amiens
 
     La Machinerie abrite un Fablab qui s'adresse à divers passionnés tels que les entrepreneurs, les designers, les artistes, les bricoleurs, les étudiants ou encore les hackers. En tant que FabManager, j'étais responsable de la gestion de cet espace.
@@ -35,6 +36,7 @@ Ces expériences professionnelles m'ont révélé une véritable passion pour le
     Actuellement, je suis responsable du pôle Manufacture de La Machinerie, où nous aidons les professionnels à développer des prototypes dans des domaines tels que l'électronique, le mobilier, les pièces fonctionnelles et les objets connectés.
 
 ## La Machinerie
+
 La Machinerie est une association créée en avril 2014 par des passionnés amiénois qui souhaitaient "fabriquer et travailler autrement". Elle abrite un Fablab ainsi qu'un espace de coworking, et s'inspire des valeurs des Fablabs en mettant à disposition une ressource communautaire où chaque utilisateur contribue. Elle a pour objectif de promouvoir l'innovation citoyenne, l'écologie, la culture du libre et l'entrepreneuriat.
 
 ![Coworking](coworking.jpeg) ![Fablab](fablab.jpeg)
@@ -56,9 +58,11 @@ Le Fablab, situé en plein cœur d'Amiens près de la gare, accueille régulièr
 {{< /html >}}
 
 ##  Projets personnels
+
 En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel. 
 
 ## Contact
+
 N'hésitez pas à me contacter par e-mail à contact@albanpetit.com ou sur [Twitter](https://twitter.com/Padh_) pour toute information, conseil, question ou suggestion de modification de ce site web.
 
 Bonne visite ! :smile:
