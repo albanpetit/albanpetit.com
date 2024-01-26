@@ -2,6 +2,7 @@
 [![github-pages](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/gh-pages.yml)
 [![pages-build-deployment](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/pages/pages-build-deployment)
 
+Here is the repository for my personal website where I share my projects on various topics, including electronics, development, and a lot of things related to the Maker world. Some tutorials, experiences, and information are available in the articles.
 
 # Contribution
 
