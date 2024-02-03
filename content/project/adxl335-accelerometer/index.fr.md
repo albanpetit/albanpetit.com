@@ -1,5 +1,5 @@
 ---
-title: ADXL335 Accelerometer
+title: ADXL335 Accéléromètre
 date: 2023-08-07
 tags:
     - Electronique
@@ -23,18 +23,24 @@ links:
     image: kicad.png
 ---
 
-## Introduction
+Dans cet article, nous plongeons au cœur de mon dernier projet un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet est relativement simple dans son application, mails il utilise un composant électronique extrêmement interessant par son fonctionnement interne, un accerometre MEMS.
+Cette carte électronique sera utilise plus tard au sein d'autres projets.
 
-Pour cette premiere publication on va commencer par un projet simple, une toute petite carte électronique supportant un accéléromètre trois axes.
-Elle permet une alimentation en 5 volts et fournie trois sorties analogiques pour les informations des trois axes via des connecteurs JST PH. En finissant par une led d'alimentation pour faciliter l'utilisation et le debug des circuits l'utilisant.
-
-Avec cette carte je veux apprehender ces composants particulier, les accéléromètres MEMS. Ils sont au coeur de tous nos appareils actuels et peuvent presenter un gros intérêt dans mes futurs développements en robotique.
-
-### Microsystème électromécanique
+## Accéléromètres MEMS
 
 {{< image src="/projects/adxl335-accelerometer/mems.jpg" position="left" width="200" right="10" >}}
 
-Un microsystème électromécanique est un microsystème fabriqué à partir de matériaux semi-conducteurs. Il comprend un ou plusieurs éléments mécaniques et utilise l’électricité comme source d’énergie, en vue de réaliser une fonction de capteur ou d’actionneur, avec au moins une structure présentant des dimensions micrométriques ; la fonction du système étant en partie assurée par la forme de cette structure. Le terme, systèmes microélectromécaniques, est la version française de l’acronyme anglais MEMS (Microelectromechanical systems). 
+Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l'électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve une structure MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
+
+### Principe de fonctionnement
+
+Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d'inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s'il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l'accélération.
+
+Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l'inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, tel qu'un capteur capacitif ou piézoélectrique, intégré dans la structure MEMS.
+
+#### Traduire le mouvement mécanique en signaux électriques
+
+Au fur et à mesure que l'accéléromètre rencontre une accélération, le mouvement de la masse induit une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal électrique est ensuite traité et traduit en données significatives, nous permettant de quantifier l'accélération subie par le dispositif.
 
 ## Composants
 
