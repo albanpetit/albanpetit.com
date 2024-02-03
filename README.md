@@ -1,10 +1,12 @@
 # albanpetit.com
+
 [![github-pages](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/gh-pages.yml)
 [![pages-build-deployment](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlbanPetit/albanpetit.com/actions/workflows/pages/pages-build-deployment)
 
 Here is the repository for my personal website where I share my projects on various topics, including electronics, development, and a lot of things related to the Maker world. Some tutorials, experiences, and information are available in the articles.
 
 # Contribution
+
 If you're interested in contributing to my website, i'd love to have your input. Here's how you can get started:
 
 1. **Fork the Repository:** Click on the "Fork" button at the top right of this repository to create your own copy.
@@ -28,6 +30,7 @@ If you're interested in contributing to my website, i'd love to have your input.
 7. **Open a Pull Request:** Once you've pushed your changes to your fork, open a pull request in our repository. Provide a detailed description of your changes and any relevant information.
 
 ## Commit naming convention
+
 ```
 <type> <sujet>
 
@@ -51,6 +54,7 @@ If you're interested in contributing to my website, i'd love to have your input.
 - **Description** allows to detail in more detail the motivations behind the change. The rules are the same as for the Subject part.
 
 ## Feedback and Issues
+
 If you encounter any issues, have suggestions, or want to discuss new features, please open an issue on the GitHub repository. Your feedback is highly valued!
 
 Thank you for considering contributing to my website.
