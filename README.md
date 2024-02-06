@@ -31,6 +31,7 @@ If you're interested in contributing to my website, i'd love to have your input.
 
 ## Commit naming convention
 
+To make the commit history as readable as possible, I try to adhere as closely as I can to the following naming convention :
 ```
 <type> <sujet>
 
@@ -52,6 +53,7 @@ If you're interested in contributing to my website, i'd love to have your input.
 	Without capital letter at the beginning
 	No "." at the end of the description
 - **Description** allows to detail in more detail the motivations behind the change. The rules are the same as for the Subject part.
+I invite you to follow this convention to contribute more easily to this repository.
 
 ## Feedback and Issues
 
