@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Articles on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuration SSH sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-ssh-config/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-ssh-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-ssh-config/main.jpg" alt="Featured image of post Configuration SSH sur un Raspberry" />&lt;p>L&amp;rsquo;accès à distance à votre Raspberry Pi est essentiel pour simplifier la gestion sans avoir besoin d&amp;rsquo;un écran, d&amp;rsquo;un clavier et d&amp;rsquo;une souris. La configuration de l&amp;rsquo;accès SSH (Secure Shell) est une étape cruciale pour établir une connexion sécurisée avec votre Raspberry Pi.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Articles on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuration SSH sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-ssh-config/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-ssh-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-ssh-config/main.jpg" alt="Featured image of post Configuration SSH sur un Raspberry" />&lt;p>L&amp;rsquo;accès à distance à votre Raspberry Pi est essentiel pour simplifier la gestion sans avoir besoin d&amp;rsquo;un écran, d&amp;rsquo;un clavier et d&amp;rsquo;une souris. La configuration de l&amp;rsquo;accès SSH (Secure Shell) est une étape cruciale pour établir une connexion sécurisée avec votre Raspberry Pi.&lt;/p>
 &lt;p>Comme pour la &lt;a class="link" href="https://albanpetit.com/fr/posts/raspberry-wifi-config/" >configuration du wifi&lt;/a>, vous pouvez configurer une partie des éléments importants du serveur &lt;strong>SSH&lt;/strong> avant même le premier démarrage du Raspberry via l&amp;rsquo;utilitaire &lt;strong>Raspberry Pi Imager&lt;/strong>.&lt;/p>
 &lt;h2 id="openssh-server">openssh-server&lt;/h2>
 &lt;p>Avant de commencer, assurez-vous que votre &lt;strong>Raspberry Pi&lt;/strong> est équipé d&amp;rsquo;un système d&amp;rsquo;exploitation compatible. Les systèmes couramment utilisés, tels que &lt;strong>Raspbian&lt;/strong>, prennent en charge &lt;strong>SSH&lt;/strong> dès l&amp;rsquo;installation. Assurez-vous également que votre Raspberry Pi est connecté à votre réseau local.
 Vous pouvez vérifier le bon fonctionnement du serveur &lt;strong>SSH&lt;/strong> de votre &lt;strong>Raspberry&lt;/strong> avec la commande suivante :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status sshd.service
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Si le serveur &lt;strong>SSH&lt;/strong> fonctionne correctement, la réponse à cette commande doit ressembler à cela :
-&lt;img src="https://albanpetit.com/fr/posts/raspberry-ssh-config/systemctl-sshd.png"
+&lt;img src="https://albanpetit.com/posts/raspberry-ssh-config/systemctl-sshd.png"
 width="1004"
 height="567"
-srcset="https://albanpetit.com/fr/posts/raspberry-ssh-config/systemctl-sshd_hu636a3b8dfac440bb476e59d03e58d194_144723_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-ssh-config/systemctl-sshd_hu636a3b8dfac440bb476e59d03e58d194_144723_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-ssh-config/systemctl-sshd_hu636a3b8dfac440bb476e59d03e58d194_144723_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-ssh-config/systemctl-sshd_hu636a3b8dfac440bb476e59d03e58d194_144723_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="systemctl status sshd.service"
 class="gallery-image"
@@ -77,14 +77,14 @@ Si la commande retourne une erreur comme : &lt;code>Unit sshd.service could not 
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart sshd.service
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La connexion à votre Raspberry s&amp;rsquo;effectuera avec un nouveau paramètre pour spécifier le port de connexion (remplacez &lt;code>pi&lt;/code> par votre nom d&amp;rsquo;utilisateur, &lt;code>adresse_ip&lt;/code> par l&amp;rsquo;adresse IP réelle et &lt;code>port_de_connexion&lt;/code> par le nouveau port) :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@adresse_ip -p port_de_connexion
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La configuration du SSH sur votre Raspberry Pi est une étape essentielle pour garantir un accès à distance sécurisé. En suivant ces étapes simples, vous améliorez la gestion de votre Raspberry Pi tout en renforçant la sécurité de votre système. N&amp;rsquo;hésitez pas à explorer des options avancées pour personnaliser davantage votre configuration SSH en fonction de vos besoins spécifiques.&lt;/p></description></item><item><title>Configuration du Wifi sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Configuration du Wifi sur un Raspberry" />&lt;p>Le Raspberry Pi est un formidable micro-ordinateur qui, grâce à sa polyvalence, est utilisé dans divers projets, de l’automatisation domestique à la création de serveurs personnels. La configuration du WiFi sur ces derniers est presque indispensable pour exploiter au maximum leurs possibilités. Deux grandes options s&amp;rsquo;offrent aux utilisateurs : la configuration avant ou après le premier démarrage. Il s&amp;rsquo;agit généralement d&amp;rsquo;une étape importante, surtout avec l&amp;rsquo;utilisation de &lt;strong>Raspbian Lite&lt;/strong>, qui ne dispose pas d&amp;rsquo;interface graphique et nécessite une connexion &lt;strong>SSH&lt;/strong> pour son utilisation.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>La configuration du SSH sur votre Raspberry Pi est une étape essentielle pour garantir un accès à distance sécurisé. En suivant ces étapes simples, vous améliorez la gestion de votre Raspberry Pi tout en renforçant la sécurité de votre système. N&amp;rsquo;hésitez pas à explorer des options avancées pour personnaliser davantage votre configuration SSH en fonction de vos besoins spécifiques.&lt;/p></description></item><item><title>Configuration du Wifi sur un Raspberry</title><link>https://albanpetit.com/fr/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Configuration du Wifi sur un Raspberry" />&lt;p>Le Raspberry Pi est un formidable micro-ordinateur qui, grâce à sa polyvalence, est utilisé dans divers projets, de l’automatisation domestique à la création de serveurs personnels. La configuration du WiFi sur ces derniers est presque indispensable pour exploiter au maximum leurs possibilités. Deux grandes options s&amp;rsquo;offrent aux utilisateurs : la configuration avant ou après le premier démarrage. Il s&amp;rsquo;agit généralement d&amp;rsquo;une étape importante, surtout avec l&amp;rsquo;utilisation de &lt;strong>Raspbian Lite&lt;/strong>, qui ne dispose pas d&amp;rsquo;interface graphique et nécessite une connexion &lt;strong>SSH&lt;/strong> pour son utilisation.&lt;/p>
 &lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager&lt;/h2>
 &lt;p>Cette partie concerne donc la configuration du &lt;strong>Wifi&lt;/strong> et du &lt;strong>SSH&lt;/strong> avant même le premier lancement du Raspberry. Grâce à la &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
 >Raspberry Pi Foundation&lt;/a>, il n’est même plus nécessaire d’avoir un clavier et un écran pour cela. Ils nous fournissent un utilitaire disponible sur toutes les plateformes, Windows, Apple et Linux, qui permet de produire des cartes SD fonctionnelles avec de multiples systèmes d’exploitation. En plus de graver pour nous les images des systèmes d’exploitation, cet utilitaire permet même la configuration des éléments les plus importants pour la mise en place d’un &lt;strong>Raspberry&lt;/strong>.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1.png"
 width="1064"
 height="745"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu545a8556e294b95fc5055bc87c5bbd7c_117478_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu545a8556e294b95fc5055bc87c5bbd7c_117478_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu545a8556e294b95fc5055bc87c5bbd7c_117478_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu545a8556e294b95fc5055bc87c5bbd7c_117478_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Raspberry Pi Imager"
 class="gallery-image"
@@ -95,10 +95,10 @@ data-flex-basis="342px"
 >Raspberry Software&lt;/a>. Il suffit de sélectionner le système d’exploitation que vous voulez utiliser et votre périphérique de stockage (carte SD ou USB), puis d’appuyer sur &lt;strong>WRITE&lt;/strong> pour lancer l’écriture de l’image sur le périphérique.&lt;/p>
 &lt;h3 id="options-avancées">Options avancées&lt;/h3>
 &lt;p>En bas à droite de l’interface, un bouton en forme d’engrenage permet d’accéder aux fonctions avancées de cet utilitaire, au sein de ces fonctions nous pouvons configurer le &lt;strong>SSH&lt;/strong>, le nom du &lt;strong>Raspberry&lt;/strong> sur le réseau mais aussi les informations nécessaires pour qu’il puisse se connecter sur le réseau &lt;strong>Wifi&lt;/strong> :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-2.png"
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2.png"
 width="1108"
 height="789"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu1f8e2986170e4e6fc14d485f8cad55b6_165189_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu1f8e2986170e4e6fc14d485f8cad55b6_165189_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu1f8e2986170e4e6fc14d485f8cad55b6_165189_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu1f8e2986170e4e6fc14d485f8cad55b6_165189_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Raspberry Pi Imager options avancées"
 class="gallery-image"
@@ -138,10 +138,10 @@ data-flex-basis="337px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour vérifier la connexion après un redémarrage, un simple &lt;code>ping&lt;/code> fera l&amp;rsquo;affaire :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ping google.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Voici le genre de réponse attendue :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/ping-google.png"
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/ping-google.png"
 width="885"
 height="497"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/ping-google_hucf2992d6ed901688f7848058661adc99_105795_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/ping-google_hucf2992d6ed901688f7848058661adc99_105795_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/ping-google_hucf2992d6ed901688f7848058661adc99_105795_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/ping-google_hucf2992d6ed901688f7848058661adc99_105795_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Ping google"
 class="gallery-image"
@@ -152,20 +152,20 @@ data-flex-basis="427px"
 &lt;p>La fondation Raspberry met également à disposition un outil pour faciliter ce type de configuration, bien qu&amp;rsquo;il soit moins complet qu&amp;rsquo;une configuration manuelle, il est en contrepartie bien plus simple à prendre en main : &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo raspi-config
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Voici l&amp;rsquo;interface qui s&amp;rsquo;ouvre à nous, elle permet la configuration de beaucoup de choses, mais ce qui concerne le Wifi est disponible dans: &lt;strong>System Options&lt;/strong>, ensuite: &lt;strong>Wireless Lan :&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-1_hue8092d57cbe9c66a5d98b79fcbc0dc82_107090_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-1_hue8092d57cbe9c66a5d98b79fcbc0dc82_107090_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1_hue8092d57cbe9c66a5d98b79fcbc0dc82_107090_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1_hue8092d57cbe9c66a5d98b79fcbc0dc82_107090_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="raspi-config menu 1"
 class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >
-&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-2.png"
+&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-2_hu92d5ea2143a29ed4d9c784913081d7f6_104135_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-2_hu92d5ea2143a29ed4d9c784913081d7f6_104135_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2_hu92d5ea2143a29ed4d9c784913081d7f6_104135_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2_hu92d5ea2143a29ed4d9c784913081d7f6_104135_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="raspi-config menu 2"
 class="gallery-image"
@@ -173,20 +173,20 @@ data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
 &lt;p>Raspi-config demande de configurer le pays dans lequel le raspberry sera utilisé :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-3.png"
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-3_hu6b085c53bed49fdb5ee7a50289ab841a_95184_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-3_hu6b085c53bed49fdb5ee7a50289ab841a_95184_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3_hu6b085c53bed49fdb5ee7a50289ab841a_95184_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3_hu6b085c53bed49fdb5ee7a50289ab841a_95184_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="raspi-config menu 3"
 class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >
-&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-4.png"
+&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-4_huda5f0479c87521d8b6bb9f946e532812_77876_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-4_huda5f0479c87521d8b6bb9f946e532812_77876_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4_huda5f0479c87521d8b6bb9f946e532812_77876_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4_huda5f0479c87521d8b6bb9f946e532812_77876_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="raspi-config menu 4"
 class="gallery-image"
@@ -194,20 +194,20 @@ data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
 &lt;p>L&amp;rsquo;utilitaire demandera ensuite le &lt;strong>SSID&lt;/strong> et le &lt;strong>mot de passe&lt;/strong> du réseau.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-5.png"
+&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-5_hu0b57c46fdd66cdfc75b55814abc5951e_78520_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-5_hu0b57c46fdd66cdfc75b55814abc5951e_78520_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5_hu0b57c46fdd66cdfc75b55814abc5951e_78520_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5_hu0b57c46fdd66cdfc75b55814abc5951e_78520_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="raspi-config SSID"
 class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >
-&lt;img src="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-6.png"
+&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-6_hu4a114d96bf514baeb558cd5062d7227a_79547_480x0_resize_box_3.png 480w, https://albanpetit.com/fr/posts/raspberry-wifi-config/raspi-config-6_hu4a114d96bf514baeb558cd5062d7227a_79547_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6_hu4a114d96bf514baeb558cd5062d7227a_79547_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6_hu4a114d96bf514baeb558cd5062d7227a_79547_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="raspi-config mot de passe"
 class="gallery-image"
