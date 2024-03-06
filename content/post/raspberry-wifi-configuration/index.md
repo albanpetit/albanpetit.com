@@ -35,7 +35,7 @@ At the bottom right of the interface, a gear-shaped button provides access to th
 
 You'll need to fill in the **SSID**, the network password, and the location of the router emitting the Wi-Fi signal. During its first startup and all subsequent ones, the Raspberry Pi that hosts this SD card will be able to connect to Wi-Fi using the information entered during the image writing.
 
-> The **SSID**, an acronym for *service set identifier*, is the name of a wireless network according to IEEE 802.11 standards. This name consists of a character string of 0 to 32 octets.
+> The **SSID**, an acronym for _service set identifier_, is the name of a wireless network according to IEEE 802.11 standards. This name consists of a character string of 0 to 32 octets.
 
 ## Command Line Configuration
 
@@ -44,16 +44,19 @@ The **Raspberry Pi Imager** application allows configuring Wi-Fi even before the
 ### Manual Configuration
 
 First, it is necessary to configure the network interfaces. For this, the default text file editing utility in **Raspbian**, **nano**, will help us:
+
 ```bash
 sudo nano /etc/network/interfaces
 ```
 
 This file lists all existing network interfaces, so it probably won't be empty. Add a line at the top of the file:
+
 ```bash
 auto wlan0
 ```
 
 Next, allow the **Raspberry Pi** to use Wi-Fi as the method of connecting to the internet and use the configuration file `/etc/wpa_supplicant/wpa_supplicant.conf`. Also, add the following lines to the end of the same file:
+
 ```bash
 allow-hotplug wlan0
 iface wlan0 inet dhcp
@@ -64,11 +67,13 @@ iface default inet dhcp
 Save the changes and then exit **nano** with the following shortcuts: `ctrl+o`, `ctrl+x`.
 
 The rest of the configuration takes place in the file `/etc/wpa_supplicant/wpa_supplicant.conf`:
+
 ```bash
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
 This file is probably not empty either. Add the following configuration lines to the end of the file (making sure to change **NETWORK_NAME** and **PASSWORD**):
+
 ```bash
 country=US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -82,11 +87,13 @@ network={
 Similarly, save the file and exit **nano** using the shortcuts: `ctrl+o`, `ctrl+x`.
 
 Following this, the configuration should be operational. A restart will verify it:
+
 ```bash
 sudo reboot
 ```
 
 To check the connection after a restart, a simple `ping` will do:
+
 ```bash
 ping google.com
 ```
@@ -98,6 +105,7 @@ Here's the expected response:
 ### Raspi-config
 
 The Raspberry Pi Foundation also provides a tool to facilitate this type of configuration. Although it is less comprehensive than manual configuration, it is much simpler to use: **Raspi-config**.
+
 ```bash
 sudo raspi-config
 ```
@@ -124,18 +132,21 @@ Now, simply exit the tool to apply the configuration. The Raspberry will connect
 The goal of this kind of configuration is generally to use the Raspberry without a keyboard or mouse, with an **SSH** connection. Therefore, it is essential to ensure that it does not change its **IP** address.
 
 The interface configuration still takes place in **/etc/network/interfaces**:
+
 ```bash
 sudo nano /etc/network/interfaces
 ```
 
 Change the line `iface wlan0 inet dhcp` to `iface wlan0 inet static`. This will change the `wlan0` interface from DHCP to static. In the same file, add the following configuration lines just before `wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf`:
+
 ```bash
 address 192.168.1.155 # Desired static IP
-netmask 255.255.255.0 
+netmask 255.255.255.0
 gateway 192.168.1.1   # Router IP
 ```
 
 The file `/etc/network/interfaces` should now look something like this after all configurations:
+
 ```bash
 
 auto wlan0
@@ -153,6 +164,7 @@ iface default inet dhcp
 ```
 
 A restart of the Raspberry will confirm the proper functioning of the configuration:
+
 ```bash
 sudo reboot
 ```
