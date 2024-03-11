@@ -9,6 +9,8 @@ type: post
 image: main.jpg
 slug: /raspberry-ssh-config
 status: Done
+categories:
+  - Tutorials
 links:
   - title: raspi-config
     description: L'outil raspi config est utilisé dans Raspbian pour définir des paramètres importants.

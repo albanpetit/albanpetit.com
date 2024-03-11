@@ -1,8 +1,8 @@
 ---
 menu:
   main:
-    name: Projects
+    name: Blog posts
     weight: -100
     params:
       icon: book-2
---- 
+---

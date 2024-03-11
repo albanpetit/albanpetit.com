@@ -22,12 +22,11 @@ googleAnalytics: G-ZXXQQEG3J8
 
 permalinks:
   page: /:slug/
-  project: /projects/:slug/
   post: /posts/:slug
 
 params:
   mainSections:
-    - project
+    - post
   featuredImageField: image
   rssFullContent: true
   favicon:
@@ -64,6 +63,9 @@ params:
         params:
           limit: 5
       - type: tag-cloud
+        params:
+          limit: 10
+      - type: categories
         params:
           limit: 10
     page:
