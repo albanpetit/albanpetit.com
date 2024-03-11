@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Alban Petit</title><link>https://albanpetit.com/fr/categories/projects/</link><description>Recent content in Projects on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, nous plongeons au cœur de mon dernier projet un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet est relativement simple dans son application, mails il utilise un composant électronique extrêmement interessant par son fonctionnement interne, un accerometre MEMS.
+Cette carte électronique sera utilise plus tard au sein d&amp;rsquo;autres projets.&lt;/p>
+&lt;h2 id="accéléromètres-mems">Accéléromètres MEMS&lt;/h2>
+&lt;img src="https://albanpetit.com/projects/adxl335-accelerometer/mems.jpg" style="float:left; width:200px; margin-right:10px">
+&lt;p>Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l&amp;rsquo;électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve une structure MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.&lt;/p>
+&lt;h3 id="principe-de-fonctionnement">Principe de fonctionnement&lt;/h3>
+&lt;p>Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d&amp;rsquo;inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s&amp;rsquo;il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l&amp;rsquo;accélération.&lt;/p>
+&lt;p>Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l&amp;rsquo;inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, tel qu&amp;rsquo;un capteur capacitif ou piézoélectrique, intégré dans la structure MEMS.&lt;/p>
+&lt;h3 id="traduire-le-mouvement-mécanique-en-signaux-électriques">Traduire le mouvement mécanique en signaux électriques&lt;/h3>
+&lt;p>Au fur et à mesure que l&amp;rsquo;accéléromètre rencontre une accélération, le mouvement de la masse induit une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal électrique est ensuite traité et traduit en données significatives, nous permettant de quantifier l&amp;rsquo;accélération subie par le dispositif.&lt;/p>
+&lt;h2 id="carte-électronique">Carte électronique&lt;/h2>
+&lt;p>Ce PCB est relativement simple, de petites dimensions il s&amp;rsquo;intègre sans aucun problèmes dans n&amp;rsquo;importe quel projet. La presence d&amp;rsquo;un régulateur de tension AP2112 permet la regulation de la tension d&amp;rsquo;entree a 3.3V et donc l&amp;rsquo;utilisation de cette carte électronique avec proposant du 5V comme tension par défaut, comme les Arduino par exemple.
+Elle présente ainsi des dimensions de 19mm x 24mm avec deux connecteurs, le premier pour l&amp;rsquo;alimentation en 5V, le second pour les données analogiques de l&amp;rsquo;acceleration sur les trois axes: x, y, z.&lt;/p>
+&lt;h3 id="liste-des-composants">Liste des composants&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Denomination&lt;/th>
+&lt;th>Reference&lt;/th>
+&lt;th>Quantité&lt;/th>
+&lt;th>Format&lt;/th>
+&lt;th>Datasheet&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ADXL335&lt;/td>
+&lt;td>U1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>LFCSP-16&lt;/td>
+&lt;td>&lt;a class="link" href="datasheet-adxl-335.pdf" >ADXL335&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>AP2112K-3.3&lt;/td>
+&lt;td>U2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>SOT-23-5&lt;/td>
+&lt;td>&lt;a class="link" href="datasheet-ap2112.pdf" >AP2112&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>100k ohm SMD resistor&lt;/td>
+&lt;td>R2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>62 ohm SMD resistor&lt;/td>
+&lt;td>R1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LED&lt;/td>
+&lt;td>D1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1uF SMD capacitor&lt;/td>
+&lt;td>C4,C5&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4,7nF SMD capacitor&lt;/td>
+&lt;td>C1-C3&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Power connector&lt;/td>
+&lt;td>J1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>JST PH B2B&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Signal connector&lt;/td>
+&lt;td>J2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>JST PH B3B&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="schéma-et-carte-électronique">Schéma et carte électronique&lt;/h3>
+&lt;p>L&amp;rsquo;ensemble des fichiers de conception et de fabrication sont disponibles dans ce repertoire &lt;strong>GitHub&lt;/strong> : &lt;a class="link" href="" >ADXL-335&lt;/a>. Voici tout de meme un rapide descriptif des différentes sections de ce circuit imprime :&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl335-accelerometer/pcb.png"
+width="883"
+height="507"
+srcset="https://albanpetit.com/posts/adxl335-accelerometer/pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl335-accelerometer/pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="carte électronique"
+class="gallery-image"
+data-flex-grow="174"
+data-flex-basis="417px"
+> &lt;img src="https://albanpetit.com/posts/adxl335-accelerometer/pcb.png"
+width="883"
+height="507"
+srcset="https://albanpetit.com/posts/adxl335-accelerometer/pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl335-accelerometer/pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="carte électronique"
+class="gallery-image"
+data-flex-grow="174"
+data-flex-basis="417px"
+>&lt;/p></description></item></channel></rss>

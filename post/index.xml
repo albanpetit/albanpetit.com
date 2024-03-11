@@ -241,4 +241,4 @@ data-flex-basis="345px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface default inet dhcp
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A restart of the Raspberry will confirm the proper functioning of the configuration:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl335-accelerometer/</link><pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" /></description></item></channel></rss>
