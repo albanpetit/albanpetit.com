@@ -4,5 +4,5 @@ menu:
     name: Blog posts
     weight: -100
     params:
-      icon: book-2
+      icon: home
 ---
