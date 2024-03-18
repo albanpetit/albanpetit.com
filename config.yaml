@@ -96,25 +96,6 @@ params:
 menu:
   main: []
 
-  social:
-    - identifier: github
-      name: GitHub
-      url: https://github.com/AlbanPetit
-      params:
-        icon: brand-github
-
-    - identifier: twitter
-      name: Twitter
-      url: https://twitter.com/Padh_
-      params:
-        icon: brand-twitter
-
-    - identifier: email
-      name: Email
-      url: mailto:“contact@albanpetit.com”
-      params:
-        icon: email
-
 related:
   includeNewer: true
   threshold: 60
