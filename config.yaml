@@ -63,7 +63,7 @@ params:
       categoryID: "DIC_kwDOF6hErc4CeFTI"
       mapping: "pathname"
       lightTheme: "light"
-      darkTheme:"dark"
+      darkTheme: "dark"
       reactionsEnabled: 1
       emitMetadata: 0
 
