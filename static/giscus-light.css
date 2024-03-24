@@ -1,0 +1,9 @@
+.gsc-comment-box {
+  border: 0;
+}
+
+.gsc-comment-box-tabs {
+  border-radius: 10px;
+  background-color: rgb(219, 226, 239);
+  padding: 10px;
+}
