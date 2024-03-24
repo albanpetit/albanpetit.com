@@ -62,7 +62,7 @@ params:
       category: "Website comments"
       categoryID: "DIC_kwDOF6hErc4CeFTI"
       mapping: "pathname"
-      lightTheme: "light"
+      lightTheme: "https://albanpetit.com/giscus-light.css"
       darkTheme: "dark"
       reactionsEnabled: 1
       emitMetadata: 0
