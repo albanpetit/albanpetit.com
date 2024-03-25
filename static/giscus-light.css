@@ -32,10 +32,10 @@
 
 .gsc-comment-box {
   border: 0;
-  border-radius-top-left: 0;
-  border-radius-top-right: 0;
-  border-radius-bottom-left: 10px;
-  border-radius-bottom-right: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 10px;
+  borderbottom-right-radius: 10px;
   background-color: rgb(219, 226, 239);
 }
 
