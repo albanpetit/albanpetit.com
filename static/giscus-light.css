@@ -1,10 +1,22 @@
+.gsc-main {
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue";
+  background-color: background-color: rgb(219, 226, 239);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+.gsc-reactions {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  background-color: #3f72af;
+}
+
 .gsc-comment-box {
   border: 0;
 }
 
 .gsc-comment-box-tabs {
-  border-radius: 10px;
-  background-color: rgb(219, 226, 239);
   padding: 10px;
   border: 0;
 }
@@ -18,7 +30,6 @@
   background-color: #3f72af;
   color: white;
   border-radius: 4px;
-  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Droid Sans", "Helvetica Neue";
   font-size: 14px;
   padding-left: 16px;
   padding-right: 16px;
@@ -30,4 +41,8 @@
 
 .gsc-comment-box-tabs button:hover {
   background-color: #2c3e50;
+}
+
+.gsc-header {
+  display: none;
 }
