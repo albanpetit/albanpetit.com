@@ -5,6 +5,7 @@
 }
 
 .gsc-reactions {
+  position: relative;
   margin-right: auto;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -16,10 +17,16 @@
 }
 
 .gsc-reactions::after {
+  z-index: -20;
   content: "";
-  background-color: rgb(219, 226, 239);
+  right: -15px;
+  bottom: -5px;
+  border-top-left-radius: 10px;
+  rotate: -90deg;
+  background-color: rgb(249, 247, 247);
   position: absolute;
-  height: 10px;
+  box-shadow: 0px -10px 0 0 rgb(219, 226, 23);
+  height: 20px;
   width: 10px;
 }
 
@@ -45,6 +52,7 @@
 
 .gsc-comment-box-tabs button {
   border: 0;
+  line-height: 16px;
   background-color: #3f72af;
   color: white;
   border-radius: 4px;
