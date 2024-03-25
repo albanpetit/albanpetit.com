@@ -6,17 +6,18 @@
   border-radius: 10px;
   background-color: rgb(219, 226, 239);
   padding: 10px;
+  border: 0;
 }
 
 .gsc-comment-box-tabs div {
-  margin: 0; 
+  margin: 0 !important; 
 }
 
 .gsc-comment-box-tabs button {
-  background-color: rgb(45, 66, 87);
+  background-color: #3f72af;
   color: white;
   border-radius: 4px;
-  font-family: Lato;
+  font-family: "Lato";
   font-size: 14px;
   padding-left: 16px;
   padding-right: 16px;
