@@ -30,10 +30,23 @@
   width: 10px;
 }
 
+.gsc-reactions .gsc-reactions-menu summary {
+  background-color: #3f72af;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+}
+
 .gsc-reactions .gsc-direct-reaction-buttons button {
   background-color: #3f72af;
   color: white;
   border: 0;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
 }
 
