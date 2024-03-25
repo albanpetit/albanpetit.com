@@ -73,7 +73,8 @@
   background-color: rgb(219, 226, 239);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-radius: 0;
+  border-bottom-left-radius: 0;
+  border-botton-right-radius: 0;
   padding: 10px;
   border: 0;
 }
