@@ -63,7 +63,7 @@ params:
       categoryID: "DIC_kwDOF6hErc4CeFTI"
       mapping: "pathname"
       lightTheme: "https://albanpetit.com/giscus-light.css"
-      darkTheme: "dark"
+      darkTheme: "https://albanpetit.com/giscus-dark.css"
       reactionsEnabled: 1
       emitMetadata: 0
 
