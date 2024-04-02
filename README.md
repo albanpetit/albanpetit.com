@@ -34,7 +34,7 @@ If you're interested in contributing to my website, i'd love to have your input.
    ```
 7. **Open a Pull Request:** Once you've pushed your changes to your fork, open a pull request in our repository. Provide a detailed description of your changes and any relevant information.
 
-## Commit naming convention
+### Commit naming convention
 
 To make the commit history as readable as possible, I try to adhere as closely as I can to the following naming convention :
 
@@ -64,16 +64,16 @@ To make the commit history as readable as possible, I try to adhere as closely a
 
 I invite you to follow this convention to contribute more easily to this repository.
 
-## Feedback and Issues
+### Feedback and Issues
 
 If you encounter any issues, have suggestions, or want to discuss new features,
 please open an issue on the GitHub repository. Your feedback is highly valued!
 
 Thank you for considering contributing to my website.
 
-# Running the project
+## Running the project
 
-## Hugo CMS
+### Hugo CMS
 
 Before you start, make sure you have installed Hugo extended version. For more information, see Hugo's documentation.
 This website theme uses SCSS and TypeScript, that's why Hugo extended version is required. If you are using a non-extended Hugo installation, you will get the following error :
@@ -117,7 +117,7 @@ While the server is running, it watches the project directory for changes to ass
 
 Most Hugo builds are so fast that you may not notice the change unless you are looking directly at your browser.
 
-## Docker
+### Docker
 
 A `Dockerfile` is available on this repository, not stable but still usable, here are the commands to use it :
 
