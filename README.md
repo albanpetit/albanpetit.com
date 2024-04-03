@@ -5,8 +5,8 @@
 
 Here is the repository for my personal website where I share my projects on
 various topics, including electronics, web development, and a lot of
-things related to the Maker world. Some tutorials, experiences, and
-information are available in the blog posts section.
+things related to the Maker world, some tutorials, experiences, and
+information are also available.
 
 ![albanpetit.com](https://github.com/albanpetit/albanpetit.com/blob/master/static/github-readme.png)
 
