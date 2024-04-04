@@ -203,12 +203,16 @@
 }
 
 .gsc-comment {
-  background-color: rgb(219, 226, 239);
   border: 0;
   color: #2c3e50;
 }
 
-.gsc-comment .gsc-header {
+.gsc-comment>:first-child {
+  border: 0;
+}
+
+.gsc-comment .gsc-comment-header {
+  background-color: rgb(219, 226, 239);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: rgb(219, 226, 239);
