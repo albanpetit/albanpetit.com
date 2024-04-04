@@ -226,20 +226,18 @@
   background-color: rgb(219, 226, 239);
   border-radius: 0;
   padding: 10px;
-  padding-left: 30px
+  padding-left: 0px;
 }
 
 .gsc-comment .gsc-comment-content > * {
   border: 0;
   padding: 0;
-  padding-left: 48px;
 }
 
 .gsc-comment .gsc-comment-footer {
   background-color: rgb(219, 226, 239);
   margin-bottom: 0;
   padding: 10px;
-  padding-left: 48px;
   border: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
