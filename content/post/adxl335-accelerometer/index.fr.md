@@ -80,7 +80,13 @@ En prime, il est extrêmement simple a mettre en oeuvre, le document de données
 
 Le coeur du projet, l'accéléromètre **ADXL335**, ce composant de la marque **Analog Devices** dispose d'une sensibilité la vibration de 3g, disponible uniquement en format **LFCSP-16** il est relativement simple a mettre en oeuvre également en partie grace a sa taille réduite (4mm x 4mm).
 
+Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'acceleration d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogique, décrit dans la documentation technique, une resistance de 32K ohms est disposée sur chacune d'entres elles. Ces resistances permettent via l'ajout d'un condensateur de créer un filtre passe bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimal conseillée de ces condensateur est de 4,7nF selon la documentation technique.
+
+Il est également interessant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente, 1600Hz pour X et Y et seulement 500Hz pour Z. Le positionnement de ce composant est donc extrêmement important en fonction de l'usage.
+
 ### Liste des composants
+
+Bien qu'ils soient les plus composants les plus importants, d'autres composants sont tout de meme present sur cette carte :
 
 | Denomination          | Reference | Quantité | Format     | Datasheet                         |
 | --------------------- | --------- | -------- | ---------- | --------------------------------- |
@@ -102,7 +108,7 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 
 1. Une simple LED responsable d'afficher l'état d'alimentation de la carte électronique, accompagne de sa résistance pour éviter toute émission de fumer
 2. L'étage d'alimentation de la carte électronique, base sur l'AP2112K-3.3, il dispose de trois condensateurs de lissage pour assurer sa fonction correctement, ces informations sont disponibles directement au sein de la fiche technique du composant.
-3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant. Ils permettent de filtrer les hautes fréquences permettant donc une réduction de bruit et l'anti-crénelage.
+3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant. Ils permettent de filtrer les hautes fréquences permettant donc une réduction de bruit et l'anti-crénelage comme indique plus tot.
 4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique
 5. Le connecteur JST-PH d'alimentation en 5 volts
 
