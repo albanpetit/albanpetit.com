@@ -45,7 +45,7 @@ Au sein de la structure MEMS, il existe généralement une masse suspendue par d
 
 Au fur et à mesure que l'accéléromètre rencontre une accélération, le mouvement de la masse induit une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal électrique est ensuite traité et traduit en données significatives, nous permettant de quantifier l'accélération subie par le dispositif.
 
-## Carte électronique
+## Design de la carte électronique
 
 Ce PCB est relativement simple, de petites dimensions il s'intègre sans aucun problèmes dans n'importe quel projet. La presence d'un régulateur de tension AP2112 permet la regulation de la tension d'entree a 3.3V et donc l'utilisation de cette carte électronique avec proposant du 5V comme tension par défaut, comme les Arduino par exemple.
 Elle présente ainsi des dimensions de 19mm x 24mm avec deux connecteurs, le premier pour l'alimentation en 5V, le second pour les données analogiques de l'acceleration sur les trois axes: x, y, z.
@@ -104,12 +104,34 @@ Bien qu'ils soient les plus composants les plus importants, d'autres composants 
 
 L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce repertoire **GitHub** : [ADXL-335](). Voici tout de meme un rapide descriptif des différentes sections de ce circuit imprime :
 
-![carte électronique](pcb.png) ![schema électronique](schematic.jpg)
+![Carte électronique](pcb.png) ![Schema électronique](schematic.jpg)
 
 1. Une simple LED responsable d'afficher l'état d'alimentation de la carte électronique, accompagne de sa résistance pour éviter toute émission de fumer
 2. L'étage d'alimentation de la carte électronique, base sur l'AP2112K-3.3, il dispose de trois condensateurs de lissage pour assurer sa fonction correctement, ces informations sont disponibles directement au sein de la fiche technique du composant.
 3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant. Ils permettent de filtrer les hautes fréquences permettant donc une réduction de bruit et l'anti-crénelage comme indique plus tot.
 4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique
 5. Le connecteur JST-PH d'alimentation en 5 volts
+
+## Fabrication de la carte électronique 
+
+{{< figure src="aisler.png" position="left" width="100" right="10" >}}
+Habitant en France les fournisseurs habituels (chinois) de carte électronique peuvent être relativement onéreux a cause des frais de ports. Je commande mes cartes principalement chez **Aisler** un fabricant allemand de carte, toujours efficace, bien documenté et abordable ils ont toujours parfaitement honorés mes commandes.
+Ils ont meme un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for kicad](https://github.com/AislerHQ/PushForKiCad), une simple pression sur l'icône et le projet est directement transmis au site pour effectuer ladite commande.
+
+**Aisler** propose des PCB avec un traitement **ENIG** (Electroless Nickel Immersion Gold) ainsi que la possibilité de faire fabriquer des **stencil** pour la creme a braser.
+
+L'utilisation d'un **stencil** donne accès a des solutions pour souder des **PCB** bien plus précisément que le méthodes conventionnelles avec un fer a souder. L'idée et de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la creme a braser sur les surfaces accueillant plus tard de l'étain. Par la suite il s'agira de déposer les composants électroniques a leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four a refusions peuvent être utilise pour faire fondre la crème a brasé et donc realiser la soudure, il en résulte des points de soudure parfaitement homogène.
+
+**GreatScott** explique et présente cette méthode dans une de ses video :
+{{< youtube QarizoUnRfk >}}
+
+![PCB 1](pcb-1.png) ![PCB 2](pcb-2.png) ![PCB 3](pcb-3.png)
+
+
+
+
+
+
+
 
 
