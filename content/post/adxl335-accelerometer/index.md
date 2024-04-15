@@ -6,6 +6,7 @@ tags:
   - PCB
   - KiCad
 type: post
+draft: true
 image: main.jpg
 slug: /adxl-335-accelerometer
 status: WIP !
