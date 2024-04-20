@@ -106,22 +106,28 @@ The 'hugo' command builds the site, publishing the files to the public directory
 To publish the site to a different directory, use the `--destination` flag or set `publishDir` in the site configuration.
 
 To view the site while developing layouts or creating content, `cd` into the project directory and run:
+
 ```bash
 hugo server
 ```
+
 The hugo server command builds the site into memory, and serves the pages using a minimal HTTP server. When you run hugo server it will display the URL of the local site:
+
 ```bash
 Web Server is available at http://localhost:1313/
 ```
+
 While the server is running, it watches the project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds the site and refreshes your browser using LiveReload.
 
 Most Hugo builds are so fast that you may not notice the change unless you are looking directly at your browser.
 
 ### Docker
 
-A `Dockerfile` is available on this repository, not stable but still usable, here are the commands to use it :
+**Hugo** come with some awesome resources like a docker container. So to start hugo in a docker container with a dev server :
 
 ```bash
-docker build -t albanpetit.com --build-arg HUGO_BASEURL=http://localhost:8080 .
-docker run -p 8080:80 albanpetit.com
+docker run -p 1313:1313 \
+-v ${PWD}:/src \Ò
+razonyang/hugo \
+hugo server --bind 0.0.0.0
 ```
