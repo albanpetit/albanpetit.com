@@ -6,7 +6,7 @@ tags:
   - PCB
   - KiCad
 type: post
-draft: true
+draft: false
 image: main.jpg
 slug: /adxl-335-accelerometer
 status: WIP !
@@ -27,8 +27,7 @@ links:
     image: adxl335kicad.png
 ---
 
-Dans cet article, nous plongeons au cœur de mon dernier projet un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet est relativement simple dans son application, mails il utilise un composant électronique extrêmement interessant par son fonctionnement interne, un accerometre MEMS.
-Cette carte électronique sera utilise plus tard au sein d'autres projets.
+Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d'autres projets.
 
 ## Accéléromètres MEMS
 
@@ -46,93 +45,208 @@ Au sein de la structure MEMS, il existe généralement une masse suspendue par d
 
 Au fur et à mesure que l'accéléromètre rencontre une accélération, le mouvement de la masse induit une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal électrique est ensuite traité et traduit en données significatives, nous permettant de quantifier l'accélération subie par le dispositif.
 
-## Design de la carte électronique
+## Conception de la carte électronique
 
-Ce PCB est relativement simple, de petites dimensions il s'intègre sans aucun problèmes dans n'importe quel projet. La presence d'un régulateur de tension AP2112 permet la regulation de la tension d'entree a 3.3V et donc l'utilisation de cette carte électronique avec proposant du 5V comme tension par défaut, comme les Arduino par exemple.
-Elle présente ainsi des dimensions de 19mm x 24mm avec deux connecteurs, le premier pour l'alimentation en 5V, le second pour les données analogiques de l'acceleration sur les trois axes: x, y, z.
+Ce PCB est relativement simple et de petites dimensions, ce qui lui permet de s'intégrer sans aucun problème dans n'importe quel projet. La présence d'un régulateur de tension AP2112 permet la régulation de la tension d'entrée à 3,3V, permettant ainsi l'utilisation de cette carte électronique avec des dispositifs fournissant 5V par défaut, tels que les Arduino, par exemple. Ses dimensions sont de 19mm x 24mm, avec deux connecteurs : l'un pour l'alimentation en 5V, et l'autre pour les données analogiques de l'accélération sur les trois axes : x, y, z.
 
 ### Composants principaux
 
-Sur cette carte électronique, deux composants sont les plus importants, le régulateur et l'accéléromètre.
+Sur cette carte électronique, deux composants sont les plus importants : le régulateur et l'accéléromètre.
 
 #### AP2112K-3.3
 
-Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuse cartes électroniques a destination des hobbyist il reviens dans de nombreux design des chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire a faible abaissement a tension fixe, disponible dans de multiple variantes, 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V, ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaire pour ce projet :
--  Précision de la tension de sortie : ±1,5 %
--  Courant de sortie : 600 mA (min.)
--  Protection contre les courts-circuits repliables : 50 mA
+Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans de nombreux designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement à tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
+-  Précision de la tension de sortie : ±1,5%
+-  Courant de sortie : 600 mA (minimum)
+-  Protection contre les courts-circuits repliables : 50 mA
 -  Activer la fonction pour activer/désactiver VOUT
--  Faible tension de chute (3,3 V) : 250 mV (Typ.) @IOUT = 600 mA
--  Excellente régulation de charge : 0,2 %/A (Typ.)
--  Excellente régulation de ligne : 0,02 %/V (Typ.)
--  Faible courant de repos : 55µA (Typ.)
--  Faible courant de veille : 0,01 µA (Typ.)
--  Faible bruit de sortie : 50µVRMS
-- PSRR : 100 Hz -65 dB, 1 kHz -65 dB
+-  Faible tension de chute (3,3 V) : 250 mV (typ.) @IOUT = 600 mA
+-  Excellente régulation de charge : 0,2%/A (typ.)
+-  Excellente régulation de ligne : 0,02%/V (typ.)
+-  Faible courant de repos : 55µA (typ.)
+-  Faible courant de veille : 0,01 µA (typ.)
+-  Faible bruit de sortie : 50µVRMS
+- PSRR : 100 Hz -65 dB, 1 kHz -65 dB
 -  Protection OTSD
--  Stable avec un capuchon flexible de 1,0 µF : céramique, tantale et
-Électrolyse de l'aluminium
--  Plage de température de fonctionnement : -40°C à +85°C
+-  Stable avec un condensateur flexible de 1,0 µF : céramique, tantale et électrolytique à l'aluminium
+-  Plage de température de fonctionnement : -40°C à +85°C
 
-{{< figure src="ap2112-datasheet.png" position="left" width="350" right="10" >}}
-En prime, il est extrêmement simple a mettre en oeuvre, le document de données techniques fournis avec nous présente l'ensemble des composants satellites nécessaire a sont bon fonctionnement. Il suffira de deux condensateurs de lissage d'une valeur de 1uF sur l'entree en tension ainsi que la sortie, ainsi que d'une resistance de 100K ohms pour permettre son allumage constant.
+{{< figure src="ap2112-datasheet.png" position="left" width="350" right="10" >}} 
+
+En prime, il est extrêmement simple à mettre en œuvre. Le document de données techniques fourni présente l'ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d'une valeur de 1uF sur l'entrée en tension ainsi que la sortie, ainsi que d'une résistance de 100K ohms pour permettre son allumage constant.
 
 #### ADXL335
 
-Le coeur du projet, l'accéléromètre **ADXL335**, ce composant de la marque **Analog Devices** dispose d'une sensibilité la vibration de 3g, disponible uniquement en format **LFCSP-16** il est relativement simple a mettre en oeuvre également en partie grace a sa taille réduite (4mm x 4mm).
+Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices**, dispose d'une sensibilité à la vibration de 3g. Disponible uniquement en format **LFCSP-16**, il est relativement simple à mettre en œuvre également, en partie grâce à sa taille réduite (4mm x 4mm).
 
-Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'acceleration d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogique, décrit dans la documentation technique, une resistance de 32K ohms est disposée sur chacune d'entres elles. Ces resistances permettent via l'ajout d'un condensateur de créer un filtre passe bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimal conseillée de ces condensateur est de 4,7nF selon la documentation technique.
+Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'accélération d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d'entre elles. Ces résistances permettent, via l'ajout d'un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF selon la documentation technique.
 
-Il est également interessant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente, 1600Hz pour X et Y et seulement 500Hz pour Z. Le positionnement de ce composant est donc extrêmement important en fonction de l'usage.
+Il est également intéressant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z. Le positionnement de ce composant est donc extrêmement important en fonction de l'usage.
 
 ### Liste des composants
 
-Bien qu'ils soient les plus composants les plus importants, d'autres composants sont tout de meme present sur cette carte :
+Bien qu'ils soient les plus importants, d'autres composants sont tout de même présents sur cette carte :
 
-| Denomination          | Reference | Quantité | Format     | Datasheet                         |
-| --------------------- | --------- | -------- | ---------- | --------------------------------- |
-| ADXL335               | U1        | 1        | LFCSP-16   | [ADXL335](datasheet-adxl-335.pdf) |
-| AP2112K-3.3           | U2        | 1        | SOT-23-5   | [AP2112](datasheet-ap2112.pdf)    |
-| 100k ohm SMD resistor | R2        | 1        | 0603       | -                                 |
-| 160 ohm SMD resistor  | R1        | 1        | 0603       | -                                 |
-| LED                   | D1        | 1        | 0603       | -                                 |
-| 1uF SMD capacitor     | C4,C5     | 2        | 0603       | -                                 |
-| 4,7nF SMD capacitor   | C1-C3     | 3        | 0603       | -                                 |
-| Power connector       | J1        | 1        | JST PH B2B | -                                 |
-| Signal connector      | J2        | 1        | JST PH B3B | -                                 |
+| Désignation               | Référence | Quantité | Format     | Fiche technique                           |
+| ------------------------- | --------- | -------- | ---------- | ----------------------------------------- |
+| ADXL335                   | U1        | 1        | LFCSP-16   | [ADXL335](datasheet-adxl-335.pdf)         |
+| AP2112K-3.3               | U2        | 1        | SOT-23-5   | [AP2112](datasheet-ap2112.pdf)            |
+| Résistance SMD 100k ohm   | R2        | 1        | 0603       | -                                         |
+| Résistance SMD 160 ohm    | R1        | 1        | 0603       | -                                         |
+| LED                       | D1        | 1        | 0603       | -                                         |
+| Condensateur SMD 1uF      | C4,C5     | 2        | 0603       | -                                         |
+| Condensateur SMD 4,7nF    | C1-C3     | 3        | 0603       | -                                         |
+| Connecteur d'alimentation | J1        | 1        | JST PH B2B | -                                         |
+| Connecteur de signal      | J2        | 1        | JST PH B3B | -                                         |
 
 ### Schéma et carte électronique
 
-L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce repertoire **GitHub** : [ADXL-335](). Voici tout de meme un rapide descriptif des différentes sections de ce circuit imprime :
+L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce répertoire **GitHub** : [ADXL-335](). Voici tout de même un rapide descriptif des différentes sections de ce circuit imprimé :
 
-![Carte électronique](pcb.png) ![Schema électronique](schematic.jpg)
+![Carte électronique](kicad-pcb.png) ![Schéma électronique](kicad-schematic.jpg)
 
-1. Une simple LED responsable d'afficher l'état d'alimentation de la carte électronique, accompagne de sa résistance pour éviter toute émission de fumer
-2. L'étage d'alimentation de la carte électronique, base sur l'AP2112K-3.3, il dispose de trois condensateurs de lissage pour assurer sa fonction correctement, ces informations sont disponibles directement au sein de la fiche technique du composant.
-3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant. Ils permettent de filtrer les hautes fréquences permettant donc une réduction de bruit et l'anti-crénelage comme indique plus tot.
-4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique
-5. Le connecteur JST-PH d'alimentation en 5 volts
+1. Une simple LED responsable d'afficher l'état d'alimentation de la carte électronique, accompagnée de sa résistance pour éviter toute émission de fumée.
+2. L'étage d'alimentation de la carte électronique, basé sur l'AP2112K-3.3, dispose de trois condensateurs de lissage pour assurer sa fonction correctement. Ces informations sont disponibles directement au sein de la fiche technique du composant.
+3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant. Ils permettent de filtrer les hautes fréquences, permettant ainsi une réduction de bruit et l'anti-crénelage comme indiqué plus tôt.
+4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique.
+5. Le connecteur JST-PH d'alimentation en 5 volts.
 
-## Fabrication de la carte électronique 
+## Fabrication de la carte électronique
 
-{{< figure src="aisler.png" position="left" width="100" right="10" >}}
-Habitant en France les fournisseurs habituels (chinois) de carte électronique peuvent être relativement onéreux a cause des frais de ports. Je commande mes cartes principalement chez **Aisler** un fabricant allemand de carte, toujours efficace, bien documenté et abordable ils ont toujours parfaitement honorés mes commandes.
-Ils ont meme un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for kicad](https://github.com/AislerHQ/PushForKiCad), une simple pression sur l'icône et le projet est directement transmis au site pour effectuer ladite commande.
+{{< figure src="aisler.png" position="left" width="100" right="10" >}} 
 
-**Aisler** propose des PCB avec un traitement **ENIG** (Electroless Nickel Immersion Gold) ainsi que la possibilité de faire fabriquer des **stencil** pour la creme a braser.
+Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je commande mes cartes principalement chez **Aisler**, un fabricant allemand de cartes. Toujours efficace, bien documenté et abordable, ils ont toujours parfaitement honoré mes commandes. Ils ont même un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for Kicad](https://github.com/AislerHQ/PushForKiCad). Une simple pression sur l'icône et le projet est directement transmis au site pour effectuer ladite commande.
 
-L'utilisation d'un **stencil** donne accès a des solutions pour souder des **PCB** bien plus précisément que le méthodes conventionnelles avec un fer a souder. L'idée et de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la creme a braser sur les surfaces accueillant plus tard de l'étain. Par la suite il s'agira de déposer les composants électroniques a leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four a refusions peuvent être utilise pour faire fondre la crème a brasé et donc realiser la soudure, il en résulte des points de soudure parfaitement homogène.
+**Aisler** propose des PCB avec un traitement **ENIG** (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des **stencils** pour la crème à braser.
 
-**GreatScott** explique et présente cette méthode dans une de ses video :
+L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Par la suite, il s'agira de déposer les composants électroniques à leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, ce qui résulte en des points de soudure parfaitement homogènes.
+
+**GreatScott** explique et présente cette méthode dans une de ses vidéos :
 {{< youtube QarizoUnRfk >}}
+
+Voici tout de même quelques photos de différentes étapes de cette réalisation :
 
 ![PCB 1](pcb-1.png) ![PCB 2](pcb-2.png) ![PCB 3](pcb-3.png)
 
+## Mise en oeuvre
 
+### Tests initiaux
 
+Une fois la carte électronique en état de fonctionnement, j'ai effectué quelques tests avec un oscilloscope, pour éviter d'essayer d'interfacer une carte électronique dysfonctionnelle avec un microcontrôleur pendant des heures. Accompagné d'un de mes outil préféré les sondes de mesure **Sensepeek**, les résultats semblent parfaitement coherent avec la fiche technique de l'**ADXL335**.
 
+![Sensepeek](implementation-1.jpeg) ![Oscilloscope](implementation-2.jpeg) ![Test](implementation-3.jpeg)
 
+### Raspberry pi Pico
 
+{{< figure src="raspberry-pico.png" position="left" width="180" right="10" >}} 
 
+Le Raspberry Pi Pico est une carte electronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, le RP2040 est le premier microcontrôleur développé par la fondation.
 
+Ce microcontrôleur, d'architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d'espace de stockage pour les programmes et les données. Il est équipé de 26 broches d'E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d'horloge, deux broches d'alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.
 
+C'est donc ce microcontrôleur que j'ai utilise pour verifier le bon fonctionnement de la carte électronique.
+
+### Branchement
+
+Le montage électronique est relativement simple, la carte électronique fille doit être alimentée par l'interface **+** et **-**, le **Raspberry Pico** dispose pour cela des interfaces **40** et **38**.
+Ensuite les sorties **X**, **Y** et **Z** de notre carte doivent être respectivement branchées aux interfaces **31**, **32** et **34** du **Pico**.
+
+Le schema ci-dessous est d'une grande aide pour rapidement identifier les interfaces de connexion en question :
+
+![Raspberry pico pinout](raspberry-pico-pinout.png)
+
+#### Code Arduino
+
+Avant toute chose, le **Pico** n'est pas naturellement disponible a l'usage dans le logiciel **Arduino**, une installation est nécessaire. Pour cela, il faut ajouter cette URL : `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json` au sein de l'option `Gestionnaire de carte supplémentaires` present dans le panneau de preferences d'**Arduino** : *Fichier > Préférences* tel que cela :
+
+![Paramètres Arduino](arduino-settings-1.png)
+
+Ensuite le gestionnaire de carte va nous aider a installer la carte maintenant référencée :
+
+![Gestionnaire de carte Arduino](arduino-settings-2.png)
+
+Ensuite il suffit de créer un script **Arduino** qui relève les valeurs de tension des interfaces analogiques **31**, **32** et **34** du **Pico**. La 
+Voici un exemple de script fonctionnel :
+
+```Arduino
+const int xInput = 26;
+const int yInput = 27;
+const int zInput = 28;
+
+// initialize minimum and maximum Raw Ranges for each axis
+int RawMin = 0;
+int RawMax = 1023;
+
+// Take multiple samples to reduce noise
+const int sampleSize = 10;
+
+void setup() 
+{
+  Serial.begin(9600);
+}
+
+void loop() 
+{
+  //Read raw values
+  int xRaw = ReadAxis(xInput);
+  int yRaw = ReadAxis(yInput);
+  int zRaw = ReadAxis(zInput);
+
+  // Convert raw values to 'milli-Gs"
+  long xScaled = map(xRaw, RawMin, RawMax, -3000, 3000);
+  long yScaled = map(yRaw, RawMin, RawMax, -3000, 3000);
+  long zScaled = map(zRaw, RawMin, RawMax, -3000, 3000);
+
+  // re-scale to fractional Gs
+  float xAccel = xScaled / 1000.0;
+  float yAccel = yScaled / 1000.0;
+  float zAccel = zScaled / 1000.0;
+
+  Serial.print("X, Y, Z  :: ");
+  Serial.print(xRaw);
+  Serial.print(", ");
+  Serial.print(yRaw);
+  Serial.print(", ");
+  Serial.print(zRaw);
+  Serial.print(" :: ");
+  Serial.print(xAccel,0);
+  Serial.print("G, ");
+  Serial.print(yAccel,0);
+  Serial.print("G, ");
+  Serial.print(zAccel,0);
+  Serial.println("G");
+
+  delay(200);
+}
+
+// Take samples and return the average
+int ReadAxis(int axisPin)
+{
+  long reading = 0;
+  analogRead(axisPin);
+  delay(1);
+  for (int i = 0; i < sampleSize; i++)
+  {
+  reading += analogRead(axisPin);
+  }
+  return reading/sampleSize;
+}
+```
+
+L'interface série dois normalement retourner ce genre de valeur :
+
+```Arduino
+X, Y, Z  :: 532, 578, 625 :: 0G, 0G, 1G
+X, Y, Z  :: 530, 578, 627 :: 0G, 0G, 1G
+X, Y, Z  :: 531, 577, 627 :: 0G, 0G, 1G
+X, Y, Z  :: 530, 578, 625 :: 0G, 0G, 1G
+X, Y, Z  :: 530, 578, 625 :: 0G, 0G, 1G
+X, Y, Z  :: 531, 577, 626 :: 0G, 0G, 1G
+X, Y, Z  :: 530, 577, 627 :: 0G, 0G, 1G
+X, Y, Z  :: 531, 577, 625 :: 0G, 0G, 1G
+X, Y, Z  :: 531, 576, 627 :: 0G, 0G, 1G
+X, Y, Z  :: 533, 577, 626 :: 0G, 0G, 1G
+X, Y, Z  :: 531, 578, 626 :: 0G, 0G, 1G
+```
+
+Notre capteur mesure maintenant l'acceleration !
