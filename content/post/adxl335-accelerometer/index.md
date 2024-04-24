@@ -31,7 +31,7 @@ In this article, we delve into the heart of my latest project: a custom PCB desi
 
 ## MEMS Accelerometers
 
-![MEMS Accelerometers](mems.jpg)
+{{< figure src="mems.jpg" position="left" width="160" right="10" >}} 
 
 MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.
 
