@@ -31,7 +31,7 @@ Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personn
 
 ## Accéléromètres MEMS
 
-![Accéléromètres MEMS](mems.jpg)
+{{< figure src="mems.jpg" position="left" width="160" right="10" >}} 
 
 Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l'électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve une structure MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
 
