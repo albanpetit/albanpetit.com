@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;p>In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.&lt;/p>
 &lt;h2 id="mems-accelerometers">MEMS Accelerometers&lt;/h2>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg"
-width="594"
-height="542"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/mems_hub5ac98d3969b0db0b9ee5671bc495143_62896_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/mems_hub5ac98d3969b0db0b9ee5671bc495143_62896_1024x0_resize_q75_box.jpg 1024w"
-loading="lazy"
-alt="MEMS Accelerometers"
-class="gallery-image"
-data-flex-grow="109"
-data-flex-basis="263px"
->&lt;/p>
+&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
+&lt;/figure>
 &lt;p>MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.&lt;/p>
 &lt;h3 id="operating-principle">Operating Principle&lt;/h3>
 &lt;p>The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton&amp;rsquo;s second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.&lt;/p>
