@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Posts on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;h1 id="un-projet-passionnant--conception-dun-pcb-avec-un-accéléromètre-mems">Un projet passionnant : Conception d&amp;rsquo;un PCB avec un accéléromètre MEMS&lt;/h1>
-&lt;p>Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Alban Petit</title><link>https://albanpetit.com/fr/post/</link><description>Recent content in Posts on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
 &lt;h2 id="accéléromètres-mems">Accéléromètres MEMS&lt;/h2>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg"
 width="594"
@@ -39,16 +38,8 @@ data-flex-basis="263px"
 &lt;li>Stable avec un condensateur flexible de 1,0 µF : céramique, tantale et électrolytique à l&amp;rsquo;aluminium&lt;/li>
 &lt;li>Plage de température de fonctionnement : -40°C à +85°C&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png"
-width="963"
-height="466"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet_hu9e5038f7c927a04fca154d92648a3273_34038_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet_hu9e5038f7c927a04fca154d92648a3273_34038_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="Fiche technique AP2112"
-class="gallery-image"
-data-flex-grow="206"
-data-flex-basis="495px"
->&lt;/p>
+&lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
+&lt;/figure>
 &lt;p>En prime, il est extrêmement simple à mettre en œuvre. Le document de données techniques fourni présente l&amp;rsquo;ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d&amp;rsquo;une valeur de 1uF sur l&amp;rsquo;entrée en tension ainsi que la sortie, ainsi que d&amp;rsquo;une résistance de 100K ohms pour permettre son allumage constant.&lt;/p>
 &lt;h4 id="adxl335">ADXL335&lt;/h4>
 &lt;p>Le cœur du projet, l&amp;rsquo;accéléromètre &lt;strong>ADXL335&lt;/strong> de la marque &lt;strong>Analog Devices&lt;/strong>, dispose d&amp;rsquo;une sensibilité à la vibration de 3g. Disponible uniquement en format &lt;strong>LFCSP-16&lt;/strong>, il est relativement simple à mettre en œuvre également, en partie grâce à sa taille réduite (4mm x 4mm).&lt;/p>
@@ -162,26 +153,22 @@ data-flex-basis="996px"
 &lt;li>Le connecteur JST-PH d&amp;rsquo;alimentation en 5 volts.&lt;/li>
 &lt;/ol>
 &lt;h2 id="fabrication-de-la-carte-électronique">Fabrication de la carte électronique&lt;/h2>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png"
-width="200"
-height="200"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/aisler_hu00cd90d26ae466de6820bc33dfcf3d22_13563_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/aisler_hu00cd90d26ae466de6820bc33dfcf3d22_13563_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="Aisler"
-class="gallery-image"
-data-flex-grow="100"
-data-flex-basis="240px"
->&lt;/p>
+&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
+&lt;/figure>
 &lt;p>Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je commande mes cartes principalement chez &lt;strong>Aisler&lt;/strong>, un fabricant allemand de cartes. Toujours efficace, bien documenté et abordable, ils ont toujours parfaitement honoré mes commandes. Ils ont même un plugin disponible sur &lt;strong>Kicad&lt;/strong> pour faciliter la commande, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
 >Aisler push for Kicad&lt;/a>. Une simple pression sur l&amp;rsquo;icône et le projet est directement transmis au site pour effectuer ladite commande.&lt;/p>
 &lt;p>&lt;strong>Aisler&lt;/strong> propose des PCB avec un traitement &lt;strong>ENIG&lt;/strong> (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des &lt;strong>stencils&lt;/strong> pour la crème à braser.&lt;/p>
 &lt;p>L&amp;rsquo;utilisation d&amp;rsquo;un &lt;strong>stencil&lt;/strong> donne accès à des solutions pour souder des &lt;strong>PCB&lt;/strong> bien plus précisément que les méthodes conventionnelles avec un fer à souder. L&amp;rsquo;idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l&amp;rsquo;étain. Par la suite, il s&amp;rsquo;agira de déposer les composants électroniques à leurs positions finales. Une fois l&amp;rsquo;ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, ce qui résulte en des points de soudure parfaitement homogènes.&lt;/p>
-&lt;p>&lt;strong>GreatScott&lt;/strong> explique et présente cette méthode dans une de ses vidéos :&lt;/p>
-&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=QarizoUnRfk" target="_blank" rel="noopener"
->&lt;img src="https://img.youtube.com/vi/QarizoUnRfk/0.jpg"
-loading="lazy"
-alt="Méthode de soudure"
->&lt;/a>&lt;/p>
+&lt;p>&lt;strong>GreatScott&lt;/strong> explique et présente cette méthode dans une de ses vidéos :
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/QarizoUnRfk"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;/p>
 &lt;p>Voici tout de même quelques photos de différentes étapes de cette réalisation :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1.png"
 width="640"
@@ -243,20 +230,11 @@ data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico&lt;/h3>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png"
-width="2999"
-height="2262"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico_hufd99157eefc954fdfc117cd1460e4bfa_5918311_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico_hufd99157eefc954fdfc117cd1460e4bfa_5918311_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="Raspberry Pi Pico"
-class="gallery-image"
-data-flex-grow="132"
-data-flex-basis="318px"
->&lt;/p>
+&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
+&lt;/figure>
 &lt;p>Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d&amp;rsquo;architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, le RP2040 est le premier microcontrôleur développé par la fondation.&lt;/p>
 &lt;p>Ce microcontrôleur, d&amp;rsquo;architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d&amp;rsquo;espace de stockage pour les programmes et les données. Il est équipé de 26 broches d&amp;rsquo;E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d&amp;rsquo;horloge, deux broches d&amp;rsquo;alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.&lt;/p>
-&lt;p>C&amp;rsquo;est donc ce microcontrôleur que j&amp;rsquo;ai utilisé&lt;/p>
-&lt;p>pour vérifier le bon fonctionnement de la carte électronique.&lt;/p>
+&lt;p>C&amp;rsquo;est donc ce microcontrôleur que j&amp;rsquo;ai utilisé pour vérifier le bon fonctionnement de la carte électronique.&lt;/p>
 &lt;h3 id="branchement">Branchement&lt;/h3>
 &lt;p>Le montage électronique est relativement simple, la carte électronique fille doit être alimentée par l&amp;rsquo;interface &lt;strong>+&lt;/strong> et &lt;strong>-&lt;/strong>, le &lt;strong>Raspberry Pico&lt;/strong> dispose pour cela des interfaces &lt;strong>40&lt;/strong> et &lt;strong>38&lt;/strong>.
 Ensuite les sorties &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong> et &lt;strong>Z&lt;/strong> de notre carte doivent être respectivement branchées aux interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong> et &lt;strong>34&lt;/strong> du &lt;strong>Pico&lt;/strong>.&lt;/p>
