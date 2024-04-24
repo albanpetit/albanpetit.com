@@ -89,18 +89,16 @@ The positioning of this component is therefore extremely important depending on 
 
 Although they are the most important, other components are still present on this board:
 
-| Designation               | Reference | Quantity | Format     | Datasheet                              |
+| Designation               | Reference | Quantity | Format     | Datasheet                               |
 | ------------------------- | --------- | -------- | ---------- | --------------------------------------- |
-| ADXL335                   | U1        | 1        | LFCSP-16   | [ADXL335](datasheet-adxl-335.pdf)      |
-| AP2112K-3.3               | U2        | 1        | SOT-23-5   | [AP2112](datasheet-ap2112.pdf)         |
+| ADXL335                   | U1        | 1        | LFCSP-16   | [ADXL335](datasheet-adxl-335.pdf)       |
+| AP2112K-3.3               | U2        | 1        | SOT-23-5   | [AP2112](datasheet-ap2112.pdf)          |
 | SMD Resistor 100k ohm     | R2        | 1        | 0603       | -                                       |
-| SMD Resistor
-
- 160 ohm      | R1        | 1        | 0603       | -                                       |
+| SMD Resistor 160 ohm      | R1        | 1        | 0603       | -                                       |
 | LED                       | D1        | 1        | 0603       | -                                       |
 | SMD Capacitor 1uF         | C4,C5     | 2        | 0603       | -                                       |
 | SMD Capacitor 4.7nF       | C1-C3     | 3        | 0603       | -                                       |
-| Power Connector            | J1        | 1        | JST PH B2B | -                                       |
+| Power Connector           | J1        | 1        | JST PH B2B | -                                       |
 | Signal Connector          | J2        | 1        | JST PH B3B | -                                       |
 
 ### Schematic and Electronic Board
