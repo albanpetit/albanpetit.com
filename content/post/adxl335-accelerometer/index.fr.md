@@ -27,8 +27,6 @@ links:
     image: adxl335kicad.png
 ---
 
-# Un projet passionnant : Conception d'un PCB avec un accéléromètre MEMS
-
 Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d'autres projets.
 
 ## Accéléromètres MEMS
@@ -73,7 +71,7 @@ Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utili
 -  Stable avec un condensateur flexible de 1,0 µF : céramique, tantale et électrolytique à l'aluminium
 -  Plage de température de fonctionnement : -40°C à +85°C
 
-![Fiche technique AP2112](ap2112-datasheet.png)
+{{< figure src="ap2112-datasheet.png" position="left" width="350" right="10" >}} 
 
 En prime, il est extrêmement simple à mettre en œuvre. Le document de données techniques fourni présente l'ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d'une valeur de 1uF sur l'entrée en tension ainsi que la sortie, ainsi que d'une résistance de 100K ohms pour permettre son allumage constant.
 
@@ -117,7 +115,7 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 
 ## Fabrication de la carte électronique
 
-![Aisler](aisler.png)
+{{< figure src="aisler.png" position="left" width="100" right="10" >}} 
 
 Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je commande mes cartes principalement chez **Aisler**, un fabricant allemand de cartes. Toujours efficace, bien documenté et abordable, ils ont toujours parfaitement honoré mes commandes. Ils ont même un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for Kicad](https://github.com/AislerHQ/PushForKiCad). Une simple pression sur l'icône et le projet est directement transmis au site pour effectuer ladite commande.
 
@@ -126,8 +124,7 @@ Habitant en France, les fournisseurs habituels (chinois) de cartes électronique
 L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Par la suite, il s'agira de déposer les composants électroniques à leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, ce qui résulte en des points de soudure parfaitement homogènes.
 
 **GreatScott** explique et présente cette méthode dans une de ses vidéos :
-
-[![Méthode de soudure](https://img.youtube.com/vi/QarizoUnRfk/0.jpg)](https://www.youtube.com/watch?v=QarizoUnRfk)
+{{< youtube QarizoUnRfk >}}
 
 Voici tout de même quelques photos de différentes étapes de cette réalisation :
 
@@ -143,15 +140,13 @@ Une fois la carte électronique en état de fonctionnement, j'ai effectué quelq
 
 ### Raspberry Pi Pico
 
-![Raspberry Pi Pico](raspberry-pico.png)
+{{< figure src="raspberry-pico.png" position="left" width="180" right="10" >}} 
 
 Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, le RP2040 est le premier microcontrôleur développé par la fondation.
 
 Ce microcontrôleur, d'architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d'espace de stockage pour les programmes et les données. Il est équipé de 26 broches d'E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d'horloge, deux broches d'alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.
 
-C'est donc ce microcontrôleur que j'ai utilisé
-
- pour vérifier le bon fonctionnement de la carte électronique.
+C'est donc ce microcontrôleur que j'ai utilisé pour vérifier le bon fonctionnement de la carte électronique.
 
 ### Branchement
 
