@@ -1,1 +1,323 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KiCad on Alban Petit</title><link>https://albanpetit.com/tags/kicad/</link><description>Recent content in KiCad on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/tags/kicad/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" /></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KiCad on Alban Petit</title><link>https://albanpetit.com/tags/kicad/</link><description>Recent content in KiCad on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/tags/kicad/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;p>In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.&lt;/p>
+&lt;h2 id="mems-accelerometers">MEMS Accelerometers&lt;/h2>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg"
+width="594"
+height="542"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/mems_hub5ac98d3969b0db0b9ee5671bc495143_62896_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/mems_hub5ac98d3969b0db0b9ee5671bc495143_62896_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="MEMS Accelerometers"
+class="gallery-image"
+data-flex-grow="109"
+data-flex-basis="263px"
+>&lt;/p>
+&lt;p>MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.&lt;/p>
+&lt;h3 id="operating-principle">Operating Principle&lt;/h3>
+&lt;p>The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton&amp;rsquo;s second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.&lt;/p>
+&lt;p>Within the MEMS structure, there is typically a mass suspended by flexible beams. When the device experiences acceleration, the mass resists this change due to inertia, causing a deflection in the beams. This deflection is then converted into an electrical signal by a sensor, such as a capacitive or piezoelectric sensor, integrated into the MEMS structure.&lt;/p>
+&lt;h3 id="translating-mechanical-motion-into-electrical-signals">Translating Mechanical Motion into Electrical Signals&lt;/h3>
+&lt;p>As the accelerometer encounters acceleration, the movement of the mass induces a change in capacitance or generates a voltage proportional to the applied force. This electrical signal is then processed and translated into meaningful data, allowing us to quantify the acceleration experienced by the device.&lt;/p>
+&lt;h2 id="electronic-board-design">Electronic Board Design&lt;/h2>
+&lt;p>This PCB is relatively simple and small in size, allowing it to integrate seamlessly into any project. The presence of an AP2112 voltage regulator allows the regulation of the input voltage to 3.3V, enabling the use of this electronic board with devices providing 5V by default, such as Arduino, for example. Its dimensions are 19mm x 24mm, with two connectors: one for 5V power supply, and the other for analog acceleration data on the three axes: x, y, z.&lt;/p>
+&lt;h3 id="main-components">Main Components&lt;/h3>
+&lt;p>On this electronic board, two components are the most important: the regulator and the accelerometer.&lt;/p>
+&lt;h4 id="ap2112k-33">AP2112K-3.3&lt;/h4>
+&lt;p>This linear regulator in &lt;strong>SOT-23-5&lt;/strong> package is extremely common, used in many hobbyist electronic boards. It appears in many designs from Adafruit or Sparkfun. It is a fixed voltage low-dropout linear regulator, available in multiple variants: 1.2V, 1.8V, 2.5V, 2.6V, and 3.3V. This project uses the 3.3V version. It has all the necessary characteristics for this project:&lt;/p>
+&lt;ul>
+&lt;li>Output voltage accuracy: ±1.5%&lt;/li>
+&lt;li>Output current: 600 mA (minimum)&lt;/li>
+&lt;li>Foldback short-circuit protection: 50 mA&lt;/li>
+&lt;li>Enable function for VOUT enable/disable&lt;/li>
+&lt;li>Low dropout voltage (3.3V): 250 mV (typ.) @IOUT = 600 mA&lt;/li>
+&lt;li>Excellent load regulation: 0.2%/A (typ.)&lt;/li>
+&lt;li>Excellent line regulation: 0.02%/V (typ.)&lt;/li>
+&lt;li>Low quiescent current: 55µA (typ.)&lt;/li>
+&lt;li>Low standby current: 0.01 µA (typ.)&lt;/li>
+&lt;li>Low output noise: 50µVRMS&lt;/li>
+&lt;li>PSRR: 100 Hz -65 dB, 1 kHz -65 dB&lt;/li>
+&lt;li>OTSD protection&lt;/li>
+&lt;li>Stable with a flexible capacitor of 1.0 µF: ceramic, tantalum, and aluminum electrolytic&lt;/li>
+&lt;li>Operating temperature range: -40°C to +85°C&lt;/li>
+&lt;/ul>
+&lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
+&lt;/figure>
+&lt;p>Additionally, it is extremely simple to implement. The provided datasheet contains all the necessary peripheral components required for its proper operation. Two smoothing capacitors with a value of 1uF on the input and output voltage and a 100K ohm resistor to allow constant ignition are sufficient.&lt;/p>
+&lt;h4 id="adxl335">ADXL335&lt;/h4>
+&lt;p>The heart of the project, the Analog Devices ADXL335 accelerometer, has a vibration sensitivity of 3g. Available only in &lt;strong>LFCSP-16&lt;/strong> format, it is relatively easy to implement as well, partly due to its small size (4mm x 4mm).&lt;/p>
+&lt;p>This component has three analog outputs, each responsible for providing acceleration information along one of the three dimensions. A specific function is available on these analog outputs, described in the technical documentation. A 32K ohm resistor is placed on each of them. These resistors, via the addition of a capacitor, allow the creation of a low-pass filter, thus reducing noise on the data and the effect of aliasing from oversampling. The recommended minimum value for these capacitors is 4.7nF according to the technical documentation.&lt;/p>
+&lt;p>It is also interesting to note from this documentation that the maximum useful frequency of each axis is different: 1600Hz for X and Y, and only 500Hz for Z.&lt;/p>
+&lt;p>The positioning of this component is therefore extremely important depending on its usage.&lt;/p>
+&lt;h3 id="components-list">Components List&lt;/h3>
+&lt;p>Although they are the most important, other components are still present on this board:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Designation&lt;/th>
+&lt;th>Reference&lt;/th>
+&lt;th>Quantity&lt;/th>
+&lt;th>Format&lt;/th>
+&lt;th>Datasheet&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ADXL335&lt;/td>
+&lt;td>U1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>LFCSP-16&lt;/td>
+&lt;td>&lt;a class="link" href="datasheet-adxl-335.pdf" >ADXL335&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>AP2112K-3.3&lt;/td>
+&lt;td>U2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>SOT-23-5&lt;/td>
+&lt;td>&lt;a class="link" href="datasheet-ap2112.pdf" >AP2112&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SMD Resistor 100k ohm&lt;/td>
+&lt;td>R2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SMD Resistor&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>160 ohm | R1 | 1 | 0603 | - |
+| LED | D1 | 1 | 0603 | - |
+| SMD Capacitor 1uF | C4,C5 | 2 | 0603 | - |
+| SMD Capacitor 4.7nF | C1-C3 | 3 | 0603 | - |
+| Power Connector | J1 | 1 | JST PH B2B | - |
+| Signal Connector | J2 | 1 | JST PH B3B | - |&lt;/p>
+&lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board&lt;/h3>
+&lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
+width="883"
+height="507"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Electronic Board"
+class="gallery-image"
+data-flex-grow="174"
+data-flex-basis="417px"
+> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic.jpg"
+width="1520"
+height="366"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu64fdd192c37b984a44000d40ddd9004a_89294_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu64fdd192c37b984a44000d40ddd9004a_89294_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="Schematic"
+class="gallery-image"
+data-flex-grow="415"
+data-flex-basis="996px"
+>&lt;/p>
+&lt;ol>
+&lt;li>A simple LED responsible for displaying the power status of the electronic board, accompanied by its resistor to prevent any smoke emission.&lt;/li>
+&lt;li>The power stage of the electronic board, based on the AP2112K-3.3, has three smoothing capacitors to ensure its proper function. This information is available directly within the component datasheet.&lt;/li>
+&lt;li>The MEMS accelerometer ADXL335, with its three capacitors, one for each analog output of this component. They filter out high frequencies, thus reducing noise and aliasing as mentioned earlier.&lt;/li>
+&lt;li>The JST-PH connector with three pins, one for each analog output.&lt;/li>
+&lt;li>The power supply JST-PH connector for 5 volts.&lt;/li>
+&lt;/ol>
+&lt;h2 id="electronic-board-manufacturing">Electronic Board Manufacturing&lt;/h2>
+&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
+&lt;/figure>
+&lt;p>Living in France, the usual (Chinese) suppliers of electronic boards can be relatively expensive due to shipping costs. I mainly order my boards from Aisler, a German board manufacturer. Always efficient, well-documented, and affordable, they have always perfectly fulfilled my orders. They even have a plugin available on KiCad to facilitate ordering, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
+>Aisler push for KiCad&lt;/a>. A simple press on the icon and the project is directly transmitted to the website to place the order.&lt;/p>
+&lt;p>Aisler offers PCBs with &lt;strong>ENIG&lt;/strong> (Electroless Nickel Immersion Gold) treatment, as well as the possibility of having stencils made for solder paste.&lt;/p>
+&lt;p>Using a stencil provides solutions for soldering PCBs much more precisely than conventional methods with a soldering iron. The idea is to have a stencil made for each electronic circuit, allowing solder paste to be deposited on the surfaces that will later receive solder. Subsequently, electronic components are placed in their final positions. Once all the components are placed, a hotplate or reflow oven can be used to melt the solder paste, resulting in perfectly homogeneous solder joints.&lt;/p>
+&lt;p>GreatScott explains and presents this method in one of his videos:
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/QarizoUnRfk"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;/p>
+&lt;p>Here are some photos of different stages of this realization:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1.png"
+width="640"
+height="480"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu1b253cba44c13a58bb4de614ce3694a7_550876_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu1b253cba44c13a58bb4de614ce3694a7_550876_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="PCB 1"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2.png"
+width="640"
+height="480"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu6f4834f7b4be08bacd6eaca9871e920f_523157_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu6f4834f7b4be08bacd6eaca9871e920f_523157_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="PCB 2"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3.png"
+width="640"
+height="480"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_huf8ff2ea7ec8f8ebd2b2d3e4f96fff58c_546141_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_huf8ff2ea7ec8f8ebd2b2d3e4f96fff58c_546141_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="PCB 3"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h2 id="implementation">Implementation&lt;/h2>
+&lt;h3 id="initial-tests">Initial Tests&lt;/h3>
+&lt;p>Once the electronic board is operational, I performed some tests with an oscilloscope to avoid trying to interface a malfunctioning electronic board with a microcontroller for hours. Accompanied by one of my favorite tools, the Sensepeek measurement probes, the results seem perfectly consistent with the datasheet of the ADXL335.&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1.jpeg"
+width="3024"
+height="4032"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_huf6d3f130acd98637dd478df968a258db_3871381_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_huf6d3f130acd98637dd478df968a258db_3871381_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="Sensepeek"
+class="gallery-image"
+data-flex-grow="75"
+data-flex-basis="180px"
+> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2.jpeg"
+width="4032"
+height="3024"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hua32fdb32c622c34d22001bbb83ce6d1e_3421754_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hua32fdb32c622c34d22001bbb83ce6d1e_3421754_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="Oscilloscope"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3.jpeg"
+width="4032"
+height="3024"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu376809d7f0f1eaea4df51e4fe66c2bdf_5128310_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu376809d7f0f1eaea4df51e4fe66c2bdf_5128310_1024x0_resize_q75_box.jpeg 1024w"
+loading="lazy"
+alt="Test"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico&lt;/h3>
+&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
+&lt;/figure>
+&lt;p>The Raspberry Pi Pico is an electronic board hosting the RP2040, an ARM architecture microcontroller designed by the Raspberry Pi Foundation. Announced in January 2021, the RP2040 is the first microcontroller developed by the foundation.&lt;/p>
+&lt;p>This ARM architecture microcontroller has two cores clocked at 133 MHz, offering high performance. The Pico has 264 KB of SRAM and 2 MB of flash memory, providing sufficient storage space for programs and data. It is equipped with 26 digital I/O pins, three of which can be used as analog inputs. Additionally, it is equipped with two clock pins, two power pins, and many other pins for serial communication and bus interfaces.&lt;/p>
+&lt;p>Therefore, I used this microcontroller to verify the proper functioning of the electronic board.&lt;/p>
+&lt;h3 id="connection">Connection&lt;/h3>
+&lt;p>The electronic setup is relatively simple, the daughter electronic board must be powered by the &lt;strong>+&lt;/strong> and &lt;strong>-&lt;/strong> interfaces, the Raspberry Pico has interfaces &lt;strong>40&lt;/strong> and &lt;strong>38&lt;/strong> for this purpose.
+Then the &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong>, and &lt;strong>Z&lt;/strong> outputs of our board must be respectively connected to interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong>, and &lt;strong>34&lt;/strong> of the &lt;strong>Pico&lt;/strong>.&lt;/p>
+&lt;p>The diagram below is of great help to quickly identify the connection interfaces in question:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
+width="842"
+height="595"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hud214c7946234c6e917d2f547f9afeef6_161411_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hud214c7946234c6e917d2f547f9afeef6_161411_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Raspberry Pi Pico Pinout"
+class="gallery-image"
+data-flex-grow="141"
+data-flex-basis="339px"
+>&lt;/p>
+&lt;h4 id="arduino-code">Arduino Code&lt;/h4>
+&lt;p>First and foremost, the &lt;strong>Pico&lt;/strong> is not naturally available for use in the &lt;strong>Arduino&lt;/strong> software, an installation is required. To do this, you need to add this URL: &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> within the &lt;code>Additional Board Manager URLs&lt;/code> option in the preferences panel of &lt;strong>Arduino&lt;/strong>: &lt;em>File &amp;gt; Preferences&lt;/em> like this:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1.png"
+width="744"
+height="490"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu8b5c38e356eda9f2baa30990712dd557_14900_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu8b5c38e356eda9f2baa30990712dd557_14900_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Arduino Settings"
+class="gallery-image"
+data-flex-grow="151"
+data-flex-basis="364px"
+>&lt;/p>
+&lt;p>Then the board manager will help us install the now referenced board:&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2.png"
+width="805"
+height="631"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu21f6d1058f51fa778e991d8871dcf8bb_27470_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu21f6d1058f51fa778e991d8871dcf8bb_27470_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Arduino Board Manager"
+class="gallery-image"
+data-flex-grow="127"
+data-flex-basis="306px"
+>&lt;/p>
+&lt;p>Then all you have to do is create an &lt;strong>Arduino&lt;/strong> script that reads the voltage values ​​from the analog interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong>, and &lt;strong>34&lt;/strong> of the &lt;strong>Pico&lt;/strong>. Here is an example of a functional script:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-Arduino" data-lang="Arduino">&lt;span class="line">&lt;span class="cl">&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">xInput&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">26&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">yInput&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">27&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">zInput&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">28&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// initialize minimum and maximum Raw Ranges for each axis
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">RawMin&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">RawMax&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1023&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Take multiple samples to reduce noise
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">sampleSize&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="nf">setup&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">begin&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">9600&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="nf">loop&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">//Read raw values
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">xRaw&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ReadAxis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">xInput&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">yRaw&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ReadAxis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">yInput&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">zRaw&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ReadAxis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">zInput&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Convert raw values to &amp;#39;milli-Gs&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">long&lt;/span> &lt;span class="n">xScaled&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nf">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">xRaw&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RawMin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RawMax&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">3000&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">long&lt;/span> &lt;span class="n">yScaled&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nf">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">yRaw&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RawMin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RawMax&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">3000&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">long&lt;/span> &lt;span class="n">zScaled&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nf">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">zRaw&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RawMin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">RawMax&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">3000&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// re-scale to fractional Gs
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">float&lt;/span> &lt;span class="n">xAccel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">xScaled&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="mf">1000.0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">float&lt;/span> &lt;span class="n">yAccel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">yScaled&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="mf">1000.0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">float&lt;/span> &lt;span class="n">zAccel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">zScaled&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="mf">1000.0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="s">&amp;#34;);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">xRaw&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;, &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">yRaw&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;, &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">zRaw&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34; :: &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">xAccel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;G, &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">yAccel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;G, &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">zAccel&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">Serial&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;G&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">200&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Take samples and return the average
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">ReadAxis&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">axisPin&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">long&lt;/span> &lt;span class="n">reading&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">analogRead&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">axisPin&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">sampleSize&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">++&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">reading&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nf">analogRead&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">axisPin&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">reading&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">sampleSize&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The serial interface should normally return values ​​like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-Arduino" data-lang="Arduino">&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">532&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">625&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">530&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">627&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">577&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">627&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">530&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">625&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">530&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">625&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">577&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">626&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">530&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">577&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">627&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">577&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">625&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">576&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">627&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">533&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">577&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">626&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">626&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Our sensor is now measuring acceleration!&lt;/p></description></item></channel></rss>
