@@ -81,20 +81,49 @@ data-flex-basis="263px"
 &lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>SMD Resistor&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>SMD Resistor 160 ohm&lt;/td>
+&lt;td>R1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LED&lt;/td>
+&lt;td>D1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SMD Capacitor 1uF&lt;/td>
+&lt;td>C4,C5&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SMD Capacitor 4.7nF&lt;/td>
+&lt;td>C1-C3&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Power Connector&lt;/td>
+&lt;td>J1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>JST PH B2B&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Signal Connector&lt;/td>
+&lt;td>J2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>JST PH B3B&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>160 ohm | R1 | 1 | 0603 | - |
-| LED | D1 | 1 | 0603 | - |
-| SMD Capacitor 1uF | C4,C5 | 2 | 0603 | - |
-| SMD Capacitor 4.7nF | C1-C3 | 3 | 0603 | - |
-| Power Connector | J1 | 1 | JST PH B2B | - |
-| Signal Connector | J2 | 1 | JST PH B3B | - |&lt;/p>
 &lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board&lt;/h3>
 &lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
