@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projets on Alban Petit</title><link>https://albanpetit.com/fr/categories/projects/</link><description>Recent content in Projets on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
 &lt;h2 id="accéléromètres-mems">Accéléromètres MEMS&lt;/h2>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg"
-width="594"
-height="542"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/mems_hub5ac98d3969b0db0b9ee5671bc495143_62896_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/mems_hub5ac98d3969b0db0b9ee5671bc495143_62896_1024x0_resize_q75_box.jpg 1024w"
-loading="lazy"
-alt="Accéléromètres MEMS"
-class="gallery-image"
-data-flex-grow="109"
-data-flex-basis="263px"
->&lt;/p>
+&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
+&lt;/figure>
 &lt;p>Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l&amp;rsquo;électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve une structure MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.&lt;/p>
 &lt;h3 id="principe-de-fonctionnement">Principe de fonctionnement&lt;/h3>
 &lt;p>Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d&amp;rsquo;inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s&amp;rsquo;il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l&amp;rsquo;accélération.&lt;/p>
