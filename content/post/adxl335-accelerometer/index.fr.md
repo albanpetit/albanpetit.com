@@ -27,11 +27,13 @@ links:
     image: adxl335kicad.png
 ---
 
+# Un projet passionnant : Conception d'un PCB avec un accéléromètre MEMS
+
 Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d'autres projets.
 
 ## Accéléromètres MEMS
 
-{{< figure src="mems.jpg" position="left" width="150" right="10" >}}
+![Accéléromètres MEMS](mems.jpg)
 
 Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l'électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve une structure MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
 
@@ -71,7 +73,7 @@ Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utili
 -  Stable avec un condensateur flexible de 1,0 µF : céramique, tantale et électrolytique à l'aluminium
 -  Plage de température de fonctionnement : -40°C à +85°C
 
-{{< figure src="ap2112-datasheet.png" position="left" width="350" right="10" >}} 
+![Fiche technique AP2112](ap2112-datasheet.png)
 
 En prime, il est extrêmement simple à mettre en œuvre. Le document de données techniques fourni présente l'ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d'une valeur de 1uF sur l'entrée en tension ainsi que la sortie, ainsi que d'une résistance de 100K ohms pour permettre son allumage constant.
 
@@ -81,7 +83,9 @@ Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices
 
 Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'accélération d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d'entre elles. Ces résistances permettent, via l'ajout d'un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF selon la documentation technique.
 
-Il est également intéressant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z. Le positionnement de ce composant est donc extrêmement important en fonction de l'usage.
+Il est également intéressant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z.
+
+ Le positionnement de ce composant est donc extrêmement important en fonction de l'usage.
 
 ### Liste des composants
 
@@ -113,7 +117,7 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 
 ## Fabrication de la carte électronique
 
-{{< figure src="aisler.png" position="left" width="100" right="10" >}} 
+![Aisler](aisler.png)
 
 Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je commande mes cartes principalement chez **Aisler**, un fabricant allemand de cartes. Toujours efficace, bien documenté et abordable, ils ont toujours parfaitement honoré mes commandes. Ils ont même un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for Kicad](https://github.com/AislerHQ/PushForKiCad). Une simple pression sur l'icône et le projet est directement transmis au site pour effectuer ladite commande.
 
@@ -122,51 +126,53 @@ Habitant en France, les fournisseurs habituels (chinois) de cartes électronique
 L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Par la suite, il s'agira de déposer les composants électroniques à leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, ce qui résulte en des points de soudure parfaitement homogènes.
 
 **GreatScott** explique et présente cette méthode dans une de ses vidéos :
-{{< youtube QarizoUnRfk >}}
+
+[![Méthode de soudure](https://img.youtube.com/vi/QarizoUnRfk/0.jpg)](https://www.youtube.com/watch?v=QarizoUnRfk)
 
 Voici tout de même quelques photos de différentes étapes de cette réalisation :
 
 ![PCB 1](pcb-1.png) ![PCB 2](pcb-2.png) ![PCB 3](pcb-3.png)
 
-## Mise en oeuvre
+## Mise en œuvre
 
 ### Tests initiaux
 
-Une fois la carte électronique en état de fonctionnement, j'ai effectué quelques tests avec un oscilloscope, pour éviter d'essayer d'interfacer une carte électronique dysfonctionnelle avec un microcontrôleur pendant des heures. Accompagné d'un de mes outil préféré les sondes de mesure **Sensepeek**, les résultats semblent parfaitement coherent avec la fiche technique de l'**ADXL335**.
+Une fois la carte électronique en état de fonctionnement, j'ai effectué quelques tests avec un oscilloscope, pour éviter d'essayer d'interfacer une carte électronique dysfonctionnelle avec un microcontrôleur pendant des heures. Accompagné d'un de mes outils préférés, les sondes de mesure **Sensepeek**, les résultats semblent parfaitement cohérents avec la fiche technique de l'**ADXL335**.
 
 ![Sensepeek](implementation-1.jpeg) ![Oscilloscope](implementation-2.jpeg) ![Test](implementation-3.jpeg)
 
-### Raspberry pi Pico
+### Raspberry Pi Pico
 
-{{< figure src="raspberry-pico.png" position="left" width="180" right="10" >}} 
+![Raspberry Pi Pico](raspberry-pico.png)
 
-Le Raspberry Pi Pico est une carte electronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, le RP2040 est le premier microcontrôleur développé par la fondation.
+Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, le RP2040 est le premier microcontrôleur développé par la fondation.
 
 Ce microcontrôleur, d'architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d'espace de stockage pour les programmes et les données. Il est équipé de 26 broches d'E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d'horloge, deux broches d'alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.
 
-C'est donc ce microcontrôleur que j'ai utilise pour verifier le bon fonctionnement de la carte électronique.
+C'est donc ce microcontrôleur que j'ai utilisé
+
+ pour vérifier le bon fonctionnement de la carte électronique.
 
 ### Branchement
 
 Le montage électronique est relativement simple, la carte électronique fille doit être alimentée par l'interface **+** et **-**, le **Raspberry Pico** dispose pour cela des interfaces **40** et **38**.
 Ensuite les sorties **X**, **Y** et **Z** de notre carte doivent être respectivement branchées aux interfaces **31**, **32** et **34** du **Pico**.
 
-Le schema ci-dessous est d'une grande aide pour rapidement identifier les interfaces de connexion en question :
+Le schéma ci-dessous est d'une grande aide pour rapidement identifier les interfaces de connexion en question :
 
-![Raspberry pico pinout](raspberry-pico-pinout.png)
+![Brochage Raspberry Pi Pico](raspberry-pico-pinout.png)
 
 #### Code Arduino
 
-Avant toute chose, le **Pico** n'est pas naturellement disponible a l'usage dans le logiciel **Arduino**, une installation est nécessaire. Pour cela, il faut ajouter cette URL : `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json` au sein de l'option `Gestionnaire de carte supplémentaires` present dans le panneau de preferences d'**Arduino** : *Fichier > Préférences* tel que cela :
+Avant toute chose, le **Pico** n'est pas naturellement disponible à l'usage dans le logiciel **Arduino**, une installation est nécessaire. Pour cela, il faut ajouter cette URL : `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json` au sein de l'option `Gestionnaire de carte supplémentaires` présente dans le panneau de préférences d'**Arduino** : *Fichier > Préférences* tel que cela :
 
 ![Paramètres Arduino](arduino-settings-1.png)
 
-Ensuite le gestionnaire de carte va nous aider a installer la carte maintenant référencée :
+Ensuite le gestionnaire de carte va nous aider à installer la carte maintenant référencée :
 
 ![Gestionnaire de carte Arduino](arduino-settings-2.png)
 
-Ensuite il suffit de créer un script **Arduino** qui relève les valeurs de tension des interfaces analogiques **31**, **32** et **34** du **Pico**. La 
-Voici un exemple de script fonctionnel :
+Ensuite il suffit de créer un script **Arduino** qui relève les valeurs de tension des interfaces analogiques **31**, **32** et **34** du **Pico**. Voici un exemple de script fonctionnel :
 
 ```Arduino
 const int xInput = 26;
@@ -233,7 +239,7 @@ int ReadAxis(int axisPin)
 }
 ```
 
-L'interface série dois normalement retourner ce genre de valeur :
+L'interface série doit normalement retourner ce genre de valeur :
 
 ```Arduino
 X, Y, Z  :: 532, 578, 625 :: 0G, 0G, 1G
@@ -249,4 +255,4 @@ X, Y, Z  :: 533, 577, 626 :: 0G, 0G, 1G
 X, Y, Z  :: 531, 578, 626 :: 0G, 0G, 1G
 ```
 
-Notre capteur mesure maintenant l'acceleration !
+Notre capteur mesure maintenant l'accélération !
