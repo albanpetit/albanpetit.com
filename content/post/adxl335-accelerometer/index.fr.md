@@ -27,19 +27,19 @@ links:
     image: adxl335kicad.png
 ---
 
-Dans cet article, nous plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d'autres projets.
+Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d'autres projets.
 
 ## Accéléromètres MEMS
 
 {{< figure src="mems.jpg" position="left" width="160" right="10" >}} 
 
-Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l'électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve une structure MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
+Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l'électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve un assemblage MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
 
 ### Principe de fonctionnement
 
 Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d'inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s'il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l'accélération.
 
-Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l'inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, tel qu'un capteur capacitif ou piézoélectrique, intégré dans la structure MEMS.
+Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l'inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, capacitif ou piézoélectrique, directement intégré dans la structure MEMS.
 
 ### Traduire le mouvement mécanique en signaux électriques
 
@@ -47,7 +47,7 @@ Au fur et à mesure que l'accéléromètre rencontre une accélération, le mouv
 
 ## Conception de la carte électronique
 
-Ce PCB est relativement simple et de petites dimensions, ce qui lui permet de s'intégrer sans aucun problème dans n'importe quel projet. La présence d'un régulateur de tension AP2112 permet la régulation de la tension d'entrée à 3,3V, permettant ainsi l'utilisation de cette carte électronique avec des dispositifs fournissant 5V par défaut, tels que les Arduino, par exemple. Ses dimensions sont de 19mm x 24mm, avec deux connecteurs : l'un pour l'alimentation en 5V, et l'autre pour les données analogiques de l'accélération sur les trois axes : x, y, z.
+Ce PCB est relativement simple et de petites dimensions. Il s'intègre aisément dans n'importe quel projet. La présence d'un régulateur de tension AP2112 permet la régulation de la tension d'entrée à 3,3V. Ainsi l'utilisation de cette carte électronique avec des dispositifs fournissant 5V par défaut est possible, tels que les Arduino, par exemple. Ses dimensions sont de 19mm x 24mm, avec deux connecteurs : l'un pour l'alimentation en 5V, et l'autre pour les données analogiques de l'accélération sur les trois axes : x, y, z.
 
 ### Composants principaux
 
@@ -55,7 +55,7 @@ Sur cette carte électronique, deux composants sont les plus importants : le ré
 
 #### AP2112K-3.3
 
-Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans de nombreux designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement à tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
+Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement à tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
 -  Précision de la tension de sortie : ±1,5%
 -  Courant de sortie : 600 mA (minimum)
 -  Protection contre les courts-circuits repliables : 50 mA
@@ -73,11 +73,11 @@ Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utili
 
 {{< figure src="ap2112-datasheet.png" position="left" width="350" right="10" >}} 
 
-En prime, il est extrêmement simple à mettre en œuvre. Le document de données techniques fourni présente l'ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d'une valeur de 1uF sur l'entrée en tension ainsi que la sortie, ainsi que d'une résistance de 100K ohms pour permettre son allumage constant.
+En prime, il est simple de mise en oeuvre. Le document de données techniques fourni par le fabricant présente l'ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d'une valeur de 1uF sur l'entrée et sur la sortie en tension, et d'une résistance de 100K ohms pour permettre un allumage constant.
 
 #### ADXL335
 
-Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices**, dispose d'une sensibilité à la vibration de 3g. Disponible uniquement en format **LFCSP-16**, il est relativement simple à mettre en œuvre également, en partie grâce à sa taille réduite (4mm x 4mm).
+Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices**, dispose d'une sensibilité à la vibration de 3G. Disponible uniquement en format **LFCSP-16**, il présente des dimensions réduites (4mm x 4mm).
 
 Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'accélération d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d'entre elles. Ces résistances permettent, via l'ajout d'un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF selon la documentation technique.
 
@@ -107,9 +107,9 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 
 ![Carte électronique](kicad-pcb.png) ![Schéma électronique](kicad-schematic.jpg)
 
-1. Une simple LED responsable d'afficher l'état d'alimentation de la carte électronique, accompagnée de sa résistance pour éviter toute émission de fumée.
+1. Une LED discrète responsable d'afficher l'état d'alimentation de la carte électronique, accompagnée de sa résistance pour éviter toute émission de fumée.
 2. L'étage d'alimentation de la carte électronique, basé sur l'AP2112K-3.3, dispose de trois condensateurs de lissage pour assurer sa fonction correctement. Ces informations sont disponibles directement au sein de la fiche technique du composant.
-3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant. Ils permettent de filtrer les hautes fréquences, permettant ainsi une réduction de bruit et l'anti-crénelage comme indiqué plus tôt.
+3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant.
 4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique.
 5. Le connecteur JST-PH d'alimentation en 5 volts.
 
@@ -117,11 +117,11 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 
 {{< figure src="aisler.png" position="left" width="100" right="10" >}} 
 
-Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je commande mes cartes principalement chez **Aisler**, un fabricant allemand de cartes. Toujours efficace, bien documenté et abordable, ils ont toujours parfaitement honoré mes commandes. Ils ont même un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for Kicad](https://github.com/AislerHQ/PushForKiCad). Une simple pression sur l'icône et le projet est directement transmis au site pour effectuer ladite commande.
+Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je me fournis principalement chez **Aisler**, un fabricant allemand. Efficace, abordable et bien documenté, ils ont toujours honoré mes commandes. Ils ont même un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for Kicad](https://github.com/AislerHQ/PushForKiCad). En un clic le projet est directement transmis au site pour effectuer ladite commande.
 
 **Aisler** propose des PCB avec un traitement **ENIG** (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des **stencils** pour la crème à braser.
 
-L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Par la suite, il s'agira de déposer les composants électroniques à leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, ce qui résulte en des points de soudure parfaitement homogènes.
+L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Par la suite, il s'agira de déposer les composants électroniques à leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, il en résulte des points de soudure parfaitement homogènes.
 
 **GreatScott** explique et présente cette méthode dans une de ses vidéos :
 {{< youtube QarizoUnRfk >}}
@@ -142,7 +142,7 @@ Une fois la carte électronique en état de fonctionnement, j'ai effectué quelq
 
 {{< figure src="raspberry-pico.png" position="left" width="180" right="10" >}} 
 
-Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, le RP2040 est le premier microcontrôleur développé par la fondation.
+Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, c'est le premier microcontrôleur développé par la fondation.
 
 Ce microcontrôleur, d'architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d'espace de stockage pour les programmes et les données. Il est équipé de 26 broches d'E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d'horloge, deux broches d'alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.
 
