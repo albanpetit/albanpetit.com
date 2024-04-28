@@ -33,11 +33,13 @@ Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalis�
 
 {{< figure src="mems.jpg" position="left" width="160" right="10" >}} 
 
-Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs et de l'électronique sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve un assemblage MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
+Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve un assemblage MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
 
 ### Principe de fonctionnement
 
 Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d'inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s'il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l'accélération.
+
+{{< figure src="mems-2.jpg" position="left" width="215" right="10" >}} 
 
 Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l'inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, capacitif ou piézoélectrique, directement intégré dans la structure MEMS.
 
@@ -51,11 +53,11 @@ Ce PCB est relativement simple et de petites dimensions. Il s'intègre aisément
 
 ### Composants principaux
 
-Sur cette carte électronique, deux composants sont les plus importants : le régulateur et l'accéléromètre.
+Sur cette carte électronique, il y a deux composants majeurs : le régulateur et l'accéléromètre.
 
 #### AP2112K-3.3
 
-Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement à tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
+Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement propose une tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
 -  Précision de la tension de sortie : ±1,5%
 -  Courant de sortie : 600 mA (minimum)
 -  Protection contre les courts-circuits repliables : 50 mA
