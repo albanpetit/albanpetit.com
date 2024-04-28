@@ -57,7 +57,7 @@ Sur cette carte électronique, il y a deux composants majeurs : le régulateur e
 
 #### AP2112K-3.3
 
-Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement propose une tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
+Ce régulateur linéaire en package **SOT-23-5** est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez **Adafruit** ou encore **Sparkfun**. C'est un régulateur linéaire à faible abaissement proposant une tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :
 -  Précision de la tension de sortie : ±1,5%
 -  Courant de sortie : 600 mA (minimum)
 -  Protection contre les courts-circuits repliables : 50 mA
@@ -79,17 +79,17 @@ En prime, il est simple de mise en oeuvre. Le document de données techniques fo
 
 #### ADXL335
 
-Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices**, dispose d'une sensibilité à la vibration de 3G. Disponible uniquement en format **LFCSP-16**, il présente des dimensions réduites (4mm x 4mm).
+Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices**, dispose d'une sensibilité à la vibration de 3G. Disponible uniquement en format **LFCSP-16**, il présente également des dimensions réduites (4mm x 4mm).
 
-Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'accélération d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d'entre elles. Ces résistances permettent, via l'ajout d'un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF selon la documentation technique.
+Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'accélération d'une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d'entre elles. Ces résistances permettent, via l'ajout d'un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF.
 
 Il est également intéressant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z.
 
- Le positionnement de ce composant est donc extrêmement important en fonction de l'usage.
+ Le positionnement de ce composant doit être ainsi judicieusement choisi en fonction de l'usage.
 
 ### Liste des composants
 
-Bien qu'ils soient les plus importants, d'autres composants sont tout de même présents sur cette carte :
+Bien que ces deux composants soient les plus importants, d'autres composants sont tout de même présents sur cette carte :
 
 | Désignation               | Référence | Quantité | Format     | Fiche technique                           |
 | ------------------------- | --------- | -------- | ---------- | ----------------------------------------- |
@@ -110,8 +110,8 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 ![Carte électronique](kicad-pcb.png) ![Schéma électronique](kicad-schematic.jpg)
 
 1. Une LED discrète responsable d'afficher l'état d'alimentation de la carte électronique, accompagnée de sa résistance pour éviter toute émission de fumée.
-2. L'étage d'alimentation de la carte électronique, basé sur l'AP2112K-3.3, dispose de trois condensateurs de lissage pour assurer sa fonction correctement. Ces informations sont disponibles directement au sein de la fiche technique du composant.
-3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant.
+2. L'étage d'alimentation de la carte électronique, basé sur l'AP2112K-3.3, avec ses trois condensateurs de lissage.
+3. L'accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique.
 4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique.
 5. Le connecteur JST-PH d'alimentation en 5 volts.
 
@@ -121,11 +121,12 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles dans ce
 
 Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je me fournis principalement chez **Aisler**, un fabricant allemand. Efficace, abordable et bien documenté, ils ont toujours honoré mes commandes. Ils ont même un plugin disponible sur **Kicad** pour faciliter la commande, [Aisler push for Kicad](https://github.com/AislerHQ/PushForKiCad). En un clic le projet est directement transmis au site pour effectuer ladite commande.
 
-**Aisler** propose des PCB avec un traitement **ENIG** (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des **stencils** pour la crème à braser.
+**Aisler** propose des PCB avec un traitement **ENIG** (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des **stencils** pour faciliter l'application de la crème à braser.
 
 L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Par la suite, il s'agira de déposer les composants électroniques à leurs positions finales. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, il en résulte des points de soudure parfaitement homogènes.
 
 **GreatScott** explique et présente cette méthode dans une de ses vidéos :
+
 {{< youtube QarizoUnRfk >}}
 
 Voici tout de même quelques photos de différentes étapes de cette réalisation :
@@ -146,13 +147,13 @@ Une fois la carte électronique en état de fonctionnement, j'ai effectué quelq
 
 Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, c'est le premier microcontrôleur développé par la fondation.
 
-Ce microcontrôleur, d'architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d'espace de stockage pour les programmes et les données. Il est équipé de 26 broches d'E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d'horloge, deux broches d'alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.
+Ce microcontrôleur, d'architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d'espace de stockage pour des programmes complexes et des données. Il est équipé de 26 broches d'E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d'horloge, deux broches d'alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.
 
 C'est donc ce microcontrôleur que j'ai utilisé pour vérifier le bon fonctionnement de la carte électronique.
 
 ### Branchement
 
-Le montage électronique est relativement simple, la carte électronique fille doit être alimentée par l'interface **+** et **-**, le **Raspberry Pico** dispose pour cela des interfaces **40** et **38**.
+Le montage électronique peut être effectué, en alimentant la carte électronique fille par l'interface **+** et **-**, le **Raspberry Pico** dispose pour cela des interfaces **40** et **38**.
 Ensuite les sorties **X**, **Y** et **Z** de notre carte doivent être respectivement branchées aux interfaces **31**, **32** et **34** du **Pico**.
 
 Le schéma ci-dessous est d'une grande aide pour rapidement identifier les interfaces de connexion en question :
@@ -169,7 +170,7 @@ Ensuite le gestionnaire de carte va nous aider à installer la carte maintenant 
 
 ![Gestionnaire de carte Arduino](arduino-settings-2.png)
 
-Ensuite il suffit de créer un script **Arduino** qui relève les valeurs de tension des interfaces analogiques **31**, **32** et **34** du **Pico**. Voici un exemple de script fonctionnel :
+Ensuite il s'agira de créer un script **Arduino** qui relève les valeurs de tension des interfaces analogiques **31**, **32** et **34** du **Pico**. Voici un exemple de script fonctionnel :
 
 ```Arduino
 const int xInput = 26;
