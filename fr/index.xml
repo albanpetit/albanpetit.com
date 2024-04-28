@@ -15,7 +15,7 @@
 &lt;h3 id="composants-principaux">Composants principaux&lt;/h3>
 &lt;p>Sur cette carte électronique, il y a deux composants majeurs : le régulateur et l&amp;rsquo;accéléromètre.&lt;/p>
 &lt;h4 id="ap2112k-33">AP2112K-3.3&lt;/h4>
-&lt;p>Ce régulateur linéaire en package &lt;strong>SOT-23-5&lt;/strong> est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez &lt;strong>Adafruit&lt;/strong> ou encore &lt;strong>Sparkfun&lt;/strong>. C&amp;rsquo;est un régulateur linéaire à faible abaissement propose une tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :&lt;/p>
+&lt;p>Ce régulateur linéaire en package &lt;strong>SOT-23-5&lt;/strong> est extrêmement courant, utilisé dans de nombreuses cartes électroniques à destination des hobbyistes. Il revient dans beaucoup de designs de chez &lt;strong>Adafruit&lt;/strong> ou encore &lt;strong>Sparkfun&lt;/strong>. C&amp;rsquo;est un régulateur linéaire à faible abaissement proposant une tension fixe, disponible dans de multiples variantes : 1.2V, 1.8V, 2.5V, 2.6V, et 3.3V. Ce projet utilise la version 3.3V. Il dispose de toutes les caractéristiques nécessaires pour ce projet :&lt;/p>
 &lt;ul>
 &lt;li>Précision de la tension de sortie : ±1,5%&lt;/li>
 &lt;li>Courant de sortie : 600 mA (minimum)&lt;/li>
@@ -36,12 +36,12 @@
 &lt;/figure>
 &lt;p>En prime, il est simple de mise en oeuvre. Le document de données techniques fourni par le fabricant présente l&amp;rsquo;ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d&amp;rsquo;une valeur de 1uF sur l&amp;rsquo;entrée et sur la sortie en tension, et d&amp;rsquo;une résistance de 100K ohms pour permettre un allumage constant.&lt;/p>
 &lt;h4 id="adxl335">ADXL335&lt;/h4>
-&lt;p>Le cœur du projet, l&amp;rsquo;accéléromètre &lt;strong>ADXL335&lt;/strong> de la marque &lt;strong>Analog Devices&lt;/strong>, dispose d&amp;rsquo;une sensibilité à la vibration de 3G. Disponible uniquement en format &lt;strong>LFCSP-16&lt;/strong>, il présente des dimensions réduites (4mm x 4mm).&lt;/p>
-&lt;p>Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l&amp;rsquo;information d&amp;rsquo;accélération d&amp;rsquo;une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d&amp;rsquo;entre elles. Ces résistances permettent, via l&amp;rsquo;ajout d&amp;rsquo;un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l&amp;rsquo;effet de crénelage d&amp;rsquo;un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF selon la documentation technique.&lt;/p>
+&lt;p>Le cœur du projet, l&amp;rsquo;accéléromètre &lt;strong>ADXL335&lt;/strong> de la marque &lt;strong>Analog Devices&lt;/strong>, dispose d&amp;rsquo;une sensibilité à la vibration de 3G. Disponible uniquement en format &lt;strong>LFCSP-16&lt;/strong>, il présente également des dimensions réduites (4mm x 4mm).&lt;/p>
+&lt;p>Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l&amp;rsquo;information d&amp;rsquo;accélération d&amp;rsquo;une des trois dimensions. Une fonction particulière est disponible sur ces sorties analogiques, décrite dans la documentation technique. Une résistance de 32K ohms est disposée sur chacune d&amp;rsquo;entre elles. Ces résistances permettent, via l&amp;rsquo;ajout d&amp;rsquo;un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l&amp;rsquo;effet de crénelage d&amp;rsquo;un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF.&lt;/p>
 &lt;p>Il est également intéressant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z.&lt;/p>
-&lt;p>Le positionnement de ce composant est donc extrêmement important en fonction de l&amp;rsquo;usage.&lt;/p>
+&lt;p>Le positionnement de ce composant doit être ainsi judicieusement choisi en fonction de l&amp;rsquo;usage.&lt;/p>
 &lt;h3 id="liste-des-composants">Liste des composants&lt;/h3>
-&lt;p>Bien qu&amp;rsquo;ils soient les plus importants, d&amp;rsquo;autres composants sont tout de même présents sur cette carte :&lt;/p>
+&lt;p>Bien que ces deux composants soient les plus importants, d&amp;rsquo;autres composants sont tout de même présents sur cette carte :&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -141,8 +141,8 @@ data-flex-basis="996px"
 >&lt;/p>
 &lt;ol>
 &lt;li>Une LED discrète responsable d&amp;rsquo;afficher l&amp;rsquo;état d&amp;rsquo;alimentation de la carte électronique, accompagnée de sa résistance pour éviter toute émission de fumée.&lt;/li>
-&lt;li>L&amp;rsquo;étage d&amp;rsquo;alimentation de la carte électronique, basé sur l&amp;rsquo;AP2112K-3.3, dispose de trois condensateurs de lissage pour assurer sa fonction correctement. Ces informations sont disponibles directement au sein de la fiche technique du composant.&lt;/li>
-&lt;li>L&amp;rsquo;accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique de ce composant.&lt;/li>
+&lt;li>L&amp;rsquo;étage d&amp;rsquo;alimentation de la carte électronique, basé sur l&amp;rsquo;AP2112K-3.3, avec ses trois condensateurs de lissage.&lt;/li>
+&lt;li>L&amp;rsquo;accéléromètre MEMS ADXL335, avec ces trois condensateurs, un pour chaque sortie analogique.&lt;/li>
 &lt;li>Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique.&lt;/li>
 &lt;li>Le connecteur JST-PH d&amp;rsquo;alimentation en 5 volts.&lt;/li>
 &lt;/ol>
@@ -151,9 +151,9 @@ data-flex-basis="996px"
 &lt;/figure>
 &lt;p>Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je me fournis principalement chez &lt;strong>Aisler&lt;/strong>, un fabricant allemand. Efficace, abordable et bien documenté, ils ont toujours honoré mes commandes. Ils ont même un plugin disponible sur &lt;strong>Kicad&lt;/strong> pour faciliter la commande, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
 >Aisler push for Kicad&lt;/a>. En un clic le projet est directement transmis au site pour effectuer ladite commande.&lt;/p>
-&lt;p>&lt;strong>Aisler&lt;/strong> propose des PCB avec un traitement &lt;strong>ENIG&lt;/strong> (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des &lt;strong>stencils&lt;/strong> pour la crème à braser.&lt;/p>
+&lt;p>&lt;strong>Aisler&lt;/strong> propose des PCB avec un traitement &lt;strong>ENIG&lt;/strong> (Electroless Nickel Immersion Gold), ainsi que la possibilité de faire fabriquer des &lt;strong>stencils&lt;/strong> pour faciliter l&amp;rsquo;application de la crème à braser.&lt;/p>
 &lt;p>L&amp;rsquo;utilisation d&amp;rsquo;un &lt;strong>stencil&lt;/strong> donne accès à des solutions pour souder des &lt;strong>PCB&lt;/strong> bien plus précisément que les méthodes conventionnelles avec un fer à souder. L&amp;rsquo;idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l&amp;rsquo;étain. Par la suite, il s&amp;rsquo;agira de déposer les composants électroniques à leurs positions finales. Une fois l&amp;rsquo;ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser et donc réaliser la soudure, il en résulte des points de soudure parfaitement homogènes.&lt;/p>
-&lt;p>&lt;strong>GreatScott&lt;/strong> explique et présente cette méthode dans une de ses vidéos :
+&lt;p>&lt;strong>GreatScott&lt;/strong> explique et présente cette méthode dans une de ses vidéos :&lt;/p>
 &lt;div class="video-wrapper">
 &lt;iframe loading="lazy"
 src="https://www.youtube.com/embed/QarizoUnRfk"
@@ -162,7 +162,6 @@ title="YouTube Video"
 >
 &lt;/iframe>
 &lt;/div>
-&lt;/p>
 &lt;p>Voici tout de même quelques photos de différentes étapes de cette réalisation :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1.png"
 width="640"
@@ -227,10 +226,10 @@ data-flex-basis="320px"
 &lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
 &lt;/figure>
 &lt;p>Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d&amp;rsquo;architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, c&amp;rsquo;est le premier microcontrôleur développé par la fondation.&lt;/p>
-&lt;p>Ce microcontrôleur, d&amp;rsquo;architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d&amp;rsquo;espace de stockage pour les programmes et les données. Il est équipé de 26 broches d&amp;rsquo;E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d&amp;rsquo;horloge, deux broches d&amp;rsquo;alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.&lt;/p>
+&lt;p>Ce microcontrôleur, d&amp;rsquo;architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d&amp;rsquo;espace de stockage pour des programmes complexes et des données. Il est équipé de 26 broches d&amp;rsquo;E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d&amp;rsquo;horloge, deux broches d&amp;rsquo;alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.&lt;/p>
 &lt;p>C&amp;rsquo;est donc ce microcontrôleur que j&amp;rsquo;ai utilisé pour vérifier le bon fonctionnement de la carte électronique.&lt;/p>
 &lt;h3 id="branchement">Branchement&lt;/h3>
-&lt;p>Le montage électronique est relativement simple, la carte électronique fille doit être alimentée par l&amp;rsquo;interface &lt;strong>+&lt;/strong> et &lt;strong>-&lt;/strong>, le &lt;strong>Raspberry Pico&lt;/strong> dispose pour cela des interfaces &lt;strong>40&lt;/strong> et &lt;strong>38&lt;/strong>.
+&lt;p>Le montage électronique peut être effectué, en alimentant la carte électronique fille par l&amp;rsquo;interface &lt;strong>+&lt;/strong> et &lt;strong>-&lt;/strong>, le &lt;strong>Raspberry Pico&lt;/strong> dispose pour cela des interfaces &lt;strong>40&lt;/strong> et &lt;strong>38&lt;/strong>.
 Ensuite les sorties &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong> et &lt;strong>Z&lt;/strong> de notre carte doivent être respectivement branchées aux interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong> et &lt;strong>34&lt;/strong> du &lt;strong>Pico&lt;/strong>.&lt;/p>
 &lt;p>Le schéma ci-dessous est d&amp;rsquo;une grande aide pour rapidement identifier les interfaces de connexion en question :&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
@@ -266,7 +265,7 @@ class="gallery-image"
 data-flex-grow="127"
 data-flex-basis="306px"
 >&lt;/p>
-&lt;p>Ensuite il suffit de créer un script &lt;strong>Arduino&lt;/strong> qui relève les valeurs de tension des interfaces analogiques &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong> et &lt;strong>34&lt;/strong> du &lt;strong>Pico&lt;/strong>. Voici un exemple de script fonctionnel :&lt;/p>
+&lt;p>Ensuite il s&amp;rsquo;agira de créer un script &lt;strong>Arduino&lt;/strong> qui relève les valeurs de tension des interfaces analogiques &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong> et &lt;strong>34&lt;/strong> du &lt;strong>Pico&lt;/strong>. Voici un exemple de script fonctionnel :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-Arduino" data-lang="Arduino">&lt;span class="line">&lt;span class="cl">&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">xInput&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">26&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">yInput&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">27&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">zInput&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">28&lt;/span>&lt;span class="p">;&lt;/span>
