@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;p>In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.&lt;/p>
-&lt;h2 id="mems-accelerometers">MEMS Accelerometers&lt;/h2>
-&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
+&lt;h2 id="mems-accelerometers">MEMS Accelerometers
+&lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
 &lt;/figure>
 &lt;p>MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.&lt;/p>
-&lt;h3 id="operating-principle">Operating Principle&lt;/h3>
-&lt;p>The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton&amp;rsquo;s second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.&lt;/p>
+&lt;h3 id="operating-principle">Operating Principle
+&lt;/h3>&lt;p>The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton&amp;rsquo;s second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.&lt;/p>
 &lt;p>Within the MEMS structure, there is typically a mass suspended by flexible beams. When the device experiences acceleration, the mass resists this change due to inertia, causing a deflection in the beams. This deflection is then converted into an electrical signal by a sensor, such as a capacitive or piezoelectric sensor, integrated into the MEMS structure.&lt;/p>
-&lt;h3 id="translating-mechanical-motion-into-electrical-signals">Translating Mechanical Motion into Electrical Signals&lt;/h3>
-&lt;p>As the accelerometer encounters acceleration, the movement of the mass induces a change in capacitance or generates a voltage proportional to the applied force. This electrical signal is then processed and translated into meaningful data, allowing us to quantify the acceleration experienced by the device.&lt;/p>
-&lt;h2 id="electronic-board-design">Electronic Board Design&lt;/h2>
-&lt;p>This PCB is relatively simple and small in size, allowing it to integrate seamlessly into any project. The presence of an AP2112 voltage regulator allows the regulation of the input voltage to 3.3V, enabling the use of this electronic board with devices providing 5V by default, such as Arduino, for example. Its dimensions are 19mm x 24mm, with two connectors: one for 5V power supply, and the other for analog acceleration data on the three axes: x, y, z.&lt;/p>
-&lt;h3 id="main-components">Main Components&lt;/h3>
-&lt;p>On this electronic board, two components are the most important: the regulator and the accelerometer.&lt;/p>
-&lt;h4 id="ap2112k-33">AP2112K-3.3&lt;/h4>
-&lt;p>This linear regulator in &lt;strong>SOT-23-5&lt;/strong> package is extremely common, used in many hobbyist electronic boards. It appears in many designs from Adafruit or Sparkfun. It is a fixed voltage low-dropout linear regulator, available in multiple variants: 1.2V, 1.8V, 2.5V, 2.6V, and 3.3V. This project uses the 3.3V version. It has all the necessary characteristics for this project:&lt;/p>
+&lt;h3 id="translating-mechanical-motion-into-electrical-signals">Translating Mechanical Motion into Electrical Signals
+&lt;/h3>&lt;p>As the accelerometer encounters acceleration, the movement of the mass induces a change in capacitance or generates a voltage proportional to the applied force. This electrical signal is then processed and translated into meaningful data, allowing us to quantify the acceleration experienced by the device.&lt;/p>
+&lt;h2 id="electronic-board-design">Electronic Board Design
+&lt;/h2>&lt;p>This PCB is relatively simple and small in size, allowing it to integrate seamlessly into any project. The presence of an AP2112 voltage regulator allows the regulation of the input voltage to 3.3V, enabling the use of this electronic board with devices providing 5V by default, such as Arduino, for example. Its dimensions are 19mm x 24mm, with two connectors: one for 5V power supply, and the other for analog acceleration data on the three axes: x, y, z.&lt;/p>
+&lt;h3 id="main-components">Main Components
+&lt;/h3>&lt;p>On this electronic board, two components are the most important: the regulator and the accelerometer.&lt;/p>
+&lt;h4 id="ap2112k-33">AP2112K-3.3
+&lt;/h4>&lt;p>This linear regulator in &lt;strong>SOT-23-5&lt;/strong> package is extremely common, used in many hobbyist electronic boards. It appears in many designs from Adafruit or Sparkfun. It is a fixed voltage low-dropout linear regulator, available in multiple variants: 1.2V, 1.8V, 2.5V, 2.6V, and 3.3V. This project uses the 3.3V version. It has all the necessary characteristics for this project:&lt;/p>
 &lt;ul>
 &lt;li>Output voltage accuracy: ±1.5%&lt;/li>
 &lt;li>Output current: 600 mA (minimum)&lt;/li>
@@ -33,13 +33,13 @@
 &lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
 &lt;/figure>
 &lt;p>Additionally, it is extremely simple to implement. The provided datasheet contains all the necessary peripheral components required for its proper operation. Two smoothing capacitors with a value of 1uF on the input and output voltage and a 100K ohm resistor to allow constant ignition are sufficient.&lt;/p>
-&lt;h4 id="adxl335">ADXL335&lt;/h4>
-&lt;p>The heart of the project, the Analog Devices ADXL335 accelerometer, has a vibration sensitivity of 3g. Available only in &lt;strong>LFCSP-16&lt;/strong> format, it is relatively easy to implement as well, partly due to its small size (4mm x 4mm).&lt;/p>
+&lt;h4 id="adxl335">ADXL335
+&lt;/h4>&lt;p>The heart of the project, the Analog Devices ADXL335 accelerometer, has a vibration sensitivity of 3g. Available only in &lt;strong>LFCSP-16&lt;/strong> format, it is relatively easy to implement as well, partly due to its small size (4mm x 4mm).&lt;/p>
 &lt;p>This component has three analog outputs, each responsible for providing acceleration information along one of the three dimensions. A specific function is available on these analog outputs, described in the technical documentation. A 32K ohm resistor is placed on each of them. These resistors, via the addition of a capacitor, allow the creation of a low-pass filter, thus reducing noise on the data and the effect of aliasing from oversampling. The recommended minimum value for these capacitors is 4.7nF according to the technical documentation.&lt;/p>
 &lt;p>It is also interesting to note from this documentation that the maximum useful frequency of each axis is different: 1600Hz for X and Y, and only 500Hz for Z.&lt;/p>
 &lt;p>The positioning of this component is therefore extremely important depending on its usage.&lt;/p>
-&lt;h3 id="components-list">Components List&lt;/h3>
-&lt;p>Although they are the most important, other components are still present on this board:&lt;/p>
+&lt;h3 id="components-list">Components List
+&lt;/h3>&lt;p>Although they are the most important, other components are still present on this board:&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -116,8 +116,8 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board&lt;/h3>
-&lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
+&lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board
+&lt;/h3>&lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
 width="883"
 height="507"
@@ -144,8 +144,8 @@ data-flex-basis="996px"
 &lt;li>The JST-PH connector with three pins, one for each analog output.&lt;/li>
 &lt;li>The power supply JST-PH connector for 5 volts.&lt;/li>
 &lt;/ol>
-&lt;h2 id="electronic-board-manufacturing">Electronic Board Manufacturing&lt;/h2>
-&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
+&lt;h2 id="electronic-board-manufacturing">Electronic Board Manufacturing
+&lt;/h2>&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
 &lt;/figure>
 &lt;p>Living in France, the usual (Chinese) suppliers of electronic boards can be relatively expensive due to shipping costs. I mainly order my boards from Aisler, a German board manufacturer. Always efficient, well-documented, and affordable, they have always perfectly fulfilled my orders. They even have a plugin available on KiCad to facilitate ordering, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
 >Aisler push for KiCad&lt;/a>. A simple press on the icon and the project is directly transmitted to the website to place the order.&lt;/p>
@@ -190,9 +190,9 @@ class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;h2 id="implementation">Implementation&lt;/h2>
-&lt;h3 id="initial-tests">Initial Tests&lt;/h3>
-&lt;p>Once the electronic board is operational, I performed some tests with an oscilloscope to avoid trying to interface a malfunctioning electronic board with a microcontroller for hours. Accompanied by one of my favorite tools, the Sensepeek measurement probes, the results seem perfectly consistent with the datasheet of the ADXL335.&lt;/p>
+&lt;h2 id="implementation">Implementation
+&lt;/h2>&lt;h3 id="initial-tests">Initial Tests
+&lt;/h3>&lt;p>Once the electronic board is operational, I performed some tests with an oscilloscope to avoid trying to interface a malfunctioning electronic board with a microcontroller for hours. Accompanied by one of my favorite tools, the Sensepeek measurement probes, the results seem perfectly consistent with the datasheet of the ADXL335.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1.jpeg"
 width="3024"
 height="4032"
@@ -221,14 +221,14 @@ class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico&lt;/h3>
-&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
+&lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico
+&lt;/h3>&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
 &lt;/figure>
 &lt;p>The Raspberry Pi Pico is an electronic board hosting the RP2040, an ARM architecture microcontroller designed by the Raspberry Pi Foundation. Announced in January 2021, the RP2040 is the first microcontroller developed by the foundation.&lt;/p>
 &lt;p>This ARM architecture microcontroller has two cores clocked at 133 MHz, offering high performance. The Pico has 264 KB of SRAM and 2 MB of flash memory, providing sufficient storage space for programs and data. It is equipped with 26 digital I/O pins, three of which can be used as analog inputs. Additionally, it is equipped with two clock pins, two power pins, and many other pins for serial communication and bus interfaces.&lt;/p>
 &lt;p>Therefore, I used this microcontroller to verify the proper functioning of the electronic board.&lt;/p>
-&lt;h3 id="connection">Connection&lt;/h3>
-&lt;p>The electronic setup is relatively simple, the daughter electronic board must be powered by the &lt;strong>+&lt;/strong> and &lt;strong>-&lt;/strong> interfaces, the Raspberry Pico has interfaces &lt;strong>40&lt;/strong> and &lt;strong>38&lt;/strong> for this purpose.
+&lt;h3 id="connection">Connection
+&lt;/h3>&lt;p>The electronic setup is relatively simple, the daughter electronic board must be powered by the &lt;strong>+&lt;/strong> and &lt;strong>-&lt;/strong> interfaces, the Raspberry Pico has interfaces &lt;strong>40&lt;/strong> and &lt;strong>38&lt;/strong> for this purpose.
 Then the &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong>, and &lt;strong>Z&lt;/strong> outputs of our board must be respectively connected to interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong>, and &lt;strong>34&lt;/strong> of the &lt;strong>Pico&lt;/strong>.&lt;/p>
 &lt;p>The diagram below is of great help to quickly identify the connection interfaces in question:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
@@ -241,8 +241,8 @@ class="gallery-image"
 data-flex-grow="141"
 data-flex-basis="339px"
 >&lt;/p>
-&lt;h4 id="arduino-code">Arduino Code&lt;/h4>
-&lt;p>First and foremost, the &lt;strong>Pico&lt;/strong> is not naturally available for use in the &lt;strong>Arduino&lt;/strong> software, an installation is required. To do this, you need to add this URL: &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> within the &lt;code>Additional Board Manager URLs&lt;/code> option in the preferences panel of &lt;strong>Arduino&lt;/strong>: &lt;em>File &amp;gt; Preferences&lt;/em> like this:&lt;/p>
+&lt;h4 id="arduino-code">Arduino Code
+&lt;/h4>&lt;p>First and foremost, the &lt;strong>Pico&lt;/strong> is not naturally available for use in the &lt;strong>Arduino&lt;/strong> software, an installation is required. To do this, you need to add this URL: &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> within the &lt;code>Additional Board Manager URLs&lt;/code> option in the preferences panel of &lt;strong>Arduino&lt;/strong>: &lt;em>File &amp;gt; Preferences&lt;/em> like this:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1.png"
 width="744"
 height="490"
@@ -343,8 +343,8 @@ data-flex-basis="306px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">626&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Our sensor is now measuring acceleration!&lt;/p></description></item><item><title>Raspberry SSH configuration</title><link>https://albanpetit.com/posts/raspberry-ssh-config/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-ssh-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-ssh-config/main.jpg" alt="Featured image of post Raspberry SSH configuration" />&lt;p>Remote access to your Raspberry Pi is crucial to simplify management without the need for a physical screen, keyboard, or mouse. Configuring SSH (Secure Shell) access is a crucial step in establishing a secure connection with your Raspberry Pi.&lt;/p>
 &lt;p>Similar to the &lt;a class="link" href="https://albanpetit.com/fr/posts/raspberry-wifi-config/" >Wi-Fi configuration&lt;/a>, you can configure some important elements of the &lt;strong>SSH&lt;/strong> server even before the first boot of the Raspberry using the &lt;strong>Raspberry Pi Imager&lt;/strong> utility.&lt;/p>
-&lt;h2 id="openssh-server">openssh-server&lt;/h2>
-&lt;p>Before you begin, ensure that your &lt;strong>Raspberry Pi&lt;/strong> is equipped with a compatible operating system. Commonly used systems like &lt;strong>Raspbian&lt;/strong> support &lt;strong>SSH&lt;/strong> right from the installation. Also, make sure your Raspberry Pi is connected to your local network.
+&lt;h2 id="openssh-server">openssh-server
+&lt;/h2>&lt;p>Before you begin, ensure that your &lt;strong>Raspberry Pi&lt;/strong> is equipped with a compatible operating system. Commonly used systems like &lt;strong>Raspbian&lt;/strong> support &lt;strong>SSH&lt;/strong> right from the installation. Also, make sure your Raspberry Pi is connected to your local network.
 You can check the proper functioning of the &lt;strong>SSH&lt;/strong> server on your &lt;strong>Raspberry&lt;/strong> with the following command:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status sshd.service
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If the &lt;strong>SSH&lt;/strong> server is working correctly, the response to this command should look like this:
@@ -362,8 +362,8 @@ If the command returns an error like: &lt;code>Unit sshd.service could not be fo
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt upgrade
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install openssh-server
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-activation">SSH Activation&lt;/h2>
-&lt;p>The easiest way to enable the SSH service is to use the &lt;strong>raspi-config&lt;/strong> tool from the &lt;strong>Raspberry Foundation&lt;/strong>. To do this, follow these steps:&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-activation">SSH Activation
+&lt;/h2>&lt;p>The easiest way to enable the SSH service is to use the &lt;strong>raspi-config&lt;/strong> tool from the &lt;strong>Raspberry Foundation&lt;/strong>. To do this, follow these steps:&lt;/p>
 &lt;ol>
 &lt;li>Open a terminal on your Raspberry Pi.&lt;/li>
 &lt;li>Type the following command to open the configuration tool:
@@ -376,20 +376,20 @@ If the command returns an error like: &lt;code>Unit sshd.service could not be fo
 &lt;/ol>
 &lt;p>For the next steps, you need to know the &lt;strong>IP&lt;/strong> address of the &lt;strong>Raspberry&lt;/strong> on your network. You can use the interface of your network router or the following command on the &lt;strong>Raspberry&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hostname -I &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;{print $1}&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-connection-from-another-device">SSH Connection from Another Device&lt;/h2>
-&lt;p>Once the SSH service is enabled, you can connect to your Raspberry Pi from another computer on the same network. Use the IP address of your Raspberry Pi to establish the SSH connection. The standard command is as follows (replace &lt;code>address_ip&lt;/code> with the actual address):&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-connection-from-another-device">SSH Connection from Another Device
+&lt;/h2>&lt;p>Once the SSH service is enabled, you can connect to your Raspberry Pi from another computer on the same network. Use the IP address of your Raspberry Pi to establish the SSH connection. The standard command is as follows (replace &lt;code>address_ip&lt;/code> with the actual address):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@address_ip
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You will be prompted to enter the default password, which is usually &lt;strong>raspberry&lt;/strong> for the &lt;strong>pi&lt;/strong> user.&lt;/p>
-&lt;h2 id="changing-the-default-password">Changing the Default Password&lt;/h2>
-&lt;p>It is highly recommended to change the default password of your Raspberry Pi to enhance security. Use the following command to change the password for the &lt;strong>pi&lt;/strong> user:&lt;/p>
+&lt;h2 id="changing-the-default-password">Changing the Default Password
+&lt;/h2>&lt;p>It is highly recommended to change the default password of your Raspberry Pi to enhance security. Use the following command to change the password for the &lt;strong>pi&lt;/strong> user:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">passwd
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Follow the instructions to set a strong new password.&lt;/p>
-&lt;h2 id="advanced-configuration">Advanced Configuration&lt;/h2>
-&lt;p>For security measures, you can make some additional modifications.&lt;/p>
-&lt;h3 id="use-of-ssh-keys">Use of SSH Keys&lt;/h3>
-&lt;p>Using an SSH key on your Raspberry Pi is an excellent practice to secure remote access to your device. This eliminates the need to enter a password every time you connect via SSH, while enhancing the security of your connection.&lt;/p>
-&lt;h4 id="key-pair-generation">Key Pair Generation&lt;/h4>
-&lt;p>&lt;strong>On Your Computer:&lt;/strong>&lt;/p>
+&lt;h2 id="advanced-configuration">Advanced Configuration
+&lt;/h2>&lt;p>For security measures, you can make some additional modifications.&lt;/p>
+&lt;h3 id="use-of-ssh-keys">Use of SSH Keys
+&lt;/h3>&lt;p>Using an SSH key on your Raspberry Pi is an excellent practice to secure remote access to your device. This eliminates the need to enter a password every time you connect via SSH, while enhancing the security of your connection.&lt;/p>
+&lt;h4 id="key-pair-generation">Key Pair Generation
+&lt;/h4>&lt;p>&lt;strong>On Your Computer:&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Use the following command to generate a key pair:&lt;/li>
 &lt;/ul>
@@ -405,17 +405,17 @@ If the command returns an error like: &lt;code>Unit sshd.service could not be fo
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>You will be prompted to enter the password for your Raspberry Pi.&lt;/li>
 &lt;/ul>
-&lt;h4 id="ssh-connection-with-the-key">SSH Connection with the Key&lt;/h4>
-&lt;p>Now you should be able to connect to your Raspberry Pi without being prompted for a password:&lt;/p>
+&lt;h4 id="ssh-connection-with-the-key">SSH Connection with the Key
+&lt;/h4>&lt;p>Now you should be able to connect to your Raspberry Pi without being prompted for a password:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@raspberrypi
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You should be connected without entering a password.&lt;/p>
-&lt;h4 id="disabling-password-authentication-optional">Disabling Password Authentication (Optional):&lt;/h4>
-&lt;p>To enhance security, you can disable password authentication on your Raspberry Pi. Edit the SSH configuration file:&lt;/p>
+&lt;h4 id="disabling-password-authentication-optional">Disabling Password Authentication (Optional):
+&lt;/h4>&lt;p>To enhance security, you can disable password authentication on your Raspberry Pi. Edit the SSH configuration file:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/ssh/sshd_config
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Change &lt;code>PasswordAuthentication yes&lt;/code> to &lt;code>PasswordAuthentication no&lt;/code>, then restart the SSH service:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart sshd.service
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="changing-the-ssh-port">Changing the SSH Port&lt;/h3>
-&lt;p>The default &lt;strong>SSH&lt;/strong> port on all servers is port 22. Changing this port makes automated attacks more difficult. To make this change, edit the &lt;code>/etc/ssh/sshd_config&lt;/code> file with administrator rights:&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="changing-the-ssh-port">Changing the SSH Port
+&lt;/h3>&lt;p>The default &lt;strong>SSH&lt;/strong> port on all servers is port 22. Changing this port makes automated attacks more difficult. To make this change, edit the &lt;code>/etc/ssh/sshd_config&lt;/code> file with administrator rights:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/ssh/sshd_config
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then remove the &lt;code>#&lt;/code> on the line &lt;code>#Port 22&lt;/code> and change the value 22 to the port of your choice between 1024 and 65536. Save and exit &lt;strong>nano&lt;/strong> with the keyboard shortcuts: &lt;code>ctrl+o&lt;/code>, &lt;code>ctrl+x&lt;/code>.&lt;/p>
 &lt;p>Next, you need to restart openssh-server to apply the changes:&lt;/p>
@@ -423,8 +423,8 @@ If the command returns an error like: &lt;code>Unit sshd.service could not be fo
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Connecting to your Raspberry will be done with a new parameter to specify the connection port (replace &lt;code>pi&lt;/code> with your username, &lt;code>address_ip&lt;/code> with the actual IP address, and &lt;code>port_de_connexion&lt;/code> with the new port):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@address_ip -p port_de_connexion
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Configuring SSH on your Raspberry Pi is an essential step to ensure secure remote access. By following these simple steps, you enhance the management of your Raspberry Pi while reinforcing the security of your system. Feel free to explore advanced options to further customize your SSH configuration based on your specific needs.&lt;/p></description></item><item><title>Raspberry wifi configuration</title><link>https://albanpetit.com/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Raspberry wifi configuration" />&lt;p>The Raspberry Pi is a fantastic microcomputer that, thanks to its versatility, is used in various projects, from home automation to the creation of personal servers. Configuring WiFi on these devices is almost essential to fully exploit their capabilities. Users have two main options: configuration before or after the first boot. This is generally a crucial step, especially when using &lt;strong>Raspbian Lite&lt;/strong>, which lacks a graphical interface and requires an &lt;strong>SSH&lt;/strong> connection for usage.&lt;/p>
-&lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager&lt;/h2>
-&lt;p>This section focuses on configuring &lt;strong>Wi-Fi&lt;/strong> and &lt;strong>SSH&lt;/strong> even before the first Raspberry startup. Thanks to the &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
+&lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager
+&lt;/h2>&lt;p>This section focuses on configuring &lt;strong>Wi-Fi&lt;/strong> and &lt;strong>SSH&lt;/strong> even before the first Raspberry startup. Thanks to the &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
 >Raspberry Pi Foundation&lt;/a>, there&amp;rsquo;s no longer a need for a keyboard and screen. They provide a utility available on all platforms—Windows, Apple, and Linux—that enables the creation of functional SD cards with multiple operating systems. Besides writing OS images, this utility even allows the configuration of essential elements for setting up a &lt;strong>Raspberry Pi&lt;/strong>.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1.png"
 width="1064"
@@ -438,8 +438,8 @@ data-flex-basis="342px"
 >&lt;/p>
 &lt;p>You can download this utility directly from the &lt;strong>Raspberry Pi&lt;/strong> software page: &lt;a class="link" href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener"
 >Raspberry Software&lt;/a>. Simply select the operating system you want to use and your storage device (SD card or USB), then press &lt;strong>WRITE&lt;/strong> to start writing the image to the device.&lt;/p>
-&lt;h3 id="advanced-options">Advanced Options&lt;/h3>
-&lt;p>At the bottom right of the interface, a gear-shaped button provides access to the advanced functions of this utility. Within these functions, you can configure &lt;strong>SSH&lt;/strong>, the name of the &lt;strong>Raspberry Pi&lt;/strong> on the network, and also the necessary information for it to connect to the &lt;strong>Wi-Fi&lt;/strong> network:&lt;/p>
+&lt;h3 id="advanced-options">Advanced Options
+&lt;/h3>&lt;p>At the bottom right of the interface, a gear-shaped button provides access to the advanced functions of this utility. Within these functions, you can configure &lt;strong>SSH&lt;/strong>, the name of the &lt;strong>Raspberry Pi&lt;/strong> on the network, and also the necessary information for it to connect to the &lt;strong>Wi-Fi&lt;/strong> network:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2.png"
 width="1108"
 height="789"
@@ -454,10 +454,10 @@ data-flex-basis="337px"
 &lt;blockquote>
 &lt;p>The &lt;strong>SSID&lt;/strong>, an acronym for &lt;em>service set identifier&lt;/em>, is the name of a wireless network according to IEEE 802.11 standards. This name consists of a character string of 0 to 32 octets.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="command-line-configuration">Command Line Configuration&lt;/h2>
-&lt;p>The &lt;strong>Raspberry Pi Imager&lt;/strong> application allows configuring Wi-Fi even before the first Raspberry startup. However, sometimes this configuration must be done after startup. In this case, several options are available to us: a fully manual command-line configuration or the utility: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
-&lt;h3 id="manual-configuration">Manual Configuration&lt;/h3>
-&lt;p>First, it is necessary to configure the network interfaces. For this, the default text file editing utility in &lt;strong>Raspbian&lt;/strong>, &lt;strong>nano&lt;/strong>, will help us:&lt;/p>
+&lt;h2 id="command-line-configuration">Command Line Configuration
+&lt;/h2>&lt;p>The &lt;strong>Raspberry Pi Imager&lt;/strong> application allows configuring Wi-Fi even before the first Raspberry startup. However, sometimes this configuration must be done after startup. In this case, several options are available to us: a fully manual command-line configuration or the utility: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
+&lt;h3 id="manual-configuration">Manual Configuration
+&lt;/h3>&lt;p>First, it is necessary to configure the network interfaces. For this, the default text file editing utility in &lt;strong>Raspbian&lt;/strong>, &lt;strong>nano&lt;/strong>, will help us:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/network/interfaces
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This file lists all existing network interfaces, so it probably won&amp;rsquo;t be empty. Add a line at the top of the file:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">auto wlan0
@@ -493,8 +493,8 @@ class="gallery-image"
 data-flex-grow="178"
 data-flex-basis="427px"
 >&lt;/p>
-&lt;h3 id="raspi-config">Raspi-config&lt;/h3>
-&lt;p>The Raspberry Pi Foundation also provides a tool to facilitate this type of configuration. Although it is less comprehensive than manual configuration, it is much simpler to use: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
+&lt;h3 id="raspi-config">Raspi-config
+&lt;/h3>&lt;p>The Raspberry Pi Foundation also provides a tool to facilitate this type of configuration. Although it is less comprehensive than manual configuration, it is much simpler to use: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo raspi-config
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here&amp;rsquo;s the interface that opens up. It allows configuration for many things, but concerning Wi-Fi, it is available in &lt;strong>System Options&lt;/strong>, then &lt;strong>Wireless Lan&lt;/strong>:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1.png"
@@ -560,8 +560,8 @@ data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
 &lt;p>Now, simply exit the tool to apply the configuration. The Raspberry will connect automatically upon each restart.&lt;/p>
-&lt;h3 id="static-ip">Static IP?&lt;/h3>
-&lt;p>The goal of this kind of configuration is generally to use the Raspberry without a keyboard or mouse, with an &lt;strong>SSH&lt;/strong> connection. Therefore, it is essential to ensure that it does not change its &lt;strong>IP&lt;/strong> address.&lt;/p>
+&lt;h3 id="static-ip">Static IP?
+&lt;/h3>&lt;p>The goal of this kind of configuration is generally to use the Raspberry without a keyboard or mouse, with an &lt;strong>SSH&lt;/strong> connection. Therefore, it is essential to ensure that it does not change its &lt;strong>IP&lt;/strong> address.&lt;/p>
 &lt;p>The interface configuration still takes place in &lt;strong>/etc/network/interfaces&lt;/strong>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/network/interfaces
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Change the line &lt;code>iface wlan0 inet dhcp&lt;/code> to &lt;code>iface wlan0 inet static&lt;/code>. This will change the &lt;code>wlan0&lt;/code> interface from DHCP to static. In the same file, add the following configuration lines just before &lt;code>wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf&lt;/code>:&lt;/p>
@@ -586,8 +586,8 @@ data-flex-basis="345px"
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>About me</title><link>https://albanpetit.com/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/about/</guid><description>&lt;img src="https://albanpetit.com/about/lamachinerie.jpg" alt="Featured image of post About me" />&lt;p>Hello! I&amp;rsquo;m Alban Petit, a passionate French web developer working at La Machinerie, a facility that houses a Fablab. I&amp;rsquo;ve been involved with this organization for the past 7 years, starting as a volunteer and eventually becoming responsible for a department that offers a range of technical services, including electronics, programming, and digital fabrication.&lt;/p>
 &lt;p>Through my work experiences and interactions at La Machinerie, I discovered a strong passion for software development, electronics, and prototyping in general.&lt;/p>
-&lt;h2 id="my-experiences">My Experiences&lt;/h2>
-&lt;ul>
+&lt;h2 id="my-experiences">My Experiences
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;strong>Assistant FabManager, La Machinerie Association&lt;/strong>, 2015 - 2016, Amiens&lt;/p>
 &lt;p>La Machinerie houses a Fablab that caters to entrepreneurs, designers, artists, DIY enthusiasts, students, and hackers, providing a space to rapidly transition from concept to prototyping. As a FabManager, I was in charge of managing this facility.&lt;/p>
@@ -608,8 +608,8 @@ During this period, I continued my role as a web and embedded developer at Etoel
 Currently, I hold the position of head of the manufacturing department at La Machinerie, where we assist professionals in developing prototypes in areas such as electronics, furniture, functional parts, and connected devices.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="la-machinerie">La Machinerie&lt;/h2>
-&lt;p>La Machinerie is an association that was founded in April 2014 by a group of idealistic individuals in Amiens who aspired to &amp;ldquo;create and work differently.&amp;rdquo; It encompasses a Fablab and coworking space, drawing inspiration from the Fablab movement to provide an accessible community resource where users contribute their skills, tools, and knowledge. The collective embraces various aspirations, including citizen innovation, ecology, open culture, and entrepreneurship, leading to a diverse range of experiences.&lt;/p>
+&lt;h2 id="la-machinerie">La Machinerie
+&lt;/h2>&lt;p>La Machinerie is an association that was founded in April 2014 by a group of idealistic individuals in Amiens who aspired to &amp;ldquo;create and work differently.&amp;rdquo; It encompasses a Fablab and coworking space, drawing inspiration from the Fablab movement to provide an accessible community resource where users contribute their skills, tools, and knowledge. The collective embraces various aspirations, including citizen innovation, ecology, open culture, and entrepreneurship, leading to a diverse range of experiences.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/about/coworking.jpeg"
 width="750"
 height="364"
@@ -643,9 +643,9 @@ data-flex-basis="359px"
 &lt;iframe style="width: 100%;" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=1B%20rue%20de%20la%20vall%C3%A9e,%2080000&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">&lt;/iframe>
 &lt;/div>
 &lt;/div>
-&lt;h2 id="personal-projects">Personal projects&lt;/h2>
-&lt;p>In addition to my activities at La Machinerie, I am utilizing this website as a platform to document my personal projects, which are undertaken both within La Machinerie&amp;rsquo;s Fablab and my personal workshop.&lt;/p>
-&lt;h2 id="contact">Contact&lt;/h2>
-&lt;p>Please feel free to contact me via email at &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> or on &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
+&lt;h2 id="personal-projects">Personal projects
+&lt;/h2>&lt;p>In addition to my activities at La Machinerie, I am utilizing this website as a platform to document my personal projects, which are undertaken both within La Machinerie&amp;rsquo;s Fablab and my personal workshop.&lt;/p>
+&lt;h2 id="contact">Contact
+&lt;/h2>&lt;p>Please feel free to contact me via email at &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> or on &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
 >Twitter&lt;/a> for any information, advice, questions, or modifications regarding this website.&lt;/p>
 &lt;p>Enjoy your visit ! &amp;#x1f604;&lt;/p></description></item><item><title>Archives</title><link>https://albanpetit.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/archives/</guid><description/></item><item><title>Search</title><link>https://albanpetit.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/search/</guid><description/></item></channel></rss>

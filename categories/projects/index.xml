@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Alban Petit</title><link>https://albanpetit.com/categories/projects/</link><description>Recent content in Projects on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;p>In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.&lt;/p>
-&lt;h2 id="mems-accelerometers">MEMS Accelerometers&lt;/h2>
-&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
+&lt;h2 id="mems-accelerometers">MEMS Accelerometers
+&lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
 &lt;/figure>
 &lt;p>MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.&lt;/p>
-&lt;h3 id="operating-principle">Operating Principle&lt;/h3>
-&lt;p>The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton&amp;rsquo;s second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.&lt;/p>
+&lt;h3 id="operating-principle">Operating Principle
+&lt;/h3>&lt;p>The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton&amp;rsquo;s second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.&lt;/p>
 &lt;p>Within the MEMS structure, there is typically a mass suspended by flexible beams. When the device experiences acceleration, the mass resists this change due to inertia, causing a deflection in the beams. This deflection is then converted into an electrical signal by a sensor, such as a capacitive or piezoelectric sensor, integrated into the MEMS structure.&lt;/p>
-&lt;h3 id="translating-mechanical-motion-into-electrical-signals">Translating Mechanical Motion into Electrical Signals&lt;/h3>
-&lt;p>As the accelerometer encounters acceleration, the movement of the mass induces a change in capacitance or generates a voltage proportional to the applied force. This electrical signal is then processed and translated into meaningful data, allowing us to quantify the acceleration experienced by the device.&lt;/p>
-&lt;h2 id="electronic-board-design">Electronic Board Design&lt;/h2>
-&lt;p>This PCB is relatively simple and small in size, allowing it to integrate seamlessly into any project. The presence of an AP2112 voltage regulator allows the regulation of the input voltage to 3.3V, enabling the use of this electronic board with devices providing 5V by default, such as Arduino, for example. Its dimensions are 19mm x 24mm, with two connectors: one for 5V power supply, and the other for analog acceleration data on the three axes: x, y, z.&lt;/p>
-&lt;h3 id="main-components">Main Components&lt;/h3>
-&lt;p>On this electronic board, two components are the most important: the regulator and the accelerometer.&lt;/p>
-&lt;h4 id="ap2112k-33">AP2112K-3.3&lt;/h4>
-&lt;p>This linear regulator in &lt;strong>SOT-23-5&lt;/strong> package is extremely common, used in many hobbyist electronic boards. It appears in many designs from Adafruit or Sparkfun. It is a fixed voltage low-dropout linear regulator, available in multiple variants: 1.2V, 1.8V, 2.5V, 2.6V, and 3.3V. This project uses the 3.3V version. It has all the necessary characteristics for this project:&lt;/p>
+&lt;h3 id="translating-mechanical-motion-into-electrical-signals">Translating Mechanical Motion into Electrical Signals
+&lt;/h3>&lt;p>As the accelerometer encounters acceleration, the movement of the mass induces a change in capacitance or generates a voltage proportional to the applied force. This electrical signal is then processed and translated into meaningful data, allowing us to quantify the acceleration experienced by the device.&lt;/p>
+&lt;h2 id="electronic-board-design">Electronic Board Design
+&lt;/h2>&lt;p>This PCB is relatively simple and small in size, allowing it to integrate seamlessly into any project. The presence of an AP2112 voltage regulator allows the regulation of the input voltage to 3.3V, enabling the use of this electronic board with devices providing 5V by default, such as Arduino, for example. Its dimensions are 19mm x 24mm, with two connectors: one for 5V power supply, and the other for analog acceleration data on the three axes: x, y, z.&lt;/p>
+&lt;h3 id="main-components">Main Components
+&lt;/h3>&lt;p>On this electronic board, two components are the most important: the regulator and the accelerometer.&lt;/p>
+&lt;h4 id="ap2112k-33">AP2112K-3.3
+&lt;/h4>&lt;p>This linear regulator in &lt;strong>SOT-23-5&lt;/strong> package is extremely common, used in many hobbyist electronic boards. It appears in many designs from Adafruit or Sparkfun. It is a fixed voltage low-dropout linear regulator, available in multiple variants: 1.2V, 1.8V, 2.5V, 2.6V, and 3.3V. This project uses the 3.3V version. It has all the necessary characteristics for this project:&lt;/p>
 &lt;ul>
 &lt;li>Output voltage accuracy: ±1.5%&lt;/li>
 &lt;li>Output current: 600 mA (minimum)&lt;/li>
@@ -33,13 +33,13 @@
 &lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
 &lt;/figure>
 &lt;p>Additionally, it is extremely simple to implement. The provided datasheet contains all the necessary peripheral components required for its proper operation. Two smoothing capacitors with a value of 1uF on the input and output voltage and a 100K ohm resistor to allow constant ignition are sufficient.&lt;/p>
-&lt;h4 id="adxl335">ADXL335&lt;/h4>
-&lt;p>The heart of the project, the Analog Devices ADXL335 accelerometer, has a vibration sensitivity of 3g. Available only in &lt;strong>LFCSP-16&lt;/strong> format, it is relatively easy to implement as well, partly due to its small size (4mm x 4mm).&lt;/p>
+&lt;h4 id="adxl335">ADXL335
+&lt;/h4>&lt;p>The heart of the project, the Analog Devices ADXL335 accelerometer, has a vibration sensitivity of 3g. Available only in &lt;strong>LFCSP-16&lt;/strong> format, it is relatively easy to implement as well, partly due to its small size (4mm x 4mm).&lt;/p>
 &lt;p>This component has three analog outputs, each responsible for providing acceleration information along one of the three dimensions. A specific function is available on these analog outputs, described in the technical documentation. A 32K ohm resistor is placed on each of them. These resistors, via the addition of a capacitor, allow the creation of a low-pass filter, thus reducing noise on the data and the effect of aliasing from oversampling. The recommended minimum value for these capacitors is 4.7nF according to the technical documentation.&lt;/p>
 &lt;p>It is also interesting to note from this documentation that the maximum useful frequency of each axis is different: 1600Hz for X and Y, and only 500Hz for Z.&lt;/p>
 &lt;p>The positioning of this component is therefore extremely important depending on its usage.&lt;/p>
-&lt;h3 id="components-list">Components List&lt;/h3>
-&lt;p>Although they are the most important, other components are still present on this board:&lt;/p>
+&lt;h3 id="components-list">Components List
+&lt;/h3>&lt;p>Although they are the most important, other components are still present on this board:&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -116,8 +116,8 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board&lt;/h3>
-&lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
+&lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board
+&lt;/h3>&lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
 width="883"
 height="507"
@@ -144,8 +144,8 @@ data-flex-basis="996px"
 &lt;li>The JST-PH connector with three pins, one for each analog output.&lt;/li>
 &lt;li>The power supply JST-PH connector for 5 volts.&lt;/li>
 &lt;/ol>
-&lt;h2 id="electronic-board-manufacturing">Electronic Board Manufacturing&lt;/h2>
-&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
+&lt;h2 id="electronic-board-manufacturing">Electronic Board Manufacturing
+&lt;/h2>&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
 &lt;/figure>
 &lt;p>Living in France, the usual (Chinese) suppliers of electronic boards can be relatively expensive due to shipping costs. I mainly order my boards from Aisler, a German board manufacturer. Always efficient, well-documented, and affordable, they have always perfectly fulfilled my orders. They even have a plugin available on KiCad to facilitate ordering, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
 >Aisler push for KiCad&lt;/a>. A simple press on the icon and the project is directly transmitted to the website to place the order.&lt;/p>
@@ -190,9 +190,9 @@ class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;h2 id="implementation">Implementation&lt;/h2>
-&lt;h3 id="initial-tests">Initial Tests&lt;/h3>
-&lt;p>Once the electronic board is operational, I performed some tests with an oscilloscope to avoid trying to interface a malfunctioning electronic board with a microcontroller for hours. Accompanied by one of my favorite tools, the Sensepeek measurement probes, the results seem perfectly consistent with the datasheet of the ADXL335.&lt;/p>
+&lt;h2 id="implementation">Implementation
+&lt;/h2>&lt;h3 id="initial-tests">Initial Tests
+&lt;/h3>&lt;p>Once the electronic board is operational, I performed some tests with an oscilloscope to avoid trying to interface a malfunctioning electronic board with a microcontroller for hours. Accompanied by one of my favorite tools, the Sensepeek measurement probes, the results seem perfectly consistent with the datasheet of the ADXL335.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1.jpeg"
 width="3024"
 height="4032"
@@ -221,14 +221,14 @@ class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
-&lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico&lt;/h3>
-&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
+&lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico
+&lt;/h3>&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
 &lt;/figure>
 &lt;p>The Raspberry Pi Pico is an electronic board hosting the RP2040, an ARM architecture microcontroller designed by the Raspberry Pi Foundation. Announced in January 2021, the RP2040 is the first microcontroller developed by the foundation.&lt;/p>
 &lt;p>This ARM architecture microcontroller has two cores clocked at 133 MHz, offering high performance. The Pico has 264 KB of SRAM and 2 MB of flash memory, providing sufficient storage space for programs and data. It is equipped with 26 digital I/O pins, three of which can be used as analog inputs. Additionally, it is equipped with two clock pins, two power pins, and many other pins for serial communication and bus interfaces.&lt;/p>
 &lt;p>Therefore, I used this microcontroller to verify the proper functioning of the electronic board.&lt;/p>
-&lt;h3 id="connection">Connection&lt;/h3>
-&lt;p>The electronic setup is relatively simple, the daughter electronic board must be powered by the &lt;strong>+&lt;/strong> and &lt;strong>-&lt;/strong> interfaces, the Raspberry Pico has interfaces &lt;strong>40&lt;/strong> and &lt;strong>38&lt;/strong> for this purpose.
+&lt;h3 id="connection">Connection
+&lt;/h3>&lt;p>The electronic setup is relatively simple, the daughter electronic board must be powered by the &lt;strong>+&lt;/strong> and &lt;strong>-&lt;/strong> interfaces, the Raspberry Pico has interfaces &lt;strong>40&lt;/strong> and &lt;strong>38&lt;/strong> for this purpose.
 Then the &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong>, and &lt;strong>Z&lt;/strong> outputs of our board must be respectively connected to interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong>, and &lt;strong>34&lt;/strong> of the &lt;strong>Pico&lt;/strong>.&lt;/p>
 &lt;p>The diagram below is of great help to quickly identify the connection interfaces in question:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
@@ -241,8 +241,8 @@ class="gallery-image"
 data-flex-grow="141"
 data-flex-basis="339px"
 >&lt;/p>
-&lt;h4 id="arduino-code">Arduino Code&lt;/h4>
-&lt;p>First and foremost, the &lt;strong>Pico&lt;/strong> is not naturally available for use in the &lt;strong>Arduino&lt;/strong> software, an installation is required. To do this, you need to add this URL: &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> within the &lt;code>Additional Board Manager URLs&lt;/code> option in the preferences panel of &lt;strong>Arduino&lt;/strong>: &lt;em>File &amp;gt; Preferences&lt;/em> like this:&lt;/p>
+&lt;h4 id="arduino-code">Arduino Code
+&lt;/h4>&lt;p>First and foremost, the &lt;strong>Pico&lt;/strong> is not naturally available for use in the &lt;strong>Arduino&lt;/strong> software, an installation is required. To do this, you need to add this URL: &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> within the &lt;code>Additional Board Manager URLs&lt;/code> option in the preferences panel of &lt;strong>Arduino&lt;/strong>: &lt;em>File &amp;gt; Preferences&lt;/em> like this:&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1.png"
 width="744"
 height="490"

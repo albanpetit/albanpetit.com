@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Alban Petit</title><link>https://albanpetit.com/page/</link><description>Recent content in Pages on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/page/index.xml" rel="self" type="application/rss+xml"/><item><title>About me</title><link>https://albanpetit.com/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/about/</guid><description>&lt;img src="https://albanpetit.com/about/lamachinerie.jpg" alt="Featured image of post About me" />&lt;p>Hello! I&amp;rsquo;m Alban Petit, a passionate French web developer working at La Machinerie, a facility that houses a Fablab. I&amp;rsquo;ve been involved with this organization for the past 7 years, starting as a volunteer and eventually becoming responsible for a department that offers a range of technical services, including electronics, programming, and digital fabrication.&lt;/p>
 &lt;p>Through my work experiences and interactions at La Machinerie, I discovered a strong passion for software development, electronics, and prototyping in general.&lt;/p>
-&lt;h2 id="my-experiences">My Experiences&lt;/h2>
-&lt;ul>
+&lt;h2 id="my-experiences">My Experiences
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;strong>Assistant FabManager, La Machinerie Association&lt;/strong>, 2015 - 2016, Amiens&lt;/p>
 &lt;p>La Machinerie houses a Fablab that caters to entrepreneurs, designers, artists, DIY enthusiasts, students, and hackers, providing a space to rapidly transition from concept to prototyping. As a FabManager, I was in charge of managing this facility.&lt;/p>
@@ -22,8 +22,8 @@ During this period, I continued my role as a web and embedded developer at Etoel
 Currently, I hold the position of head of the manufacturing department at La Machinerie, where we assist professionals in developing prototypes in areas such as electronics, furniture, functional parts, and connected devices.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="la-machinerie">La Machinerie&lt;/h2>
-&lt;p>La Machinerie is an association that was founded in April 2014 by a group of idealistic individuals in Amiens who aspired to &amp;ldquo;create and work differently.&amp;rdquo; It encompasses a Fablab and coworking space, drawing inspiration from the Fablab movement to provide an accessible community resource where users contribute their skills, tools, and knowledge. The collective embraces various aspirations, including citizen innovation, ecology, open culture, and entrepreneurship, leading to a diverse range of experiences.&lt;/p>
+&lt;h2 id="la-machinerie">La Machinerie
+&lt;/h2>&lt;p>La Machinerie is an association that was founded in April 2014 by a group of idealistic individuals in Amiens who aspired to &amp;ldquo;create and work differently.&amp;rdquo; It encompasses a Fablab and coworking space, drawing inspiration from the Fablab movement to provide an accessible community resource where users contribute their skills, tools, and knowledge. The collective embraces various aspirations, including citizen innovation, ecology, open culture, and entrepreneurship, leading to a diverse range of experiences.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/about/coworking.jpeg"
 width="750"
 height="364"
@@ -57,9 +57,9 @@ data-flex-basis="359px"
 &lt;iframe style="width: 100%;" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=1B%20rue%20de%20la%20vall%C3%A9e,%2080000&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">&lt;/iframe>
 &lt;/div>
 &lt;/div>
-&lt;h2 id="personal-projects">Personal projects&lt;/h2>
-&lt;p>In addition to my activities at La Machinerie, I am utilizing this website as a platform to document my personal projects, which are undertaken both within La Machinerie&amp;rsquo;s Fablab and my personal workshop.&lt;/p>
-&lt;h2 id="contact">Contact&lt;/h2>
-&lt;p>Please feel free to contact me via email at &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> or on &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
+&lt;h2 id="personal-projects">Personal projects
+&lt;/h2>&lt;p>In addition to my activities at La Machinerie, I am utilizing this website as a platform to document my personal projects, which are undertaken both within La Machinerie&amp;rsquo;s Fablab and my personal workshop.&lt;/p>
+&lt;h2 id="contact">Contact
+&lt;/h2>&lt;p>Please feel free to contact me via email at &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> or on &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
 >Twitter&lt;/a> for any information, advice, questions, or modifications regarding this website.&lt;/p>
 &lt;p>Enjoy your visit ! &amp;#x1f604;&lt;/p></description></item><item><title>Archives</title><link>https://albanpetit.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/archives/</guid><description/></item><item><title>Search</title><link>https://albanpetit.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/search/</guid><description/></item></channel></rss>

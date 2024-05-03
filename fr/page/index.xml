@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Alban Petit</title><link>https://albanpetit.com/fr/page/</link><description>Recent content in Pages on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sun, 23 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/page/index.xml" rel="self" type="application/rss+xml"/><item><title>A propos</title><link>https://albanpetit.com/fr/about/</link><pubDate>Sun, 23 Jan 2022 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/about/</guid><description>&lt;img src="https://albanpetit.com/about/lamachinerie.jpg" alt="Featured image of post A propos" />&lt;p>Salut ! Je suis Alban Petit, un développeur web français passionné travaillant au sein de La Machinerie, une structure qui héberge un Fablab. J&amp;rsquo;ai eu la chance de connaître cette organisation depuis 7 ans maintenant, commençant comme bénévole pour finalement devenir responsable d&amp;rsquo;un pôle dédié à la prestation de services dans divers domaines techniques tels que l&amp;rsquo;électronique, l&amp;rsquo;informatique et la fabrication numérique.&lt;/p>
 &lt;p>Ces expériences professionnelles m&amp;rsquo;ont révélé une véritable passion pour le développement informatique, l&amp;rsquo;électronique et le prototypage en général.&lt;/p>
-&lt;h2 id="mes-experiences">Mes experiences&lt;/h2>
-&lt;ul>
+&lt;h2 id="mes-experiences">Mes experiences
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>2015 - 2016, &lt;strong>Assistant FabManager, Association La Machinerie&lt;/strong>, Amiens&lt;/p>
 &lt;p>La Machinerie abrite un Fablab qui s&amp;rsquo;adresse à divers passionnés tels que les entrepreneurs, les designers, les artistes, les bricoleurs, les étudiants ou encore les hackers. En tant que FabManager, j&amp;rsquo;étais responsable de la gestion de cet espace.&lt;/p>
@@ -22,8 +22,8 @@ Durant cette période, j&amp;rsquo;ai poursuivi mes activités en tant que déve
 Actuellement, je suis responsable du pôle Manufacture de La Machinerie, où nous aidons les professionnels à développer des prototypes dans des domaines tels que l&amp;rsquo;électronique, le mobilier, les pièces fonctionnelles et les objets connectés.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="la-machinerie">La Machinerie&lt;/h2>
-&lt;p>La Machinerie est une association créée en avril 2014 par des passionnés amiénois qui souhaitaient &amp;ldquo;fabriquer et travailler autrement&amp;rdquo;. Elle abrite un Fablab ainsi qu&amp;rsquo;un espace de coworking, et s&amp;rsquo;inspire des valeurs des Fablabs en mettant à disposition une ressource communautaire où chaque utilisateur contribue. Elle a pour objectif de promouvoir l&amp;rsquo;innovation citoyenne, l&amp;rsquo;écologie, la culture du libre et l&amp;rsquo;entrepreneuriat.&lt;/p>
+&lt;h2 id="la-machinerie">La Machinerie
+&lt;/h2>&lt;p>La Machinerie est une association créée en avril 2014 par des passionnés amiénois qui souhaitaient &amp;ldquo;fabriquer et travailler autrement&amp;rdquo;. Elle abrite un Fablab ainsi qu&amp;rsquo;un espace de coworking, et s&amp;rsquo;inspire des valeurs des Fablabs en mettant à disposition une ressource communautaire où chaque utilisateur contribue. Elle a pour objectif de promouvoir l&amp;rsquo;innovation citoyenne, l&amp;rsquo;écologie, la culture du libre et l&amp;rsquo;entrepreneuriat.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/about/coworking.jpeg"
 width="750"
 height="364"
@@ -57,9 +57,9 @@ data-flex-basis="359px"
 &lt;iframe style="width: 100%;" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=1B%20rue%20de%20la%20vall%C3%A9e,%2080000&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">&lt;/iframe>
 &lt;/div>
 &lt;/div>
-&lt;h2 id="projets-personnels">Projets personnels&lt;/h2>
-&lt;p>En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel.&lt;/p>
-&lt;h2 id="contact">Contact&lt;/h2>
-&lt;p>N&amp;rsquo;hésitez pas à me contacter par e-mail à &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> ou sur &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
+&lt;h2 id="projets-personnels">Projets personnels
+&lt;/h2>&lt;p>En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel.&lt;/p>
+&lt;h2 id="contact">Contact
+&lt;/h2>&lt;p>N&amp;rsquo;hésitez pas à me contacter par e-mail à &lt;a class="link" href="mailto:contact@albanpetit.com" >contact@albanpetit.com&lt;/a> ou sur &lt;a class="link" href="https://twitter.com/Padh_" target="_blank" rel="noopener"
 >Twitter&lt;/a> pour toute information, conseil, question ou suggestion de modification de ce site web.&lt;/p>
 &lt;p>Bonne visite ! &amp;#x1f604;&lt;/p></description></item><item><title>Archives</title><link>https://albanpetit.com/fr/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/archives/</guid><description/></item><item><title>Recherche</title><link>https://albanpetit.com/fr/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/search/</guid><description/></item></channel></rss>
