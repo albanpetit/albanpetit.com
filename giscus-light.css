@@ -174,12 +174,14 @@
   color: #2c3e50;
 }
 
-.gsc-comments .ggsc-comment-box-main {
+.gsc-comments .gsc-comment-box-main {
   margin: 0px;
 }
 
 .gsc-comments .gsc-comment-box-bottom {
-  margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .gsc-comments .gsc-comment-box-bottom button {
@@ -292,5 +294,10 @@
   margin-top: 52px;
   border-top-left-radius: 10px !important;
   height: fit-content;
-  padding: 8px;
+  padding: 10px;
+}
+
+.gsc-comments .gsc-comment .gsc-comment-box-is-reply .gsc-comment-box-main {
+  margin: 0;
+  margin-bottom: 10px;
 }
