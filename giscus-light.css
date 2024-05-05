@@ -301,3 +301,7 @@
   margin: 0;
   margin-bottom: 10px;
 }
+
+.gsc-comments .gsc-comment .gsc-comment-box-is-reply .gsc-comment-box-bottom {
+  margin: 0;
+}
