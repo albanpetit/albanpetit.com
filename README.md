@@ -127,7 +127,7 @@ Most Hugo builds are so fast that you may not notice the change unless you are l
 
 ```bash
 docker run -p 1313:1313 \
--v ${PWD}:/src \Ò
-razonyang/hugo \
+-v ${PWD}:/src \
+hugomods/hugo \
 hugo server --bind 0.0.0.0
 ```
