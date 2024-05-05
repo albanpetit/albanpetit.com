@@ -335,3 +335,7 @@
 .gsc-reactions-popover.open:before {
   color: #3f72af;
 }
+
+.gsc-reactions-popover .gsc-emoji-button {
+  border: 0;
+}
