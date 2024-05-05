@@ -175,7 +175,7 @@
 }
 
 .gsc-comments .gsc-comment-box-main {
-  margin: 0px;
+  margin: 10px;
 }
 
 .gsc-comments .gsc-comment-box-bottom {
@@ -272,6 +272,7 @@
   background-color: rgb(219, 226, 239);
   border-radius: 10px;
   margin-top: 10px;
+  padding: 10px;
 }
 
 .gsc-comments .gsc-comment .gsc-reply-box {
