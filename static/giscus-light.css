@@ -10,6 +10,8 @@
 }
 
 .gsc-reactions {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 10;
   position: relative;
   margin-right: auto;
   padding-top: 10px;
@@ -99,6 +101,8 @@
 }
 
 .gsc-comments .gsc-comment-box {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 9;
   position: relative;
   border: 0;
   border-top-left-radius: 0 !important;
@@ -109,6 +113,8 @@
 }
 
 .gsc-comments .gsc-comment-box-tabs {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 10;
   position: absolute;
   top: -42px;
   right: 0;
@@ -227,6 +233,8 @@
 }
 
 .gsc-comments .gsc-comment .gsc-comment-header {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 10;
   background-color: rgb(219, 226, 239);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -234,6 +242,8 @@
 }
 
 .gsc-comments .gsc-comment .gsc-comment-content {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 9;
   background-color: rgb(219, 226, 239);
   border-radius: 0;
   padding: 10px;
@@ -246,6 +256,8 @@
 }
 
 .gsc-comments .gsc-comment .gsc-comment-footer {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 8;
   background-color: rgb(219, 226, 239);
   margin-bottom: 0;
   padding: 10px;
@@ -269,6 +281,7 @@
 }
 
 .gsc-comments .gsc-comment .gsc-replies .gsc-reply {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
   background-color: rgb(219, 226, 239);
   border-radius: 10px;
   margin-top: 10px;
@@ -276,6 +289,7 @@
 }
 
 .gsc-comments .gsc-comment .gsc-reply-box {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
   background-color: rgb(219, 226, 239);
   margin-left: 50px;
   padding: 0.5rem;
@@ -290,6 +304,8 @@
 }
 
 .gsc-comments .gsc-comment .gsc-comment-box-is-reply {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  z-index: 9;
   margin-left: 50px;
   width: auto;
   margin-top: 52px;
