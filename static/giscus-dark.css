@@ -218,7 +218,7 @@
 
 .gsc-comments .gsc-comment-box-bottom button:disabled:hover {
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.12);
+  color: white;
 }
 
 .gsc-comments .gsc-comment {
