@@ -37,7 +37,7 @@
 }
 
 .gsc-reactions .gsc-reactions-menu summary {
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
   color: rgba(255, 255, 255, 0.9);
   border: 0;
   border-radius: 13px;
@@ -52,7 +52,7 @@
 }
 
 .gsc-reactions .gsc-direct-reaction-buttons button {
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
   color: rgba(255, 255, 255, 0.9);
   border: 0;
   border-radius: 4px;
@@ -71,7 +71,7 @@
 }
 
 .gsc-reactions .gsc-direct-reaction-buttons a {
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
   color: rgba(255, 255, 255, 0.9);
   border: 0;
   border-radius: 10px;
@@ -152,7 +152,7 @@
 .gsc-comments .gsc-comment-box-tabs button {
   border: 0;
   line-height: 16px;
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
   color: rgba(255, 255, 255, 0.9);
   border-radius: 4px;
   font-size: 14px;
@@ -191,7 +191,7 @@
 .gsc-comments .gsc-comment-box-bottom button {
   border: 0;
   line-height: 16px;
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
   color: rgba(255, 255, 255, 0.9);
   border-radius: 4px !important;
   font-size: 14px;
@@ -323,13 +323,13 @@
 }
 
 .gsc-reactions-popover {
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
   border: 0;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .gsc-reactions-popover {
-  background-color: #3f72af;
+  background-color: rgb(189, 195, 199);
 }
 
 .gsc-reactions-popover.open:before {
