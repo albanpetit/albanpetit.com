@@ -309,6 +309,21 @@
   margin-bottom: auto;
 }
 
+.gsc-comments .gsc-comment .gsc-comment-footer .gsc-comment-reactions summary {
+  background-color: #ecf0f1;
+  color: rgb(0, 0, 0);
+  border: 0;
+  border-radius: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  transition: background-color 0.5s ease;
+}
+
+.gsc-comments .gsc-comment .gsc-comment-footer .gsc-comment-reactions summary:hover {
+  background-color: #bdc3c7;
+}
+
 .gsc-comments .gsc-comment .gsc-replies {
   border: 0;
   padding-top: 0;
@@ -357,6 +372,21 @@
   line-height: initial;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.gsc-comments .gsc-replies .gsc-reply .ggsc-reply-footer .gsc-reply-reactions summary {
+  background-color: #ecf0f1;
+  color: rgb(0, 0, 0);
+  border: 0;
+  border-radius: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  transition: background-color 0.5s ease;
+}
+
+.gsc-comments .gsc-replies .gsc-reply .ggsc-reply-footer .gsc-reply-reactions summary:hover {
+  background-color: #bdc3c7;
 }
 
 .gsc-comments .gsc-comment .gsc-replies .gsc-reply {
