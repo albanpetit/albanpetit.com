@@ -385,7 +385,7 @@
   transition: background-color 0.5s ease;
 }
 
-.gsc-comments .gsc-replies .gsc-reply .ggsc-reply-footer .gsc-reply-reactions summary:hover {
+.gsc-comments .gsc-replies .gsc-reply .gsc-reply-footer .gsc-reply-reactions summary:hover {
   background-color: #bdc3c7;
 }
 
