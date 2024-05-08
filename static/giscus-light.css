@@ -311,7 +311,7 @@
 
 .gsc-comments .gsc-comment .gsc-comment-footer .gsc-comment-reactions summary {
   background-color: #3f72af;
-  color: rgb(0, 0, 0);
+  color: white;
   border: 0;
   border-radius: 13px;
   padding-left: 10px;
@@ -376,7 +376,7 @@
 
 .gsc-comments .gsc-replies .gsc-reply .gsc-reply-footer .gsc-reply-reactions summary {
   background-color: #3f72af;
-  color: rgb(0, 0, 0);
+  color: white;
   border: 0;
   border-radius: 13px;
   padding-left: 10px;
