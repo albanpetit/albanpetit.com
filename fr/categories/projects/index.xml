@@ -41,7 +41,7 @@
 &lt;p>Il est également intéressant de relever de cette documentation que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z.&lt;/p>
 &lt;p>Le positionnement de ce composant doit être ainsi judicieusement choisi en fonction de l&amp;rsquo;usage.&lt;/p>
 &lt;h3 id="liste-des-composants">Liste des composants
-&lt;/h3>&lt;p>Bien que ces deux composants soient les plus importants, d&amp;rsquo;autres composants sont tout de même présents sur cette carte :&lt;/p>
+&lt;/h3>&lt;p>Ces deux composants sont les plus importants, mais ils ne permettent pas à eux seuls de faire fonctionner cette carte, certains composants périphériques sont également nécessaires :&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
