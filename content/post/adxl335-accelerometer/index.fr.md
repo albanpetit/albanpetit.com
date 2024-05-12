@@ -89,7 +89,7 @@ Il est également intéressant de relever de cette documentation que la fréquen
 
 ### Liste des composants
 
-Bien que ces deux composants soient les plus importants, d'autres composants sont tout de même présents sur cette carte :
+Ces deux composants sont les plus importants, mais ils ne permettent pas à eux seuls de faire fonctionner cette carte, certains composants périphériques sont également nécessaires :
 
 | Désignation               | Référence | Quantité | Format     | Fiche technique                           |
 | ------------------------- | --------- | -------- | ---------- | ----------------------------------------- |
