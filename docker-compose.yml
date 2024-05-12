@@ -1,13 +1,10 @@
-version: '3.8'
+name: albanpetitcom
+
 services:
-  albanpetit.com:
-      image: hugomods/hugo:latest
-      container_name: albanpetit.com
-      restart: always
+  server:
+      image: hugomods/hugo:exts
       command: "hugo server -p 1313 --bind 0.0.0.0"
       ports:
         - "1313:1313"
-      expose:
-        - 1313
       volumes:
          - .:/src
