@@ -43,76 +43,76 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th>Designation&lt;/th>
-&lt;th>Reference&lt;/th>
-&lt;th>Quantity&lt;/th>
-&lt;th>Format&lt;/th>
-&lt;th>Datasheet&lt;/th>
+&lt;th style="text-align: left">Designation&lt;/th>
+&lt;th style="text-align: left">Reference&lt;/th>
+&lt;th style="text-align: left">Quantity&lt;/th>
+&lt;th style="text-align: left">Format&lt;/th>
+&lt;th style="text-align: left">Datasheet&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>ADXL335&lt;/td>
-&lt;td>U1&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>LFCSP-16&lt;/td>
-&lt;td>&lt;a class="link" href="datasheet-adxl-335.pdf" >ADXL335&lt;/a>&lt;/td>
+&lt;td style="text-align: left">ADXL335&lt;/td>
+&lt;td style="text-align: left">U1&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">LFCSP-16&lt;/td>
+&lt;td style="text-align: left">&lt;a class="link" href="datasheet-adxl-335.pdf" >ADXL335&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>AP2112K-3.3&lt;/td>
-&lt;td>U2&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>SOT-23-5&lt;/td>
-&lt;td>&lt;a class="link" href="datasheet-ap2112.pdf" >AP2112&lt;/a>&lt;/td>
+&lt;td style="text-align: left">AP2112K-3.3&lt;/td>
+&lt;td style="text-align: left">U2&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">SOT-23-5&lt;/td>
+&lt;td style="text-align: left">&lt;a class="link" href="datasheet-ap2112.pdf" >AP2112&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>SMD Resistor 100k ohm&lt;/td>
-&lt;td>R2&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>0603&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">SMD Resistor 100k ohm&lt;/td>
+&lt;td style="text-align: left">R2&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">0603&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>SMD Resistor 160 ohm&lt;/td>
-&lt;td>R1&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>0603&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">SMD Resistor 160 ohm&lt;/td>
+&lt;td style="text-align: left">R1&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">0603&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>LED&lt;/td>
-&lt;td>D1&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>0603&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">LED&lt;/td>
+&lt;td style="text-align: left">D1&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">0603&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>SMD Capacitor 1uF&lt;/td>
-&lt;td>C4,C5&lt;/td>
-&lt;td>2&lt;/td>
-&lt;td>0603&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">SMD Capacitor 1uF&lt;/td>
+&lt;td style="text-align: left">C4,C5&lt;/td>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">0603&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>SMD Capacitor 4.7nF&lt;/td>
-&lt;td>C1-C3&lt;/td>
-&lt;td>3&lt;/td>
-&lt;td>0603&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">SMD Capacitor 4.7nF&lt;/td>
+&lt;td style="text-align: left">C1-C3&lt;/td>
+&lt;td style="text-align: left">3&lt;/td>
+&lt;td style="text-align: left">0603&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>Power Connector&lt;/td>
-&lt;td>J1&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>JST PH B2B&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">Power Connector&lt;/td>
+&lt;td style="text-align: left">J1&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">JST PH B2B&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>Signal Connector&lt;/td>
-&lt;td>J2&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>JST PH B3B&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td style="text-align: left">Signal Connector&lt;/td>
+&lt;td style="text-align: left">J2&lt;/td>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">JST PH B3B&lt;/td>
+&lt;td style="text-align: left">-&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -121,7 +121,7 @@
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
 width="883"
 height="507"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_huba8ec32fb6c1aaeeafbe25944ce10d73_100172_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_hu3973158441247214547.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_hu16290537155215355395.png 1024w"
 loading="lazy"
 alt="Electronic Board"
 class="gallery-image"
@@ -130,7 +130,7 @@ data-flex-basis="417px"
 > &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic.jpg"
 width="1520"
 height="366"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu64fdd192c37b984a44000d40ddd9004a_89294_480x0_resize_q75_box.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu64fdd192c37b984a44000d40ddd9004a_89294_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu18309655314778626644.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu651751679765528234.jpg 1024w"
 loading="lazy"
 alt="Schematic"
 class="gallery-image"
@@ -165,7 +165,7 @@ title="YouTube Video"
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu1b253cba44c13a58bb4de614ce3694a7_550876_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu1b253cba44c13a58bb4de614ce3694a7_550876_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu4027421491105347971.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu6943498283107596143.png 1024w"
 loading="lazy"
 alt="PCB 1"
 class="gallery-image"
@@ -174,7 +174,7 @@ data-flex-basis="320px"
 > &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu6f4834f7b4be08bacd6eaca9871e920f_523157_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu6f4834f7b4be08bacd6eaca9871e920f_523157_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu3275803688494365932.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu5172974907324621367.png 1024w"
 loading="lazy"
 alt="PCB 2"
 class="gallery-image"
@@ -183,7 +183,7 @@ data-flex-basis="320px"
 > &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_huf8ff2ea7ec8f8ebd2b2d3e4f96fff58c_546141_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_huf8ff2ea7ec8f8ebd2b2d3e4f96fff58c_546141_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_hu16715392763700574204.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_hu3417059499431867592.png 1024w"
 loading="lazy"
 alt="PCB 3"
 class="gallery-image"
@@ -196,7 +196,7 @@ data-flex-basis="320px"
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1.jpeg"
 width="3024"
 height="4032"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_huf6d3f130acd98637dd478df968a258db_3871381_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_huf6d3f130acd98637dd478df968a258db_3871381_1024x0_resize_q75_box.jpeg 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_hu12003329807525803755.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_hu16265740345836417102.jpeg 1024w"
 loading="lazy"
 alt="Sensepeek"
 class="gallery-image"
@@ -205,7 +205,7 @@ data-flex-basis="180px"
 > &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2.jpeg"
 width="4032"
 height="3024"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hua32fdb32c622c34d22001bbb83ce6d1e_3421754_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hua32fdb32c622c34d22001bbb83ce6d1e_3421754_1024x0_resize_q75_box.jpeg 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hu13975802125795917749.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hu9512458628571489869.jpeg 1024w"
 loading="lazy"
 alt="Oscilloscope"
 class="gallery-image"
@@ -214,7 +214,7 @@ data-flex-basis="320px"
 > &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3.jpeg"
 width="4032"
 height="3024"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu376809d7f0f1eaea4df51e4fe66c2bdf_5128310_480x0_resize_q75_box.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu376809d7f0f1eaea4df51e4fe66c2bdf_5128310_1024x0_resize_q75_box.jpeg 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu5284969338530774127.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu540752291958628282.jpeg 1024w"
 loading="lazy"
 alt="Test"
 class="gallery-image"
@@ -234,7 +234,7 @@ Then the &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong>, and &lt;strong>Z&lt
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
 width="842"
 height="595"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hud214c7946234c6e917d2f547f9afeef6_161411_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hud214c7946234c6e917d2f547f9afeef6_161411_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hu13082807151271066389.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hu8216151223110363718.png 1024w"
 loading="lazy"
 alt="Raspberry Pi Pico Pinout"
 class="gallery-image"
@@ -246,7 +246,7 @@ data-flex-basis="339px"
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1.png"
 width="744"
 height="490"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu8b5c38e356eda9f2baa30990712dd557_14900_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu8b5c38e356eda9f2baa30990712dd557_14900_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu2167080921376153325.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu9609015153999602856.png 1024w"
 loading="lazy"
 alt="Arduino Settings"
 class="gallery-image"
@@ -257,7 +257,7 @@ data-flex-basis="364px"
 &lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2.png"
 width="805"
 height="631"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu21f6d1058f51fa778e991d8871dcf8bb_27470_480x0_resize_box_3.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu21f6d1058f51fa778e991d8871dcf8bb_27470_1024x0_resize_box_3.png 1024w"
+srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu2620391242047599700.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu11958305008665638188.png 1024w"
 loading="lazy"
 alt="Arduino Board Manager"
 class="gallery-image"
