@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Thu, 12 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
 &lt;h2 id="accéléromètres-mems">Accéléromètres MEMS
 &lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
 &lt;/figure>
@@ -45,76 +45,76 @@
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">Désignation&lt;/th>
-&lt;th style="text-align: left">Référence&lt;/th>
-&lt;th style="text-align: left">Quantité&lt;/th>
-&lt;th style="text-align: left">Format&lt;/th>
-&lt;th style="text-align: left">Fiche technique&lt;/th>
+&lt;th>Désignation&lt;/th>
+&lt;th>Référence&lt;/th>
+&lt;th>Quantité&lt;/th>
+&lt;th>Format&lt;/th>
+&lt;th>Fiche technique&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">ADXL335&lt;/td>
-&lt;td style="text-align: left">U1&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">LFCSP-16&lt;/td>
-&lt;td style="text-align: left">&lt;a class="link" href="datasheet-adxl-335.pdf" >ADXL335&lt;/a>&lt;/td>
+&lt;td>ADXL335&lt;/td>
+&lt;td>U1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>LFCSP-16&lt;/td>
+&lt;td>&lt;a class="link" href="datasheet-adxl-335.pdf" >ADXL335&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">AP2112K-3.3&lt;/td>
-&lt;td style="text-align: left">U2&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">SOT-23-5&lt;/td>
-&lt;td style="text-align: left">&lt;a class="link" href="datasheet-ap2112.pdf" >AP2112&lt;/a>&lt;/td>
+&lt;td>AP2112K-3.3&lt;/td>
+&lt;td>U2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>SOT-23-5&lt;/td>
+&lt;td>&lt;a class="link" href="datasheet-ap2112.pdf" >AP2112&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Résistance SMD 100k ohm&lt;/td>
-&lt;td style="text-align: left">R2&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">0603&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>Résistance SMD 100k ohm&lt;/td>
+&lt;td>R2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Résistance SMD 160 ohm&lt;/td>
-&lt;td style="text-align: left">R1&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">0603&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>Résistance SMD 160 ohm&lt;/td>
+&lt;td>R1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">LED&lt;/td>
-&lt;td style="text-align: left">D1&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">0603&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>LED&lt;/td>
+&lt;td>D1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Condensateur SMD 1uF&lt;/td>
-&lt;td style="text-align: left">C4,C5&lt;/td>
-&lt;td style="text-align: left">2&lt;/td>
-&lt;td style="text-align: left">0603&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>Condensateur SMD 1uF&lt;/td>
+&lt;td>C4,C5&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Condensateur SMD 4,7nF&lt;/td>
-&lt;td style="text-align: left">C1-C3&lt;/td>
-&lt;td style="text-align: left">3&lt;/td>
-&lt;td style="text-align: left">0603&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>Condensateur SMD 4,7nF&lt;/td>
+&lt;td>C1-C3&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>0603&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Connecteur d&amp;rsquo;alimentation&lt;/td>
-&lt;td style="text-align: left">J1&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">JST PH B2B&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>Connecteur d&amp;rsquo;alimentation&lt;/td>
+&lt;td>J1&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>JST PH B2B&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">Connecteur de signal&lt;/td>
-&lt;td style="text-align: left">J2&lt;/td>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">JST PH B3B&lt;/td>
-&lt;td style="text-align: left">-&lt;/td>
+&lt;td>Connecteur de signal&lt;/td>
+&lt;td>J2&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>JST PH B3B&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
