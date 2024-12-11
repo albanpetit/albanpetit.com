@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projets on Alban Petit</title><link>https://albanpetit.com/fr/categories/projects/</link><description>Recent content in Projets on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projets on Alban Petit</title><link>https://albanpetit.com/fr/categories/projects/</link><description>Recent content in Projets on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/post/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d&amp;rsquo;un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d&amp;rsquo;autres projets.&lt;/p>
 &lt;h2 id="accéléromètres-mems">Accéléromètres MEMS
-&lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
+&lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/mems.jpg" width="160" float="left">
 &lt;/figure>
 &lt;p>Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve un assemblage MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.&lt;/p>
 &lt;h3 id="principe-de-fonctionnement">Principe de fonctionnement
 &lt;/h3>&lt;p>Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d&amp;rsquo;inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s&amp;rsquo;il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l&amp;rsquo;accélération.&lt;/p>
-&lt;figure style="float:left; width: 215px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems-2.jpg" width="215" float="left">
+&lt;figure style="float:left; width: 215px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/mems-2.jpg" width="215" float="left">
 &lt;/figure>
 &lt;p>Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l&amp;rsquo;inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, capacitif ou piézoélectrique, directement intégré dans la structure MEMS.&lt;/p>
 &lt;h3 id="traduire-le-mouvement-mécanique-en-signaux-électriques">Traduire le mouvement mécanique en signaux électriques
@@ -32,7 +32,7 @@
 &lt;li>Stable avec un condensateur flexible de 1,0 µF : céramique, tantale et électrolytique à l&amp;rsquo;aluminium&lt;/li>
 &lt;li>Plage de température de fonctionnement : -40°C à +85°C&lt;/li>
 &lt;/ul>
-&lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
+&lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
 &lt;/figure>
 &lt;p>En prime, il est simple de mise en oeuvre. Le document de données techniques fourni par le fabricant présente l&amp;rsquo;ensemble des composants satellites nécessaires à son bon fonctionnement. Il suffira de deux condensateurs de lissage d&amp;rsquo;une valeur de 1uF sur l&amp;rsquo;entrée et sur la sortie en tension, et d&amp;rsquo;une résistance de 100K ohms pour permettre un allumage constant.&lt;/p>
 &lt;h4 id="adxl335">ADXL335
@@ -120,19 +120,19 @@
 &lt;/table>
 &lt;h3 id="schéma-et-carte-électronique">Schéma et carte électronique
 &lt;/h3>&lt;p>L&amp;rsquo;ensemble des fichiers de conception et de fabrication sont disponibles dans ce répertoire &lt;strong>GitHub&lt;/strong> : &lt;a class="link" href="" >ADXL-335&lt;/a>. Voici tout de même un rapide descriptif des différentes sections de ce circuit imprimé :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/kicad-pcb.png"
 width="883"
 height="507"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_hu3973158441247214547.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_hu16290537155215355395.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/kicad-pcb_hu3973158441247214547.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/kicad-pcb_hu16290537155215355395.png 1024w"
 loading="lazy"
 alt="Carte électronique"
 class="gallery-image"
 data-flex-grow="174"
 data-flex-basis="417px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic.jpg"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/kicad-schematic.jpg"
 width="1520"
 height="366"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu18309655314778626644.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu651751679765528234.jpg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/kicad-schematic_hu18309655314778626644.jpg 480w, https://albanpetit.com/post/adxl-335-accelerometer/kicad-schematic_hu651751679765528234.jpg 1024w"
 loading="lazy"
 alt="Schéma électronique"
 class="gallery-image"
@@ -147,7 +147,7 @@ data-flex-basis="996px"
 &lt;li>Le connecteur JST-PH d&amp;rsquo;alimentation en 5 volts.&lt;/li>
 &lt;/ol>
 &lt;h2 id="fabrication-de-la-carte-électronique">Fabrication de la carte électronique
-&lt;/h2>&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
+&lt;/h2>&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/aisler.png" width="100" float="left">
 &lt;/figure>
 &lt;p>Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je me fournis principalement chez &lt;strong>Aisler&lt;/strong>, un fabricant allemand. Efficace, abordable et bien documenté, ils ont toujours honoré mes commandes. Ils ont même un plugin disponible sur &lt;strong>Kicad&lt;/strong> pour faciliter la commande, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
 >Aisler push for Kicad&lt;/a>. En un clic le projet est directement transmis au site pour effectuer ladite commande.&lt;/p>
@@ -163,28 +163,28 @@ title="YouTube Video"
 &lt;/iframe>
 &lt;/div>
 &lt;p>Voici tout de même quelques photos de différentes étapes de cette réalisation :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/pcb-1.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu4027421491105347971.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu6943498283107596143.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/pcb-1_hu4027421491105347971.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/pcb-1_hu6943498283107596143.png 1024w"
 loading="lazy"
 alt="PCB 1"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2.png"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/pcb-2.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu3275803688494365932.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu5172974907324621367.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/pcb-2_hu3275803688494365932.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/pcb-2_hu5172974907324621367.png 1024w"
 loading="lazy"
 alt="PCB 2"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3.png"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/pcb-3.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_hu16715392763700574204.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_hu3417059499431867592.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/pcb-3_hu16715392763700574204.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/pcb-3_hu3417059499431867592.png 1024w"
 loading="lazy"
 alt="PCB 3"
 class="gallery-image"
@@ -194,28 +194,28 @@ data-flex-basis="320px"
 &lt;h2 id="mise-en-œuvre">Mise en œuvre
 &lt;/h2>&lt;h3 id="tests-initiaux">Tests initiaux
 &lt;/h3>&lt;p>Une fois la carte électronique en état de fonctionnement, j&amp;rsquo;ai effectué quelques tests avec un oscilloscope, pour éviter d&amp;rsquo;essayer d&amp;rsquo;interfacer une carte électronique dysfonctionnelle avec un microcontrôleur pendant des heures. Accompagné d&amp;rsquo;un de mes outils préférés, les sondes de mesure &lt;strong>Sensepeek&lt;/strong>, les résultats semblent parfaitement cohérents avec la fiche technique de l&amp;rsquo;&lt;strong>ADXL335&lt;/strong>.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1.jpeg"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/implementation-1.jpeg"
 width="3024"
 height="4032"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_hu12003329807525803755.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_hu16265740345836417102.jpeg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/implementation-1_hu12003329807525803755.jpeg 480w, https://albanpetit.com/post/adxl-335-accelerometer/implementation-1_hu16265740345836417102.jpeg 1024w"
 loading="lazy"
 alt="Sensepeek"
 class="gallery-image"
 data-flex-grow="75"
 data-flex-basis="180px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2.jpeg"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/implementation-2.jpeg"
 width="4032"
 height="3024"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hu13975802125795917749.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hu9512458628571489869.jpeg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/implementation-2_hu13975802125795917749.jpeg 480w, https://albanpetit.com/post/adxl-335-accelerometer/implementation-2_hu9512458628571489869.jpeg 1024w"
 loading="lazy"
 alt="Oscilloscope"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3.jpeg"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/implementation-3.jpeg"
 width="4032"
 height="3024"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu5284969338530774127.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu540752291958628282.jpeg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/implementation-3_hu5284969338530774127.jpeg 480w, https://albanpetit.com/post/adxl-335-accelerometer/implementation-3_hu540752291958628282.jpeg 1024w"
 loading="lazy"
 alt="Test"
 class="gallery-image"
@@ -223,7 +223,7 @@ data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico
-&lt;/h3>&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
+&lt;/h3>&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
 &lt;/figure>
 &lt;p>Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d&amp;rsquo;architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, c&amp;rsquo;est le premier microcontrôleur développé par la fondation.&lt;/p>
 &lt;p>Ce microcontrôleur, d&amp;rsquo;architecture ARM, dispose de deux cœurs de 133 MHz, offrant des performances élevées. Le Pico dispose de 264 Ko de mémoire SRAM et de 2 Mo de mémoire flash, offrant suffisamment d&amp;rsquo;espace de stockage pour des programmes complexes et des données. Il est équipé de 26 broches d&amp;rsquo;E/S numériques, dont 3 peuvent être utilisées comme entrées analogiques. De plus, il est équipé de deux broches d&amp;rsquo;horloge, deux broches d&amp;rsquo;alimentation et de nombreuses autres broches pour les communications série et les interfaces de bus.&lt;/p>
@@ -232,10 +232,10 @@ data-flex-basis="320px"
 &lt;/h3>&lt;p>Le montage électronique peut être effectué, en alimentant la carte électronique fille par l&amp;rsquo;interface &lt;strong>+&lt;/strong> et &lt;strong>-&lt;/strong>, le &lt;strong>Raspberry Pico&lt;/strong> dispose pour cela des interfaces &lt;strong>40&lt;/strong> et &lt;strong>38&lt;/strong>.
 Ensuite les sorties &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong> et &lt;strong>Z&lt;/strong> de notre carte doivent être respectivement branchées aux interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong> et &lt;strong>34&lt;/strong> du &lt;strong>Pico&lt;/strong>.&lt;/p>
 &lt;p>Le schéma ci-dessous est d&amp;rsquo;une grande aide pour rapidement identifier les interfaces de connexion en question :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico-pinout.png"
 width="842"
 height="595"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hu13082807151271066389.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hu8216151223110363718.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico-pinout_hu13082807151271066389.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico-pinout_hu8216151223110363718.png 1024w"
 loading="lazy"
 alt="Brochage Raspberry Pi Pico"
 class="gallery-image"
@@ -244,10 +244,10 @@ data-flex-basis="339px"
 >&lt;/p>
 &lt;h4 id="code-arduino">Code Arduino
 &lt;/h4>&lt;p>Avant toute chose, le &lt;strong>Pico&lt;/strong> n&amp;rsquo;est pas naturellement disponible à l&amp;rsquo;usage dans le logiciel &lt;strong>Arduino&lt;/strong>, une installation est nécessaire. Pour cela, il faut ajouter cette URL : &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> au sein de l&amp;rsquo;option &lt;code>Gestionnaire de carte supplémentaires&lt;/code> présente dans le panneau de préférences d&amp;rsquo;&lt;strong>Arduino&lt;/strong> : &lt;em>Fichier &amp;gt; Préférences&lt;/em> tel que cela :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-1.png"
 width="744"
 height="490"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu2167080921376153325.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu9609015153999602856.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-1_hu2167080921376153325.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-1_hu9609015153999602856.png 1024w"
 loading="lazy"
 alt="Paramètres Arduino"
 class="gallery-image"
@@ -255,10 +255,10 @@ data-flex-grow="151"
 data-flex-basis="364px"
 >&lt;/p>
 &lt;p>Ensuite le gestionnaire de carte va nous aider à installer la carte maintenant référencée :&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-2.png"
 width="805"
 height="631"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu2620391242047599700.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu11958305008665638188.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-2_hu2620391242047599700.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-2_hu11958305008665638188.png 1024w"
 loading="lazy"
 alt="Gestionnaire de carte Arduino"
 class="gallery-image"

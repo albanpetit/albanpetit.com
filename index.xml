@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/posts/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;p>In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/index.xml" rel="self" type="application/rss+xml"/><item><title>ADXL335 Accelerometer</title><link>https://albanpetit.com/post/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/post/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/main.jpg" alt="Featured image of post ADXL335 Accelerometer" />&lt;p>In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.&lt;/p>
 &lt;h2 id="mems-accelerometers">MEMS Accelerometers
-&lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/mems.jpg" width="160" float="left">
+&lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/mems.jpg" width="160" float="left">
 &lt;/figure>
 &lt;p>MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.&lt;/p>
 &lt;h3 id="operating-principle">Operating Principle
@@ -30,7 +30,7 @@
 &lt;li>Stable with a flexible capacitor of 1.0 µF: ceramic, tantalum, and aluminum electrolytic&lt;/li>
 &lt;li>Operating temperature range: -40°C to +85°C&lt;/li>
 &lt;/ul>
-&lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
+&lt;figure style="float:left; width: 350px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/ap2112-datasheet.png" width="350" float="left">
 &lt;/figure>
 &lt;p>Additionally, it is extremely simple to implement. The provided datasheet contains all the necessary peripheral components required for its proper operation. Two smoothing capacitors with a value of 1uF on the input and output voltage and a 100K ohm resistor to allow constant ignition are sufficient.&lt;/p>
 &lt;h4 id="adxl335">ADXL335
@@ -118,19 +118,19 @@
 &lt;/table>
 &lt;h3 id="schematic-and-electronic-board">Schematic and Electronic Board
 &lt;/h3>&lt;p>All design and manufacturing files are available in this GitHub repository: &lt;a class="link" href="" >ADXL-335&lt;/a>. However, here is a quick description of the different sections of this printed circuit board:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/kicad-pcb.png"
 width="883"
 height="507"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_hu3973158441247214547.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-pcb_hu16290537155215355395.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/kicad-pcb_hu3973158441247214547.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/kicad-pcb_hu16290537155215355395.png 1024w"
 loading="lazy"
 alt="Electronic Board"
 class="gallery-image"
 data-flex-grow="174"
 data-flex-basis="417px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic.jpg"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/kicad-schematic.jpg"
 width="1520"
 height="366"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu18309655314778626644.jpg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/kicad-schematic_hu651751679765528234.jpg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/kicad-schematic_hu18309655314778626644.jpg 480w, https://albanpetit.com/post/adxl-335-accelerometer/kicad-schematic_hu651751679765528234.jpg 1024w"
 loading="lazy"
 alt="Schematic"
 class="gallery-image"
@@ -145,7 +145,7 @@ data-flex-basis="996px"
 &lt;li>The power supply JST-PH connector for 5 volts.&lt;/li>
 &lt;/ol>
 &lt;h2 id="electronic-board-manufacturing">Electronic Board Manufacturing
-&lt;/h2>&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/aisler.png" width="100" float="left">
+&lt;/h2>&lt;figure style="float:left; width: 100px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/aisler.png" width="100" float="left">
 &lt;/figure>
 &lt;p>Living in France, the usual (Chinese) suppliers of electronic boards can be relatively expensive due to shipping costs. I mainly order my boards from Aisler, a German board manufacturer. Always efficient, well-documented, and affordable, they have always perfectly fulfilled my orders. They even have a plugin available on KiCad to facilitate ordering, &lt;a class="link" href="https://github.com/AislerHQ/PushForKiCad" target="_blank" rel="noopener"
 >Aisler push for KiCad&lt;/a>. A simple press on the icon and the project is directly transmitted to the website to place the order.&lt;/p>
@@ -162,28 +162,28 @@ title="YouTube Video"
 &lt;/div>
 &lt;/p>
 &lt;p>Here are some photos of different stages of this realization:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/pcb-1.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu4027421491105347971.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-1_hu6943498283107596143.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/pcb-1_hu4027421491105347971.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/pcb-1_hu6943498283107596143.png 1024w"
 loading="lazy"
 alt="PCB 1"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2.png"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/pcb-2.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu3275803688494365932.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-2_hu5172974907324621367.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/pcb-2_hu3275803688494365932.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/pcb-2_hu5172974907324621367.png 1024w"
 loading="lazy"
 alt="PCB 2"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3.png"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/pcb-3.png"
 width="640"
 height="480"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_hu16715392763700574204.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/pcb-3_hu3417059499431867592.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/pcb-3_hu16715392763700574204.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/pcb-3_hu3417059499431867592.png 1024w"
 loading="lazy"
 alt="PCB 3"
 class="gallery-image"
@@ -193,28 +193,28 @@ data-flex-basis="320px"
 &lt;h2 id="implementation">Implementation
 &lt;/h2>&lt;h3 id="initial-tests">Initial Tests
 &lt;/h3>&lt;p>Once the electronic board is operational, I performed some tests with an oscilloscope to avoid trying to interface a malfunctioning electronic board with a microcontroller for hours. Accompanied by one of my favorite tools, the Sensepeek measurement probes, the results seem perfectly consistent with the datasheet of the ADXL335.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1.jpeg"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/implementation-1.jpeg"
 width="3024"
 height="4032"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_hu12003329807525803755.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-1_hu16265740345836417102.jpeg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/implementation-1_hu12003329807525803755.jpeg 480w, https://albanpetit.com/post/adxl-335-accelerometer/implementation-1_hu16265740345836417102.jpeg 1024w"
 loading="lazy"
 alt="Sensepeek"
 class="gallery-image"
 data-flex-grow="75"
 data-flex-basis="180px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2.jpeg"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/implementation-2.jpeg"
 width="4032"
 height="3024"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hu13975802125795917749.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-2_hu9512458628571489869.jpeg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/implementation-2_hu13975802125795917749.jpeg 480w, https://albanpetit.com/post/adxl-335-accelerometer/implementation-2_hu9512458628571489869.jpeg 1024w"
 loading="lazy"
 alt="Oscilloscope"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3.jpeg"
+> &lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/implementation-3.jpeg"
 width="4032"
 height="3024"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu5284969338530774127.jpeg 480w, https://albanpetit.com/posts/adxl-335-accelerometer/implementation-3_hu540752291958628282.jpeg 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/implementation-3_hu5284969338530774127.jpeg 480w, https://albanpetit.com/post/adxl-335-accelerometer/implementation-3_hu540752291958628282.jpeg 1024w"
 loading="lazy"
 alt="Test"
 class="gallery-image"
@@ -222,7 +222,7 @@ data-flex-grow="133"
 data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="raspberry-pi-pico">Raspberry Pi Pico
-&lt;/h3>&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
+&lt;/h3>&lt;figure style="float:left; width: 180px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico.png" width="180" float="left">
 &lt;/figure>
 &lt;p>The Raspberry Pi Pico is an electronic board hosting the RP2040, an ARM architecture microcontroller designed by the Raspberry Pi Foundation. Announced in January 2021, the RP2040 is the first microcontroller developed by the foundation.&lt;/p>
 &lt;p>This ARM architecture microcontroller has two cores clocked at 133 MHz, offering high performance. The Pico has 264 KB of SRAM and 2 MB of flash memory, providing sufficient storage space for programs and data. It is equipped with 26 digital I/O pins, three of which can be used as analog inputs. Additionally, it is equipped with two clock pins, two power pins, and many other pins for serial communication and bus interfaces.&lt;/p>
@@ -231,10 +231,10 @@ data-flex-basis="320px"
 &lt;/h3>&lt;p>The electronic setup is relatively simple, the daughter electronic board must be powered by the &lt;strong>+&lt;/strong> and &lt;strong>-&lt;/strong> interfaces, the Raspberry Pico has interfaces &lt;strong>40&lt;/strong> and &lt;strong>38&lt;/strong> for this purpose.
 Then the &lt;strong>X&lt;/strong>, &lt;strong>Y&lt;/strong>, and &lt;strong>Z&lt;/strong> outputs of our board must be respectively connected to interfaces &lt;strong>31&lt;/strong>, &lt;strong>32&lt;/strong>, and &lt;strong>34&lt;/strong> of the &lt;strong>Pico&lt;/strong>.&lt;/p>
 &lt;p>The diagram below is of great help to quickly identify the connection interfaces in question:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico-pinout.png"
 width="842"
 height="595"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hu13082807151271066389.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/raspberry-pico-pinout_hu8216151223110363718.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico-pinout_hu13082807151271066389.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/raspberry-pico-pinout_hu8216151223110363718.png 1024w"
 loading="lazy"
 alt="Raspberry Pi Pico Pinout"
 class="gallery-image"
@@ -243,10 +243,10 @@ data-flex-basis="339px"
 >&lt;/p>
 &lt;h4 id="arduino-code">Arduino Code
 &lt;/h4>&lt;p>First and foremost, the &lt;strong>Pico&lt;/strong> is not naturally available for use in the &lt;strong>Arduino&lt;/strong> software, an installation is required. To do this, you need to add this URL: &lt;code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json&lt;/code> within the &lt;code>Additional Board Manager URLs&lt;/code> option in the preferences panel of &lt;strong>Arduino&lt;/strong>: &lt;em>File &amp;gt; Preferences&lt;/em> like this:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-1.png"
 width="744"
 height="490"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu2167080921376153325.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-1_hu9609015153999602856.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-1_hu2167080921376153325.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-1_hu9609015153999602856.png 1024w"
 loading="lazy"
 alt="Arduino Settings"
 class="gallery-image"
@@ -254,10 +254,10 @@ data-flex-grow="151"
 data-flex-basis="364px"
 >&lt;/p>
 &lt;p>Then the board manager will help us install the now referenced board:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-2.png"
 width="805"
 height="631"
-srcset="https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu2620391242047599700.png 480w, https://albanpetit.com/posts/adxl-335-accelerometer/arduino-settings-2_hu11958305008665638188.png 1024w"
+srcset="https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-2_hu2620391242047599700.png 480w, https://albanpetit.com/post/adxl-335-accelerometer/arduino-settings-2_hu11958305008665638188.png 1024w"
 loading="lazy"
 alt="Arduino Board Manager"
 class="gallery-image"
@@ -341,17 +341,17 @@ data-flex-basis="306px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">576&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">627&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">533&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">577&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">626&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Z&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">531&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">578&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">626&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="n">G&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="n">G&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Our sensor is now measuring acceleration!&lt;/p></description></item><item><title>Raspberry SSH configuration</title><link>https://albanpetit.com/posts/raspberry-ssh-config/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-ssh-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-ssh-config/main.jpg" alt="Featured image of post Raspberry SSH configuration" />&lt;p>Remote access to your Raspberry Pi is crucial to simplify management without the need for a physical screen, keyboard, or mouse. Configuring SSH (Secure Shell) access is a crucial step in establishing a secure connection with your Raspberry Pi.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Our sensor is now measuring acceleration!&lt;/p></description></item><item><title>Raspberry SSH configuration</title><link>https://albanpetit.com/post/raspberry-ssh-config/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/post/raspberry-ssh-config/</guid><description>&lt;img src="https://albanpetit.com/post/raspberry-ssh-config/main.jpg" alt="Featured image of post Raspberry SSH configuration" />&lt;p>Remote access to your Raspberry Pi is crucial to simplify management without the need for a physical screen, keyboard, or mouse. Configuring SSH (Secure Shell) access is a crucial step in establishing a secure connection with your Raspberry Pi.&lt;/p>
 &lt;p>Similar to the &lt;a class="link" href="https://albanpetit.com/fr/posts/raspberry-wifi-config/" >Wi-Fi configuration&lt;/a>, you can configure some important elements of the &lt;strong>SSH&lt;/strong> server even before the first boot of the Raspberry using the &lt;strong>Raspberry Pi Imager&lt;/strong> utility.&lt;/p>
 &lt;h2 id="openssh-server">openssh-server
 &lt;/h2>&lt;p>Before you begin, ensure that your &lt;strong>Raspberry Pi&lt;/strong> is equipped with a compatible operating system. Commonly used systems like &lt;strong>Raspbian&lt;/strong> support &lt;strong>SSH&lt;/strong> right from the installation. Also, make sure your Raspberry Pi is connected to your local network.
 You can check the proper functioning of the &lt;strong>SSH&lt;/strong> server on your &lt;strong>Raspberry&lt;/strong> with the following command:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status sshd.service
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If the &lt;strong>SSH&lt;/strong> server is working correctly, the response to this command should look like this:
-&lt;img src="https://albanpetit.com/posts/raspberry-ssh-config/systemctl-sshd.png"
+&lt;img src="https://albanpetit.com/post/raspberry-ssh-config/systemctl-sshd.png"
 width="1004"
 height="567"
-srcset="https://albanpetit.com/posts/raspberry-ssh-config/systemctl-sshd_hu11862030384693414423.png 480w, https://albanpetit.com/posts/raspberry-ssh-config/systemctl-sshd_hu5598105835195620580.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-ssh-config/systemctl-sshd_hu11862030384693414423.png 480w, https://albanpetit.com/post/raspberry-ssh-config/systemctl-sshd_hu5598105835195620580.png 1024w"
 loading="lazy"
 alt="systemctl status sshd.service"
 class="gallery-image"
@@ -422,14 +422,14 @@ If the command returns an error like: &lt;code>Unit sshd.service could not be fo
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart sshd.service
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Connecting to your Raspberry will be done with a new parameter to specify the connection port (replace &lt;code>pi&lt;/code> with your username, &lt;code>address_ip&lt;/code> with the actual IP address, and &lt;code>port_de_connexion&lt;/code> with the new port):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh pi@address_ip -p port_de_connexion
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Configuring SSH on your Raspberry Pi is an essential step to ensure secure remote access. By following these simple steps, you enhance the management of your Raspberry Pi while reinforcing the security of your system. Feel free to explore advanced options to further customize your SSH configuration based on your specific needs.&lt;/p></description></item><item><title>Raspberry wifi configuration</title><link>https://albanpetit.com/posts/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/posts/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/main.jpg" alt="Featured image of post Raspberry wifi configuration" />&lt;p>The Raspberry Pi is a fantastic microcomputer that, thanks to its versatility, is used in various projects, from home automation to the creation of personal servers. Configuring WiFi on these devices is almost essential to fully exploit their capabilities. Users have two main options: configuration before or after the first boot. This is generally a crucial step, especially when using &lt;strong>Raspbian Lite&lt;/strong>, which lacks a graphical interface and requires an &lt;strong>SSH&lt;/strong> connection for usage.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Configuring SSH on your Raspberry Pi is an essential step to ensure secure remote access. By following these simple steps, you enhance the management of your Raspberry Pi while reinforcing the security of your system. Feel free to explore advanced options to further customize your SSH configuration based on your specific needs.&lt;/p></description></item><item><title>Raspberry wifi configuration</title><link>https://albanpetit.com/post/raspberry-wifi-config/</link><pubDate>Tue, 26 Dec 2023 00:00:00 +0000</pubDate><guid>https://albanpetit.com/post/raspberry-wifi-config/</guid><description>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/main.jpg" alt="Featured image of post Raspberry wifi configuration" />&lt;p>The Raspberry Pi is a fantastic microcomputer that, thanks to its versatility, is used in various projects, from home automation to the creation of personal servers. Configuring WiFi on these devices is almost essential to fully exploit their capabilities. Users have two main options: configuration before or after the first boot. This is generally a crucial step, especially when using &lt;strong>Raspbian Lite&lt;/strong>, which lacks a graphical interface and requires an &lt;strong>SSH&lt;/strong> connection for usage.&lt;/p>
 &lt;h2 id="raspberry-pi-imager">Raspberry Pi Imager
 &lt;/h2>&lt;p>This section focuses on configuring &lt;strong>Wi-Fi&lt;/strong> and &lt;strong>SSH&lt;/strong> even before the first Raspberry startup. Thanks to the &lt;a class="link" href="https://www.raspberrypi.org" target="_blank" rel="noopener"
 >Raspberry Pi Foundation&lt;/a>, there&amp;rsquo;s no longer a need for a keyboard and screen. They provide a utility available on all platforms—Windows, Apple, and Linux—that enables the creation of functional SD cards with multiple operating systems. Besides writing OS images, this utility even allows the configuration of essential elements for setting up a &lt;strong>Raspberry Pi&lt;/strong>.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspberry-pi-imager-1.png"
 width="1064"
 height="745"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu14815928768680975238.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-1_hu6258051367610931332.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspberry-pi-imager-1_hu14815928768680975238.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspberry-pi-imager-1_hu6258051367610931332.png 1024w"
 loading="lazy"
 alt="Raspberry Pi Imager"
 class="gallery-image"
@@ -440,10 +440,10 @@ data-flex-basis="342px"
 >Raspberry Software&lt;/a>. Simply select the operating system you want to use and your storage device (SD card or USB), then press &lt;strong>WRITE&lt;/strong> to start writing the image to the device.&lt;/p>
 &lt;h3 id="advanced-options">Advanced Options
 &lt;/h3>&lt;p>At the bottom right of the interface, a gear-shaped button provides access to the advanced functions of this utility. Within these functions, you can configure &lt;strong>SSH&lt;/strong>, the name of the &lt;strong>Raspberry Pi&lt;/strong> on the network, and also the necessary information for it to connect to the &lt;strong>Wi-Fi&lt;/strong> network:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspberry-pi-imager-2.png"
 width="1108"
 height="789"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu15173642130064705002.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspberry-pi-imager-2_hu16003113349391648465.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspberry-pi-imager-2_hu15173642130064705002.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspberry-pi-imager-2_hu16003113349391648465.png 1024w"
 loading="lazy"
 alt="Raspberry Pi Imager advanced options"
 class="gallery-image"
@@ -483,10 +483,10 @@ data-flex-basis="337px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To check the connection after a restart, a simple &lt;code>ping&lt;/code> will do:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ping google.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here&amp;rsquo;s the expected response:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/ping-google.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/ping-google.png"
 width="885"
 height="497"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/ping-google_hu14507872611489796854.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/ping-google_hu18294741098095842978.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/ping-google_hu14507872611489796854.png 480w, https://albanpetit.com/post/raspberry-wifi-config/ping-google_hu18294741098095842978.png 1024w"
 loading="lazy"
 alt="Ping google"
 class="gallery-image"
@@ -497,20 +497,20 @@ data-flex-basis="427px"
 &lt;/h3>&lt;p>The Raspberry Pi Foundation also provides a tool to facilitate this type of configuration. Although it is less comprehensive than manual configuration, it is much simpler to use: &lt;strong>Raspi-config&lt;/strong>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo raspi-config
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here&amp;rsquo;s the interface that opens up. It allows configuration for many things, but concerning Wi-Fi, it is available in &lt;strong>System Options&lt;/strong>, then &lt;strong>Wireless Lan&lt;/strong>:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-1.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1_hu18931471120517503.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-1_hu14853071206414210588.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-1_hu18931471120517503.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspi-config-1_hu14853071206414210588.png 1024w"
 loading="lazy"
 alt="raspi-config menu 1"
 class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >
-&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2.png"
+&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-2.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2_hu6856460285751569119.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-2_hu9916951380553159477.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-2_hu6856460285751569119.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspi-config-2_hu9916951380553159477.png 1024w"
 loading="lazy"
 alt="raspi-config menu 2"
 class="gallery-image"
@@ -518,20 +518,20 @@ data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
 &lt;p>Raspi-config will then ask to configure the country in which the Raspberry will be used:&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-3.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3_hu1118523825097998221.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-3_hu14742086094722841238.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-3_hu1118523825097998221.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspi-config-3_hu14742086094722841238.png 1024w"
 loading="lazy"
 alt="raspi-config menu 3"
 class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >
-&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4.png"
+&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-4.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4_hu6818018739237319708.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-4_hu861337113813407805.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-4_hu6818018739237319708.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspi-config-4_hu861337113813407805.png 1024w"
 loading="lazy"
 alt="raspi-config menu 4"
 class="gallery-image"
@@ -539,20 +539,20 @@ data-flex-grow="144"
 data-flex-basis="345px"
 >&lt;/p>
 &lt;p>The utility will then ask for the &lt;strong>SSID&lt;/strong> and &lt;strong>password&lt;/strong> of the network.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5.png"
+&lt;p>&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-5.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5_hu11062955954187537037.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-5_hu3355741403454307088.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-5_hu11062955954187537037.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspi-config-5_hu3355741403454307088.png 1024w"
 loading="lazy"
 alt="raspi-config SSID"
 class="gallery-image"
 data-flex-grow="144"
 data-flex-basis="345px"
 >
-&lt;img src="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6.png"
+&lt;img src="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-6.png"
 width="857"
 height="595"
-srcset="https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6_hu7195048959626544926.png 480w, https://albanpetit.com/posts/raspberry-wifi-config/raspi-config-6_hu16921872185932788724.png 1024w"
+srcset="https://albanpetit.com/post/raspberry-wifi-config/raspi-config-6_hu7195048959626544926.png 480w, https://albanpetit.com/post/raspberry-wifi-config/raspi-config-6_hu16921872185932788724.png 1024w"
 loading="lazy"
 alt="raspi-config password"
 class="gallery-image"
