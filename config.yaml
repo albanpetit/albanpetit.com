@@ -22,7 +22,7 @@ googleAnalytics: G-ZXXQQEG3J8
 
 permalinks:
   page: /:slug/
-  post: /posts/:slug
+  post: /post/:slug
 
 params:
   mainSections:
