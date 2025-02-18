@@ -1,7 +1,7 @@
 name: albanpetitcom
 
 services:
-  server:
+  hugo:
       image: hugomods/hugo:exts
       command: "hugo server -p 1313 --bind 0.0.0.0"
       ports:
