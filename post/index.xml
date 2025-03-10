@@ -583,4 +583,4 @@ data-flex-basis="345px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iface default inet dhcp
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A restart of the Raspberry will confirm the proper functioning of the configuration:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo reboot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://albanpetit.com/post/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://albanpetit.com/post/</guid><description/></item></channel></rss>
