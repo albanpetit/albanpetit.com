@@ -1,25 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Projets d'impression 3D</title><link>https://albanpetit.com/fr/post/3d-printed-projects/</link><pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/3d-printed-projects/</guid><description>&lt;img src="https://albanpetit.com/post/altered-deck-box/print-2.jpg" alt="Featured image of post Projets d'impression 3D" />&lt;h1 id="une-bambulab-a1-des-projets-beaucoup-dimpressions-">Une bambulab A1, des projets, beaucoup d&amp;rsquo;impressions !
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alban Petit</title><link>https://albanpetit.com/fr/</link><description>Recent content on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Projets d'impression 3D</title><link>https://albanpetit.com/fr/post/3d-printed-projects/</link><pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/3d-printed-projects/</guid><description>&lt;img src="https://albanpetit.com/altered-deck-box/print-2.jpg" alt="Featured image of post Projets d'impression 3D" />&lt;h1 id="une-bambulab-a1-des-projets-beaucoup-dimpressions-">Une bambulab A1, des projets, beaucoup d&amp;rsquo;impressions !
 &lt;/h1>&lt;p>Ça y est, ma Bambu Lab A1 est enfin arrivée ! Depuis le temps que je voulais mon Ender 5, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis et me familiariser avec la conception 3D.&lt;/p>
 &lt;h2 id="-boîte-de-cartes-pour-altered">🃏 Boîte de Cartes pour Altered
 &lt;/h2>&lt;p>J’aime beaucoup Altered, un jeu de cartes qui propose une mécanique originale et un univers fascinant. Mais comme souvent avec les jeux de cartes, le rangement devient vite un problème. Les solutions existantes ne me convenaient pas totalement, alors je me suis dit : et si je concevais ma propre boîte ?&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/post/altered-deck-box/print-1.jpg"
-width="3024"
-height="4032"
-srcset="https://albanpetit.com/post/altered-deck-box/print-1_hu_f755b5565f1e3fa5.jpg 480w, https://albanpetit.com/post/altered-deck-box/print-1_hu_643f760e70e66c4e.jpg 1024w"
+&lt;p>&lt;img src="https://albanpetit.com/altered-deck-box/print-1.jpg"
 loading="lazy"
 alt="Photo 1"
-class="gallery-image"
-data-flex-grow="75"
-data-flex-basis="180px"
-> &lt;img src="https://albanpetit.com/post/altered-deck-box/print-2.jpg"
-width="4032"
-height="3024"
-srcset="https://albanpetit.com/post/altered-deck-box/print-2_hu_7dd7bb5d73e7ef28.jpg 480w, https://albanpetit.com/post/altered-deck-box/print-2_hu_699e9c7cc5e33a50.jpg 1024w"
+> &lt;img src="https://albanpetit.com/altered-deck-box/print-2.jpg"
 loading="lazy"
 alt="Photo 2"
-class="gallery-image"
-data-flex-grow="133"
-data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="-pourquoi-cette-boîte-">🔹 Pourquoi cette boîte ?
 &lt;/h3>&lt;p>Un format parfaitement adapté aux cartes Altered, même sous sleeves.
@@ -30,24 +18,12 @@ Un couvercle bien ajusté pour éviter toute ouverture accidentelle.&lt;/p>
 &lt;/h3>&lt;p>Le modèle est disponible sur MakerWorld.&lt;/p>
 &lt;h2 id="-poignée-paramétrique">🔧 Poignée Paramétrique
 &lt;/h2>&lt;p>Autre problème du quotidien : les poignées cassées ou mal adaptées. Plutôt que de chercher un modèle tout fait, j’ai voulu créer un design paramétrique en OpenSCAD, que je pourrais adapter à n’importe quelle situation.&lt;/p>
-&lt;p>&lt;img src="https://albanpetit.com/post/customizable-handle/print-1.jpeg"
-width="4032"
-height="3024"
-srcset="https://albanpetit.com/post/customizable-handle/print-1_hu_b2106ef65b797f83.jpeg 480w, https://albanpetit.com/post/customizable-handle/print-1_hu_9f9b0bdaa0fd71f6.jpeg 1024w"
+&lt;p>&lt;img src="https://albanpetit.com/customizable-handle/print-1.jpeg"
 loading="lazy"
 alt="Photo 1"
-class="gallery-image"
-data-flex-grow="133"
-data-flex-basis="320px"
-> &lt;img src="https://albanpetit.com/post/customizable-handle/render-2.jpg"
-width="1600"
-height="1200"
-srcset="https://albanpetit.com/post/customizable-handle/render-2_hu_909fc30fe7d533f7.jpg 480w, https://albanpetit.com/post/customizable-handle/render-2_hu_27ca9067275823bb.jpg 1024w"
+> &lt;img src="https://albanpetit.com/customizable-handle/render-2.jpg"
 loading="lazy"
 alt="Rendu 1"
-class="gallery-image"
-data-flex-grow="133"
-data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="-pourquoi-cette-poignée-">🔹 Pourquoi cette poignée ?
 &lt;/h3>&lt;p>Entièrement personnalisable : longueur, diamètre, forme du grip, taille du trou, tout est modifiable.
