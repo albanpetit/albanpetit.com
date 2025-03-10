@@ -9,7 +9,6 @@ type: post
 draft: false
 image: main.jpg
 slug: /adxl-335-accelerometer
-status: WIP !
 categories:
   - Projects
 resources:
