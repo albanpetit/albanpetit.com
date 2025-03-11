@@ -25,7 +25,7 @@ links:
 
 # Une bambulab A1, des projets, beaucoup d'impressions !
 
-Ça y est, ma Bambu Lab A1 est enfin arrivée ! Depuis le temps que je voulais mon Ender 5, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis et me familiariser avec la conception 3D.
+Ma Bambu Lab A1 est enfin arrivée ! Depuis le temps que je voulais mon Ender 5, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis et me familiariser avec la conception 3D.
 
 ## 🃏 Boîte de Cartes pour Altered
  
@@ -36,10 +36,10 @@ J’aime beaucoup Altered, un jeu de cartes qui propose une mécanique originale
 
 ### 🔹 Pourquoi cette boîte ?
 
-Un format parfaitement adapté aux cartes Altered, même sous sleeves.
-Une conception optimisée pour une impression facile, sans supports.
-Des séparateurs modulaires pour ajuster l’espace intérieur en fonction du nombre de cartes.
-Un couvercle bien ajusté pour éviter toute ouverture accidentelle.
+- Un format parfaitement adapté aux cartes Altered, même sous sleeves.
+- Une conception optimisée pour une impression facile, sans supports.
+- Des séparateurs modulaires pour ajuster l’espace intérieur en fonction du nombre de cartes.
+- Un couvercle bien ajusté pour éviter toute ouverture accidentelle.
 
 ### 📥 Téléchargement :
 
@@ -53,9 +53,9 @@ Autre problème du quotidien : les poignées cassées ou mal adaptées. Plutôt 
 
 ### 🔹 Pourquoi cette poignée ?
 
-Entièrement personnalisable : longueur, diamètre, forme du grip, taille du trou, tout est modifiable.
-Impression sans support, simple et efficace.
-Convient pour de nombreux usages : remplacement de poignées cassées, création d’une prise en main plus ergonomique, customisation d’outils…
+- Entièrement personnalisable : longueur, diamètre, forme du grip, taille du trou, tout est modifiable.
+- Impression sans support, simple et efficace.
+- Convient pour de nombreux usages : remplacement de poignées cassées, création d’une prise en main plus ergonomique, customisation d’outils…
 
 ### 📥 Téléchargement :
 
