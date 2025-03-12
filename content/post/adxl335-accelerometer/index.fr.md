@@ -1,6 +1,7 @@
 ---
 title: Accéléromètre ADXL335
 date: 2024-03-02
+lastmod: 2025-03-12
 tags:
   - Electronique
   - PCB
@@ -26,29 +27,32 @@ links:
     image: kicad.png
 ---
 
-Dans cet article, plongeons au cœur de mon dernier projet : un PCB personnalisé conçu autour d'un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, utilise un composant électronique extrêmement intéressant de par son fonctionnement interne, un accéléromètre MEMS. Cette carte électronique sera utilisée plus tard dans d'autres projets.
+
+Dans cet article, je vous emmène au cœur de mon dernier projet : un PCB personnalisé conçu autour d’un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, met en avant un composant électronique fascinant, aussi bien par son fonctionnement interne que par ses applications. Cette carte électronique me servira plus tard dans d’autres expérimentations et projets.
 
 ## Accéléromètres MEMS
 
 {{< figure src="mems.jpg" position="left" width="160" right="10" >}} 
 
-Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la technologie de microfabrication pour intégrer des éléments mécaniques, des capteurs, des actionneurs sur une minuscule puce en silicium. Au cœur de ces dispositifs se trouve un assemblage MEMS, souvent composée de microstructures telles que des poutres ou des porte-à-faux, qui répondent aux forces externes.
+Les accéléromètres MEMS sont des dispositifs compacts qui exploitent la microfabrication pour intégrer des éléments mécaniques, des capteurs et des actionneurs sur une minuscule puce en silicium. Au cœur de ces dispositifs, on trouve une structure MEMS composée de microstructures telles que des poutres ou des porte-à-faux qui réagissent aux forces externes.
 
 ### Principe de fonctionnement
 
-Le principe de fonctionnement des accéléromètres MEMS repose sur le concept d'inertie. Selon la deuxième loi du mouvement de Newton, un objet au repos a tendance à rester au repos, et un objet en mouvement a tendance à rester en mouvement sauf s'il est soumis à une force externe. Les accéléromètres MEMS capitalisent sur ce principe pour mesurer l'accélération.
+Le principe repose sur l’inertie : un objet au repos tend à rester immobile, tandis qu’un objet en mouvement continue dans sa trajectoire sauf s’il est soumis à une force externe. L’accéléromètre MEMS utilise ce concept pour mesurer l’accélération.
 
 {{< figure src="mems-2.jpg" position="left" width="215" right="10" >}} 
 
-Au sein de la structure MEMS, il existe généralement une masse suspendue par des poutres flexibles. Lorsque le dispositif subit une accélération, la masse résiste à ce changement en raison de l'inertie, provoquant une déviation dans les poutres. Cette déviation est ensuite convertie en un signal électrique par un capteur, capacitif ou piézoélectrique, directement intégré dans la structure MEMS.
+À l’intérieur de la structure, une masse suspendue par des poutres flexibles se déplace en réponse aux accélérations. Cette déviation mécanique est ensuite convertie en signal électrique par un capteur capacitif ou piézoélectrique intégré.
 
 ### Traduire le mouvement mécanique en signaux électriques
 
-Au fur et à mesure que l'accéléromètre rencontre une accélération, le mouvement de la masse induit une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal électrique est ensuite traité et traduit en données significatives, nous permettant de quantifier l'accélération subie par le dispositif.
+Lorsqu’une accélération est appliquée, la masse bouge, ce qui entraîne une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal est ensuite traité pour fournir une donnée exploitable sur l’accélération subie par l’appareil.
 
 ## Conception de la carte électronique
 
-Ce PCB est relativement simple et de petites dimensions. Il s'intègre aisément dans n'importe quel projet. La présence d'un régulateur de tension AP2112 permet la régulation de la tension d'entrée à 3,3V. Ainsi l'utilisation de cette carte électronique avec des dispositifs fournissant 5V par défaut est possible, tels que les Arduino, par exemple. Ses dimensions sont de 19mm x 24mm, avec deux connecteurs : l'un pour l'alimentation en 5V, et l'autre pour les données analogiques de l'accélération sur les trois axes : x, y, z.
+Ce PCB est compact et simple à intégrer dans différents projets. Il comprend un régulateur de tension AP2112 pour assurer une alimentation stable de 3,3V, permettant une compatibilité avec des dispositifs fonctionnant sous 5V, comme les cartes Arduino. Ses dimensions sont de 19mm x 24mm, et il comporte deux connecteurs :
+- Un pour l’alimentation en 5V
+- Un autre pour la sortie des données analogiques de l’accélération sur les axes X, Y et Z
 
 ### Composants principaux
 
@@ -252,4 +256,10 @@ X, Y, Z  :: 533, 577, 626 :: 0G, 0G, 1G
 X, Y, Z  :: 531, 578, 626 :: 0G, 0G, 1G
 ```
 
-Notre capteur mesure maintenant l'accélération !
+---
+
+# Conclusion
+
+Ce projet m’a permis d’explorer la conception et la fabrication d’une carte intégrant un capteur MEMS. La phase de soudure avec un stencil a été une expérience enrichissante, permettant d’obtenir une qualité de finition professionnelle. Cette carte me servira dans des applications plus avancées, et j’ai déjà quelques idées pour la suite !
+
+Si vous souhaitez récupérer les fichiers de conception, ils sont disponibles sur mon [dépôt GitHub](https://github.com/albanpetit). N’hésitez pas à me faire part de vos retours et expériences similaires !

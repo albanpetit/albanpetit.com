@@ -1,6 +1,7 @@
 ---
 title: ADXL335 Accelerometer
 date: 2024-03-02
+lastmod: 2025-03-12
 tags:
   - Electronics
   - PCB
@@ -26,27 +27,29 @@ links:
     image: kicad.png
 ---
 
-In this article, we delve into the heart of my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, uses an extremely interesting electronic component due to its internal operation, a MEMS accelerometer. This electronic board will be used later in other projects.
+In this article, I take you through my latest project: a custom PCB designed around a MEMS accelerometer. This project, although relatively simple in its application, highlights a fascinating electronic component, both in terms of its internal operation and its applications. This electronic board will later be used in other experiments and projects.
 
 ## MEMS Accelerometers
 
 {{< figure src="mems.jpg" position="left" width="160" right="10" >}} 
 
-MEMS accelerometers are compact devices that exploit microfabrication technology to integrate mechanical elements, sensors, actuators, and electronics on a tiny silicon chip. At the core of these devices lies a MEMS structure, often composed of microstructures such as beams or cantilevers, which respond to external forces.
+MEMS accelerometers are compact devices that leverage microfabrication to integrate mechanical elements, sensors, and actuators onto a tiny silicon chip. At the core of these devices is a MEMS structure consisting of microstructures such as beams or cantilevers that react to external forces.
 
 ### Operating Principle
 
-The operating principle of MEMS accelerometers is based on the concept of inertia. According to Newton's second law of motion, an object at rest tends to stay at rest, and an object in motion tends to stay in motion unless acted upon by an external force. MEMS accelerometers capitalize on this principle to measure acceleration.
+The principle is based on inertia: an object at rest tends to remain stationary, while a moving object continues in its trajectory unless subjected to an external force. The MEMS accelerometer uses this concept to measure acceleration.
 
-Within the MEMS structure, there is typically a mass suspended by flexible beams. When the device experiences acceleration, the mass resists this change due to inertia, causing a deflection in the beams. This deflection is then converted into an electrical signal by a sensor, such as a capacitive or piezoelectric sensor, integrated into the MEMS structure.
+Inside the structure, a mass suspended by flexible beams moves in response to accelerations. This mechanical deviation is then converted into an electrical signal by an integrated capacitive or piezoelectric sensor.
 
 ### Translating Mechanical Motion into Electrical Signals
 
-As the accelerometer encounters acceleration, the movement of the mass induces a change in capacitance or generates a voltage proportional to the applied force. This electrical signal is then processed and translated into meaningful data, allowing us to quantify the acceleration experienced by the device.
+When acceleration is applied, the mass moves, causing a change in capacitance or generating a voltage proportional to the applied force. This signal is then processed to provide usable acceleration data.
 
 ## Electronic Board Design
 
-This PCB is relatively simple and small in size, allowing it to integrate seamlessly into any project. The presence of an AP2112 voltage regulator allows the regulation of the input voltage to 3.3V, enabling the use of this electronic board with devices providing 5V by default, such as Arduino, for example. Its dimensions are 19mm x 24mm, with two connectors: one for 5V power supply, and the other for analog acceleration data on the three axes: x, y, z.
+This PCB is compact and easy to integrate into various projects. It includes an AP2112 voltage regulator to ensure a stable 3.3V power supply, allowing compatibility with 5V devices like Arduino boards. Its dimensions are 19mm x 24mm, and it features two connectors:
+- One for 5V power input
+- Another for the analog acceleration data outputs on the X, Y, and Z axes
 
 ### Main Components
 
@@ -251,4 +254,10 @@ X, Y, Z  :: 533, 577, 626 :: 0G, 0G, 1G
 X, Y, Z  :: 531, 578, 626 :: 0G, 0G, 1G
 ```
 
-Our sensor is now measuring acceleration!
+---
+
+## Conclusion
+
+This project allowed me to explore the design and fabrication of a board integrating a MEMS sensor. The soldering phase using a stencil was an enriching experience, providing a professional-quality finish. This board will be useful for more advanced applications, and I already have some ideas for the future!
+
+If you’d like to access the design files, they are available on my [GitHub repository](https://github.com/albanpetit). Feel free to share your feedback and similar experiences!
