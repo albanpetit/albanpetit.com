@@ -1,9 +1,9 @@
 ---
-title: Projets d'impression 3D
+title: 3D printed projects
 date: 2025-03-10
 tags:
-  - Impression 3D
-  - CAO
+  - 3D printing
+  - CAD
   - Fusion 360
 type: post
 draft: false
@@ -18,7 +18,7 @@ resources:
     image: https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg
 links:
   - title: Makerworld
-    description: MakerWorld est une plateforme de partage de fichiers 3D dédiée à l'impression 3D, similaire à Printables, Yeggi et Thingiverse, mais avec une orientation plus spécifique vers l'écosystème Bambu Lab.
+    description: MakerWorld is a 3D file-sharing platform dedicated to 3D printing, similar to Printables, Yeggi, and Thingiverse, but with a stronger focus on the Bambu Lab ecosystem.
     website: https://makerworld.com/en
     image: makerworld.png
 ---
