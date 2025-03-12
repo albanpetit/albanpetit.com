@@ -23,14 +23,14 @@ links:
     image: makerworld.png
 ---
 
-# Une bambulab A1, des projets, beaucoup d'impressions !
+# Une Bambulab A1, des projets, beaucoup d'impressions !
 
-Ma Bambu Lab A1 est enfin arrivée ! Depuis le temps que je voulais mon Ender 5, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis et me familiariser avec la conception 3D.
+Ma Bambulab A1 est enfin arrivée ! Depuis le temps que je voulais mon *Ender 5*, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et des impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis et me familiariser avec la conception 3D.
 
-## 🃏 Boîte de Cartes pour Altered
+## 🃏 Boîte de Cartes pour *Altered*
  
 
-J’aime beaucoup Altered, un jeu de cartes qui propose une mécanique originale et un univers fascinant. Mais comme souvent avec les jeux de cartes, le rangement devient vite un problème. Les solutions existantes ne me convenaient pas totalement, alors je me suis dit : et si je concevais ma propre boîte ?
+J’aime beaucoup *Altered*, un jeu de cartes qui propose une mécanique originale et un univers fascinant. Mais comme souvent avec les jeux de cartes, le rangement devient vite un problème. Les solutions existantes ne me convenaient pas totalement, alors je me suis dit : "et si je concevais ma propre boîte ?"
 
 ![Photo 1](altered-deck-box/print-1.jpg) ![Photo 2](altered-deck-box/print-2.jpg)
 
