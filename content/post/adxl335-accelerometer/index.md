@@ -35,6 +35,7 @@ In this article, I take you through my latest project: a custom PCB designed aro
 
 MEMS accelerometers are compact devices that leverage microfabrication to integrate mechanical elements, sensors, and actuators onto a tiny silicon chip. At the core of these devices is a MEMS structure consisting of microstructures such as beams or cantilevers that react to external forces.
 
+
 ### Operating Principle
 
 The principle is based on inertia: an object at rest tends to remain stationary, while a moving object continues in its trajectory unless subjected to an external force. The MEMS accelerometer uses this concept to measure acceleration.
