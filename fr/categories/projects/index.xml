@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projets on Alban Petit</title><link>https://albanpetit.com/fr/categories/projects/</link><description>Recent content in Projets on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Wed, 12 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Projets d'impression 3D</title><link>https://albanpetit.com/fr/post/3d-printed-projects/</link><pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/3d-printed-projects/</guid><description>&lt;img src="https://albanpetit.com/post/3d-printed-projects/altered-deck-box/print-2.jpg" alt="Featured image of post Projets d'impression 3D" />&lt;h1 id="une-bambulab-a1-des-projets-beaucoup-dimpressions-">Une Bambulab A1, des projets, beaucoup d&amp;rsquo;impressions !
-&lt;/h1>&lt;p>Ma Bambulab A1 est enfin arrivée ! Depuis le temps que je voulais mon &lt;em>Ender 5&lt;/em>, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et des impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis et me familiariser avec la conception 3D.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projets on Alban Petit</title><link>https://albanpetit.com/fr/categories/projects/</link><description>Recent content in Projets on Alban Petit</description><generator>Hugo -- gohugo.io</generator><language>fr</language><lastBuildDate>Mon, 07 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://albanpetit.com/fr/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Projets d'impression 3D</title><link>https://albanpetit.com/fr/post/3d-printed-projects/</link><pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/3d-printed-projects/</guid><description>&lt;img src="https://albanpetit.com/post/3d-printed-projects/altered-deck-box/print-2.jpg" alt="Featured image of post Projets d'impression 3D" />&lt;h1 id="une-bambulab-a1-des-projets-beaucoup-dimpressions-">Une Bambulab A1, des projets, beaucoup d&amp;rsquo;impressions !
+&lt;/h1>&lt;p>Ma Bambulab A1 est enfin arrivée ! Depuis le temps que je voulais mon &lt;em>Ender 5&lt;/em>, j’avais hâte de voir ce qu’elle avait dans le ventre. Après quelques réglages et des impressions de test, j’ai rapidement voulu créer mes propres modèles. Voici donc mes premiers projets, pensés pour répondre à des besoins précis.&lt;/p>
 &lt;h2 id="-boîte-de-cartes-pour-altered">🃏 Boîte de Cartes pour &lt;em>Altered&lt;/em>
 &lt;/h2>&lt;p>J’aime beaucoup &lt;em>Altered&lt;/em>, un jeu de cartes qui propose une mécanique originale et un univers fascinant. Mais comme souvent avec les jeux de cartes, le rangement devient vite un problème. Les solutions existantes ne me convenaient pas totalement, alors je me suis dit : &amp;ldquo;et si je concevais ma propre boîte ?&amp;rdquo;&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/post/3d-printed-projects/altered-deck-box/print-1.jpg"
@@ -59,10 +59,51 @@ data-flex-basis="320px"
 &lt;/ul>
 &lt;h3 id="-téléchargement--1">📥 Téléchargement :
 &lt;/h3>&lt;p>Le modèle est disponible sur MakerWorld et GitHub.&lt;/p>
-&lt;h2 id="-et-la-suite-">🚀 Et la suite ?
-&lt;/h2>&lt;p>Ces deux projets ne sont qu’un début ! Maintenant que ma Bambu Lab A1 tourne à plein régime, je compte bien continuer à expérimenter et à créer des objets utiles, pratiques ou simplement amusants. Je partagerai ici mes prochaines réalisations, alors restez connectés !&lt;/p>
-&lt;h2 id="-github---3d-printed-projects">🔗 GitHub - 3D Printed Projects
-&lt;/h2>&lt;p>Et si vous avez des suggestions ou des idées de modèles à concevoir, n’hésitez pas à me les partager ! 😊&lt;/p></description></item><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/post/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, je vous emmène au cœur de mon dernier projet : un PCB personnalisé conçu autour d’un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, met en avant un composant électronique fascinant, aussi bien par son fonctionnement interne que par ses applications. Cette carte électronique me servira plus tard dans d’autres expérimentations et projets.&lt;/p>
+&lt;h1 id="-point-détape--plus-de-500-heures-dimpression-plus-tard">🧪 Point d’étape : plus de 500 heures d’impression plus tard…
+&lt;/h1>&lt;p>Après plusieurs mois d’utilisation et plus de 500 heures d’impression, je commence à bien connaître les capacités de la Bambulab A1 !&lt;/p>
+&lt;p>Parmi les projets les plus utiles que j’ai réalisés récemment : un système de rangement pour mes composants électroniques.&lt;/p>
+&lt;h2 id="-un-rangement-simple-pour-mes-composants-électroniques">🧰 Un rangement simple pour mes composants électroniques
+&lt;/h2>&lt;p>Quand on bricole en électronique, on accumule vite plein de composants. Et sans un minimum d’organisation, ça devient un vrai casse-tête de savoir ce qu’on a… ou où on l’a rangé. Résultat : je finissais souvent par recommander des pièces que j’avais déjà.&lt;/p>
+&lt;p>J’ai donc mis en place un petit système de rangement qui me correspond : pas cher, facile à étendre, et surtout adapté à ma façon de bosser.&lt;/p>
+&lt;h3 id="-lidée-">🔹 L’idée ?
+&lt;/h3>&lt;p>Des sachets antistatiques, des boîtes imprimées en 3D, et un simple fichier Excel. C’est tout !&lt;/p>
+&lt;p>Chaque composant est rangé dans un sachet antistatique. Ensuite, les sachets sont stockés verticalement dans des boîtes imprimées en 3D, que j’ai conçues sur mesure pour s’adapter à leurs dimensions.&lt;/p>
+&lt;p>Les sachets sont faciles à étiqueter et protègent bien les composants sensibles en plus peu couteux.
+Les boîtes permettent un rangement propre, sans que tout s’écroule.
+C’est modulaire : dès que j’ai besoin de plus de place, j’imprime un nouveau support.&lt;/p>
+&lt;p>Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de reference que j&amp;rsquo;identifie dans un tableau excel. Dans ce tableau j&amp;rsquo;ajoute la reference le lien vers le revendeur, la datasheet, la package et la quantite pour ne pas racheter ce que j&amp;rsquo;ai deja en stock.&lt;/p>
+&lt;p>Le design est simple et efficace. Pas de supports, impression rapide.&lt;/p>
+&lt;p>&lt;img src="https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/print-1.jpg"
+width="4032"
+height="3024"
+srcset="https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/print-1_hu_ceaaa374afe0553f.jpg 480w, https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/print-1_hu_9d288ed8b1b999b4.jpg 1024w"
+loading="lazy"
+alt="Photo 1"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+> &lt;img src="https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/bag-1.jpg"
+width="3024"
+height="4032"
+srcset="https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/bag-1_hu_ee70f5520aad49d8.jpg 480w, https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/bag-1_hu_8ae43894083f1a8d.jpg 1024w"
+loading="lazy"
+alt="Photo 2"
+class="gallery-image"
+data-flex-grow="75"
+data-flex-basis="180px"
+>&lt;/p>
+&lt;h3 id="-téléchargement-et-materiel-">📥 Téléchargement et materiel :
+&lt;/h3>&lt;p>Les fichiers STL sont dispos ici sur MakerWorld et &lt;a class="link" href="https://github.com/albanpetit/3d-printed-projects" target="_blank" rel="noopener"
+>Github&lt;/a>. Concernant les sacs rien de plus simple ils sont disponibles chez la plupart des grossistes d&amp;rsquo;electroniques, ce sont des sacs en 5x8&amp;quot; egalement compatible avec les 5x7&amp;quot; comme sur la photos. &lt;a class="link" href="https://www.mouser.fr/ProductDetail/SCS/30058?qs=atelM%2FHH1ECEPEBWw31qNQ%3D%3D" target="_blank" rel="noopener"
+>Mouser&lt;/a>&lt;/p>
+&lt;h1 id="-et-la-suite-">🚀 Et la suite ?
+&lt;/h1>&lt;p>Ces projets ne sont qu’un aperçu de ce que j’ai pu créer avec la Bambulab A1. Entre les objets du quotidien, les accessoires de jeux et les solutions pratiques, je compte bien continuer à expérimenter. D’autres idées sont en cours, et je partagerai tout ça ici bientôt !&lt;/p>
+&lt;p>💬 Si vous avez des suggestions de modèles ou si vous voulez récupérer le fichier Excel que j’utilise, faites-moi signe !&lt;/p>
+&lt;ul>
+&lt;li>🔗 Tous mes projets 3D&lt;/li>
+&lt;li>🔗 &lt;a class="link" href="https://github.com/albanpetit/3d-printed-projects" target="_blank" rel="noopener"
+>GitHub - 3D Printed Projects&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Accéléromètre ADXL335</title><link>https://albanpetit.com/fr/post/adxl-335-accelerometer/</link><pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate><guid>https://albanpetit.com/fr/post/adxl-335-accelerometer/</guid><description>&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/main.jpg" alt="Featured image of post Accéléromètre ADXL335" />&lt;p>Dans cet article, je vous emmène au cœur de mon dernier projet : un PCB personnalisé conçu autour d’un accéléromètre MEMS. Ce projet, bien que relativement simple dans son application, met en avant un composant électronique fascinant, aussi bien par son fonctionnement interne que par ses applications. Cette carte électronique me servira plus tard dans d’autres expérimentations et projets.&lt;/p>
 &lt;h2 id="accéléromètres-mems">Accéléromètres MEMS
 &lt;/h2>&lt;figure style="float:left; width: 160px; margin: 10px 30px 0px 0px">&lt;img src="https://albanpetit.com/post/adxl-335-accelerometer/mems.jpg" width="160" float="left">
 &lt;/figure>
