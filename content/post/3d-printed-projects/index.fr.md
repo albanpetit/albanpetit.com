@@ -69,7 +69,7 @@ Parmi les projets les plus utiles que j’ai réalisés récemment : un système
 
 ## 🧰 Un rangement simple pour mes composants électroniques
 
-Quand on bricole en électronique, on accumule vite plein de composants. Et sans un minimum d’organisation, ça devient un vrai casse-tête de savoir ce qu’on a… ou où on l’a rangé. Résultat : je finissais souvent par recommander des pièces que j’avais déjà.
+Quand on bricole en électronique, on accumule vite plein de composants. Et sans un minimum d’organisation, cela devient un vrai casse-tête de savoir ce qu’on a… ou où on l’a rangé. Résultat : je finissais souvent par recommander des pièces que j’avais déjà.
 
 J’ai donc mis en place un petit système de rangement qui me correspond : pas cher, facile à étendre, et surtout adapté à ma façon de bosser.
 
@@ -79,13 +79,13 @@ Des sachets antistatiques, des boîtes imprimées en 3D, et un simple fichier Ex
 
 Chaque composant est rangé dans un sachet antistatique. Ensuite, les sachets sont stockés verticalement dans des boîtes imprimées en 3D, que j’ai conçues sur mesure pour s’adapter à leurs dimensions.
 
-Les sachets sont faciles à étiqueter et protègent bien les composants sensibles en plus peu couteux.
+Les sachets sont faciles à étiqueter et protègent bien les composants sensibles en plus d'être peu couteux.
 Les boîtes permettent un rangement propre, sans que tout s’écroule.
 C’est modulaire : dès que j’ai besoin de plus de place, j’imprime un nouveau support.
 
-Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de reference que j'identifie dans un tableau excel. Dans ce tableau j'ajoute la reference le lien vers le revendeur, la datasheet, la package et la quantite pour ne pas racheter ce que j'ai deja en stock.
+Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de référence que j'identifie dans un tableau excel. Dans ce tableau j'ajoute la référence le lien vers le revendeur, la datasheet, la package et la quantité pour ne pas racheter ce que j'ai déja en stock.
 
-Le design est simple et efficace. Pas de supports, impression rapide.
+Le design est simple et efficace. Pas de supports et une impression rapide.
 
 ![Photo 1](electonic-components-storage/print-1.jpg) ![Photo 2](electonic-components-storage/bag-1.jpg)
 
