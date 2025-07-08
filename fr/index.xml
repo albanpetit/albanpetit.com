@@ -63,16 +63,16 @@ data-flex-basis="320px"
 &lt;/h1>&lt;p>Après plusieurs mois d’utilisation et plus de 500 heures d’impression, je commence à bien connaître les capacités de la Bambulab A1 !&lt;/p>
 &lt;p>Parmi les projets les plus utiles que j’ai réalisés récemment : un système de rangement pour mes composants électroniques.&lt;/p>
 &lt;h2 id="-un-rangement-simple-pour-mes-composants-électroniques">🧰 Un rangement simple pour mes composants électroniques
-&lt;/h2>&lt;p>Quand on bricole en électronique, on accumule vite plein de composants. Et sans un minimum d’organisation, ça devient un vrai casse-tête de savoir ce qu’on a… ou où on l’a rangé. Résultat : je finissais souvent par recommander des pièces que j’avais déjà.&lt;/p>
+&lt;/h2>&lt;p>Quand on bricole en électronique, on accumule vite plein de composants. Et sans un minimum d’organisation, cela devient un vrai casse-tête de savoir ce qu’on a… ou où on l’a rangé. Résultat : je finissais souvent par recommander des pièces que j’avais déjà.&lt;/p>
 &lt;p>J’ai donc mis en place un petit système de rangement qui me correspond : pas cher, facile à étendre, et surtout adapté à ma façon de bosser.&lt;/p>
 &lt;h3 id="-lidée-">🔹 L’idée ?
 &lt;/h3>&lt;p>Des sachets antistatiques, des boîtes imprimées en 3D, et un simple fichier Excel. C’est tout !&lt;/p>
 &lt;p>Chaque composant est rangé dans un sachet antistatique. Ensuite, les sachets sont stockés verticalement dans des boîtes imprimées en 3D, que j’ai conçues sur mesure pour s’adapter à leurs dimensions.&lt;/p>
-&lt;p>Les sachets sont faciles à étiqueter et protègent bien les composants sensibles en plus peu couteux.
+&lt;p>Les sachets sont faciles à étiqueter et protègent bien les composants sensibles en plus d&amp;rsquo;être peu couteux.
 Les boîtes permettent un rangement propre, sans que tout s’écroule.
 C’est modulaire : dès que j’ai besoin de plus de place, j’imprime un nouveau support.&lt;/p>
-&lt;p>Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de reference que j&amp;rsquo;identifie dans un tableau excel. Dans ce tableau j&amp;rsquo;ajoute la reference le lien vers le revendeur, la datasheet, la package et la quantite pour ne pas racheter ce que j&amp;rsquo;ai deja en stock.&lt;/p>
-&lt;p>Le design est simple et efficace. Pas de supports, impression rapide.&lt;/p>
+&lt;p>Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de référence que j&amp;rsquo;identifie dans un tableau excel. Dans ce tableau j&amp;rsquo;ajoute la référence le lien vers le revendeur, la datasheet, la package et la quantité pour ne pas racheter ce que j&amp;rsquo;ai déja en stock.&lt;/p>
+&lt;p>Le design est simple et efficace. Pas de supports et une impression rapide.&lt;/p>
 &lt;p>&lt;img src="https://albanpetit.com/post/3d-printed-projects/electonic-components-storage/print-1.jpg"
 width="4032"
 height="3024"
