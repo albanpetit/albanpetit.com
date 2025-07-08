@@ -1,7 +1,7 @@
 ---
 title: Projets d'impression 3D
 date: 2025-03-10
-lastmod: 2025-07-07
+lastmod: 2025-07-08
 tags:
   - Impression 3D
   - CAO
