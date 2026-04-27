@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Clock, Calendar } from "lucide-react"
 import Seo from "@/components/seo"
-import { tagPath } from "@/lib/tag"
+import { tagPath, categoryPath } from "@/lib/tag"
 
 type PostTemplateData = {
   markdownRemark: {
@@ -46,9 +46,11 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
         <header className="flex flex-col gap-4 mb-8">
           {frontmatter.category && (
-            <Badge variant="secondary" className="w-fit">
-              {frontmatter.category}
-            </Badge>
+            <Link to={categoryPath(frontmatter.category, language)} className="w-fit">
+              <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
+                {frontmatter.category}
+              </Badge>
+            </Link>
           )}
           <h1 className="text-3xl font-bold leading-tight tracking-tight">
             {frontmatter.title}

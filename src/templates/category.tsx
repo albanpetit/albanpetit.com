@@ -1,14 +1,16 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql, Link, navigate } from "gatsby"
 import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ArrowLeft } from "lucide-react"
 import Seo from "@/components/seo"
-import { tagPath, categoryPath } from "@/lib/tag"
+import { tagPath } from "@/lib/tag"
 
 type Post = {
   id: string
@@ -17,7 +19,6 @@ type Post = {
     date: string
     description: string
     tags: string[]
-    category: string
     slug: string
     lang: string
     image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
@@ -26,73 +27,47 @@ type Post = {
   timeToRead: number
 }
 
-type BlogPageData = {
-  allMarkdownRemark: {
-    nodes: Post[]
-  }
+type CategoryPageData = {
+  allMarkdownRemark: { nodes: Post[] }
 }
 
-const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
+type CategoryPageContext = {
+  category: string
+}
+
+const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> = ({ data, pageContext }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
-  const [activeTag, setActiveTag] = useState<string | null>(null)
+  const { category } = pageContext
+  const posts = data.allMarkdownRemark.nodes
 
-  const posts = data.allMarkdownRemark.nodes.filter(
-    (p) => p.frontmatter.lang === language
-  )
-
+  const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const postPath = (slug: string) =>
     language === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
-
-  const allTags = Array.from(
-    new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))
-  ).sort()
-
-  const filtered = activeTag
-    ? posts.filter((p) => p.frontmatter.tags?.includes(activeTag))
-    : posts
 
   return (
     <Layout>
       <div className="flex flex-col gap-8">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">{t("blog.title")}</h1>
+          <Button variant="ghost" size="sm" asChild className="-ml-2 mb-4">
+            <Link to={blogPath}>
+              <ArrowLeft className="mr-1 h-4 w-4" /> {t("post.backToBlog")}
+            </Link>
+          </Button>
+          <div className="flex items-center gap-3">
+            <h1 className="text-3xl font-bold tracking-tight">
+              {category}
+            </h1>
+          </div>
           <p className="mt-2 text-muted-foreground">
-            {t("blog.subtitle", { count: posts.length })}
+            {t("tag.subtitle", { count: posts.length })}
           </p>
         </div>
-
-        {allTags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            <button onClick={() => setActiveTag(null)} className="focus:outline-none">
-              <Badge
-                variant={activeTag === null ? "default" : "outline"}
-                className="cursor-pointer"
-              >
-                {t("blog.all")}
-              </Badge>
-            </button>
-            {allTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-                className="focus:outline-none"
-              >
-                <Badge
-                  variant={activeTag === tag ? "default" : "outline"}
-                  className="cursor-pointer"
-                >
-                  {tag}
-                </Badge>
-              </button>
-            ))}
-          </div>
-        )}
 
         <Separator />
 
         <div className="flex flex-col gap-4">
-          {filtered.map((post) => {
+          {posts.map((post) => {
             const coverImage = post.frontmatter.image
               ? getImage(post.frontmatter.image.childImageSharp.gatsbyImageData)
               : null
@@ -123,13 +98,6 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
                           {post.frontmatter.date}
                         </CardDescription>
                       </div>
-                      {post.frontmatter.category && (
-                        <Link to={categoryPath(post.frontmatter.category, language)} onClick={(e) => e.stopPropagation()}>
-                          <Badge variant="outline" className="text-xs w-fit cursor-pointer hover:bg-accent transition-colors">
-                            {post.frontmatter.category}
-                          </Badge>
-                        </Link>
-                      )}
                     </CardHeader>
                     <CardContent className="flex flex-col gap-3">
                       <p className="text-sm text-muted-foreground">
@@ -138,7 +106,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
                       <div className="flex flex-wrap gap-1">
                         {post.frontmatter.tags?.map((tag) => (
                           <Link key={tag} to={tagPath(tag, language)} onClick={(e) => e.stopPropagation()}>
-                            <Badge variant="secondary" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+                            <Badge variant="secondary" className="text-xs cursor-pointer">
                               {tag}
                             </Badge>
                           </Link>
@@ -150,24 +118,23 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
               </Card>
             )
           })}
-
-          {filtered.length === 0 && (
-            <p className="text-muted-foreground py-8 text-center">{t("blog.empty")}</p>
-          )}
         </div>
       </div>
     </Layout>
   )
 }
 
-export default BlogPage
+export default CategoryPage
 
-export const Head: HeadFC = () => (
-  <Seo title="Blog · Alban Petit" description="Blog posts by Alban Petit" />
+export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContext }) => (
+  <Seo
+    title={`${pageContext.category} · Alban Petit`}
+    description={`Posts in category ${pageContext.category}`}
+  />
 )
 
 export const query = graphql`
-  query BlogPage($language: String!) {
+  query CategoryPage($category: String!, $language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
@@ -178,7 +145,10 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/posts/" }
+        frontmatter: { category: { eq: $category }, lang: { eq: $language } }
+      }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
@@ -190,7 +160,6 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           description
           tags
-          category
           slug
           lang
           image {

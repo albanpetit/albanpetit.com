@@ -13,6 +13,10 @@ function slugifyTag(tag: string): string {
     .replace(/[^a-z0-9-]/g, "")
 }
 
+function slugifyCategory(category: string): string {
+  return category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
+}
+
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -27,12 +31,13 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const { createPage } = actions
   const postTemplate = path.resolve("src/templates/post.tsx")
   const tagTemplate = path.resolve("src/templates/tag.tsx")
+  const categoryTemplate = path.resolve("src/templates/category.tsx")
 
   const result = await graphql<{
     allMarkdownRemark: {
       nodes: {
         id: string
-        frontmatter: { slug: string; lang: string; tags: string[] | null }
+        frontmatter: { slug: string; lang: string; tags: string[] | null; category: string | null }
       }[]
     }
   }>(`
@@ -44,6 +49,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
             slug
             lang
             tags
+            category
           }
         }
       }
@@ -85,7 +91,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   })
 
   // Tag pages — one page per unique tag+lang combination
-  const tagsByLang = new Map<string, Map<string, string>>() // lang -> (tag -> tagSlug)
+  const tagsByLang = new Map<string, Map<string, string>>()
 
   nodes.forEach((node) => {
     const { lang, tags } = node.frontmatter
@@ -105,6 +111,41 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         context: {
           tag,
           tagSlug,
+          language: lang,
+          i18n: {
+            language: lang,
+            languages: LANGUAGES,
+            defaultLanguage: DEFAULT_LANGUAGE,
+            originalPath,
+            routed: lang !== DEFAULT_LANGUAGE,
+            path: pagePath,
+          },
+        },
+      })
+    })
+  })
+
+  // Category pages — one page per unique category+lang combination
+  const categoriesByLang = new Map<string, Map<string, string>>()
+
+  nodes.forEach((node) => {
+    const { lang, category } = node.frontmatter
+    if (!lang || !category) return
+    if (!categoriesByLang.has(lang)) categoriesByLang.set(lang, new Map())
+    categoriesByLang.get(lang)!.set(category, slugifyCategory(category))
+  })
+
+  categoriesByLang.forEach((categories, lang) => {
+    categories.forEach((categorySlug, category) => {
+      const originalPath = `/category/${categorySlug}/`
+      const pagePath = lang === DEFAULT_LANGUAGE ? originalPath : `/${lang}${originalPath}`
+
+      createPage({
+        path: pagePath,
+        component: categoryTemplate,
+        context: {
+          category,
+          categorySlug,
           language: lang,
           i18n: {
             language: lang,

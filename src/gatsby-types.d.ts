@@ -2889,6 +2889,14 @@ type BlogPageQueryVariables = Exact<{
 
 type BlogPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> }, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly timeToRead: number | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly description: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly category: string | null, readonly slug: string | null, readonly lang: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> } };
 
+type CategoryPageQueryVariables = Exact<{
+  category: Scalars['String'];
+  language: Scalars['String'];
+}>;
+
+
+type CategoryPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> }, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly timeToRead: number | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly description: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly slug: string | null, readonly lang: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> } };
+
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
 type GatsbyImageSharpFixed_noBase64Fragment = { readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
@@ -2948,7 +2956,7 @@ type TagPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readon
 type CreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CreatePagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly slug: string | null, readonly lang: string | null, readonly tags: ReadonlyArray<string | null> | null } | null }> } };
+type CreatePagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly slug: string | null, readonly lang: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly category: string | null } | null }> } };
 
 
 }
