@@ -33,6 +33,11 @@
     "twitter": "Twitter",
     "github": "GitHub"
   },
+  "tag": {
+    "title": "#{{tag}}",
+    "subtitle_one": "{{count}} post",
+    "subtitle_other": "{{count}} posts"
+  },
   "404": {
     "title": "404",
     "subtitle": "Page not found",

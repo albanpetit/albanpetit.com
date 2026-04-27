@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Clock, Calendar } from "lucide-react"
 import Seo from "@/components/seo"
+import { tagPath } from "@/lib/tag"
 
 type PostTemplateData = {
   markdownRemark: {
@@ -70,9 +71,11 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
           {frontmatter.tags?.length > 0 && (
             <div className="flex flex-wrap gap-1">
               {frontmatter.tags.map((tag) => (
-                <Badge key={tag} variant="outline" className="text-xs">
-                  {tag}
-                </Badge>
+                <Link key={tag} to={tagPath(tag, language)}>
+                  <Badge variant="outline" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+                    {tag}
+                  </Badge>
+                </Link>
               ))}
             </div>
           )}

@@ -2937,10 +2937,18 @@ type PostTemplateQueryVariables = Exact<{
 
 type PostTemplateQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> }, readonly markdownRemark: { readonly html: string | null, readonly timeToRead: number | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly description: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly category: string | null, readonly lang: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };
 
-type CreatePostPagesQueryVariables = Exact<{ [key: string]: never; }>;
+type TagPageQueryVariables = Exact<{
+  tag: Scalars['String'];
+  language: Scalars['String'];
+}>;
 
 
-type CreatePostPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly slug: string | null, readonly lang: string | null } | null }> } };
+type TagPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: { readonly ns: string | null, readonly data: string | null, readonly language: string | null } }> }, readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly timeToRead: number | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly description: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly slug: string | null, readonly lang: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> } };
+
+type CreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CreatePagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly slug: string | null, readonly lang: string | null, readonly tags: ReadonlyArray<string | null> | null } | null }> } };
 
 
 }
