@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
+import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -18,6 +19,7 @@ type Post = {
     category: string
     slug: string
     lang: string
+    image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
   }
   excerpt: string
   timeToRead: number
@@ -59,7 +61,6 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           </p>
         </div>
 
-        {/* Tag filter */}
         {allTags.length > 0 && (
           <div className="flex flex-wrap gap-2">
             <button onClick={() => setActiveTag(null)} className="focus:outline-none">
@@ -89,36 +90,54 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
 
         <Separator />
 
-        {/* Post list */}
         <div className="flex flex-col gap-4">
-          {filtered.map((post) => (
-            <Link key={post.id} to={postPath(post.frontmatter.slug)} className="group">
-              <Card className="transition-shadow hover:shadow-md">
-                <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <CardTitle className="text-lg leading-snug group-hover:text-secondary transition-colors">
-                      {post.frontmatter.title}
-                    </CardTitle>
-                    <CardDescription className="shrink-0 text-xs">
-                      {post.frontmatter.date}
-                    </CardDescription>
+          {filtered.map((post) => {
+            const coverImage = post.frontmatter.image
+              ? getImage(post.frontmatter.image.childImageSharp.gatsbyImageData)
+              : null
+
+            return (
+              <Link key={post.id} to={postPath(post.frontmatter.slug)} className="group">
+                <Card className="transition-shadow hover:shadow-md overflow-hidden">
+                  <div className="flex flex-col sm:flex-row">
+                    {coverImage && (
+                      <div className="sm:w-48 sm:shrink-0">
+                        <GatsbyImage
+                          image={coverImage}
+                          alt={post.frontmatter.title}
+                          className="h-40 sm:h-full w-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-col flex-1 min-w-0">
+                      <CardHeader className="pb-2">
+                        <div className="flex items-start justify-between gap-4">
+                          <CardTitle className="text-lg leading-snug group-hover:text-secondary transition-colors">
+                            {post.frontmatter.title}
+                          </CardTitle>
+                          <CardDescription className="shrink-0 text-xs">
+                            {post.frontmatter.date}
+                          </CardDescription>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="flex flex-col gap-3">
+                        <p className="text-sm text-muted-foreground">
+                          {post.frontmatter.description || post.excerpt}
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {post.frontmatter.tags?.map((tag) => (
+                            <Badge key={tag} variant="secondary" className="text-xs">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </div>
                   </div>
-                </CardHeader>
-                <CardContent className="flex flex-col gap-3">
-                  <p className="text-sm text-muted-foreground">
-                    {post.frontmatter.description || post.excerpt}
-                  </p>
-                  <div className="flex flex-wrap gap-1">
-                    {post.frontmatter.tags?.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+                </Card>
+              </Link>
+            )
+          })}
 
           {filtered.length === 0 && (
             <p className="text-muted-foreground py-8 text-center">{t("blog.empty")}</p>
@@ -162,6 +181,11 @@ export const query = graphql`
           category
           slug
           lang
+          image {
+            childImageSharp {
+              gatsbyImageData(width: 400, height: 300, placeholder: BLURRED)
+            }
+          }
         }
       }
     }

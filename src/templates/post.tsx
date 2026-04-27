@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -20,6 +21,7 @@ type PostTemplateData = {
       tags: string[]
       category: string
       lang: string
+      image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
     }
   }
 }
@@ -28,6 +30,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
   const { html, timeToRead, frontmatter } = data.markdownRemark
+  const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
 
@@ -75,6 +78,16 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
           )}
         </header>
 
+        {coverImage && (
+          <div className="mb-8 overflow-hidden rounded-lg">
+            <GatsbyImage
+              image={coverImage}
+              alt={frontmatter.title}
+              className="w-full aspect-video object-cover"
+            />
+          </div>
+        )}
+
         <Separator className="mb-8" />
 
         <div
@@ -116,6 +129,11 @@ export const query = graphql`
         tags
         category
         lang
+        image {
+          childImageSharp {
+            gatsbyImageData(width: 800, placeholder: BLURRED)
+          }
+        }
       }
     }
   }

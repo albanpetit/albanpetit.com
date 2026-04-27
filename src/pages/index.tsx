@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next, Trans } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -19,6 +20,7 @@ type Post = {
     tags: string[]
     slug: string
     lang: string
+    image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
   }
   excerpt: string
 }
@@ -97,32 +99,47 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <Link key={post.id} to={postPath(post.frontmatter.slug)} className="group">
-                <Card className="h-full transition-shadow hover:shadow-md">
-                  <CardHeader>
-                    <CardTitle className="text-base leading-snug group-hover:text-secondary transition-colors">
-                      {post.frontmatter.title}
-                    </CardTitle>
-                    <CardDescription>{post.frontmatter.date}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex flex-col gap-3">
-                    <p className="text-sm text-muted-foreground line-clamp-3">
-                      {post.frontmatter.description || post.excerpt}
-                    </p>
-                    {post.frontmatter.tags?.length > 0 && (
-                      <div className="flex flex-wrap gap-1">
-                        {post.frontmatter.tags.slice(0, 3).map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
+            {posts.map((post) => {
+              const coverImage = post.frontmatter.image
+                ? getImage(post.frontmatter.image.childImageSharp.gatsbyImageData)
+                : null
+
+              return (
+                <Link key={post.id} to={postPath(post.frontmatter.slug)} className="group">
+                  <Card className="h-full transition-shadow hover:shadow-md overflow-hidden flex flex-col">
+                    {coverImage && (
+                      <div className="aspect-video w-full overflow-hidden">
+                        <GatsbyImage
+                          image={coverImage}
+                          alt={post.frontmatter.title}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
                       </div>
                     )}
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    <CardHeader className={coverImage ? "pt-4" : undefined}>
+                      <CardTitle className="text-base leading-snug group-hover:text-secondary transition-colors">
+                        {post.frontmatter.title}
+                      </CardTitle>
+                      <CardDescription>{post.frontmatter.date}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex flex-col gap-3 flex-1">
+                      <p className="text-sm text-muted-foreground line-clamp-3">
+                        {post.frontmatter.description || post.excerpt}
+                      </p>
+                      {post.frontmatter.tags?.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mt-auto">
+                          {post.frontmatter.tags.slice(0, 3).map((tag) => (
+                            <Badge key={tag} variant="secondary" className="text-xs">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              )
+            })}
           </div>
         </section>
       )}
@@ -165,6 +182,11 @@ export const query = graphql`
           tags
           slug
           lang
+          image {
+            childImageSharp {
+              gatsbyImageData(width: 600, height: 340, placeholder: BLURRED)
+            }
+          }
         }
       }
     }
