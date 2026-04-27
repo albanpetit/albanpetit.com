@@ -1,0 +1,48 @@
+{
+  "name": "albanpetit.com",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bullseye",
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached,readonly"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "forwardPorts": [8000, 9000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Gatsby Dev Server",
+      "onAutoForward": "notify"
+    },
+    "9000": {
+      "label": "Gatsby Serve",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "npm install && npm install -g @anthropic-ai/claude-code",
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next",
+        "PKief.material-icon-theme",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "tailwindCSS.experimental.classRegex": [
+          ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+          ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ]
+      }
+    }
+  }
+}
