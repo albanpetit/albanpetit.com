@@ -1,5 +1,7 @@
 import React from "react"
 import { Moon, Sun, Menu } from "lucide-react"
+import { useTranslation } from "gatsby-plugin-react-i18next"
+import { useI18next } from "gatsby-plugin-react-i18next"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -9,21 +11,30 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
-const navLinks = [
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-]
-
 const Layout = ({ children }: LayoutProps) => {
   const { theme, toggle } = useTheme()
+  const { t } = useTranslation()
+  const { language, changeLanguage } = useI18next()
+
+  const navLinks = [
+    { href: language === "en" ? "/blog/" : "/fr/blog/", label: t("nav.blog") },
+    { href: language === "en" ? "/about/" : "/fr/about/", label: t("nav.about") },
+  ]
+
+  const otherLang = language === "en" ? "fr" : "en"
 
   return (
     <div className="min-h-screen bg-background font-sans antialiased">
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
-          <a href="/" className="flex items-center gap-2 font-bold tracking-tight">
-            <span className="text-primary">albanpetit</span>
-            <span className="text-muted-foreground font-normal">.com</span>
+          <a
+            href={language === "en" ? "/" : "/fr/"}
+            className="flex items-center gap-2 font-bold tracking-tight"
+          >
+            <img src="/logo.svg" alt="albanpetit.com" className="h-7 w-7" />
+            <span>
+              albanpetit<span className="text-muted-foreground font-normal">.com</span>
+            </span>
           </a>
 
           {/* Desktop nav */}
@@ -37,13 +48,29 @@ const Layout = ({ children }: LayoutProps) => {
                 {label}
               </a>
             ))}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => changeLanguage(otherLang)}
+              className="text-muted-foreground uppercase font-medium"
+            >
+              {otherLang}
+            </Button>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
           </nav>
 
           {/* Mobile nav */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-1 md:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => changeLanguage(otherLang)}
+              className="text-muted-foreground uppercase font-medium text-xs"
+            >
+              {otherLang}
+            </Button>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -75,7 +102,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       <Separator />
       <footer className="container flex h-14 items-center justify-center gap-1 text-sm text-muted-foreground">
-        <span>© {new Date().getFullYear()} Alban Petit</span>
+        <span>{t("footer.copyright", { year: new Date().getFullYear() })}</span>
         <span>·</span>
         <a
           href="https://github.com/albanpetit"

@@ -1,0 +1,4 @@
+User-agent: Googlebot
+Disallow: /search
+
+Sitemap: https://albanpetit.com/sitemap.xml

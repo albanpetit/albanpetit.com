@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "blog": "Articles",
+    "about": "À propos"
+  },
+  "footer": {
+    "copyright": "© {{year}} Alban Petit"
+  },
+  "home": {
+    "role": "Développeur · Maker · FabManager",
+    "description": "J'écris sur l'électronique, le développement web, et tout ce qui touche au monde des makers — tutoriels, expériences, et projets réalisés à <1>La Machinerie</1> et dans mon atelier.",
+    "readBlog": "Lire les articles",
+    "aboutMe": "À propos",
+    "latestPosts": "Derniers articles",
+    "allPosts": "Tous les articles"
+  },
+  "blog": {
+    "title": "Articles",
+    "subtitle_one": "{{count}} article sur l'électronique, le développement web et les projets makers.",
+    "subtitle_other": "{{count}} articles sur l'électronique, le développement web et les projets makers.",
+    "all": "Tous",
+    "empty": "Aucun article trouvé."
+  },
+  "post": {
+    "backToBlog": "Tous les articles",
+    "minRead_one": "{{count}} min de lecture",
+    "minRead_other": "{{count}} min de lecture"
+  },
+  "about": {
+    "role": "Développeur · Maker · FabManager",
+    "skills": ["Développement Web", "Électronique", "Maker", "Open Source"],
+    "email": "Email",
+    "twitter": "Twitter",
+    "github": "GitHub"
+  },
+  "404": {
+    "title": "404",
+    "subtitle": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  }
+}

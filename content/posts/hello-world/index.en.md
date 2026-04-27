@@ -1,11 +1,11 @@
 ---
 title: "Hello World — New blog, new stack"
 slug: hello-world
+lang: en
 date: 2026-04-27
 description: "The blog is now running on Gatsby + React + shadcn/ui. Here's why I switched from Hugo."
 tags: ["gatsby", "react", "shadcn", "blog"]
 category: "Web"
-image: ""
 ---
 
 After a few years running this blog on Hugo with a custom theme, I've decided to migrate to a React-based stack using [Gatsby](https://www.gatsbyjs.com/) and [shadcn/ui](https://ui.shadcn.com/).

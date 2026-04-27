@@ -11,8 +11,16 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "locale",
+        path: `${__dirname}/locales`,
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -54,6 +62,23 @@ const config: GatsbyConfig = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-i18next",
+      options: {
+        localeJsonSourceName: "locale",
+        languages: ["en", "fr"],
+        defaultLanguage: "en",
+        siteUrl: "https://albanpetit.com",
+        trailingSlash: "always",
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+          keySeparator: ".",
+          nsSeparator: ":",
+        },
       },
     },
   ],

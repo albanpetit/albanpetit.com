@@ -1,6 +1,9 @@
 import path from "path"
 import type { GatsbyNode } from "gatsby"
 
+const LANGUAGES = ["en", "fr"]
+const DEFAULT_LANGUAGE = "en"
+
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -19,7 +22,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     allMarkdownRemark: {
       nodes: {
         id: string
-        frontmatter: { slug: string }
+        frontmatter: { slug: string; lang: string }
       }[]
     }
   }>(`
@@ -29,6 +32,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
           id
           frontmatter {
             slug
+            lang
           }
         }
       }
@@ -41,12 +45,28 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   }
 
   result.data?.allMarkdownRemark.nodes.forEach((node) => {
-    const slug = node.frontmatter.slug
-    if (!slug) return
+    const { slug, lang } = node.frontmatter
+    if (!slug || !lang) return
+
+    const originalPath = `/post/${slug}/`
+    const pagePath = lang === DEFAULT_LANGUAGE ? originalPath : `/${lang}${originalPath}`
+
     createPage({
-      path: `/post/${slug}`,
+      path: pagePath,
       component: postTemplate,
-      context: { id: node.id },
+      context: {
+        id: node.id,
+        slug,
+        language: lang,
+        i18n: {
+          language: lang,
+          languages: LANGUAGES,
+          defaultLanguage: DEFAULT_LANGUAGE,
+          originalPath,
+          routed: lang !== DEFAULT_LANGUAGE,
+          path: pagePath,
+        },
+      },
     })
   })
 }

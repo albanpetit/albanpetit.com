@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import type { HeadFC, PageProps } from "gatsby"
+import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import Seo from "@/components/seo"
 
 type Post = {
   id: string
@@ -15,6 +17,7 @@ type Post = {
     tags: string[]
     category: string
     slug: string
+    lang: string
   }
   excerpt: string
   timeToRead: number
@@ -27,8 +30,16 @@ type BlogPageData = {
 }
 
 const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
-  const posts = data.allMarkdownRemark.nodes
+  const { t } = useTranslation()
+  const { language } = useI18next()
   const [activeTag, setActiveTag] = useState<string | null>(null)
+
+  const posts = data.allMarkdownRemark.nodes.filter(
+    (p) => p.frontmatter.lang === language
+  )
+
+  const postPath = (slug: string) =>
+    language === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
 
   const allTags = Array.from(
     new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))
@@ -42,25 +53,21 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
     <Layout>
       <div className="flex flex-col gap-8">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t("blog.title")}</h1>
           <p className="mt-2 text-muted-foreground">
-            {posts.length} post{posts.length !== 1 ? "s" : ""} on electronics, web development,
-            and maker projects.
+            {t("blog.subtitle", { count: posts.length })}
           </p>
         </div>
 
         {/* Tag filter */}
         {allTags.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setActiveTag(null)}
-              className="focus:outline-none"
-            >
+            <button onClick={() => setActiveTag(null)} className="focus:outline-none">
               <Badge
                 variant={activeTag === null ? "default" : "outline"}
                 className="cursor-pointer"
               >
-                All
+                {t("blog.all")}
               </Badge>
             </button>
             {allTags.map((tag) => (
@@ -85,7 +92,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
         {/* Post list */}
         <div className="flex flex-col gap-4">
           {filtered.map((post) => (
-            <Link key={post.id} to={`/post/${post.frontmatter.slug}`} className="group">
+            <Link key={post.id} to={postPath(post.frontmatter.slug)} className="group">
               <Card className="transition-shadow hover:shadow-md">
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-4">
@@ -114,7 +121,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           ))}
 
           {filtered.length === 0 && (
-            <p className="text-muted-foreground py-8 text-center">No posts found.</p>
+            <p className="text-muted-foreground py-8 text-center">{t("blog.empty")}</p>
           )}
         </div>
       </div>
@@ -125,14 +132,20 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
 export default BlogPage
 
 export const Head: HeadFC = () => (
-  <>
-    <title>Blog · Alban Petit</title>
-    <meta name="description" content="Blog posts by Alban Petit" />
-  </>
+  <Seo title="Blog · Alban Petit" description="Blog posts by Alban Petit" />
 )
 
 export const query = graphql`
-  query BlogPage {
+  query BlogPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       sort: { frontmatter: { date: DESC } }
@@ -148,6 +161,7 @@ export const query = graphql`
           tags
           category
           slug
+          lang
         }
       }
     }

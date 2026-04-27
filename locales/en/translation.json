@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "blog": "Blog",
+    "about": "About"
+  },
+  "footer": {
+    "copyright": "© {{year}} Alban Petit"
+  },
+  "home": {
+    "role": "Developer · Maker · FabManager",
+    "description": "I write about electronics, web development, and all things related to the maker world — tutorials, experiments, and projects built at <1>La Machinerie</1> and in my workshop.",
+    "readBlog": "Read the blog",
+    "aboutMe": "About me",
+    "latestPosts": "Latest posts",
+    "allPosts": "All posts"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle_one": "{{count}} post on electronics, web development, and maker projects.",
+    "subtitle_other": "{{count}} posts on electronics, web development, and maker projects.",
+    "all": "All",
+    "empty": "No posts found."
+  },
+  "post": {
+    "backToBlog": "All posts",
+    "minRead_one": "{{count}} min read",
+    "minRead_other": "{{count}} min read"
+  },
+  "about": {
+    "role": "Developer · Maker · FabManager",
+    "skills": ["Web Development", "Electronics", "Maker", "Open Source"],
+    "email": "Email",
+    "twitter": "Twitter",
+    "github": "GitHub"
+  },
+  "404": {
+    "title": "404",
+    "subtitle": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  }
+}

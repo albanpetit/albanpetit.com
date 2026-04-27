@@ -1,11 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import type { HeadFC, PageProps } from "gatsby"
+import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Clock, Calendar } from "lucide-react"
+import Seo from "@/components/seo"
 
 type PostTemplateData = {
   markdownRemark: {
@@ -17,24 +19,27 @@ type PostTemplateData = {
       description: string
       tags: string[]
       category: string
+      lang: string
     }
   }
 }
 
 const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
+  const { t } = useTranslation()
+  const { language } = useI18next()
   const { html, timeToRead, frontmatter } = data.markdownRemark
+
+  const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
 
   return (
     <Layout>
       <article className="mx-auto max-w-2xl">
-        {/* Back */}
         <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
-          <Link to="/blog">
-            <ArrowLeft className="mr-1 h-4 w-4" /> All posts
+          <Link to={blogPath}>
+            <ArrowLeft className="mr-1 h-4 w-4" /> {t("post.backToBlog")}
           </Link>
         </Button>
 
-        {/* Header */}
         <header className="flex flex-col gap-4 mb-8">
           {frontmatter.category && (
             <Badge variant="secondary" className="w-fit">
@@ -55,7 +60,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
             {timeToRead && (
               <span className="flex items-center gap-1">
                 <Clock className="h-3.5 w-3.5" />
-                {timeToRead} min read
+                {t("post.minRead", { count: timeToRead })}
               </span>
             )}
           </div>
@@ -72,7 +77,6 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
         <Separator className="mb-8" />
 
-        {/* Content */}
         <div
           className="prose prose-neutral dark:prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -85,14 +89,23 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 export default PostTemplate
 
 export const Head: HeadFC<PostTemplateData> = ({ data }) => (
-  <>
-    <title>{data.markdownRemark.frontmatter.title} · Alban Petit</title>
-    <meta name="description" content={data.markdownRemark.frontmatter.description} />
-  </>
+  <Seo
+    title={`${data.markdownRemark.frontmatter.title} · Alban Petit`}
+    description={data.markdownRemark.frontmatter.description}
+  />
 )
 
 export const query = graphql`
-  query PostTemplate($id: String!) {
+  query PostTemplate($id: String!, $language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       html
       timeToRead
@@ -102,6 +115,7 @@ export const query = graphql`
         description
         tags
         category
+        lang
       }
     }
   }
