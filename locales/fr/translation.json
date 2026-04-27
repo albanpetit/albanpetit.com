@@ -33,6 +33,14 @@
     "twitter": "Twitter",
     "github": "GitHub"
   },
+  "search": {
+    "title": "Recherche",
+    "subtitle": "Recherchez parmi tous les articles par titre, description, tags ou catégorie.",
+    "placeholder": "Rechercher des articles…",
+    "results_one": "{{count}} résultat pour « {{query}} »",
+    "results_other": "{{count}} résultats pour « {{query}} »",
+    "empty": "Aucun résultat trouvé."
+  },
   "tag": {
     "title": "#{{tag}}",
     "subtitle_one": "{{count}} article",

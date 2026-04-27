@@ -1,5 +1,5 @@
 import React from "react"
-import { Moon, Sun, Menu } from "lucide-react"
+import { Moon, Sun, Menu, Search } from "lucide-react"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import { useI18next } from "gatsby-plugin-react-i18next"
 import { Button } from "@/components/ui/button"
@@ -56,6 +56,11 @@ const Layout = ({ children }: LayoutProps) => {
             >
               {otherLang}
             </Button>
+            <a href={language === "en" ? "/search/" : "/fr/search/"} aria-label="Search">
+              <Button variant="ghost" size="icon" asChild>
+                <span><Search className="h-4 w-4" /></span>
+              </Button>
+            </a>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -63,6 +68,11 @@ const Layout = ({ children }: LayoutProps) => {
 
           {/* Mobile nav */}
           <div className="flex items-center gap-1 md:hidden">
+            <a href={language === "en" ? "/search/" : "/fr/search/"} aria-label="Search">
+              <Button variant="ghost" size="icon" asChild>
+                <span><Search className="h-4 w-4" /></span>
+              </Button>
+            </a>
             <Button
               variant="ghost"
               size="sm"
