@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React, { useState } from "react"
+import { graphql, Link, navigate } from "gatsby"
 import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next, Trans } from "gatsby-plugin-react-i18next"
@@ -7,9 +7,10 @@ import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ArrowRight } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { ArrowRight, Search, Github, MapPin, Cpu, Twitter } from "lucide-react"
 import Seo from "@/components/seo"
+import { tagPath, categoryPath } from "@/lib/tag"
 
 type Post = {
   id: string
@@ -18,6 +19,7 @@ type Post = {
     date: string
     description: string
     tags: string[]
+    category: string
     slug: string
     lang: string
     image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
@@ -26,121 +28,267 @@ type Post = {
 }
 
 type IndexPageData = {
-  allMarkdownRemark: {
-    nodes: Post[]
-  }
+  allMarkdownRemark: { nodes: Post[] }
 }
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
+  const [searchQuery, setSearchQuery] = useState("")
 
   const posts = data.allMarkdownRemark.nodes.filter(
     (p) => p.frontmatter.lang === language
   )
 
+  const allTags = Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort()
+  const allCategories = Array.from(new Set(posts.map((p) => p.frontmatter.category).filter(Boolean))).sort()
+
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const aboutPath = language === "en" ? "/about/" : "/fr/about/"
+  const searchPath = language === "en" ? "/search/" : "/fr/search/"
   const postPath = (slug: string) =>
     language === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) navigate(`${searchPath}?q=${encodeURIComponent(searchQuery.trim())}`)
+    else navigate(searchPath)
+  }
 
   return (
     <Layout>
       {/* Hero */}
-      <section className="flex flex-col gap-6 py-12 md:py-20">
-        <div className="flex items-center gap-4">
-          <Avatar className="h-16 w-16 border-2 border-primary">
-            <AvatarImage src="/logo.png" alt="Alban Petit" />
-            <AvatarFallback className="bg-primary text-primary-foreground text-xl font-bold">
-              AP
-            </AvatarFallback>
-          </Avatar>
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Alban Petit</h1>
-            <p className="text-muted-foreground">{t("home.role")}</p>
+      <section className="relative grid grid-cols-1 md:grid-cols-2 gap-12 py-12 md:py-20 items-center overflow-hidden">
+
+        {/* Decorative blobs */}
+        <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl -z-10" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-secondary/10 blur-3xl -z-10" />
+
+        <div className="flex flex-col gap-5">
+
+          {/* Name + accent */}
+          <div className="border-l-4 border-primary pl-4">
+            <h1 className="text-4xl font-bold tracking-tight">{t("home.name")}</h1>
+            <p className="mt-1 text-muted-foreground">{t("home.role")}</p>
+          </div>
+
+          {/* Description */}
+          <p className="text-base text-muted-foreground leading-relaxed">
+            <Trans i18nKey="home.description">
+              I write about electronics, web development, and all things related to the maker world —
+              tutorials, experiments, and projects built at{" "}
+              <a
+                href="https://lamachinerie.org"
+                className="text-secondary underline-offset-4 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                La Machinerie
+              </a>{" "}
+              and in my workshop.
+            </Trans>
+          </p>
+
+          {/* Info card */}
+          <div className="rounded-xl border bg-card p-4 flex flex-col gap-2 text-sm">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <MapPin className="h-4 w-4 shrink-0 text-primary" />
+              <span>{t("home.location")}</span>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Cpu className="h-4 w-4 shrink-0 text-primary" />
+              <a
+                href="https://lamachinerie.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                {t("home.fablab")}
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Github className="h-4 w-4 shrink-0 text-primary" />
+              <a
+                href="https://github.com/albanpetit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                github.com/albanpetit
+              </a>
+            </div>
+          </div>
+
+          {/* Skills */}
+          <div className="flex flex-wrap gap-2">
+            {(t("home.skills", { returnObjects: true }) as string[]).map((skill) => (
+              <Badge key={skill} variant="secondary">{skill}</Badge>
+            ))}
+          </div>
+
+          {/* Social + CTA */}
+          <div className="flex flex-wrap gap-2">
+            <Button asChild>
+              <Link to={blogPath}>
+                {t("home.readBlog")} <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link to={aboutPath}>{t("home.aboutMe")}</Link>
+            </Button>
+            <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" aria-label="GitHub">
+                <Github className="h-4 w-4" />
+              </Button>
+            </a>
+            <a href="https://twitter.com/Padh_" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" aria-label="Twitter">
+                <Twitter className="h-4 w-4" />
+              </Button>
+            </a>
           </div>
         </div>
-        <p className="max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          <Trans i18nKey="home.description">
-            I write about electronics, web development, and all things related to the maker world —
-            tutorials, experiments, and projects built at{" "}
-            <a
-              href="https://lamachinerie.org"
-              className="text-secondary underline-offset-4 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              La Machinerie
-            </a>{" "}
-            and in my workshop.
-          </Trans>
-        </p>
-        <div className="flex gap-3">
-          <Button asChild>
-            <Link to={blogPath}>
-              {t("home.readBlog")} <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link to={aboutPath}>{t("home.aboutMe")}</Link>
-          </Button>
+
+        {/* Photo */}
+        <div className="flex justify-center md:justify-end">
+          <div className="relative w-64 h-80 md:w-72 md:h-96">
+            {/* Decorative offset square */}
+            <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-primary/30" />
+            <img
+              src="https://github.com/albanpetit.png"
+              alt="Alban Petit"
+              className="relative w-full h-full object-cover rounded-2xl shadow-lg"
+            />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10" />
+          </div>
         </div>
       </section>
 
-      {/* Latest posts */}
+      {/* Main content + sidebar */}
       {posts.length > 0 && (
-        <section className="py-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold tracking-tight">{t("home.latestPosts")}</h2>
-            <Button variant="ghost" size="sm" asChild>
-              <Link to={blogPath}>
-                {t("home.allPosts")} <ArrowRight className="ml-1 h-3 w-3" />
-              </Link>
-            </Button>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => {
-              const coverImage = post.frontmatter.image
-                ? getImage(post.frontmatter.image.childImageSharp.gatsbyImageData)
-                : null
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-8">
 
-              return (
-                <Link key={post.id} to={postPath(post.frontmatter.slug)} className="group">
-                  <Card className="h-full transition-shadow hover:shadow-md overflow-hidden flex flex-col">
-                    {coverImage && (
-                      <div className="aspect-video w-full overflow-hidden">
-                        <GatsbyImage
-                          image={coverImage}
-                          alt={post.frontmatter.title}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                    )}
-                    <CardHeader className={coverImage ? "pt-4" : undefined}>
-                      <CardTitle className="text-base leading-snug group-hover:text-secondary transition-colors">
-                        {post.frontmatter.title}
-                      </CardTitle>
-                      <CardDescription>{post.frontmatter.date}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex flex-col gap-3 flex-1">
-                      <p className="text-sm text-muted-foreground line-clamp-3">
-                        {post.frontmatter.description || post.excerpt}
-                      </p>
-                      {post.frontmatter.tags?.length > 0 && (
-                        <div className="flex flex-wrap gap-1 mt-auto">
-                          {post.frontmatter.tags.slice(0, 3).map((tag) => (
-                            <Badge key={tag} variant="secondary" className="text-xs">
-                              {tag}
-                            </Badge>
-                          ))}
+          {/* Latest posts — 2/3 */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold tracking-tight">{t("home.latestPosts")}</h2>
+              <Button variant="ghost" size="sm" asChild>
+                <Link to={blogPath}>
+                  {t("home.allPosts")} <ArrowRight className="ml-1 h-3 w-3" />
+                </Link>
+              </Button>
+            </div>
+            <div className="flex flex-col gap-4">
+              {posts.slice(0, 5).map((post) => {
+                const coverImage = post.frontmatter.image
+                  ? getImage(post.frontmatter.image.childImageSharp.gatsbyImageData)
+                  : null
+
+                return (
+                  <Card
+                    key={post.id}
+                    className="transition-shadow hover:shadow-md overflow-hidden cursor-pointer group"
+                    onClick={() => navigate(postPath(post.frontmatter.slug))}
+                  >
+                    <div className="flex flex-col sm:flex-row">
+                      {coverImage && (
+                        <div className="sm:w-40 sm:shrink-0">
+                          <GatsbyImage
+                            image={coverImage}
+                            alt={post.frontmatter.title}
+                            className="h-36 sm:h-full w-full object-cover"
+                          />
                         </div>
                       )}
-                    </CardContent>
+                      <div className="flex flex-col flex-1 min-w-0">
+                        <CardHeader className="pb-1">
+                          <div className="flex items-start justify-between gap-4">
+                            <CardTitle className="text-base leading-snug group-hover:text-secondary transition-colors">
+                              {post.frontmatter.title}
+                            </CardTitle>
+                            <CardDescription className="shrink-0 text-xs">
+                              {post.frontmatter.date}
+                            </CardDescription>
+                          </div>
+                        </CardHeader>
+                        <CardContent className="flex flex-col gap-2">
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {post.frontmatter.description || post.excerpt}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {post.frontmatter.tags?.slice(0, 3).map((tag) => (
+                              <Link key={tag} to={tagPath(tag, language)} onClick={(e) => e.stopPropagation()}>
+                                <Badge variant="secondary" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+                                  {tag}
+                                </Badge>
+                              </Link>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </div>
+                    </div>
                   </Card>
-                </Link>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
+
+          {/* Sidebar — 1/3 */}
+          <aside className="flex flex-col gap-8">
+
+            {/* Search */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                {t("search.title")}
+              </h3>
+              <form onSubmit={handleSearch} className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                <Input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={t("search.placeholder")}
+                  className="pl-9"
+                />
+              </form>
+            </div>
+
+            {/* Categories */}
+            {allCategories.length > 0 && (
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  {t("home.categories")}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {allCategories.map((cat) => (
+                    <Link key={cat} to={categoryPath(cat, language)}>
+                      <Badge variant="outline" className="cursor-pointer hover:bg-accent transition-colors">
+                        {cat}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Tags */}
+            {allTags.length > 0 && (
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  {t("home.tags")}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {allTags.map((tag) => (
+                    <Link key={tag} to={tagPath(tag, language)}>
+                      <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
+                        {tag}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+          </aside>
         </section>
       )}
     </Layout>
@@ -170,7 +318,6 @@ export const query = graphql`
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       sort: { frontmatter: { date: DESC } }
-      limit: 6
     ) {
       nodes {
         id
@@ -180,11 +327,12 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           description
           tags
+          category
           slug
           lang
           image {
             childImageSharp {
-              gatsbyImageData(width: 600, height: 340, placeholder: BLURRED)
+              gatsbyImageData(width: 400, height: 300, placeholder: BLURRED)
             }
           }
         }

@@ -7,12 +7,19 @@
     "copyright": "© {{year}} Alban Petit"
   },
   "home": {
+    "name": "Alban Petit",
     "role": "Developer · Maker · FabManager",
     "description": "I write about electronics, web development, and all things related to the maker world — tutorials, experiments, and projects built at <1>La Machinerie</1> and in my workshop.",
     "readBlog": "Read the blog",
     "aboutMe": "About me",
     "latestPosts": "Latest posts",
-    "allPosts": "All posts"
+    "allPosts": "All posts",
+    "categories": "Categories",
+    "tags": "Tags",
+    "location": "France",
+    "fablab": "FabManager @ La Machinerie",
+    "openSource": "Open Source enthusiast",
+    "skills": ["Electronics", "Web Development", "3D Printing", "Open Source"]
   },
   "blog": {
     "title": "Blog",
