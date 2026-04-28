@@ -1,34 +1,18 @@
 import React, { useState, useMemo } from "react"
 import { graphql, Link, navigate } from "gatsby"
-import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next, Trans } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ArrowRight, Search, MapPin, Cpu, Printer } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
-
-type Post = {
-  id: string
-  frontmatter: {
-    title: string
-    date: string
-    description: string
-    tags: string[]
-    category: string
-    slug: string
-    lang: string
-    image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
-  }
-  excerpt: string
-}
+import PostCard, { type PostCardData } from "@/components/PostCard"
 
 type IndexPageData = {
-  allMarkdownRemark: { nodes: Post[] }
+  allMarkdownRemark: { nodes: PostCardData[] }
 }
 
 const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
@@ -54,8 +38,6 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const aboutPath = language === "en" ? "/about/" : "/fr/about/"
   const searchPath = language === "en" ? "/search/" : "/fr/search/"
-  const postPath = (slug: string) =>
-    language === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -197,90 +179,42 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 </Link>
               </Button>
             </div>
-            <div className="flex flex-col gap-4">
-              {posts.slice(0, 5).map((post) => {
-                const coverImage = post.frontmatter.image
-                  ? getImage(post.frontmatter.image.childImageSharp.gatsbyImageData)
-                  : null
-
-                return (
-                  <Card
-                    key={post.id}
-                    className="transition-shadow hover:shadow-md overflow-hidden cursor-pointer group"
-                    onClick={() => navigate(postPath(post.frontmatter.slug))}
-                  >
-                    <div className="flex flex-col sm:flex-row">
-                      {coverImage && (
-                        <div className="sm:w-40 sm:shrink-0">
-                          <GatsbyImage
-                            image={coverImage}
-                            alt={post.frontmatter.title}
-                            className="h-36 sm:h-full w-full object-cover"
-                          />
-                        </div>
-                      )}
-                      <div className="flex flex-col flex-1 min-w-0">
-                        <CardHeader className="pb-1">
-                          <div className="flex items-start justify-between gap-4">
-                            <CardTitle className="text-base leading-snug group-hover:text-secondary transition-colors">
-                              {post.frontmatter.title}
-                            </CardTitle>
-                            <CardDescription className="shrink-0 text-xs">
-                              {post.frontmatter.date}
-                            </CardDescription>
-                          </div>
-                        </CardHeader>
-                        <CardContent className="flex flex-col gap-2">
-                          <p className="text-sm text-muted-foreground line-clamp-2">
-                            {post.frontmatter.description || post.excerpt}
-                          </p>
-                          <div className="flex flex-wrap gap-1">
-                            {post.frontmatter.tags?.slice(0, 3).map((tag) => (
-                              <Link key={tag} to={tagPath(tag, language)} onClick={(e) => e.stopPropagation()}>
-                                <Badge variant="secondary" className="text-xs cursor-pointer hover:bg-accent transition-colors">
-                                  {tag}
-                                </Badge>
-                              </Link>
-                            ))}
-                          </div>
-                        </CardContent>
-                      </div>
-                    </div>
-                  </Card>
-                )
-              })}
+            <div className="flex flex-col gap-3">
+              {posts.slice(0, 5).map((post) => (
+                <PostCard key={post.id} post={post} language={language} thumbnailWidth="sm:w-40" />
+              ))}
             </div>
           </div>
 
           {/* Sidebar — 1/3 */}
-          <aside className="flex flex-col gap-8">
+          <aside className="flex flex-col gap-6">
 
             {/* Search */}
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+            <div className="rounded-xl border bg-card p-4 flex flex-col gap-3">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 {t("search.title")}
               </h3>
               <form onSubmit={handleSearch} className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={t("search.placeholder") ?? ""}
-                  className="pl-9"
+                  className="pl-9 h-9"
                 />
               </form>
             </div>
 
             {/* Categories */}
             {allCategories.length > 0 && (
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              <div className="rounded-xl border bg-card p-4 flex flex-col gap-3">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {t("home.categories")}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {allCategories.map((cat) => (
                     <Link key={cat} to={categoryPath(cat, language)}>
-                      <Badge variant="outline" className="cursor-pointer hover:bg-accent transition-colors">
+                      <Badge variant="outline" className="cursor-pointer hover:border-primary/50 transition-colors">
                         {cat}
                       </Badge>
                     </Link>
@@ -291,14 +225,14 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
 
             {/* Tags */}
             {allTags.length > 0 && (
-              <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              <div className="rounded-xl border bg-card p-4 flex flex-col gap-3">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {t("home.tags")}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {allTags.map((tag) => (
                     <Link key={tag} to={tagPath(tag, language)}>
-                      <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
+                      <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors text-xs">
                         {tag}
                       </Badge>
                     </Link>

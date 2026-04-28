@@ -152,37 +152,47 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
         <div className={hasToc ? "grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start" : undefined}>
           <article>
-            <header className="flex flex-col gap-4 mb-8">
-              {frontmatter.category && (
-                <Link to={categoryPath(frontmatter.category, language)} className="w-fit">
-                  <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
-                    {frontmatter.category}
-                  </Badge>
-                </Link>
-              )}
-              <h1 className="text-3xl font-bold leading-tight tracking-tight">
+            <header className="flex flex-col gap-5 mb-10">
+              <div className="flex items-center gap-2 flex-wrap">
+                {frontmatter.category && (
+                  <Link to={categoryPath(frontmatter.category, language)}>
+                    <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
+                      {frontmatter.category}
+                    </Badge>
+                  </Link>
+                )}
+                <div className="flex items-center gap-3 text-sm text-muted-foreground ml-auto">
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="h-3.5 w-3.5" />
+                    {displayDate}
+                  </span>
+                  {timeToRead && (
+                    <>
+                      <span className="text-border">·</span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="h-3.5 w-3.5" />
+                        {t("post.minRead", { count: timeToRead })}
+                      </span>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
                 {frontmatter.title}
               </h1>
+
               {frontmatter.description && (
-                <p className="text-lg text-muted-foreground">{frontmatter.description}</p>
+                <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary pl-4">
+                  {frontmatter.description}
+                </p>
               )}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3.5 w-3.5" />
-                  {displayDate}
-                </span>
-                {timeToRead && (
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" />
-                    {t("post.minRead", { count: timeToRead })}
-                  </span>
-                )}
-              </div>
+
               {frontmatter.tags?.length > 0 && (
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1.5">
                   {frontmatter.tags.map((tag) => (
                     <Link key={tag} to={tagPath(tag, language)}>
-                      <Badge variant="outline" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+                      <Badge variant="outline" className="text-xs cursor-pointer hover:bg-accent transition-colors rounded-full">
                         {tag}
                       </Badge>
                     </Link>

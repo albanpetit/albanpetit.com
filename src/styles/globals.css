@@ -4,28 +4,29 @@
 
 @layer base {
   :root {
+    /* Neutral light mode */
     --background: 0 0% 100%;
-    --foreground: 213 30% 15%;
+    --foreground: 0 0% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 213 30% 15%;
+    --card-foreground: 0 0% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 213 30% 15%;
+    --popover-foreground: 0 0% 9%;
     /* primary: #F9DC58 */
     --primary: 49 93% 66%;
-    --primary-foreground: 213 47% 12%;
+    --primary-foreground: 0 0% 9%;
     /* secondary: #3F72AF */
     --secondary: 213 47% 47%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 213 20% 94%;
-    --muted-foreground: 213 15% 46%;
-    --accent: 213 47% 47%;
-    --accent-foreground: 0 0% 98%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 93%;
+    --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 213 20% 88%;
-    --input: 213 20% 88%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
     --ring: 49 93% 66%;
-    --radius: 0.5rem;
+    --radius: 0.625rem;
   }
 
   .dark {
@@ -41,8 +42,8 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 55%;
-    --accent: 213 47% 47%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 18%;
@@ -52,10 +53,75 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    background: hsl(49 93% 66% / 0.35);
+    color: hsl(0 0% 9%);
+  }
+
+  /* Thin custom scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/40; }
+}
+
+/* Prose overrides */
+@layer components {
+  .prose {
+    --tw-prose-links: hsl(var(--secondary));
+    --tw-prose-invert-links: hsl(213 60% 65%);
+    --tw-prose-code: hsl(var(--foreground));
+    --tw-prose-invert-code: hsl(var(--foreground));
+  }
+
+  /* H2 with bottom border for visual separation */
+  .prose h2 {
+    @apply border-b border-border pb-2 mt-10;
+  }
+
+  /* Inline code */
+  .prose :not(pre) > code {
+    @apply bg-muted text-foreground px-1.5 py-0.5 rounded text-[0.875em] font-medium;
+    font-style: normal;
+  }
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: none;
+  }
+
+  /* Images */
+  .prose img {
+    @apply rounded-lg shadow-sm;
+  }
+
+  /* Blockquote accent */
+  .prose blockquote {
+    @apply border-l-primary;
+  }
+
+  /* Code blocks */
+  .prose pre {
+    @apply border border-border;
+  }
+
+  /* Table */
+  .prose thead {
+    @apply border-b-2 border-border;
+  }
+  .prose tbody tr {
+    @apply border-b border-border;
   }
 }

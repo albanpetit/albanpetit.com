@@ -37,17 +37,27 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
   return (
     <Layout>
       <div className="flex flex-col gap-8">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">{t("blog.title")}</h1>
+
+        {/* Page header */}
+        <div className="border-b border-border pb-6">
+          <h1 className="text-4xl font-bold tracking-tight">{t("blog.title")}</h1>
           <p className="mt-2 text-muted-foreground">
             {t("blog.subtitle", { count: filtered.length })}
           </p>
         </div>
 
+        {/* Tag filter */}
         {allTags.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            <button type="button" onClick={() => setActiveTag(null)} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
-              <Badge variant={activeTag === null ? "default" : "outline"} className="cursor-pointer">
+            <button
+              type="button"
+              onClick={() => setActiveTag(null)}
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
+            >
+              <Badge
+                variant={activeTag === null ? "default" : "outline"}
+                className="cursor-pointer rounded-full px-3"
+              >
                 {t("blog.all")}
               </Badge>
             </button>
@@ -56,9 +66,12 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
                 key={tag}
                 type="button"
                 onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-                className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
               >
-                <Badge variant={activeTag === tag ? "default" : "outline"} className="cursor-pointer">
+                <Badge
+                  variant={activeTag === tag ? "default" : "outline"}
+                  className="cursor-pointer rounded-full px-3"
+                >
                   {tag}
                 </Badge>
               </button>
@@ -66,14 +79,18 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           </div>
         )}
 
-        <Separator />
-
-        <div className="flex flex-col gap-4">
+        {/* Post list */}
+        <div className="flex flex-col gap-3">
           {filtered.map((post) => (
             <PostCard key={post.id} post={post} language={language} />
           ))}
           {filtered.length === 0 && (
-            <p className="text-muted-foreground py-8 text-center">{t("blog.empty")}</p>
+            <div className="flex flex-col items-center gap-2 py-16 text-center">
+              <p className="text-muted-foreground">{t("blog.empty")}</p>
+              <button type="button" onClick={() => setActiveTag(null)} className="text-sm text-secondary hover:underline">
+                {t("blog.all")}
+              </button>
+            </div>
           )}
         </div>
       </div>

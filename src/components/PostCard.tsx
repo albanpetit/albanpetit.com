@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, navigate } from "gatsby"
 import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { tagPath, categoryPath } from "@/lib/tag"
 
@@ -23,7 +23,6 @@ export type PostCardData = {
 interface PostCardProps {
   post: PostCardData
   language: string
-  /** Tailwind width class for the thumbnail — default "sm:w-48" */
   thumbnailWidth?: string
 }
 
@@ -38,46 +37,49 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
 
   return (
     <Card
-      className="transition-shadow hover:shadow-md overflow-hidden cursor-pointer group"
+      className="overflow-hidden cursor-pointer group border transition-all duration-200 hover:border-primary/50 hover:shadow-md"
       onClick={() => navigate(postUrl)}
     >
       <div className="flex flex-col sm:flex-row">
         {coverImage && (
-          <div className={`${thumbnailWidth} sm:shrink-0`}>
+          <div className={`${thumbnailWidth} sm:shrink-0 overflow-hidden`}>
             <GatsbyImage
               image={coverImage}
               alt={frontmatter.title}
-              className="h-40 sm:h-full w-full object-cover"
+              className="h-44 sm:h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         )}
-        <div className="flex flex-col flex-1 min-w-0">
-          <CardHeader className="pb-2">
-            <div className="flex items-start justify-between gap-4">
-              <CardTitle className="text-lg leading-snug group-hover:text-secondary transition-colors">
-                {frontmatter.title}
-              </CardTitle>
-              <CardDescription className="shrink-0 text-xs">
-                {frontmatter.date}
-              </CardDescription>
-            </div>
-            {frontmatter.category && (
+        <div className="flex flex-col flex-1 min-w-0 p-4 gap-2">
+          {/* Category + date row */}
+          <div className="flex items-center justify-between gap-2">
+            {frontmatter.category ? (
               <Link
                 to={categoryPath(frontmatter.category, language)}
                 onClick={(e) => e.stopPropagation()}
               >
-                <Badge variant="outline" className="text-xs w-fit cursor-pointer hover:bg-accent transition-colors">
+                <Badge variant="outline" className="text-xs cursor-pointer hover:bg-accent transition-colors">
                   {frontmatter.category}
                 </Badge>
               </Link>
-            )}
-          </CardHeader>
-          <CardContent className="flex flex-col gap-3">
-            <p className="text-sm text-muted-foreground line-clamp-2">
-              {frontmatter.description || excerpt}
-            </p>
-            <div className="flex flex-wrap gap-1">
-              {frontmatter.tags?.map((tag) => (
+            ) : <span />}
+            <span className="text-xs text-muted-foreground shrink-0">{frontmatter.date}</span>
+          </div>
+
+          {/* Title */}
+          <h3 className="font-semibold leading-snug group-hover:text-secondary transition-colors line-clamp-2">
+            {frontmatter.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-muted-foreground line-clamp-2 flex-1">
+            {frontmatter.description || excerpt}
+          </p>
+
+          {/* Tags */}
+          {frontmatter.tags?.length > 0 && (
+            <div className="flex flex-wrap gap-1 pt-1">
+              {frontmatter.tags.map((tag) => (
                 <Link
                   key={tag}
                   to={tagPath(tag, language)}
@@ -89,7 +91,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
                 </Link>
               ))}
             </div>
-          </CardContent>
+          )}
         </div>
       </div>
     </Card>

@@ -57,13 +57,13 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
   return (
     <Layout>
       <div className="flex flex-col gap-8">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">{t("search.title")}</h1>
+        <div className="border-b border-border pb-6">
+          <h1 className="text-4xl font-bold tracking-tight">{t("search.title")}</h1>
           <p className="mt-2 text-muted-foreground">{t("search.subtitle")}</p>
         </div>
 
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
+        <div className="relative max-w-xl">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" aria-hidden="true" />
           <label htmlFor="search-input" className="sr-only">{t("search.title")}</label>
           <Input
             id="search-input"
@@ -71,7 +71,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("search.placeholder") ?? ""}
-            className="pl-9 text-base"
+            className="pl-12 h-12 text-base rounded-xl"
           />
         </div>
 
