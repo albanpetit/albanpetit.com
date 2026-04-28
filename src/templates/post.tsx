@@ -13,6 +13,7 @@ import {
 import { Clock, Calendar } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
+import Giscus from "@/components/giscus"
 
 type Heading = { value: string; depth: number; id: string }
 
@@ -173,6 +174,9 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
               className="prose prose-neutral dark:prose-invert max-w-none"
               dangerouslySetInnerHTML={{ __html: html }}
             />
+
+            <Separator className="my-12" />
+            <Giscus />
           </article>
 
           {hasToc && (
