@@ -4,7 +4,7 @@ slug: hello-world
 lang: fr
 date: 2026-04-27
 description: "Le blog tourne maintenant sur Gatsby + React + shadcn/ui. Voici pourquoi j'ai migré depuis Hugo."
-tags: ["gatsby", "react", "shadcn", "blog"]
+tags: ["Gatsby", "React", "shadcn/ui", "Web"]
 category: "Web"
 ---
 

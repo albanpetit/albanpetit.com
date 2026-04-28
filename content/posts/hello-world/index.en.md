@@ -4,7 +4,7 @@ slug: hello-world
 lang: en
 date: 2026-04-27
 description: "The blog is now running on Gatsby + React + shadcn/ui. Here's why I switched from Hugo."
-tags: ["gatsby", "react", "shadcn", "blog"]
+tags: ["Gatsby", "React", "shadcn/ui", "Web"]
 category: "Web"
 ---
 
