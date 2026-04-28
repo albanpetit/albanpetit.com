@@ -15,6 +15,29 @@ import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
 import Giscus from "@/components/giscus"
 
+const ReadingProgress = () => {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const update = () => {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+      const total = scrollHeight - clientHeight
+      setProgress(total > 0 ? (scrollTop / total) * 100 : 0)
+    }
+    window.addEventListener("scroll", update, { passive: true })
+    return () => window.removeEventListener("scroll", update)
+  }, [])
+
+  return (
+    <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-transparent">
+      <div
+        className="h-full bg-primary transition-all duration-75 ease-out"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  )
+}
+
 type Heading = { value: string; depth: number; id: string }
 
 type PostTemplateData = {
@@ -102,6 +125,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
   return (
     <Layout>
+      <ReadingProgress />
       <div className={`mx-auto ${hasToc ? "max-w-5xl" : "max-w-2xl"}`}>
 
         <Breadcrumb className="mb-6">
