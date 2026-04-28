@@ -25,11 +25,16 @@ type PostTemplateData = {
     frontmatter: {
       title: string
       date: string
+      lastmod: string
       description: string
       tags: string[]
       category: string
       lang: string
-      image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
+      slug: string
+      image: {
+        publicURL: string
+        childImageSharp: { gatsbyImageData: IGatsbyImageData }
+      } | null
     }
   }
 }
@@ -87,6 +92,10 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
   const { language } = useI18next()
   const { html, timeToRead, headings, frontmatter } = data.markdownRemark
   const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
+  const displayDate = new Date(frontmatter.date).toLocaleDateString(
+    language === "fr" ? "fr-FR" : "en-US",
+    { year: "numeric", month: "long", day: "numeric" }
+  )
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
@@ -136,7 +145,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <Calendar className="h-3.5 w-3.5" />
-                  {frontmatter.date}
+                  {displayDate}
                 </span>
                 {timeToRead && (
                   <span className="flex items-center gap-1">
@@ -193,12 +202,47 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
 export default PostTemplate
 
-export const Head: HeadFC<PostTemplateData> = ({ data }) => (
-  <Seo
-    title={`${data.markdownRemark.frontmatter.title} · Alban Petit`}
-    description={data.markdownRemark.frontmatter.description}
-  />
-)
+export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
+  const { title, description, image, date, lastmod, lang, slug } = data.markdownRemark.frontmatter
+  const canonicalPath = lang === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: image?.publicURL ? `https://albanpetit.com${image.publicURL}` : undefined,
+    author: {
+      "@type": "Person",
+      name: "Alban Petit",
+      url: "https://albanpetit.com",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Alban Petit",
+    },
+    datePublished: date,
+    dateModified: lastmod || date,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://albanpetit.com${canonicalPath}`,
+    },
+  }
+
+  return (
+    <Seo
+      title={`${title} · Alban Petit`}
+      description={description}
+      image={image?.publicURL}
+      type="article"
+      publishedAt={date}
+      updatedAt={lastmod || date}
+      canonicalPath={canonicalPath}
+      lang={lang}
+      structuredData={structuredData}
+    />
+  )
+}
 
 export const query = graphql`
   query PostTemplate($id: String!, $language: String!) {
@@ -221,12 +265,15 @@ export const query = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
+        lastmod
         description
         tags
         category
         lang
+        slug
         image {
+          publicURL
           childImageSharp {
             gatsbyImageData(width: 800, placeholder: BLURRED)
           }

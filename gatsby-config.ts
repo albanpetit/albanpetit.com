@@ -71,6 +71,75 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        query: `{
+          site {
+            siteMetadata { title description siteUrl }
+          }
+        }`,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }: any) =>
+              allMarkdownRemark.nodes.map((node: any) => ({
+                title: node.frontmatter.title,
+                description: node.frontmatter.description || node.excerpt,
+                date: node.frontmatter.date,
+                url: `${site.siteMetadata.siteUrl}/post/${node.frontmatter.slug}/`,
+                guid: `${site.siteMetadata.siteUrl}/post/${node.frontmatter.slug}/`,
+                custom_elements: [{ "content:encoded": node.html }],
+              })),
+            query: `{
+              allMarkdownRemark(
+                filter: {
+                  fileAbsolutePath: { regex: "/content/posts/" }
+                  frontmatter: { lang: { eq: "en" } }
+                }
+                sort: { frontmatter: { date: DESC } }
+              ) {
+                nodes {
+                  html
+                  excerpt(pruneLength: 160)
+                  frontmatter { title date description slug }
+                }
+              }
+            }`,
+            output: "/rss.xml",
+            title: "Alban Petit — Blog",
+          },
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }: any) =>
+              allMarkdownRemark.nodes.map((node: any) => ({
+                title: node.frontmatter.title,
+                description: node.frontmatter.description || node.excerpt,
+                date: node.frontmatter.date,
+                url: `${site.siteMetadata.siteUrl}/fr/post/${node.frontmatter.slug}/`,
+                guid: `${site.siteMetadata.siteUrl}/fr/post/${node.frontmatter.slug}/`,
+                custom_elements: [{ "content:encoded": node.html }],
+              })),
+            query: `{
+              allMarkdownRemark(
+                filter: {
+                  fileAbsolutePath: { regex: "/content/posts/" }
+                  frontmatter: { lang: { eq: "fr" } }
+                }
+                sort: { frontmatter: { date: DESC } }
+              ) {
+                nodes {
+                  html
+                  excerpt(pruneLength: 160)
+                  frontmatter { title date description slug }
+                }
+              }
+            }`,
+            output: "/fr/rss.xml",
+            title: "Alban Petit — Articles",
+          },
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-react-i18next",
       options: {
