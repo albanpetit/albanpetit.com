@@ -7,6 +7,10 @@ import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
+import {
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink,
+  BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 import { ArrowLeft, Clock, Calendar } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
@@ -38,11 +42,27 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
   return (
     <Layout>
       <article className="mx-auto max-w-2xl">
-        <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
-          <Link to={blogPath}>
-            <ArrowLeft className="mr-1 h-4 w-4" /> {t("post.backToBlog")}
-          </Link>
-        </Button>
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={language === "en" ? "/" : "/fr/"}>Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={blogPath}>{t("nav.blog")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="max-w-xs truncate">
+                {frontmatter.title}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         <header className="flex flex-col gap-4 mb-8">
           {frontmatter.category && (

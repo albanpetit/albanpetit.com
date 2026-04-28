@@ -11,6 +11,10 @@ import { Separator } from "@/components/ui/separator"
 import { ArrowLeft } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath } from "@/lib/tag"
+import {
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink,
+  BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 type Post = {
   id: string
@@ -49,11 +53,25 @@ const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageC
     <Layout>
       <div className="flex flex-col gap-8">
         <div>
-          <Button variant="ghost" size="sm" asChild className="-ml-2 mb-4">
-            <Link to={blogPath}>
-              <ArrowLeft className="mr-1 h-4 w-4" /> {t("post.backToBlog")}
-            </Link>
-          </Button>
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to={language === "en" ? "/" : "/fr/"}>Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to={blogPath}>{t("nav.blog")}</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{t("tag.title", { tag })}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="flex items-center gap-3">
             <h1 className="text-3xl font-bold tracking-tight">
               {t("tag.title", { tag })}
