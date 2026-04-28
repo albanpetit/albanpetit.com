@@ -1,5 +1,5 @@
-export function slugifyTag(tag: string): string {
-  return tag
+function slugify(str: string): string {
+  return str
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
@@ -7,16 +7,18 @@ export function slugifyTag(tag: string): string {
     .replace(/[^a-z0-9-]/g, "")
 }
 
-export function tagPath(tag: string, language: string): string {
-  const slug = slugifyTag(tag)
-  return language === "en" ? `/tag/${slug}/` : `/fr/tag/${slug}/`
+export function slugifyTag(tag: string): string {
+  return slugify(tag)
 }
 
 export function slugifyCategory(category: string): string {
-  return category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
+  return slugify(category)
+}
+
+export function tagPath(tag: string, language: string): string {
+  return language === "en" ? `/tag/${slugifyTag(tag)}/` : `/fr/tag/${slugifyTag(tag)}/`
 }
 
 export function categoryPath(category: string, language: string): string {
-  const slug = slugifyCategory(category)
-  return language === "en" ? `/category/${slug}/` : `/fr/category/${slug}/`
+  return language === "en" ? `/category/${slugifyCategory(category)}/` : `/fr/category/${slugifyCategory(category)}/`
 }

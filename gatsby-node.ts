@@ -1,21 +1,9 @@
 import path from "path"
 import type { GatsbyNode } from "gatsby"
+import { slugifyTag, slugifyCategory } from "./src/lib/tag"
 
 const LANGUAGES = ["en", "fr"]
 const DEFAULT_LANGUAGE = "en"
-
-function slugifyTag(tag: string): string {
-  return tag
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
-}
-
-function slugifyCategory(category: string): string {
-  return category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
-}
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions }) => {
   actions.setWebpackConfig({
