@@ -132,7 +132,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link to={language === "en" ? "/" : "/fr/"}>Home</Link>
+                <Link to={language === "en" ? "/" : "/fr/"}>{t("breadcrumb.home")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />

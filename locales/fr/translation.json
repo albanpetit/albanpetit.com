@@ -54,6 +54,13 @@
     "subtitle_one": "{{count}} article",
     "subtitle_other": "{{count}} articles"
   },
+  "category": {
+    "subtitle_one": "{{count}} article",
+    "subtitle_other": "{{count}} articles"
+  },
+  "breadcrumb": {
+    "home": "Accueil"
+  },
   "404": {
     "title": "404",
     "subtitle": "Page introuvable",

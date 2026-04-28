@@ -54,6 +54,13 @@
     "subtitle_one": "{{count}} post",
     "subtitle_other": "{{count}} posts"
   },
+  "category": {
+    "subtitle_one": "{{count}} post",
+    "subtitle_other": "{{count}} posts"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
   "404": {
     "title": "404",
     "subtitle": "Page not found",
