@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ArrowRight, Search, MapPin, Cpu } from "lucide-react"
+import { ArrowRight, Search, MapPin, Cpu, Printer } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
 
@@ -115,6 +115,17 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 className="hover:text-foreground transition-colors"
               >
                 github.com/albanpetit
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Printer className="h-4 w-4 shrink-0 text-primary" />
+              <a
+                href="https://makerworld.com/en/@albanpetit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                makerworld.com/@albanpetit
               </a>
             </div>
           </div>
