@@ -175,9 +175,16 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
 
 export default SearchPage
 
-export const Head: HeadFC = () => (
-  <Seo title="Search · Alban Petit" description="Search posts on albanpetit.com" />
-)
+export const Head: HeadFC<{}, { language: string }> = ({ pageContext }) => {
+  const isEN = pageContext.language !== "fr"
+  return (
+    <Seo
+      title={isEN ? "Search · Alban Petit" : "Recherche · Alban Petit"}
+      description={isEN ? "Search posts on albanpetit.com" : "Rechercher des articles sur albanpetit.com"}
+      noindex
+    />
+  )
+}
 
 export const query = graphql`
   query SearchPage($language: String!) {

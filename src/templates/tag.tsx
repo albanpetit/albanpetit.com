@@ -37,6 +37,8 @@ type TagPageData = {
 
 type TagPageContext = {
   tag: string
+  tagSlug: string
+  language: string
 }
 
 const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageContext }) => {
@@ -147,12 +149,19 @@ const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageC
 
 export default TagPage
 
-export const Head: HeadFC<TagPageData, TagPageContext> = ({ pageContext }) => (
-  <Seo
-    title={`#${pageContext.tag} · Alban Petit`}
-    description={`Posts tagged with ${pageContext.tag}`}
-  />
-)
+export const Head: HeadFC<TagPageData, TagPageContext> = ({ pageContext }) => {
+  const { tag, tagSlug, language } = pageContext
+  const isEN = language !== "fr"
+  const canonical = isEN ? `/tag/${tagSlug}/` : `/fr/tag/${tagSlug}/`
+  return (
+    <Seo
+      title={`#${tag} · Alban Petit`}
+      description={isEN ? `Posts tagged with ${tag}` : `Articles tagués ${tag}`}
+      canonicalPath={canonical}
+      lang={language}
+    />
+  )
+}
 
 export const query = graphql`
   query TagPage($tag: String!, $language: String!) {

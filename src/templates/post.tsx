@@ -206,6 +206,16 @@ export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
   const { title, description, image, date, lastmod, lang, slug } = data.markdownRemark.frontmatter
   const canonicalPath = lang === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
 
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://albanpetit.com${lang === "en" ? "/" : "/fr/"}` },
+      { "@type": "ListItem", position: 2, name: lang === "en" ? "Blog" : "Articles", item: `https://albanpetit.com${lang === "en" ? "/blog/" : "/fr/blog/"}` },
+      { "@type": "ListItem", position: 3, name: title, item: `https://albanpetit.com${canonicalPath}` },
+    ],
+  }
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -239,7 +249,8 @@ export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
       updatedAt={lastmod || date}
       canonicalPath={canonicalPath}
       lang={lang}
-      structuredData={structuredData}
+      alternatePaths={{ en: `/post/${slug}/`, fr: `/fr/post/${slug}/` }}
+      structuredData={[breadcrumbData, structuredData]}
     />
   )
 }

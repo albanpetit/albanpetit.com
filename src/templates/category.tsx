@@ -37,6 +37,8 @@ type CategoryPageData = {
 
 type CategoryPageContext = {
   category: string
+  categorySlug: string
+  language: string
 }
 
 const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> = ({ data, pageContext }) => {
@@ -144,12 +146,19 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
 
 export default CategoryPage
 
-export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContext }) => (
-  <Seo
-    title={`${pageContext.category} · Alban Petit`}
-    description={`Posts in category ${pageContext.category}`}
-  />
-)
+export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContext }) => {
+  const { category, categorySlug, language } = pageContext
+  const isEN = language !== "fr"
+  const canonical = isEN ? `/category/${categorySlug}/` : `/fr/category/${categorySlug}/`
+  return (
+    <Seo
+      title={`${category} · Alban Petit`}
+      description={isEN ? `Posts in category ${category}` : `Articles de la catégorie ${category}`}
+      canonicalPath={canonical}
+      lang={language}
+    />
+  )
+}
 
 export const query = graphql`
   query CategoryPage($category: String!, $language: String!) {

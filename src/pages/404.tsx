@@ -33,7 +33,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => <Seo title="404 · Alban Petit" />
+export const Head: HeadFC = () => <Seo title="404 · Alban Petit" noindex />
 
 export const query = graphql`
   query NotFoundPage($language: String!) {

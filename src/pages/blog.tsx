@@ -162,9 +162,20 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
 
 export default BlogPage
 
-export const Head: HeadFC = () => (
-  <Seo title="Blog · Alban Petit" description="Blog posts by Alban Petit" />
-)
+export const Head: HeadFC<BlogPageData, { language: string }> = ({ pageContext }) => {
+  const isEN = pageContext.language !== "fr"
+  return (
+    <Seo
+      title={isEN ? "Blog · Alban Petit" : "Articles · Alban Petit"}
+      description={isEN
+        ? "Posts on electronics, web development, and maker projects."
+        : "Articles sur l'électronique, le développement web et les projets makers."}
+      canonicalPath={isEN ? "/blog/" : "/fr/blog/"}
+      lang={pageContext.language}
+      alternatePaths={{ en: "/blog/", fr: "/fr/blog/" }}
+    />
+  )
+}
 
 export const query = graphql`
   query BlogPage($language: String!) {

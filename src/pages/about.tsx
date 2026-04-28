@@ -80,12 +80,20 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
 
 export default AboutPage
 
-export const Head: HeadFC = () => (
-  <Seo
-    title="About · Alban Petit"
-    description="About Alban Petit — developer, maker, and FabManager at La Machinerie."
-  />
-)
+export const Head: HeadFC<{}, { language: string }> = ({ pageContext }) => {
+  const isEN = pageContext.language !== "fr"
+  return (
+    <Seo
+      title={isEN ? "About · Alban Petit" : "À propos · Alban Petit"}
+      description={isEN
+        ? "About Alban Petit — developer, maker, and FabManager at La Machinerie."
+        : "À propos d'Alban Petit — développeur, maker et FabManager à La Machinerie."}
+      canonicalPath={isEN ? "/about/" : "/fr/about/"}
+      lang={pageContext.language}
+      alternatePaths={{ en: "/about/", fr: "/fr/about/" }}
+    />
+  )
+}
 
 export const query = graphql`
   query AboutPage($language: String!) {
