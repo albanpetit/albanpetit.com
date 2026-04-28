@@ -1,5 +1,5 @@
 import React from "react"
-import { Moon, Sun, Menu, Search } from "lucide-react"
+import { Moon, Sun, Menu, Search, Rss } from "lucide-react"
 import { useTranslation } from "gatsby-plugin-react-i18next"
 import { useI18next } from "gatsby-plugin-react-i18next"
 import { Button } from "@/components/ui/button"
@@ -130,6 +130,16 @@ const Layout = ({ children }: LayoutProps) => {
           className="hover:text-foreground transition-colors"
         >
           Twitter
+        </a>
+        <span>·</span>
+        <a
+          href={language === "en" ? "/rss.xml" : "/fr/rss.xml"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-orange-500 transition-colors"
+          aria-label="RSS feed"
+        >
+          <Rss className="h-3.5 w-3.5" />
         </a>
       </footer>
     </div>
