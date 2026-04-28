@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import { graphql, Link, navigate } from "gatsby"
 import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
@@ -36,12 +36,20 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
   const { language } = useI18next()
   const [searchQuery, setSearchQuery] = useState("")
 
-  const posts = data.allMarkdownRemark.nodes.filter(
-    (p) => p.frontmatter.lang === language
+  const posts = useMemo(
+    () => data.allMarkdownRemark.nodes.filter((p) => p.frontmatter.lang === language),
+    [data, language]
   )
 
-  const allTags = Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort()
-  const allCategories = Array.from(new Set(posts.map((p) => p.frontmatter.category).filter(Boolean))).sort()
+  const allTags = useMemo(
+    () => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(),
+    [posts]
+  )
+
+  const allCategories = useMemo(
+    () => Array.from(new Set(posts.map((p) => p.frontmatter.category).filter(Boolean))).sort(),
+    [posts]
+  )
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const aboutPath = language === "en" ? "/about/" : "/fr/about/"
