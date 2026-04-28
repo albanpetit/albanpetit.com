@@ -111,7 +111,7 @@
 
   /* Image spacing */
   .prose .gatsby-resp-image-wrapper {
-    @apply my-6 rounded-lg overflow-hidden shadow-sm;
+    @apply my-6 rounded-lg shadow-sm;
   }
 
   /* Multi-image paragraph → gallery grid */
@@ -160,5 +160,32 @@
   }
   .prose tbody tr {
     @apply border-b border-border;
+  }
+
+  /* Float image utilities */
+  .prose .float-left {
+    float: left;
+    width: 210px;
+    margin: 0.25rem 1.75rem 1rem 0;
+  }
+  .prose .float-right {
+    float: right;
+    width: 210px;
+    margin: 0.25rem 0 1rem 1.75rem;
+  }
+  .prose .float-left p,
+  .prose .float-right p {
+    margin: 0;
+  }
+  .prose .float-left .gatsby-resp-image-wrapper,
+  .prose .float-right .gatsby-resp-image-wrapper {
+    @apply rounded-lg shadow-sm;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .prose .clearfix {
+    clear: both;
   }
 }

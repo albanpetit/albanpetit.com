@@ -96,7 +96,11 @@ All design and manufacturing files are available on [GitHub](https://github.com/
 
 ## Electronic Board Manufacturing
 
+<div class="float-left">
+
 ![Aisler](aisler.png)
+
+</div>
 
 Living in France, the usual Chinese suppliers of electronic boards can be relatively expensive due to shipping costs. I mainly order my boards from [Aisler](https://aisler.net), a German board manufacturer. Always efficient, well-documented, and affordable, they have always perfectly fulfilled my orders. They even have a plugin available on KiCad to facilitate ordering, [Aisler push for KiCad](https://github.com/AislerHQ/PushForKiCad).
 

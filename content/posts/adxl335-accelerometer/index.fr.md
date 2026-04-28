@@ -94,7 +94,11 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles sur [Gi
 
 ## Fabrication de la carte électronique
 
+<div class="float-left">
+
 ![Aisler](aisler.png)
+
+</div>
 
 Habitant en France, les fournisseurs habituels (chinois) de cartes électroniques peuvent être relativement onéreux à cause des frais de port. Je me fournis principalement chez [Aisler](https://aisler.net), un fabricant allemand. Efficace, abordable et bien documenté, ils ont toujours honoré mes commandes. Ils ont même un plugin disponible sur **KiCad** pour faciliter la commande, [Aisler push for KiCad](https://github.com/AislerHQ/PushForKiCad).
 
