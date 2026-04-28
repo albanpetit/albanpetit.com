@@ -1,7 +1,7 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Moon, Sun, Menu, Search, Rss } from "lucide-react"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import { useI18next } from "gatsby-plugin-react-i18next"
+import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -16,37 +16,40 @@ const Layout = ({ children }: LayoutProps) => {
   const { t } = useTranslation()
   const { language, changeLanguage } = useI18next()
 
-  const navLinks = [
-    { href: language === "en" ? "/blog/" : "/fr/blog/", label: t("nav.blog") },
-    { href: language === "en" ? "/about/" : "/fr/about/", label: t("nav.about") },
-  ]
-
+  const homePath = language === "en" ? "/" : "/fr/"
+  const searchPath = language === "en" ? "/search/" : "/fr/search/"
+  const rssPath = language === "en" ? "/rss.xml" : "/fr/rss.xml"
   const otherLang = language === "en" ? "fr" : "en"
+
+  const navLinks = [
+    { to: language === "en" ? "/blog/" : "/fr/blog/", label: t("nav.blog") },
+    { to: language === "en" ? "/about/" : "/fr/about/", label: t("nav.about") },
+  ]
 
   return (
     <div className="min-h-screen bg-background font-sans antialiased">
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
-          <a
-            href={language === "en" ? "/" : "/fr/"}
+          <Link
+            to={homePath}
             className="flex items-center gap-2 font-bold tracking-tight"
           >
             <img src="/logo.svg" alt="albanpetit.com" className="h-7 w-7" />
             <span>
               albanpetit<span className="text-muted-foreground font-normal">.com</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            {navLinks.map(({ href, label }) => (
-              <a
-                key={href}
-                href={href}
+          <nav className="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
+            {navLinks.map(({ to, label }) => (
+              <Link
+                key={to}
+                to={to}
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >
                 {label}
-              </a>
+              </Link>
             ))}
             <Button
               variant="ghost"
@@ -56,11 +59,11 @@ const Layout = ({ children }: LayoutProps) => {
             >
               {otherLang}
             </Button>
-            <a href={language === "en" ? "/search/" : "/fr/search/"} aria-label="Search">
+            <Link to={searchPath} aria-label={t("search.title") ?? "Search"}>
               <Button variant="ghost" size="icon" asChild>
-                <span><Search className="h-4 w-4" /></span>
+                <span><Search className="h-4 w-4" aria-hidden="true" /></span>
               </Button>
-            </a>
+            </Link>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -68,11 +71,11 @@ const Layout = ({ children }: LayoutProps) => {
 
           {/* Mobile nav */}
           <div className="flex items-center gap-1 md:hidden">
-            <a href={language === "en" ? "/search/" : "/fr/search/"} aria-label="Search">
+            <Link to={searchPath} aria-label={t("search.title") ?? "Search"}>
               <Button variant="ghost" size="icon" asChild>
-                <span><Search className="h-4 w-4" /></span>
+                <span><Search className="h-4 w-4" aria-hidden="true" /></span>
               </Button>
-            </a>
+            </Link>
             <Button
               variant="ghost"
               size="sm"
@@ -90,16 +93,16 @@ const Layout = ({ children }: LayoutProps) => {
                   <Menu className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-56">
-                <nav className="flex flex-col gap-4 pt-8 text-sm">
-                  {navLinks.map(({ href, label }) => (
-                    <a
-                      key={href}
-                      href={href}
+              <SheetContent side="right" className="w-56" aria-label="Mobile navigation">
+                <nav className="flex flex-col gap-4 pt-8 text-sm" aria-label="Mobile navigation links">
+                  {navLinks.map(({ to, label }) => (
+                    <Link
+                      key={to}
+                      to={to}
                       className="text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {label}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </SheetContent>
@@ -133,13 +136,13 @@ const Layout = ({ children }: LayoutProps) => {
         </a>
         <span>·</span>
         <a
-          href={language === "en" ? "/rss.xml" : "/fr/rss.xml"}
+          href={rssPath}
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-orange-500 transition-colors"
           aria-label="RSS feed"
         >
-          <Rss className="h-3.5 w-3.5" />
+          <Rss className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
       </footer>
     </div>
