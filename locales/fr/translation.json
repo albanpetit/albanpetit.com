@@ -31,7 +31,8 @@
   "post": {
     "backToBlog": "Tous les articles",
     "minRead_one": "{{count}} min de lecture",
-    "minRead_other": "{{count}} min de lecture"
+    "minRead_other": "{{count}} min de lecture",
+    "toc": "Sommaire"
   },
   "about": {
     "role": "Développeur · Maker · FabManager",
