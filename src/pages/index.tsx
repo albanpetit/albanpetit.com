@@ -161,7 +161,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
         </div>
 
         {/* Photo */}
-        <div className="flex justify-center md:justify-end">
+        <div className="flex justify-center md:justify-end pb-3 pr-3">
           <div className="relative w-64 h-80 md:w-72 md:h-96">
             {/* Decorative offset square */}
             <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-primary/30" />
