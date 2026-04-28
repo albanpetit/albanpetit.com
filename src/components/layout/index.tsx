@@ -27,8 +27,10 @@ const Layout = ({ children }: LayoutProps) => {
   ]
 
   return (
-    <div className="min-h-screen bg-background font-sans antialiased">
-      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="min-h-screen font-sans antialiased">
+      <div className="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10" style={{ background: "linear-gradient(to bottom, hsl(49 93% 66% / 0.06), hsl(49 93% 66% / 0.02) 50%, transparent)" }} />
+
+      <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
           <Link
             to={homePath}
