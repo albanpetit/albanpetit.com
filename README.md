@@ -1,31 +1,46 @@
 # albanpetit.com
 
-Personal blog of Alban Petit — electronics, web development, and the maker world.
+<p align="center">
+  <img src="docs/screenshot.png" alt="albanpetit.com logo" width="120" />
+</p>
 
-**Website:** [albanpetit.com](https://albanpetit.com)
+<!-- Replace the line below with a real screenshot once available -->
+<!-- <p align="center"><img src="docs/screenshot.png" alt="Site preview" /></p> -->
+
+<p align="center">
+  A bilingual personal blog covering electronics, embedded systems, web development, and maker projects.<br/>
+  Built as a fully static site with Gatsby, deployed on GitHub Pages, and designed for fast reading and strong SEO.
+</p>
+
+<p align="center">
+  <a href="https://albanpetit.com">albanpetit.com</a> &nbsp;·&nbsp;
+  <a href="https://albanpetit.com/blog/">Blog</a> &nbsp;·&nbsp;
+  <a href="https://albanpetit.com/about/">About</a>
+</p>
 
 ---
 
 ## Stack
 
-| Tool | Role |
-|------|------|
-| [Gatsby 5](https://www.gatsbyjs.com/) | Static site generator (React + GraphQL) |
-| [shadcn/ui](https://ui.shadcn.com/) | Component library (Radix UI + Tailwind CSS) |
-| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling |
-| [TypeScript](https://www.typescriptlang.org/) | Type safety throughout |
-| [gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/) | Markdown → HTML processing |
-| [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) | Responsive lazy-loaded images |
-| [gatsby-plugin-react-i18next](https://github.com/microapps/gatsby-plugin-react-i18next) | EN / FR bilingual support |
-| [Fuse.js](https://fusejs.io/) | Client-side fuzzy search |
-| [Giscus](https://giscus.app/) | GitHub Discussions-powered comments |
-| [GitHub Actions](https://docs.github.com/en/actions) | Automated deployment to GitHub Pages |
+| Tool                                                                                     | Role                                        |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------- |
+| [Gatsby 5](https://www.gatsbyjs.com/)                                                    | Static site generator (React + GraphQL)     |
+| [shadcn/ui](https://ui.shadcn.com/)                                                      | Component library (Radix UI + Tailwind CSS) |
+| [Tailwind CSS](https://tailwindcss.com/)                                                 | Utility-first styling                       |
+| [TypeScript](https://www.typescriptlang.org/)                                            | Type safety throughout                      |
+| [gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/) | Markdown → HTML processing                  |
+| [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/)             | Responsive lazy-loaded images               |
+| [gatsby-plugin-react-i18next](https://github.com/microapps/gatsby-plugin-react-i18next)  | EN / FR bilingual support                   |
+| [Fuse.js](https://fusejs.io/)                                                            | Client-side fuzzy search                    |
+| [Giscus](https://giscus.app/)                                                            | GitHub Discussions-powered comments         |
+| [GitHub Actions](https://docs.github.com/en/actions)                                     | Automated deployment to GitHub Pages        |
 
 ---
 
 ## Features
 
 ### Content
+
 - Bilingual posts (English / French) with automatic URL routing (`/` → EN, `/fr/` → FR)
 - Tag pages and category pages, each fully bilingual
 - Full-text fuzzy search across titles, descriptions, tags, and excerpts
@@ -33,6 +48,7 @@ Personal blog of Alban Petit — electronics, web development, and the maker wor
 - Sitemap at `/sitemap-index.xml`
 
 ### Reading experience
+
 - Reading progress bar fixed at the top of each post
 - Sticky table of contents with active heading highlight (IntersectionObserver)
 - Reading time estimate on every post and card
@@ -41,6 +57,7 @@ Personal blog of Alban Petit — electronics, web development, and the maker wor
 - Cover images with responsive lazy loading and blur placeholder
 
 ### Design & UX
+
 - Dark / light mode toggle persisted across sessions
 - Neutral dot-grid background texture
 - Yellow accent `#F9DC58` + blue secondary `#3F72AF`
@@ -48,6 +65,7 @@ Personal blog of Alban Petit — electronics, web development, and the maker wor
 - Tag filter pills on the blog listing page
 
 ### SEO
+
 - Open Graph + Twitter Card meta tags on every page
 - JSON-LD structured data — `Article` and `BreadcrumbList` on posts, `WebSite` on home
 - `hreflang` alternate links for bilingual SEO
@@ -56,6 +74,7 @@ Personal blog of Alban Petit — electronics, web development, and the maker wor
 - RSS `<link>` in the document head
 
 ### Comments
+
 - GitHub Discussions comments via Giscus
 - Automatically inherits the active dark / light theme
 
@@ -63,16 +82,16 @@ Personal blog of Alban Petit — electronics, web development, and the maker wor
 
 ## Pages & routing
 
-| Page | English | French |
-|------|---------|--------|
-| Home | `/` | `/fr/` |
-| Blog listing | `/blog/` | `/fr/blog/` |
-| Post | `/post/<slug>/` | `/fr/post/<slug>/` |
-| Tag archive | `/tag/<slug>/` | `/fr/tag/<slug>/` |
+| Page             | English             | French                 |
+| ---------------- | ------------------- | ---------------------- |
+| Home             | `/`                 | `/fr/`                 |
+| Blog listing     | `/blog/`            | `/fr/blog/`            |
+| Post             | `/post/<slug>/`     | `/fr/post/<slug>/`     |
+| Tag archive      | `/tag/<slug>/`      | `/fr/tag/<slug>/`      |
 | Category archive | `/category/<slug>/` | `/fr/category/<slug>/` |
-| About | `/about/` | `/fr/about/` |
-| Search | `/search/` | `/fr/search/` |
-| 404 | `/404/` | — |
+| About            | `/about/`           | `/fr/about/`           |
+| Search           | `/search/`          | `/fr/search/`          |
+| 404              | `/404/`             | —                      |
 
 Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built with NFD-normalized lowercase ASCII (`slugifyTag`, `slugifyCategory` in `src/lib/tag.ts`).
 
@@ -165,17 +184,17 @@ content/posts/my-post/
 
 ```yaml
 ---
-title: My Post Title           # displayed in card, post header, and <title>
-slug: my-post                  # used to build the URL (/post/my-post/)
-lang: en                       # en or fr — determines which language page to create
-date: 2025-01-01               # publish date (ISO 8601)
-lastmod: 2025-01-15            # last modified date — used in JSON-LD and sitemap
-description: "Short blurb."   # shown in cards and used as meta description
-tags:                          # used for tag pages and the blog filter
+title: My Post Title # displayed in card, post header, and <title>
+slug: my-post # used to build the URL (/post/my-post/)
+lang: en # en or fr — determines which language page to create
+date: 2025-01-01 # publish date (ISO 8601)
+lastmod: 2025-01-15 # last modified date — used in JSON-LD and sitemap
+description: "Short blurb." # shown in cards and used as meta description
+tags: # used for tag pages and the blog filter
   - Electronics
   - Web
-category: Projects             # used for category pages (Projects, Tutorials, Web…)
-image: cover-image.jpg         # cover image — shown in card and at top of post
+category: Projects # used for category pages (Projects, Tutorials, Web…)
+image: cover-image.jpg # cover image — shown in card and at top of post
 ---
 ```
 
@@ -247,16 +266,16 @@ CNAME www  albanpetit.github.io
 
 Format: `type(scope): short description`
 
-| Type | Usage |
-|------|-------|
-| `feat` | New feature |
-| `fix` | Bug fix |
-| `style` | Visual / CSS changes only |
+| Type       | Usage                                       |
+| ---------- | ------------------------------------------- |
+| `feat`     | New feature                                 |
+| `fix`      | Bug fix                                     |
+| `style`    | Visual / CSS changes only                   |
 | `refactor` | Code restructuring without behaviour change |
-| `perf` | Performance improvement |
-| `chore` | Config, tooling, maintenance |
-| `docs` | Documentation only |
-| `content` | Add or update a post / content |
+| `perf`     | Performance improvement                     |
+| `chore`    | Config, tooling, maintenance                |
+| `docs`     | Documentation only                          |
+| `content`  | Add or update a post / content              |
 
 Common scopes: `ui` · `prose` · `seo` · `post` · `home` · `layout` · `i18n` · `ux` · `comments` · `tags` · `categories` · `search` · `content`
 
