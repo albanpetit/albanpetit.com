@@ -148,15 +148,34 @@ CNAME  www  albanpetit.github.io
 
 1. Fork the repository
 2. Create a branch: `git checkout -b feat/my-feature`
-3. Commit following [Conventional Commits](https://www.conventionalcommits.org/):
-   ```
-   feat: add new feature
-   fix: correct a bug
-   style: visual/CSS changes
-   content: add or update a post
-   chore: tooling or config changes
-   ```
+3. Commit following the convention below
 4. Open a Pull Request
+
+### Commit convention
+
+Format: `type(scope): short description`
+
+| Type | Usage |
+|------|-------|
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `style` | Visual / CSS changes only |
+| `refactor` | Code restructuring without behaviour change |
+| `perf` | Performance improvement |
+| `chore` | Config, tooling, maintenance |
+| `docs` | Documentation only |
+| `content` | Add or update a post / content |
+
+Common scopes: `ui` · `prose` · `seo` · `post` · `home` · `layout` · `i18n` · `ux` · `comments` · `tags` · `categories` · `search` · `content`
+
+```
+feat(post): add reading progress bar
+fix(ui): change logo to yellow
+refactor: extract PostCard as shared component
+chore: add .gitkeep to empty content/images directory
+docs: rewrite README for Gatsby stack
+content: add adxl335 accelerometer post
+```
 
 ---
 
