@@ -1,7 +1,7 @@
 # albanpetit.com
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="albanpetit.com logo" width="120" />
+  <img src="docs/screenshot.png" alt="albanpetit.com logo" width="auto" />
 </p>
 
 <!-- Replace the line below with a real screenshot once available -->
