@@ -103,12 +103,14 @@ export const query = graphql`
     ) {
       nodes {
         id
+        timeToRead
         excerpt(pruneLength: 160)
         frontmatter {
           title
           date(formatString: "MMMM DD, YYYY")
           description
           tags
+          category
           slug
           lang
           image {

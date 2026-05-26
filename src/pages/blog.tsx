@@ -34,6 +34,14 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
     [posts, activeTag]
   )
 
+  const tagCounts = useMemo(
+    () => posts.reduce<Record<string, number>>((acc, p) => {
+      p.frontmatter.tags?.forEach((tag) => { acc[tag] = (acc[tag] ?? 0) + 1 })
+      return acc
+    }, {}),
+    [posts]
+  )
+
   return (
     <Layout>
       <div className="flex flex-col gap-8">
@@ -73,6 +81,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
                   className="cursor-pointer rounded-full px-3"
                 >
                   {tag}
+                  <span className="ml-1.5 opacity-60 font-normal">{tagCounts[tag]}</span>
                 </Badge>
               </button>
             ))}
@@ -132,6 +141,7 @@ export const query = graphql`
     ) {
       nodes {
         id
+        timeToRead
         excerpt(pruneLength: 160)
         frontmatter {
           title

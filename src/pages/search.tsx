@@ -123,6 +123,7 @@ export const query = graphql`
     ) {
       nodes {
         id
+        timeToRead
         excerpt(pruneLength: 200)
         frontmatter {
           title

@@ -298,6 +298,7 @@ export const query = graphql`
     ) {
       nodes {
         id
+        timeToRead
         excerpt(pruneLength: 160)
         frontmatter {
           title

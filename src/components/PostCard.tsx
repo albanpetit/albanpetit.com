@@ -7,6 +7,7 @@ import { tagPath, categoryPath } from "@/lib/tag"
 
 export type PostCardData = {
   id: string
+  timeToRead?: number
   frontmatter: {
     title: string
     date: string
@@ -27,7 +28,7 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "sm:w-48" }) => {
-  const { frontmatter, excerpt } = post
+  const { frontmatter, excerpt, timeToRead } = post
   const coverImage = frontmatter.image
     ? getImage(frontmatter.image.childImageSharp.gatsbyImageData)
     : null
@@ -58,12 +59,15 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
                 to={categoryPath(frontmatter.category, language)}
                 onClick={(e) => e.stopPropagation()}
               >
-                <Badge variant="outline" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+                <Badge variant="secondary" className="text-xs cursor-pointer hover:bg-accent transition-colors">
                   {frontmatter.category}
                 </Badge>
               </Link>
             ) : <span />}
-            <span className="text-xs text-muted-foreground shrink-0">{frontmatter.date}</span>
+            <span className="text-xs text-muted-foreground shrink-0">
+              {frontmatter.date}
+              {timeToRead ? ` · ${timeToRead} min` : ""}
+            </span>
           </div>
 
           {/* Title */}
