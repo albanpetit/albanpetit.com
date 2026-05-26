@@ -151,7 +151,15 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
         </Breadcrumb>
 
         <div className={hasToc ? "grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start" : undefined}>
-          <article>
+          {hasToc && (
+            <div className="lg:order-2">
+              <TableOfContents
+                headings={headings}
+                title={t("post.toc")}
+              />
+            </div>
+          )}
+          <article className={hasToc ? "lg:order-1" : undefined}>
             <header className="flex flex-col gap-5 mb-10">
               <div className="flex items-center gap-2 flex-wrap">
                 {frontmatter.category && (
@@ -222,12 +230,6 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
             <Giscus />
           </article>
 
-          {hasToc && (
-            <TableOfContents
-              headings={headings}
-              title={t("post.toc")}
-            />
-          )}
         </div>
       </div>
     </Layout>
