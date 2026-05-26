@@ -39,7 +39,7 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
       <div className="mx-auto max-w-3xl flex flex-col gap-10">
 
         {/* Hero */}
-        <section className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-4">
+        <section className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-4 overflow-hidden">
           <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/15 blur-3xl -z-10" />
 
           <div className="flex flex-col gap-5">
