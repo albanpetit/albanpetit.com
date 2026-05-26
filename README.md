@@ -2,35 +2,79 @@
 
 Personal blog of Alban Petit — electronics, web development, and the maker world.
 
-🔗 **Website:** [albanpetit.com](https://albanpetit.com)
+**Website:** [albanpetit.com](https://albanpetit.com)
 
 ---
 
 ## Stack
 
-- **[Gatsby 5](https://www.gatsbyjs.com/)** — static site generator with React
-- **[shadcn/ui](https://ui.shadcn.com/)** — component library built on Radix UI + Tailwind CSS
-- **[Tailwind CSS](https://tailwindcss.com/)** — utility-first styling
-- **[TypeScript](https://www.typescriptlang.org/)** — type safety throughout
-- **[gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/)** — Markdown processing
-- **[gatsby-plugin-react-i18next](https://github.com/microapps/gatsby-plugin-react-i18next)** — EN/FR bilingual support
-- **[Fuse.js](https://fusejs.io/)** — client-side fuzzy search
-- **[Giscus](https://giscus.app/)** — GitHub Discussions-powered comments
+| Tool | Role |
+|------|------|
+| [Gatsby 5](https://www.gatsbyjs.com/) | Static site generator (React + GraphQL) |
+| [shadcn/ui](https://ui.shadcn.com/) | Component library (Radix UI + Tailwind CSS) |
+| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety throughout |
+| [gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/) | Markdown → HTML processing |
+| [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) | Responsive lazy-loaded images |
+| [gatsby-plugin-react-i18next](https://github.com/microapps/gatsby-plugin-react-i18next) | EN / FR bilingual support |
+| [Fuse.js](https://fusejs.io/) | Client-side fuzzy search |
+| [Giscus](https://giscus.app/) | GitHub Discussions-powered comments |
+| [GitHub Actions](https://docs.github.com/en/actions) | Automated deployment to GitHub Pages |
+
+---
 
 ## Features
 
-- Bilingual content (English / French) with automatic URL routing (`/` and `/fr/`)
-- Dark / light mode
-- Tag pages, category pages, search page
-- Post table of contents with active heading highlight
-- Reading progress bar
-- Cover images with responsive lazy loading
-- Multi-image gallery layout in posts
-- Text-wrapped float image utility (`float-left` / `float-right`)
-- RSS feeds (`/rss.xml` and `/fr/rss.xml`)
-- Sitemap (`/sitemap-index.xml`)
-- Full SEO: Open Graph, Twitter Card, JSON-LD (Article + BreadcrumbList), hreflang, canonical URLs
-- GitHub Actions deployment to GitHub Pages
+### Content
+- Bilingual posts (English / French) with automatic URL routing (`/` → EN, `/fr/` → FR)
+- Tag pages and category pages, each fully bilingual
+- Full-text fuzzy search across titles, descriptions, tags, and excerpts
+- RSS feeds at `/rss.xml` (EN) and `/fr/rss.xml` (FR)
+- Sitemap at `/sitemap-index.xml`
+
+### Reading experience
+- Reading progress bar fixed at the top of each post
+- Sticky table of contents with active heading highlight (IntersectionObserver)
+- Reading time estimate on every post and card
+- Multi-image gallery layout — auto-detected with CSS `:has()`, no extra markup needed
+- Float images with text wrapping (`float-left` / `float-right` utility classes)
+- Cover images with responsive lazy loading and blur placeholder
+
+### Design & UX
+- Dark / light mode toggle persisted across sessions
+- Neutral dot-grid background texture
+- Yellow accent `#F9DC58` + blue secondary `#3F72AF`
+- Fully responsive (mobile-first)
+- Tag filter pills on the blog listing page
+
+### SEO
+- Open Graph + Twitter Card meta tags on every page
+- JSON-LD structured data — `Article` and `BreadcrumbList` on posts, `WebSite` on home
+- `hreflang` alternate links for bilingual SEO
+- Canonical URLs
+- `noindex` on the search page
+- RSS `<link>` in the document head
+
+### Comments
+- GitHub Discussions comments via Giscus
+- Automatically inherits the active dark / light theme
+
+---
+
+## Pages & routing
+
+| Page | English | French |
+|------|---------|--------|
+| Home | `/` | `/fr/` |
+| Blog listing | `/blog/` | `/fr/blog/` |
+| Post | `/post/<slug>/` | `/fr/post/<slug>/` |
+| Tag archive | `/tag/<slug>/` | `/fr/tag/<slug>/` |
+| Category archive | `/category/<slug>/` | `/fr/category/<slug>/` |
+| About | `/about/` | `/fr/about/` |
+| Search | `/search/` | `/fr/search/` |
+| 404 | `/404/` | — |
+
+Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built with NFD-normalized lowercase ASCII (`slugifyTag`, `slugifyCategory` in `src/lib/tag.ts`).
 
 ---
 
@@ -58,28 +102,56 @@ npm run type-check     # TypeScript check without emitting
 
 ```
 content/
-  posts/              # Blog posts — each post has index.en.md + index.fr.md
+  posts/              # Blog posts — one directory per post
+    my-post/
+      index.en.md     # English version
+      index.fr.md     # French version
+      cover.jpg       # Cover image (referenced as `image:` in frontmatter)
+      ...             # Other post assets (diagrams, screenshots…)
   pages/              # Static pages (about.en.md, about.fr.md)
+  images/             # Global shared images
 locales/
-  en/translation.json
-  fr/translation.json
+  en/translation.json # All UI strings — English
+  fr/translation.json # All UI strings — French
 src/
-  components/         # Layout, PostCard, PcbBackground, Giscus, Seo, shadcn/ui
-  context/            # ThemeProvider
-  lib/                # tag.ts — slugify helpers
-  pages/              # index, blog, about, search, 404
-  styles/globals.css
-  templates/          # post, tag, category
-static/               # favicon, logo, robots.txt, CNAME, RSS CSS
-gatsby-config.ts
-gatsby-node.ts        # Page creation (posts, tags, categories)
+  components/
+    layout/           # Main site shell: sticky header, nav, footer
+    PostCard.tsx      # Reusable post preview card (used on home, blog, search, tag, category)
+    giscus.tsx        # GitHub Discussions comments widget (auto-themed)
+    seo.tsx           # <head> tags: OG, Twitter Card, JSON-LD, hreflang, canonical
+    ui/               # shadcn/ui primitives (Button, Badge, Card, Sheet…)
+  context/
+    theme.tsx         # Dark / light mode ThemeProvider (localStorage)
+  lib/
+    tag.ts            # slugifyTag, slugifyCategory — NFD normalization helpers
+                      # tagPath(tag, lang), categoryPath(cat, lang) — URL builders
+  pages/
+    index.tsx         # Home — hero, latest posts, sidebar (search/categories/tags)
+    blog.tsx          # Blog listing with tag filter pills
+    about.tsx         # About — photo, stats, skills, markdown content
+    search.tsx        # Full-text fuzzy search (Fuse.js, client-side)
+    404.tsx           # 404 page with decorative large number
+  styles/
+    globals.css       # Tailwind layers + prose overrides + float/gallery utilities
+  templates/
+    post.tsx          # Post layout: ReadingProgress, TOC, breadcrumbs, Giscus
+    tag.tsx           # Tag archive
+    category.tsx      # Category archive
+static/
+  favicon.ico
+  logo.svg
+  robots.txt
+  CNAME               # Custom domain (albanpetit.com) for GitHub Pages
+gatsby-config.ts      # Plugins, site metadata, i18n config, RSS feeds, sitemap
+gatsby-node.ts        # Programmatic page creation (posts, tags, categories)
+tailwind.config.js    # Tailwind config + shadcn CSS variable theme tokens
 ```
 
 ---
 
 ## Writing posts
 
-Create a directory under `content/posts/<slug>/` with two files:
+Create a directory under `content/posts/<slug>/` with two Markdown files:
 
 ```
 content/posts/my-post/
@@ -89,27 +161,29 @@ content/posts/my-post/
   other-assets...
 ```
 
-Required frontmatter:
+### Frontmatter reference
 
 ```yaml
 ---
-title: My Post Title
-slug: my-post
-lang: en           # or fr
-date: 2025-01-01
-lastmod: 2025-01-15
-description: "Short description for SEO and cards."
-tags:
+title: My Post Title           # displayed in card, post header, and <title>
+slug: my-post                  # used to build the URL (/post/my-post/)
+lang: en                       # en or fr — determines which language page to create
+date: 2025-01-01               # publish date (ISO 8601)
+lastmod: 2025-01-15            # last modified date — used in JSON-LD and sitemap
+description: "Short blurb."   # shown in cards and used as meta description
+tags:                          # used for tag pages and the blog filter
   - Electronics
   - Web
-category: Projects  # or Tutorials, Web, etc.
-image: cover-image.jpg
+category: Projects             # used for category pages (Projects, Tutorials, Web…)
+image: cover-image.jpg         # cover image — shown in card and at top of post
 ---
 ```
 
+All fields except `lastmod` are required. The `image` path is relative to the post directory and processed by `gatsby-plugin-image` (blur placeholder, responsive sizes).
+
 ### Image layout helpers
 
-Float an image with text wrapping (wrap with blank lines inside the div):
+**Float with text wrapping** — wrap with blank lines inside the div so remark processes the image:
 
 ```markdown
 <div class="float-left">
@@ -118,12 +192,20 @@ Float an image with text wrapping (wrap with blank lines inside the div):
 
 </div>
 
-Text wraps here...
+Text wraps around here…
 
 <div class="clearfix" />
 ```
 
-Multiple images on the same line automatically render as a responsive gallery grid.
+Use `float-right` for the same effect on the right side. The float width is fixed at 210 px.
+
+**Gallery grid** — place multiple images in the same paragraph (consecutive lines with no blank line between them). They are automatically laid out as a responsive grid — no extra markup needed:
+
+```markdown
+![Image 1](img1.jpg)
+![Image 2](img2.jpg)
+![Image 3](img3.jpg)
+```
 
 ---
 
@@ -133,13 +215,23 @@ The site deploys automatically to GitHub Pages via GitHub Actions on every push 
 
 To trigger manually: **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**.
 
-DNS configuration (A records pointing to GitHub Pages):
+### GitHub Actions workflow
+
+The workflow (`.github/workflows/deploy.yml`) runs in two jobs:
+
+1. **build** — checks out the repo, installs dependencies with `npm ci`, runs `npm run build`, and uploads the `public/` directory as a Pages artifact.
+2. **deploy** — downloads the artifact and publishes it to GitHub Pages.
+
+Node 20 is used; `NODE_OPTIONS=--max-old-space-size=4096` is set to handle large builds.
+
+### DNS configuration
+
 ```
-A  @  185.199.108.153
-A  @  185.199.109.153
-A  @  185.199.110.153
-A  @  185.199.111.153
-CNAME  www  albanpetit.github.io
+A     @    185.199.108.153
+A     @    185.199.109.153
+A     @    185.199.110.153
+A     @    185.199.111.153
+CNAME www  albanpetit.github.io
 ```
 
 ---
