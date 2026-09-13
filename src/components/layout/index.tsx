@@ -4,7 +4,7 @@ import { Moon, Sun, Menu, Search, Rss } from "lucide-react"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { useTheme } from "@/context/theme"
 
 interface LayoutProps {
@@ -59,6 +59,8 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
               variant="ghost"
               size="sm"
               onClick={() => changeLanguage(otherLang, alternatePath)}
+              lang={otherLang}
+              aria-label={otherLang === "fr" ? "Français" : "English"}
               className="text-muted-foreground uppercase font-medium"
             >
               {otherLang}
@@ -84,6 +86,8 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
               variant="ghost"
               size="sm"
               onClick={() => changeLanguage(otherLang, alternatePath)}
+              lang={otherLang}
+              aria-label={otherLang === "fr" ? "Français" : "English"}
               className="text-muted-foreground uppercase font-medium text-xs"
             >
               {otherLang}
@@ -97,7 +101,8 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
                   <Menu className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-56" closeLabel={t("a11y.close")} aria-label={t("a11y.menu")}>
+              <SheetContent side="right" className="w-56" closeLabel={t("a11y.close")} aria-describedby={undefined}>
+                <SheetTitle className="sr-only">{t("a11y.menu")}</SheetTitle>
                 <nav className="flex flex-col gap-4 pt-8 text-sm" aria-label={t("a11y.mobileNav")}>
                   {navLinks.map(({ to, label }) => (
                     <Link

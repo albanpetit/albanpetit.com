@@ -25,7 +25,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 49 93% 66%;
+    /* blue focus ring: the yellow primary is ~1.4:1 on white */
+    --ring: 213 47% 47%;
     --radius: 0.625rem;
   }
 
