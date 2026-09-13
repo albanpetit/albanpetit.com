@@ -122,7 +122,7 @@ Une fois la carte électronique en état de fonctionnement, j'ai effectué quelq
 
 ### Raspberry Pi Pico
 
-![Raspberry Pi Pico](raspberry-pico.png)
+![Raspberry Pi Pico](raspberry-pico.webp)
 
 Le Raspberry Pi Pico est une carte électronique accueillant le RP2040, un microcontrôleur d'architecture ARM conçu par la fondation Raspberry Pi. Annoncé en janvier 2021, c'est le premier microcontrôleur développé par la fondation.
 

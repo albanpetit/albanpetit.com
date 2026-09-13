@@ -124,7 +124,7 @@ Once the electronic board is operational, I performed some tests with an oscillo
 
 ### Raspberry Pi Pico
 
-![Raspberry Pi Pico](raspberry-pico.png)
+![Raspberry Pi Pico](raspberry-pico.webp)
 
 The Raspberry Pi Pico is an electronic board hosting the RP2040, an ARM architecture microcontroller designed by the Raspberry Pi Foundation. Announced in January 2021, the RP2040 is the first microcontroller developed by the foundation.
 
