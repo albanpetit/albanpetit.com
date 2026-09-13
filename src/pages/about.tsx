@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -109,10 +110,14 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
           <div className="flex justify-center md:justify-end">
             <div className="relative w-56 h-72 md:w-64 md:h-80">
               <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-primary/30" />
-              <img
-                src="https://github.com/albanpetit.png"
+              <StaticImage
+                src="../images/avatar.jpg"
                 alt="Alban Petit"
-                className="relative w-full h-full object-cover rounded-2xl shadow-lg"
+                width={368}
+                aspectRatio={0.8}
+                placeholder="blurred"
+                className="relative w-full h-full rounded-2xl shadow-lg"
+                imgClassName="rounded-2xl"
               />
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react"
 import { graphql, Link, navigate } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next, Trans } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -152,10 +153,14 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
         <div className="flex justify-center md:justify-end pb-3 pr-3">
           <div className="relative w-64 h-80 md:w-72 md:h-96">
             <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-primary/40" />
-            <img
-              src="https://github.com/albanpetit.png"
+            <StaticImage
+              src="../images/avatar.jpg"
               alt="Alban Petit"
-              className="relative w-full h-full object-cover rounded-2xl shadow-xl"
+              width={345}
+              aspectRatio={0.75}
+              placeholder="blurred"
+              className="relative w-full h-full rounded-2xl shadow-xl"
+              imgClassName="rounded-2xl"
             />
             <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10" />
           </div>
