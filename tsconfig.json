@@ -18,11 +18,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "src",
-    "gatsby-config.ts",
-    "gatsby-node.ts",
-    "gatsby-browser.tsx",
-    "gatsby-ssr.tsx"
-  ]
+  "include": ["src", "gatsby-config.ts", "gatsby-node.ts", "gatsby-browser.tsx", "gatsby-ssr.tsx"]
 }

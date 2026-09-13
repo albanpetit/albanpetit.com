@@ -11,6 +11,4 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setPreBodyComponents }
   setPreBodyComponents([<script key="theme" dangerouslySetInnerHTML={{ __html: themeScript }} />])
 }
 
-export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => (
-  <ThemeProvider>{element}</ThemeProvider>
-)
+export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => <ThemeProvider>{element}</ThemeProvider>

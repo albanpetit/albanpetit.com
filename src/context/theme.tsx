@@ -52,11 +52,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+  return <ThemeContext.Provider value={{ theme, toggle }}>{children}</ThemeContext.Provider>
 }
 
 export const useTheme = () => useContext(ThemeContext)

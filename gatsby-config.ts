@@ -27,8 +27,7 @@ const absolutizeUrls = (html: string, siteUrl: string) =>
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "Alban Petit",
-    description:
-      "Personal blog of Alban Petit — electronics, web development, and the maker world.",
+    description: "Personal blog of Alban Petit — electronics, web development, and the maker world.",
     siteUrl: "https://albanpetit.com",
     author: "Alban Petit",
   },

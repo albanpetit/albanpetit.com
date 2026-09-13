@@ -7,8 +7,12 @@ import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import {
-  Breadcrumb, BreadcrumbItem, BreadcrumbLink,
-  BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Clock, Calendar } from "lucide-react"
 import Seo from "@/components/seo"
@@ -31,10 +35,7 @@ const ReadingProgress = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-transparent">
-      <div
-        className="h-full bg-primary transition-all duration-75 ease-out"
-        style={{ width: `${progress}%` }}
-      />
+      <div className="h-full bg-primary transition-all duration-75 ease-out" style={{ width: `${progress}%` }} />
     </div>
   )
 }
@@ -90,16 +91,11 @@ const TableOfContents = ({ headings, title }: { headings: Heading[]; title: stri
       <p className="font-semibold mb-3 text-foreground">{title}</p>
       <ul className="flex flex-col gap-1.5">
         {visible.map((h) => (
-          <li
-            key={h.id}
-            style={{ paddingLeft: h.depth === 3 ? "0.75rem" : undefined }}
-          >
+          <li key={h.id} style={{ paddingLeft: h.depth === 3 ? "0.75rem" : undefined }}>
             <a
               href={`#${h.id}`}
               className={`block leading-snug transition-colors hover:text-foreground ${
-                activeId === h.id
-                  ? "text-secondary font-medium"
-                  : "text-muted-foreground"
+                activeId === h.id ? "text-secondary font-medium" : "text-muted-foreground"
               }`}
             >
               {h.value}
@@ -124,7 +120,6 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
     <Layout>
       <ReadingProgress />
       <div className={`mx-auto ${hasToc ? "max-w-5xl" : "max-w-2xl"}`}>
-
         <Breadcrumb className="mb-6" aria-label={t("a11y.breadcrumb")}>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -140,9 +135,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="max-w-xs truncate">
-                {frontmatter.title}
-              </BreadcrumbPage>
+              <BreadcrumbPage className="max-w-xs truncate">{frontmatter.title}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -150,10 +143,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
         <div className={hasToc ? "grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start" : undefined}>
           {hasToc && (
             <div className="lg:order-2">
-              <TableOfContents
-                headings={headings}
-                title={t("post.toc")}
-              />
+              <TableOfContents headings={headings} title={t("post.toc")} />
             </div>
           )}
           <article className={hasToc ? "lg:order-1" : undefined}>
@@ -183,9 +173,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
                 </div>
               </div>
 
-              <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                {frontmatter.title}
-              </h1>
+              <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">{frontmatter.title}</h1>
 
               {frontmatter.description && (
                 <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary pl-4">
@@ -197,7 +185,10 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
                 <div className="flex flex-wrap gap-1.5">
                   {frontmatter.tags.map((tag) => (
                     <Link key={tag} to={tagPath(tag, language)}>
-                      <Badge variant="outline" className="text-xs cursor-pointer hover:bg-accent transition-colors rounded-full">
+                      <Badge
+                        variant="outline"
+                        className="text-xs cursor-pointer hover:bg-accent transition-colors rounded-full"
+                      >
                         {tag}
                       </Badge>
                     </Link>
@@ -208,11 +199,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
             {coverImage && (
               <div className="mb-8 overflow-hidden rounded-lg">
-                <GatsbyImage
-                  image={coverImage}
-                  alt={frontmatter.title}
-                  className="w-full aspect-video object-cover"
-                />
+                <GatsbyImage image={coverImage} alt={frontmatter.title} className="w-full aspect-video object-cover" />
               </div>
             )}
 
@@ -227,7 +214,6 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
             <Separator className="my-12" />
             <Giscus />
           </article>
-
         </div>
       </div>
     </Layout>
@@ -245,8 +231,18 @@ export const Head: HeadFC<PostTemplateData> = ({ data }) => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: lang === "en" ? "Home" : "Accueil", item: `https://albanpetit.com${lang === "en" ? "/" : "/fr/"}` },
-      { "@type": "ListItem", position: 2, name: lang === "en" ? "Blog" : "Articles", item: `https://albanpetit.com${lang === "en" ? "/blog/" : "/fr/blog/"}` },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: lang === "en" ? "Home" : "Accueil",
+        item: `https://albanpetit.com${lang === "en" ? "/" : "/fr/"}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: lang === "en" ? "Blog" : "Articles",
+        item: `https://albanpetit.com${lang === "en" ? "/blog/" : "/fr/blog/"}`,
+      },
       { "@type": "ListItem", position: 3, name: title, item: `https://albanpetit.com${canonicalPath}` },
     ],
   }

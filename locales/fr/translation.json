@@ -30,12 +30,7 @@
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
     "openSource": "Passionné d'Open Source",
-    "skills": [
-      "Électronique",
-      "Développement Web",
-      "Impression 3D",
-      "Open Source"
-    ]
+    "skills": ["Électronique", "Développement Web", "Impression 3D", "Open Source"]
   },
   "blog": {
     "title": "Articles",
@@ -52,12 +47,7 @@
   },
   "about": {
     "role": "Développeur · Maker · FabManager",
-    "skills": [
-      "Développement Web",
-      "Électronique",
-      "Maker",
-      "Open Source"
-    ],
+    "skills": ["Développement Web", "Électronique", "Maker", "Open Source"],
     "email": "Email",
     "twitter": "Twitter",
     "github": "GitHub",

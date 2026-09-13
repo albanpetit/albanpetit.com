@@ -7,8 +7,12 @@ import { Separator } from "@/components/ui/separator"
 import Seo from "@/components/seo"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 import {
-  Breadcrumb, BreadcrumbItem, BreadcrumbLink,
-  BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
 type TagPageData = {
@@ -55,9 +59,7 @@ const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageC
             </BreadcrumbList>
           </Breadcrumb>
           <h1 className="text-3xl font-bold tracking-tight">{t("tag.title", { tag })}</h1>
-          <p className="mt-2 text-muted-foreground">
-            {t("tag.subtitle", { count: posts.length })}
-          </p>
+          <p className="mt-2 text-muted-foreground">{t("tag.subtitle", { count: posts.length })}</p>
         </div>
 
         <Separator />
@@ -83,10 +85,14 @@ export const Head: HeadFC<TagPageData, TagPageContext> = ({ pageContext }) => {
       title={`#${tag} · Alban Petit`}
       description={isEN ? `Posts tagged with ${tag}` : `Articles tagués ${tag}`}
       canonicalPath={canonical}
-      alternatePaths={alternateTagSlug ? {
-        en: isEN ? `/tag/${tagSlug}/` : `/tag/${alternateTagSlug}/`,
-        fr: isEN ? `/fr/tag/${alternateTagSlug}/` : `/fr/tag/${tagSlug}/`,
-      } : undefined}
+      alternatePaths={
+        alternateTagSlug
+          ? {
+              en: isEN ? `/tag/${tagSlug}/` : `/tag/${alternateTagSlug}/`,
+              fr: isEN ? `/fr/tag/${alternateTagSlug}/` : `/fr/tag/${tagSlug}/`,
+            }
+          : undefined
+      }
       lang={language}
     />
   )

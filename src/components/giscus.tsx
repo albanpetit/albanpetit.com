@@ -1,17 +1,17 @@
-import React from "react";
-import GiscusWidget from "@giscus/react";
-import { useTheme } from "@/context/theme";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import React from "react"
+import GiscusWidget from "@giscus/react"
+import { useTheme } from "@/context/theme"
+import { useI18next } from "gatsby-plugin-react-i18next"
 
 // Custom themes carried over from the Hugo site (static/giscus-*.css), loaded by giscus.app from the live domain
 const THEME_URL = {
   light: "https://albanpetit.com/giscus-light.css",
   dark: "https://albanpetit.com/giscus-dark.css",
-};
+}
 
 const Giscus = () => {
-  const { theme } = useTheme();
-  const { language } = useI18next();
+  const { theme } = useTheme()
+  const { language } = useI18next()
 
   return (
     <GiscusWidget
@@ -28,7 +28,7 @@ const Giscus = () => {
       lang={language}
       loading="lazy"
     />
-  );
-};
+  )
+}
 
-export default Giscus;
+export default Giscus

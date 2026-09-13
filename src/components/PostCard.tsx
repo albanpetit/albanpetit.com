@@ -33,12 +33,8 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "sm:w-48", headingLevel = "h2" }) => {
   const Heading = headingLevel
   const { frontmatter, excerpt, timeToRead } = post
-  const coverImage = frontmatter.image
-    ? getImage(frontmatter.image.childImageSharp.gatsbyImageData)
-    : null
-  const postUrl = language === "en"
-    ? `/post/${frontmatter.slug}/`
-    : `/fr/post/${frontmatter.slug}/`
+  const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
+  const postUrl = language === "en" ? `/post/${frontmatter.slug}/` : `/fr/post/${frontmatter.slug}/`
 
   return (
     <Card className="relative overflow-hidden group border transition-all duration-200 hover:border-primary/50 hover:shadow-md">
@@ -61,7 +57,9 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
                   {categoryLabel(frontmatter.category, language)}
                 </Badge>
               </Link>
-            ) : <span />}
+            ) : (
+              <span />
+            )}
             <span className="text-xs text-muted-foreground shrink-0">
               {frontmatter.date}
               {timeToRead ? ` · ${timeToRead} min` : ""}
@@ -79,9 +77,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
           </Heading>
 
           {/* Description */}
-          <p className="text-sm text-muted-foreground line-clamp-2 flex-1">
-            {frontmatter.description || excerpt}
-          </p>
+          <p className="text-sm text-muted-foreground line-clamp-2 flex-1">{frontmatter.description || excerpt}</p>
 
           {/* Tags */}
           {frontmatter.tags?.length > 0 && (

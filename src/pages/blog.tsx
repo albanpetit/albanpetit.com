@@ -23,34 +23,31 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
     [data, language]
   )
 
-  const allTags = useMemo(
-    () => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(),
-    [posts]
-  )
+  const allTags = useMemo(() => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(), [posts])
 
   const filtered = useMemo(
-    () => activeTag ? posts.filter((p) => p.frontmatter.tags?.includes(activeTag)) : posts,
+    () => (activeTag ? posts.filter((p) => p.frontmatter.tags?.includes(activeTag)) : posts),
     [posts, activeTag]
   )
 
   const tagCounts = useMemo(
-    () => posts.reduce<Record<string, number>>((acc, p) => {
-      p.frontmatter.tags?.forEach((tag) => { acc[tag] = (acc[tag] ?? 0) + 1 })
-      return acc
-    }, {}),
+    () =>
+      posts.reduce<Record<string, number>>((acc, p) => {
+        p.frontmatter.tags?.forEach((tag) => {
+          acc[tag] = (acc[tag] ?? 0) + 1
+        })
+        return acc
+      }, {}),
     [posts]
   )
 
   return (
     <Layout>
       <div className="flex flex-col gap-8">
-
         {/* Page header */}
         <div className="border-b border-border pb-6">
           <h1 className="text-4xl font-bold tracking-tight">{t("blog.title")}</h1>
-          <p className="mt-2 text-muted-foreground">
-            {t("blog.subtitle", { count: filtered.length })}
-          </p>
+          <p className="mt-2 text-muted-foreground">{t("blog.subtitle", { count: filtered.length })}</p>
         </div>
 
         {/* Tag filter */}
@@ -62,10 +59,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
               onClick={() => setActiveTag(null)}
               className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
             >
-              <Badge
-                variant={activeTag === null ? "default" : "outline"}
-                className="cursor-pointer rounded-full px-3"
-              >
+              <Badge variant={activeTag === null ? "default" : "outline"} className="cursor-pointer rounded-full px-3">
                 {t("blog.all")}
               </Badge>
             </button>
@@ -77,10 +71,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
                 onClick={() => setActiveTag(activeTag === tag ? null : tag)}
                 className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
               >
-                <Badge
-                  variant={activeTag === tag ? "default" : "outline"}
-                  className="cursor-pointer rounded-full px-3"
-                >
+                <Badge variant={activeTag === tag ? "default" : "outline"} className="cursor-pointer rounded-full px-3">
                   {tag}
                   <span className="ml-1.5 opacity-60 font-normal">{tagCounts[tag]}</span>
                 </Badge>
@@ -97,7 +88,11 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           {filtered.length === 0 && (
             <div className="flex flex-col items-center gap-2 py-16 text-center">
               <p className="text-muted-foreground">{t("blog.empty")}</p>
-              <button type="button" onClick={() => setActiveTag(null)} className="text-sm text-secondary hover:underline">
+              <button
+                type="button"
+                onClick={() => setActiveTag(null)}
+                className="text-sm text-secondary hover:underline"
+              >
                 {t("blog.all")}
               </button>
             </div>
@@ -115,9 +110,11 @@ export const Head: HeadFC<BlogPageData, { language: string }> = ({ pageContext }
   return (
     <Seo
       title={isEN ? "Blog · Alban Petit" : "Articles · Alban Petit"}
-      description={isEN
-        ? "Posts on electronics, web development, and maker projects."
-        : "Articles sur l'électronique, le développement web et les projets makers."}
+      description={
+        isEN
+          ? "Posts on electronics, web development, and maker projects."
+          : "Articles sur l'électronique, le développement web et les projets makers."
+      }
       canonicalPath={isEN ? "/blog/" : "/fr/blog/"}
       lang={pageContext.language}
       alternatePaths={{ en: "/blog/", fr: "/fr/blog/" }}

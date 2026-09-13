@@ -30,14 +30,16 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
 
   return (
     <div className="min-h-screen font-sans antialiased">
-      <div className="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10" style={{ background: "linear-gradient(to bottom, hsl(49 93% 66% / 0.06), hsl(49 93% 66% / 0.02) 50%, transparent)" }} />
+      <div
+        className="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10"
+        style={{
+          background: "linear-gradient(to bottom, hsl(49 93% 66% / 0.06), hsl(49 93% 66% / 0.02) 50%, transparent)",
+        }}
+      />
 
       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
-          <Link
-            to={homePath}
-            className="flex items-center gap-2 font-bold tracking-tight"
-          >
+          <Link to={homePath} className="flex items-center gap-2 font-bold tracking-tight">
             <img src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" />
             <span>
               albanpetit<span className="text-muted-foreground font-normal">.com</span>
@@ -47,11 +49,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm" aria-label={t("a11y.mainNav")}>
             {navLinks.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link key={to} to={to} className="text-muted-foreground transition-colors hover:text-foreground">
                 {label}
               </Link>
             ))}
@@ -105,11 +103,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
                 <SheetTitle className="sr-only">{t("a11y.menu")}</SheetTitle>
                 <nav className="flex flex-col gap-4 pt-8 text-sm" aria-label={t("a11y.mobileNav")}>
                   {navLinks.map(({ to, label }) => (
-                    <Link
-                      key={to}
-                      to={to}
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
+                    <Link key={to} to={to} className="text-muted-foreground transition-colors hover:text-foreground">
                       {label}
                     </Link>
                   ))}

@@ -50,10 +50,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
     [posts]
   )
 
-  const results = useMemo(
-    () => (query.trim() ? fuse.search(query).map((r) => r.item) : []),
-    [query, fuse]
-  )
+  const results = useMemo(() => (query.trim() ? fuse.search(query).map((r) => r.item) : []), [query, fuse])
 
   useEffect(() => {
     if (!ready) return
@@ -72,8 +69,13 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
         </div>
 
         <div className="relative max-w-xl">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" aria-hidden="true" />
-          <label htmlFor="search-input" className="sr-only">{t("search.title")}</label>
+          <Search
+            className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none"
+            aria-hidden="true"
+          />
+          <label htmlFor="search-input" className="sr-only">
+            {t("search.title")}
+          </label>
           <Input
             id="search-input"
             value={query}
@@ -85,9 +87,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
 
         {query.trim() && (
           <>
-            <p className="text-sm text-muted-foreground">
-              {t("search.results", { count: results.length, query })}
-            </p>
+            <p className="text-sm text-muted-foreground">{t("search.results", { count: results.length, query })}</p>
             <Separator />
           </>
         )}

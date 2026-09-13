@@ -35,14 +35,10 @@ const Seo = ({
   noindex = false,
   structuredData,
 }: SeoProps) => {
-  const ogImage = image
-    ? image.startsWith("http") ? image : `${SITE_URL}${image}`
-    : DEFAULT_OG_IMAGE
+  const ogImage = image ? (image.startsWith("http") ? image : `${SITE_URL}${image}`) : DEFAULT_OG_IMAGE
   const canonical = canonicalPath ? `${SITE_URL}${canonicalPath}` : SITE_URL
 
-  const schemas = structuredData
-    ? Array.isArray(structuredData) ? structuredData : [structuredData]
-    : []
+  const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []
 
   return (
     <>
@@ -78,9 +74,7 @@ const Seo = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
       <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_US"} />
-      {alternatePaths && (
-        <meta property="og:locale:alternate" content={lang === "fr" ? "en_US" : "fr_FR"} />
-      )}
+      {alternatePaths && <meta property="og:locale:alternate" content={lang === "fr" ? "en_US" : "fr_FR"} />}
       {publishedAt && <meta property="article:published_time" content={publishedAt} />}
       {updatedAt && <meta property="article:modified_time" content={updatedAt} />}
 

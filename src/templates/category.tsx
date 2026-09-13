@@ -8,8 +8,12 @@ import Seo from "@/components/seo"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 import { categoryLabel } from "@/lib/category"
 import {
-  Breadcrumb, BreadcrumbItem, BreadcrumbLink,
-  BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
 type CategoryPageData = {
@@ -57,9 +61,7 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
             </BreadcrumbList>
           </Breadcrumb>
           <h1 className="text-3xl font-bold tracking-tight">{label}</h1>
-          <p className="mt-2 text-muted-foreground">
-            {t("category.subtitle", { count: posts.length })}
-          </p>
+          <p className="mt-2 text-muted-foreground">{t("category.subtitle", { count: posts.length })}</p>
         </div>
 
         <Separator />
@@ -86,7 +88,9 @@ export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContex
       title={`${label} · Alban Petit`}
       description={isEN ? `Posts in category ${label}` : `Articles de la catégorie ${label}`}
       canonicalPath={canonical}
-      alternatePaths={hasAlternate ? { en: `/category/${categorySlug}/`, fr: `/fr/category/${categorySlug}/` } : undefined}
+      alternatePaths={
+        hasAlternate ? { en: `/category/${categorySlug}/`, fr: `/fr/category/${categorySlug}/` } : undefined
+      }
       lang={language}
     />
   )

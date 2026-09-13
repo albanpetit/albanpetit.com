@@ -15,13 +15,13 @@ import PostCard, { type PostCardData } from "@/components/PostCard"
 
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
-    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
   </svg>
 )
 
 const XIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 )
 
@@ -39,10 +39,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
     [data, language]
   )
 
-  const allTags = useMemo(
-    () => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(),
-    [posts]
-  )
+  const allTags = useMemo(() => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(), [posts])
 
   const allCategories = useMemo(
     () => Array.from(new Set(posts.map((p) => p.frontmatter.category).filter(Boolean))).sort(),
@@ -63,9 +60,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
     <Layout>
       {/* Hero */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-12 py-14 md:py-24 items-center">
-
         <div className="flex flex-col gap-6">
-
           {/* Greeting */}
           <p className="text-sm font-semibold uppercase tracking-widest text-amber-700 dark:text-primary">
             {t("home.greeting")}
@@ -73,17 +68,15 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
 
           {/* Name + role */}
           <div>
-            <h1 className="text-5xl font-black tracking-tight leading-none">
-              {t("home.name")}
-            </h1>
+            <h1 className="text-5xl font-black tracking-tight leading-none">{t("home.name")}</h1>
             <p className="mt-2 text-lg font-medium text-secondary">{t("home.role")}</p>
           </div>
 
           {/* Description */}
           <p className="text-base leading-relaxed text-foreground/75 max-w-sm">
             <Trans i18nKey="home.description">
-              I write about electronics, web development, and all things related to the maker world —
-              tutorials, experiments, and projects built at{" "}
+              I write about electronics, web development, and all things related to the maker world — tutorials,
+              experiments, and projects built at{" "}
               <a
                 href="https://lamachinerie.org"
                 className="text-secondary font-medium underline underline-offset-4 hover:text-secondary/80 transition-colors"
@@ -100,9 +93,48 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
           <div className="flex flex-col gap-1.5 text-sm">
             {[
               { id: "location", icon: <MapPin className="h-3.5 w-3.5" />, content: <span>{t("home.location")}</span> },
-              { id: "fablab", icon: <Cpu className="h-3.5 w-3.5" />, content: <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">{t("home.fablab")}</a> },
-              { id: "github", icon: <GithubIcon />, content: <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">github.com/albanpetit</a> },
-              { id: "makerworld", icon: <Printer className="h-3.5 w-3.5" />, content: <a href="https://makerworld.com/en/@albanpetit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">makerworld.com/@albanpetit</a> },
+              {
+                id: "fablab",
+                icon: <Cpu className="h-3.5 w-3.5" />,
+                content: (
+                  <a
+                    href="https://lamachinerie.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    {t("home.fablab")}
+                  </a>
+                ),
+              },
+              {
+                id: "github",
+                icon: <GithubIcon />,
+                content: (
+                  <a
+                    href="https://github.com/albanpetit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    github.com/albanpetit
+                  </a>
+                ),
+              },
+              {
+                id: "makerworld",
+                icon: <Printer className="h-3.5 w-3.5" />,
+                content: (
+                  <a
+                    href="https://makerworld.com/en/@albanpetit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    makerworld.com/@albanpetit
+                  </a>
+                ),
+              },
             ].map((item) => (
               <div key={item.id} className="flex items-center gap-2 text-muted-foreground">
                 <span className="text-primary">{item.icon}</span>
@@ -177,7 +209,6 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
       {/* Main content + sidebar */}
       {posts.length > 0 && (
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-12">
-
           {/* Latest posts — 2/3 */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             <div className="flex items-center justify-between">
@@ -200,7 +231,6 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
 
           {/* Sidebar — 1/3 */}
           <aside className="flex flex-col gap-5">
-
             {/* Search */}
             <div className="rounded-xl border bg-card p-4 flex flex-col gap-3">
               <div className="flex items-center gap-2">
@@ -210,7 +240,10 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 </h3>
               </div>
               <form onSubmit={handleSearch} className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
+                <Search
+                  className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none"
+                  aria-hidden="true"
+                />
                 <Input
                   aria-label={t("search.title")}
                   value={searchQuery}
@@ -233,7 +266,10 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 <div className="flex flex-wrap gap-2">
                   {allCategories.map((cat) => (
                     <Link key={cat} to={categoryPath(cat, language)}>
-                      <Badge variant="outline" className="cursor-pointer hover:border-primary/60 hover:bg-primary/5 transition-colors">
+                      <Badge
+                        variant="outline"
+                        className="cursor-pointer hover:border-primary/60 hover:bg-primary/5 transition-colors"
+                      >
                         {categoryLabel(cat, language)}
                       </Badge>
                     </Link>
@@ -254,7 +290,10 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 <div className="flex flex-wrap gap-1.5">
                   {allTags.map((tag) => (
                     <Link key={tag} to={tagPath(tag, language)}>
-                      <Badge variant="secondary" className="cursor-pointer hover:bg-primary/10 transition-colors text-xs">
+                      <Badge
+                        variant="secondary"
+                        className="cursor-pointer hover:bg-primary/10 transition-colors text-xs"
+                      >
                         {tag}
                       </Badge>
                     </Link>
@@ -262,7 +301,6 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 </div>
               </div>
             )}
-
           </aside>
         </section>
       )}

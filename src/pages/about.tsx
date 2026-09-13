@@ -34,7 +34,6 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
   return (
     <Layout>
       <div className="mx-auto max-w-3xl flex flex-col gap-10">
-
         {/* Hero */}
         <section className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-4 overflow-hidden">
           <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/15 blur-3xl -z-10" />
@@ -52,24 +51,36 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Cpu className="h-4 w-4 shrink-0 text-primary" />
-                <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors">
+                <a
+                  href="https://lamachinerie.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
                   {t("home.fablab")}
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-primary fill-current" aria-hidden="true">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
-                <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors">
+                <a
+                  href="https://github.com/albanpetit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
                   github.com/albanpetit
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Printer className="h-4 w-4 shrink-0 text-primary" />
-                <a href="https://makerworld.com/en/@albanpetit" target="_blank" rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors">
+                <a
+                  href="https://makerworld.com/en/@albanpetit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
                   makerworld.com/@albanpetit
                 </a>
               </div>
@@ -77,7 +88,9 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
 
             <div className="flex flex-wrap gap-2">
               {skills.map((s) => (
-                <Badge key={s} variant="secondary">{s}</Badge>
+                <Badge key={s} variant="secondary">
+                  {s}
+                </Badge>
               ))}
             </div>
 
@@ -90,7 +103,7 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
               <Button variant="outline" size="sm" asChild>
                 <a href="https://twitter.com/Padh_" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" className="mr-1.5 h-3.5 w-3.5 fill-current" aria-hidden="true">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                   {t("about.twitter")}
                 </a>
@@ -98,7 +111,7 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
               <Button variant="outline" size="sm" asChild>
                 <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" className="mr-1.5 h-3.5 w-3.5 fill-current" aria-hidden="true">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                   </svg>
                   {t("about.github")}
                 </a>
@@ -141,7 +154,6 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
           // biome-ignore lint/security/noDangerouslySetInnerHtml: HTML generated at build time from our own Markdown
           dangerouslySetInnerHTML={{ __html: html }}
         />
-
       </div>
     </Layout>
   )
@@ -154,9 +166,11 @@ export const Head: HeadFC<object, { language: string }> = ({ pageContext }) => {
   return (
     <Seo
       title={isEN ? "About · Alban Petit" : "À propos · Alban Petit"}
-      description={isEN
-        ? "About Alban Petit — developer, maker, and FabManager at La Machinerie."
-        : "À propos d'Alban Petit — développeur, maker et FabManager à La Machinerie."}
+      description={
+        isEN
+          ? "About Alban Petit — developer, maker, and FabManager at La Machinerie."
+          : "À propos d'Alban Petit — développeur, maker et FabManager à La Machinerie."
+      }
       canonicalPath={isEN ? "/about/" : "/fr/about/"}
       lang={pageContext.language}
       alternatePaths={{ en: "/about/", fr: "/fr/about/" }}
