@@ -265,21 +265,30 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => (
-  <Seo
-    title="Alban Petit"
-    description="Personal blog of Alban Petit — electronics, web development, and the maker world."
-    canonicalPath="/"
-    structuredData={{
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "Alban Petit",
-      url: "https://albanpetit.com",
-      author: { "@type": "Person", name: "Alban Petit" },
-      description: "Personal blog about electronics, web development, and the maker world.",
-    }}
-  />
-)
+export const Head: HeadFC<IndexPageData, { language: string }> = ({ pageContext }) => {
+  const isFR = pageContext.language === "fr"
+  const description = isFR
+    ? "Blog d'Alban Petit — électronique, développement web et monde maker."
+    : "Personal blog of Alban Petit — electronics, web development, and the maker world."
+  return (
+    <Seo
+      title="Alban Petit"
+      description={description}
+      canonicalPath={isFR ? "/fr/" : "/"}
+      lang={pageContext.language}
+      alternatePaths={{ en: "/", fr: "/fr/" }}
+      structuredData={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Alban Petit",
+        url: `https://albanpetit.com${isFR ? "/fr/" : "/"}`,
+        inLanguage: isFR ? "fr-FR" : "en-US",
+        author: { "@type": "Person", name: "Alban Petit" },
+        description,
+      }}
+    />
+  )
+}
 
 export const query = graphql`
   query HomePagePosts($language: String!) {
