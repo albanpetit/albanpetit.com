@@ -52,7 +52,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
     if (query !== current) {
       navigate(query ? `?q=${encodeURIComponent(query)}` : location.pathname, { replace: true })
     }
-  }, [query])
+  }, [query, location.pathname, location.search])
 
   return (
     <Layout>
