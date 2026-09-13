@@ -4,7 +4,6 @@ import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
 import Seo from "@/components/seo"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 
