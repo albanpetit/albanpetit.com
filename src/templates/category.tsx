@@ -36,7 +36,7 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
     <Layout>
       <div className="flex flex-col gap-8">
         <div>
-          <Breadcrumb className="mb-4">
+          <Breadcrumb className="mb-4" aria-label={t("a11y.breadcrumb")}>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>

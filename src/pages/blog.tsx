@@ -58,6 +58,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
+              aria-pressed={activeTag === null}
               onClick={() => setActiveTag(null)}
               className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
             >
@@ -72,6 +73,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
               <button
                 key={tag}
                 type="button"
+                aria-pressed={activeTag === tag}
                 onClick={() => setActiveTag(activeTag === tag ? null : tag)}
                 className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
               >

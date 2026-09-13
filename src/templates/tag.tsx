@@ -35,7 +35,7 @@ const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageC
     <Layout alternatePath={alternateTagSlug ? `/tag/${alternateTagSlug}/` : "/blog/"}>
       <div className="flex flex-col gap-8">
         <div>
-          <Breadcrumb className="mb-4">
+          <Breadcrumb className="mb-4" aria-label={t("a11y.breadcrumb")}>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>

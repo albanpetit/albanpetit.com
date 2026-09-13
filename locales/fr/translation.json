@@ -13,7 +13,8 @@
     "openMenu": "Ouvrir le menu",
     "menu": "Menu",
     "close": "Fermer",
-    "rssFeed": "Flux RSS"
+    "rssFeed": "Flux RSS",
+    "breadcrumb": "Fil d'Ariane"
   },
   "home": {
     "greeting": "👋 Bonjour, je suis",

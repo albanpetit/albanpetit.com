@@ -86,7 +86,7 @@ const TableOfContents = ({ headings, title }: { headings: Heading[]; title: stri
   if (visible.length < 2) return null
 
   return (
-    <nav className="sticky top-20 rounded-xl border bg-card p-4 text-sm">
+    <nav className="sticky top-20 rounded-xl border bg-card p-4 text-sm" aria-label={title}>
       <p className="font-semibold mb-3 text-foreground">{title}</p>
       <ul className="flex flex-col gap-1.5">
         {visible.map((h) => (
@@ -125,7 +125,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
       <ReadingProgress />
       <div className={`mx-auto ${hasToc ? "max-w-5xl" : "max-w-2xl"}`}>
 
-        <Breadcrumb className="mb-6">
+        <Breadcrumb className="mb-6" aria-label={t("a11y.breadcrumb")}>
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>

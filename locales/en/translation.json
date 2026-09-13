@@ -13,7 +13,8 @@
     "openMenu": "Open menu",
     "menu": "Menu",
     "close": "Close",
-    "rssFeed": "RSS feed"
+    "rssFeed": "RSS feed",
+    "breadcrumb": "Breadcrumb"
   },
   "home": {
     "greeting": "👋 Hello, I'm",
