@@ -2,12 +2,13 @@ import React from "react"
 
 const SITE_URL = "https://albanpetit.com"
 const TWITTER_HANDLE = "@Padh_"
-const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.png`
+// 1200×630, like the Open Graph crops generated for post covers
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`
 
 interface SeoProps {
   title: string
   description?: string
-  /** Path relative to site root — e.g. /static/abc/main.jpg — or absolute URL */
+  /** 1200×630 image: path relative to site root — e.g. /static/abc/main.jpg — or absolute URL */
   image?: string
   type?: "website" | "article"
   publishedAt?: string
@@ -73,6 +74,8 @@ const Seo = ({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
       <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_US"} />
       {alternatePaths && (
