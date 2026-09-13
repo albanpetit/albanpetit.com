@@ -18,8 +18,16 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
   const { t } = useTranslation()
   const { language } = useI18next()
 
-  const initialQuery = new URLSearchParams(location.search).get("q") ?? ""
-  const [query, setQuery] = useState(initialQuery)
+  // Start empty so the first client render matches the static HTML, then read ?q= once hydrated
+  const [query, setQuery] = useState("")
+  const [ready, setReady] = useState(false)
+
+  // Runs once: re-reading location.search on every URL update would overwrite what the reader is typing
+  // biome-ignore lint/correctness/useExhaustiveDependencies: initial read of the query string only
+  useEffect(() => {
+    setQuery(new URLSearchParams(location.search).get("q") ?? "")
+    setReady(true)
+  }, [])
 
   const posts = useMemo(
     () => data.allMarkdownRemark.nodes.filter((p) => p.frontmatter.lang === language),
@@ -48,11 +56,12 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
   )
 
   useEffect(() => {
+    if (!ready) return
     const current = new URLSearchParams(location.search).get("q") ?? ""
     if (query !== current) {
       navigate(query ? `?q=${encodeURIComponent(query)}` : location.pathname, { replace: true })
     }
-  }, [query, location.pathname, location.search])
+  }, [query, ready, location.pathname, location.search])
 
   return (
     <Layout>
