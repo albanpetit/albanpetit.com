@@ -1,11 +1,8 @@
 # albanpetit.com
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="albanpetit.com logo" width="auto" />
+  <img src="docs/screenshot.png" alt="albanpetit.com home page" width="auto" />
 </p>
-
-<!-- Replace the line below with a real screenshot once available -->
-<!-- <p align="center"><img src="docs/screenshot.png" alt="Site preview" /></p> -->
 
 <p align="center">
   A bilingual personal blog covering electronics, embedded systems, web development, and maker projects.<br/>
@@ -58,7 +55,7 @@
 
 ### Design & UX
 
-- Dark / light mode toggle persisted across sessions
+- Dark / light mode toggle persisted across sessions, following the OS preference by default and applied before first paint (no flash)
 - Neutral dot-grid background texture
 - Yellow accent `#F9DC58` + blue secondary `#3F72AF`
 - Fully responsive (mobile-first)
@@ -70,8 +67,14 @@
 - JSON-LD structured data — `Article` and `BreadcrumbList` on posts, `WebSite` on home
 - `hreflang` alternate links for bilingual SEO
 - Canonical URLs
-- `noindex` on the search page
+- `noindex` on search pages, which are excluded from the sitemap with the localized 404 pages
 - RSS `<link>` in the document head
+
+### Accessibility
+
+- Post cards are real links (keyboard, middle-click, crawlers) stretched over the card
+- Visible focus ring in both themes, named mobile menu dialog
+- All UI strings and `aria-label`s translated through `locales/`
 
 ### Comments
 
@@ -91,7 +94,7 @@
 | Category archive | `/category/<slug>/` | `/fr/category/<slug>/` |
 | About            | `/about/`           | `/fr/about/`           |
 | Search           | `/search/`          | `/fr/search/`          |
-| 404              | `/404/`             | —                      |
+| 404              | `/404/`             | `/fr/404/`             |
 
 Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built with NFD-normalized lowercase ASCII (`slugifyTag`, `slugifyCategory` in `src/lib/tag.ts`).
 
@@ -130,9 +133,11 @@ content/
   pages/              # Static pages (about.en.md, about.fr.md)
   images/             # Global shared images
 locales/
-  en/translation.json # All UI strings — English
-  fr/translation.json # All UI strings — French
+  en/translation.json # All UI strings and category names — English
+  fr/translation.json # All UI strings and category names — French
 src/
+  @types/
+    i18next.d.ts      # t() returns string (matches returnNull: false)
   components/
     layout/           # Main site shell: sticky header, nav, footer
     PostCard.tsx      # Reusable post preview card (used on home, blog, search, tag, category)
@@ -140,10 +145,13 @@ src/
     seo.tsx           # <head> tags: OG, Twitter Card, JSON-LD, hreflang, canonical
     ui/               # shadcn/ui primitives (Button, Badge, Card, Sheet…)
   context/
-    theme.tsx         # Dark / light mode ThemeProvider (localStorage)
+    theme.tsx         # Dark / light mode ThemeProvider (localStorage + OS preference)
+  images/
+    avatar.jpg        # Profile photo (home, about) — processed by StaticImage
   lib/
     tag.ts            # slugifyTag, slugifyCategory — NFD normalization helpers
                       # tagPath(tag, lang), categoryPath(cat, lang) — URL builders
+    category.ts       # categoryLabel(cat, lang) — translated category name
   pages/
     index.tsx         # Home — hero, latest posts, sidebar (search/categories/tags)
     blog.tsx          # Blog listing with tag filter pills
@@ -162,8 +170,8 @@ static/
   robots.txt
   CNAME               # Custom domain (albanpetit.com) for GitHub Pages
 gatsby-config.ts      # Plugins, site metadata, i18n config, RSS feeds, sitemap
-gatsby-node.ts        # Programmatic page creation (posts, tags, categories)
-tailwind.config.js    # Tailwind config + shadcn CSS variable theme tokens
+gatsby-node.ts        # Programmatic page creation (posts, tags, categories) + EN/FR tag pairing
+tailwind.config.ts    # Tailwind config + shadcn CSS variable theme tokens
 ```
 
 ---
@@ -190,15 +198,21 @@ lang: en # en or fr — determines which language page to create
 date: 2025-01-01 # publish date (ISO 8601)
 lastmod: 2025-01-15 # last modified date — used in JSON-LD and sitemap
 description: "Short blurb." # shown in cards and used as meta description
-tags: # used for tag pages and the blog filter
+tags: # used for tag pages and the blog filter — same order in both languages
   - Electronics
   - Web
-category: Projects # used for category pages (Projects, Tutorials, Web…)
+category: Projects # English name in both languages (Projects, Tutorials, Web…)
 image: cover-image.jpg # cover image — shown in card and at top of post
 ---
 ```
 
-All fields except `lastmod` are required. The `image` path is relative to the post directory and processed by `gatsby-plugin-image` (blur placeholder, responsive sizes).
+All fields except `lastmod` and `image` are required. The `image` path is relative to the post directory and processed by `gatsby-plugin-image` (blur placeholder, responsive sizes, 1200×630 Open Graph crop).
+
+**Tags across languages** — tags are translated, so the language switch pairs them by position: the first tag of `index.en.md` matches the first tag of `index.fr.md`, and so on. Keep both lists in the same order and length; `gatsby build` warns when they differ, and unpaired tag pages fall back to the blog listing.
+
+**Categories** — write the English category name in both files: it drives the slug (`/category/projects/`, `/fr/category/projects/`). The displayed name comes from `categories` in `locales/<lang>/translation.json`; add new categories there.
+
+**Source images** — keep originals at 2400 px on the longest side at most; Gatsby generates every display size from them.
 
 ### Image layout helpers
 
