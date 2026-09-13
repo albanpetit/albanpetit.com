@@ -134,16 +134,16 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
               <Link to={aboutPath}>{t("home.aboutMe")}</Link>
             </Button>
             <div className="flex gap-2 ml-auto md:ml-0">
-              <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" aria-label="GitHub">
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <GithubIcon />
-                </Button>
-              </a>
-              <a href="https://twitter.com/Padh_" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" aria-label="Twitter / X">
+                </a>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://twitter.com/Padh_" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
                   <XIcon />
-                </Button>
-              </a>
+                </a>
+              </Button>
             </div>
           </div>
         </div>

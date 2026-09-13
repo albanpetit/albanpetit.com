@@ -67,7 +67,6 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
           <label htmlFor="search-input" className="sr-only">{t("search.title")}</label>
           <Input
             id="search-input"
-            autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("search.placeholder") ?? ""}

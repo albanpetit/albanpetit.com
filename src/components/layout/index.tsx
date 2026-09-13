@@ -65,11 +65,11 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
             >
               {otherLang}
             </Button>
-            <Link to={searchPath} aria-label={t("search.title") ?? "Search"}>
-              <Button variant="ghost" size="icon" asChild>
-                <span><Search className="h-4 w-4" aria-hidden="true" /></span>
-              </Button>
-            </Link>
+            <Button variant="ghost" size="icon" asChild>
+              <Link to={searchPath} aria-label={t("search.title")}>
+                <Search className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label={t("a11y.toggleTheme")}>
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -77,11 +77,11 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
 
           {/* Mobile nav */}
           <div className="flex items-center gap-1 md:hidden">
-            <Link to={searchPath} aria-label={t("search.title") ?? "Search"}>
-              <Button variant="ghost" size="icon" asChild>
-                <span><Search className="h-4 w-4" aria-hidden="true" /></span>
-              </Button>
-            </Link>
+            <Button variant="ghost" size="icon" asChild>
+              <Link to={searchPath} aria-label={t("search.title")}>
+                <Search className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
             <Button
               variant="ghost"
               size="sm"
