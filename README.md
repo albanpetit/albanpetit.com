@@ -38,7 +38,7 @@
 
 ### Content
 
-- Bilingual posts (English / French) with automatic URL routing (`/` → EN, `/fr/` → FR)
+- Bilingual posts (English / French) with URL routing (`/` → EN, `/fr/` → FR); no automatic redirect — readers switch language from the header, search engines follow `hreflang`
 - Tag pages and category pages, each fully bilingual
 - Full-text fuzzy search across titles, descriptions, tags, and excerpts
 - RSS feeds at `/rss.xml` (EN) and `/fr/rss.xml` (FR)

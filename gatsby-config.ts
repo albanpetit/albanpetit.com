@@ -172,6 +172,9 @@ const config: GatsbyConfig = {
         defaultLanguage: "en",
         siteUrl: "https://albanpetit.com",
         trailingSlash: "always",
+        // No automatic language redirect: it prefixed /fr to paths that have no French page
+        // (translated tag slugs, 404s → /fr/fr/…). hreflang and the header switch handle language.
+        redirect: false,
         i18nextOptions: {
           returnNull: false,
           interpolation: {
