@@ -19,13 +19,14 @@ type CategoryPageData = {
 type CategoryPageContext = {
   category: string
   categorySlug: string
+  hasAlternate: boolean
   language: string
 }
 
 const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> = ({ data, pageContext }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
-  const { category } = pageContext
+  const { category, hasAlternate } = pageContext
   const label = categoryLabel(category, language)
   const posts = data.allMarkdownRemark.nodes
 
@@ -33,7 +34,7 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
   const homePath = language === "en" ? "/" : "/fr/"
 
   return (
-    <Layout>
+    <Layout alternatePath={hasAlternate ? undefined : "/blog/"}>
       <div className="flex flex-col gap-8">
         <div>
           <Breadcrumb className="mb-4" aria-label={t("a11y.breadcrumb")}>
@@ -76,7 +77,7 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
 export default CategoryPage
 
 export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContext }) => {
-  const { category, categorySlug, language } = pageContext
+  const { category, categorySlug, hasAlternate, language } = pageContext
   const isEN = language !== "fr"
   const label = categoryLabel(category, language)
   const canonical = isEN ? `/category/${categorySlug}/` : `/fr/category/${categorySlug}/`
@@ -85,6 +86,7 @@ export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContex
       title={`${label} · Alban Petit`}
       description={isEN ? `Posts in category ${label}` : `Articles de la catégorie ${label}`}
       canonicalPath={canonical}
+      alternatePaths={hasAlternate ? { en: `/category/${categorySlug}/`, fr: `/fr/category/${categorySlug}/` } : undefined}
       lang={language}
     />
   )

@@ -162,6 +162,8 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         context: {
           category,
           categorySlug,
+          // Category names are shared across languages: the page exists in the other language if a post uses it there
+          hasAlternate: categoriesByLang.get(lang === "en" ? "fr" : "en")?.has(category) ?? false,
           language: lang,
           i18n: {
             language: lang,
