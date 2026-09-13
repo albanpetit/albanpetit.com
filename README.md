@@ -30,6 +30,7 @@
 | [gatsby-plugin-react-i18next](https://github.com/microapps/gatsby-plugin-react-i18next)  | EN / FR bilingual support                   |
 | [Fuse.js](https://fusejs.io/)                                                            | Client-side fuzzy search                    |
 | [Giscus](https://giscus.app/)                                                            | GitHub Discussions-powered comments         |
+| [Biome](https://biomejs.dev/)                                                            | Linting and formatting                      |
 | [GitHub Actions](https://docs.github.com/en/actions)                                     | Automated deployment to GitHub Pages        |
 
 ---
@@ -104,6 +105,8 @@ Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built
 
 **Requirements:** Node.js 22 (see `.nvmrc`)
 
+The devcontainer keeps `node_modules` in a named Docker volume (reading it through the host file share makes builds crawl). After pulling changes to `package-lock.json`, run `npm ci`.
+
 ```bash
 npm install
 npm run develop        # dev server at http://localhost:8000
@@ -116,6 +119,8 @@ npm run build          # production build → public/
 npm run serve          # serve the production build locally
 npm run clean          # clear .cache and public/
 npm run type-check     # TypeScript check without emitting
+npm run lint           # Biome lint + formatting check (run in CI)
+npm run format         # apply Biome formatting
 ```
 
 ---
@@ -252,7 +257,7 @@ To trigger manually: **Actions** tab → **Deploy to GitHub Pages** → **Run wo
 
 The workflow (`.github/workflows/deploy.yml`) runs in two jobs:
 
-1. **build** — checks out the repo, installs dependencies with `npm ci`, runs `npm run type-check`, restores the Gatsby `.cache/` and `public/` directories, runs `npm run build`, and uploads `public/` as a Pages artifact.
+1. **build** — checks out the repo, installs dependencies with `npm ci`, runs `npm run lint` and `npm run type-check`, restores the Gatsby `.cache/` and `public/` directories, runs `npm run build`, and uploads `public/` as a Pages artifact.
 2. **deploy** — downloads the artifact and publishes it to GitHub Pages.
 
 Pull requests targeting `master` run the **build** job only, so type errors and build failures surface before merging.
@@ -275,7 +280,7 @@ CNAME www  albanpetit.github.io
 
 1. Fork the repository
 2. Create a branch: `git checkout -b feat/my-feature`
-3. Commit following the convention below
+3. Run `npm run lint` and `npm run type-check`, then commit following the convention below
 4. Open a Pull Request
 
 ### Commit convention
