@@ -18,20 +18,21 @@ type TagPageData = {
 type TagPageContext = {
   tag: string
   tagSlug: string
+  alternateTagSlug: string | null
   language: string
 }
 
 const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageContext }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
-  const { tag } = pageContext
+  const { tag, alternateTagSlug } = pageContext
   const posts = data.allMarkdownRemark.nodes
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const homePath = language === "en" ? "/" : "/fr/"
 
   return (
-    <Layout>
+    <Layout alternatePath={alternateTagSlug ? `/tag/${alternateTagSlug}/` : "/blog/"}>
       <div className="flex flex-col gap-8">
         <div>
           <Breadcrumb className="mb-4">
@@ -74,7 +75,7 @@ const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageC
 export default TagPage
 
 export const Head: HeadFC<TagPageData, TagPageContext> = ({ pageContext }) => {
-  const { tag, tagSlug, language } = pageContext
+  const { tag, tagSlug, alternateTagSlug, language } = pageContext
   const isEN = language !== "fr"
   const canonical = isEN ? `/tag/${tagSlug}/` : `/fr/tag/${tagSlug}/`
   return (
@@ -82,6 +83,10 @@ export const Head: HeadFC<TagPageData, TagPageContext> = ({ pageContext }) => {
       title={`#${tag} · Alban Petit`}
       description={isEN ? `Posts tagged with ${tag}` : `Articles tagués ${tag}`}
       canonicalPath={canonical}
+      alternatePaths={alternateTagSlug ? {
+        en: isEN ? `/tag/${tagSlug}/` : `/tag/${alternateTagSlug}/`,
+        fr: isEN ? `/fr/tag/${alternateTagSlug}/` : `/fr/tag/${tagSlug}/`,
+      } : undefined}
       lang={language}
     />
   )

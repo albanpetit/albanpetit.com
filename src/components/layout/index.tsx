@@ -9,9 +9,11 @@ import { useTheme } from "@/context/theme"
 
 interface LayoutProps {
   children: React.ReactNode
+  /** Path of this page in the other language, without language prefix. Defaults to the current path. */
+  alternatePath?: string
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, alternatePath }: LayoutProps) => {
   const { theme, toggle } = useTheme()
   const { t } = useTranslation()
   const { language, changeLanguage } = useI18next()
@@ -56,7 +58,7 @@ const Layout = ({ children }: LayoutProps) => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => changeLanguage(otherLang)}
+              onClick={() => changeLanguage(otherLang, alternatePath)}
               className="text-muted-foreground uppercase font-medium"
             >
               {otherLang}
@@ -81,7 +83,7 @@ const Layout = ({ children }: LayoutProps) => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => changeLanguage(otherLang)}
+              onClick={() => changeLanguage(otherLang, alternatePath)}
               className="text-muted-foreground uppercase font-medium text-xs"
             >
               {otherLang}

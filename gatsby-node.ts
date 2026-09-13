@@ -88,6 +88,33 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     tags.forEach((tag) => tagsByLang.get(lang)!.set(tag, slugifyTag(tag)))
   })
 
+  // Pair tags across languages: translated posts share a slug and list their tags in the same order
+  const tagsBySlug = new Map<string, Map<string, string[]>>()
+
+  nodes.forEach((node) => {
+    const { slug, lang, tags } = node.frontmatter
+    if (!slug || !lang || !tags) return
+    if (!tagsBySlug.has(slug)) tagsBySlug.set(slug, new Map())
+    tagsBySlug.get(slug)!.set(lang, tags)
+  })
+
+  // Key: `${lang}:${tag}` — value: slug of the same tag in the other language
+  const tagCounterparts = new Map<string, string>()
+
+  tagsBySlug.forEach((tagsForSlug, slug) => {
+    const en = tagsForSlug.get("en")
+    const fr = tagsForSlug.get("fr")
+    if (!en || !fr) return
+    if (en.length !== fr.length) {
+      reporter.warn(`Post "${slug}": EN and FR tag lists differ in length, its tag pages cannot be paired`)
+      return
+    }
+    en.forEach((tag, i) => {
+      tagCounterparts.set(`en:${tag}`, slugifyTag(fr[i]))
+      tagCounterparts.set(`fr:${fr[i]}`, slugifyTag(tag))
+    })
+  })
+
   tagsByLang.forEach((tags, lang) => {
     tags.forEach((tagSlug, tag) => {
       const originalPath = `/tag/${tagSlug}/`
@@ -99,6 +126,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         context: {
           tag,
           tagSlug,
+          alternateTagSlug: tagCounterparts.get(`${lang}:${tag}`) ?? null,
           language: lang,
           i18n: {
             language: lang,
