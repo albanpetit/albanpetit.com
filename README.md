@@ -238,8 +238,10 @@ To trigger manually: **Actions** tab → **Deploy to GitHub Pages** → **Run wo
 
 The workflow (`.github/workflows/deploy.yml`) runs in two jobs:
 
-1. **build** — checks out the repo, installs dependencies with `npm ci`, runs `npm run build`, and uploads the `public/` directory as a Pages artifact.
+1. **build** — checks out the repo, installs dependencies with `npm ci`, runs `npm run type-check`, restores the Gatsby `.cache/` and `public/` directories, runs `npm run build`, and uploads `public/` as a Pages artifact.
 2. **deploy** — downloads the artifact and publishes it to GitHub Pages.
+
+Pull requests targeting `master` run the **build** job only, so type errors and build failures surface before merging.
 
 The Node.js version is read from `.nvmrc`; `NODE_OPTIONS=--max-old-space-size=4096` is set to handle large builds.
 
