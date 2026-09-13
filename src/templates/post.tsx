@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { graphql, Link } from "gatsby"
-import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, getSrc, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -55,8 +55,7 @@ type PostTemplateData = {
       lang: string
       slug: string
       image: {
-        publicURL: string
-        childImageSharp: { gatsbyImageData: IGatsbyImageData }
+        childImageSharp: { gatsbyImageData: IGatsbyImageData; og: IGatsbyImageData }
       } | null
     }
   }
@@ -241,12 +240,13 @@ export default PostTemplate
 export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
   const { title, description, image, date, lastmod, lang, slug } = data.markdownRemark.frontmatter
   const canonicalPath = lang === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
+  const ogImage = image ? getSrc(image.childImageSharp.og) : undefined
 
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://albanpetit.com${lang === "en" ? "/" : "/fr/"}` },
+      { "@type": "ListItem", position: 1, name: lang === "en" ? "Home" : "Accueil", item: `https://albanpetit.com${lang === "en" ? "/" : "/fr/"}` },
       { "@type": "ListItem", position: 2, name: lang === "en" ? "Blog" : "Articles", item: `https://albanpetit.com${lang === "en" ? "/blog/" : "/fr/blog/"}` },
       { "@type": "ListItem", position: 3, name: title, item: `https://albanpetit.com${canonicalPath}` },
     ],
@@ -257,7 +257,7 @@ export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
     "@type": "Article",
     headline: title,
     description,
-    image: image?.publicURL ? `https://albanpetit.com${image.publicURL}` : undefined,
+    image: ogImage ? `https://albanpetit.com${ogImage}` : undefined,
     author: {
       "@type": "Person",
       name: "Alban Petit",
@@ -279,7 +279,7 @@ export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
     <Seo
       title={`${title} · Alban Petit`}
       description={description}
-      image={image?.publicURL}
+      image={ogImage}
       type="article"
       publishedAt={date}
       updatedAt={lastmod || date}
@@ -320,9 +320,9 @@ export const query = graphql`
         lang
         slug
         image {
-          publicURL
           childImageSharp {
             gatsbyImageData(width: 800, placeholder: BLURRED)
+            og: gatsbyImageData(width: 1200, height: 630, layout: FIXED, formats: [JPG], placeholder: NONE)
           }
         }
       }
