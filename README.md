@@ -230,7 +230,7 @@ Use `float-right` for the same effect on the right side. The float width is fixe
 
 ## Deployment
 
-The site deploys automatically to GitHub Pages via GitHub Actions on every push to `main`.
+The site deploys automatically to GitHub Pages via GitHub Actions on every push to `master`.
 
 To trigger manually: **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**.
 
