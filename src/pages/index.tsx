@@ -67,7 +67,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
         <div className="flex flex-col gap-6">
 
           {/* Greeting */}
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+          <p className="text-sm font-semibold uppercase tracking-widest text-amber-700 dark:text-primary">
             {t("home.greeting")}
           </p>
 

@@ -127,7 +127,7 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
         <div className="grid grid-cols-3 gap-4">
           {stats.map((stat) => (
             <div key={stat.label} className="rounded-xl border bg-card p-4 text-center">
-              <p className="text-2xl font-bold text-primary">{stat.value}</p>
+              <p className="text-2xl font-bold text-amber-700 dark:text-primary">{stat.value}</p>
               <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
             </div>
           ))}
