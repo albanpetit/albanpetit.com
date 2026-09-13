@@ -71,7 +71,12 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        excludes: ["/search/", "/fr/search/", "/fr/404/", "/fr/404.html"],
+      },
+    },
     {
       resolve: "gatsby-plugin-feed",
       options: {

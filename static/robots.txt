@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /search/
-Disallow: /fr/search/
 
 Sitemap: https://albanpetit.com/sitemap-index.xml
