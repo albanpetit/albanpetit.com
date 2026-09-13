@@ -2,7 +2,8 @@
   "name": "albanpetit.com",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
   "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached,readonly"
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached,readonly",
+    "source=albanpetit-com-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
@@ -19,7 +20,7 @@
       "onAutoForward": "silent"
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "sudo chown node node_modules && npm ci",
   "remoteUser": "node",
   "customizations": {
     "vscode": {
