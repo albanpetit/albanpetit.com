@@ -99,7 +99,7 @@ Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built
 
 ## Getting started
 
-**Requirements:** Node.js 20+
+**Requirements:** Node.js 22 (see `.nvmrc`)
 
 ```bash
 npm install
@@ -241,7 +241,7 @@ The workflow (`.github/workflows/deploy.yml`) runs in two jobs:
 1. **build** — checks out the repo, installs dependencies with `npm ci`, runs `npm run build`, and uploads the `public/` directory as a Pages artifact.
 2. **deploy** — downloads the artifact and publishes it to GitHub Pages.
 
-Node 20 is used; `NODE_OPTIONS=--max-old-space-size=4096` is set to handle large builds.
+The Node.js version is read from `.nvmrc`; `NODE_OPTIONS=--max-old-space-size=4096` is set to handle large builds.
 
 ### DNS configuration
 
