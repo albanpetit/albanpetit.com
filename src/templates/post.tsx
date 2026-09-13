@@ -48,6 +48,7 @@ type PostTemplateData = {
     frontmatter: {
       title: string
       date: string
+      displayDate: string
       lastmod: string
       description: string
       tags: string[]
@@ -114,10 +115,6 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
   const { language } = useI18next()
   const { html, timeToRead, headings, frontmatter } = data.markdownRemark
   const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
-  const displayDate = new Date(frontmatter.date).toLocaleDateString(
-    language === "fr" ? "fr-FR" : "en-US",
-    { year: "numeric", month: "long", day: "numeric" }
-  )
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
@@ -171,7 +168,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
                 <div className="flex items-center gap-3 text-sm text-muted-foreground ml-auto">
                   <span className="flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5" />
-                    {displayDate}
+                    {frontmatter.displayDate}
                   </span>
                   {timeToRead && (
                     <>
@@ -313,6 +310,7 @@ export const query = graphql`
       frontmatter {
         title
         date
+        displayDate: date(formatString: "LL", locale: $language)
         lastmod
         description
         tags

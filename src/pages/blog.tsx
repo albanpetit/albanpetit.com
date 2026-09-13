@@ -145,7 +145,7 @@ export const query = graphql`
         excerpt(pruneLength: 160)
         frontmatter {
           title
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "LL", locale: $language)
           description
           tags
           category
