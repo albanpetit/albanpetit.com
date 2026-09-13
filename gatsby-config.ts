@@ -1,5 +1,24 @@
 import type { GatsbyConfig } from "gatsby"
 
+type FeedNode = {
+  html: string
+  excerpt: string
+  frontmatter: { title: string; date: string; description?: string; slug: string }
+}
+
+type FeedQuery = {
+  query: {
+    site: { siteMetadata: { siteUrl: string } }
+    allMarkdownRemark: { nodes: FeedNode[] }
+  }
+}
+
+// Feed readers have no base URL: rewrite root-relative src/href/srcset to absolute ones
+const absolutizeUrls = (html: string, siteUrl: string) =>
+  html
+    .replace(/(\s(?:src|href|srcset)=")\/(?!\/)/g, `$1${siteUrl}/`)
+    .replace(/(,\s*)\/static\//g, `$1${siteUrl}/static/`)
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "Alban Petit",
@@ -87,14 +106,14 @@ const config: GatsbyConfig = {
         }`,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }: any) =>
-              allMarkdownRemark.nodes.map((node: any) => ({
+            serialize: ({ query: { site, allMarkdownRemark } }: FeedQuery) =>
+              allMarkdownRemark.nodes.map((node) => ({
                 title: node.frontmatter.title,
                 description: node.frontmatter.description || node.excerpt,
                 date: node.frontmatter.date,
                 url: `${site.siteMetadata.siteUrl}/post/${node.frontmatter.slug}/`,
                 guid: `${site.siteMetadata.siteUrl}/post/${node.frontmatter.slug}/`,
-                custom_elements: [{ "content:encoded": node.html }],
+                custom_elements: [{ "content:encoded": absolutizeUrls(node.html, site.siteMetadata.siteUrl) }],
               })),
             query: `{
               allMarkdownRemark(
@@ -115,14 +134,14 @@ const config: GatsbyConfig = {
             title: "Alban Petit — Blog",
           },
           {
-            serialize: ({ query: { site, allMarkdownRemark } }: any) =>
-              allMarkdownRemark.nodes.map((node: any) => ({
+            serialize: ({ query: { site, allMarkdownRemark } }: FeedQuery) =>
+              allMarkdownRemark.nodes.map((node) => ({
                 title: node.frontmatter.title,
                 description: node.frontmatter.description || node.excerpt,
                 date: node.frontmatter.date,
                 url: `${site.siteMetadata.siteUrl}/fr/post/${node.frontmatter.slug}/`,
                 guid: `${site.siteMetadata.siteUrl}/fr/post/${node.frontmatter.slug}/`,
-                custom_elements: [{ "content:encoded": node.html }],
+                custom_elements: [{ "content:encoded": absolutizeUrls(node.html, site.siteMetadata.siteUrl) }],
               })),
             query: `{
               allMarkdownRemark(
