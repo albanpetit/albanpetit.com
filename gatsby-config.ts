@@ -173,6 +173,7 @@ const config: GatsbyConfig = {
         siteUrl: "https://albanpetit.com",
         trailingSlash: "always",
         i18nextOptions: {
+          returnNull: false,
           interpolation: {
             escapeValue: false,
           },

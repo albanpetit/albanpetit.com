@@ -12,6 +12,7 @@ import Seo from "@/components/seo"
 type AboutPageData = {
   en: { html: string; frontmatter: { title: string } } | null
   fr: { html: string; frontmatter: { title: string } } | null
+  posts: { totalCount: number }
 }
 
 const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
@@ -22,17 +23,12 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
   const html = content?.html ?? ""
   const skills: string[] = t("about.skills", { returnObjects: true }) as string[]
 
-  const stats = language === "fr"
-    ? [
-        { value: "10+", label: "ans d'expérience en ingénierie" },
-        { value: "5+", label: "articles publiés" },
-        { value: "2000+", label: "heures d'impression 3D" },
-      ]
-    : [
-        { value: "10+", label: "years of engineering experience" },
-        { value: "5+", label: "posts published" },
-        { value: "2000+", label: "hours of 3D printing" },
-      ]
+  const postCount = data.posts.totalCount
+  const stats = [
+    { value: "10+", label: t("about.stats.experience") },
+    { value: String(postCount), label: t("about.stats.posts", { count: postCount }) },
+    { value: "2000+", label: t("about.stats.printing") },
+  ]
 
   return (
     <Layout>
@@ -172,6 +168,11 @@ export const query = graphql`
           language
         }
       }
+    }
+    posts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/posts/" }, frontmatter: { lang: { eq: $language } } }
+    ) {
+      totalCount
     }
     en: markdownRemark(frontmatter: { slug: { eq: "about" }, lang: { eq: "en" } }) {
       html

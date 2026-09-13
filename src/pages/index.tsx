@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { ArrowRight, Search, MapPin, Cpu, Printer } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
+import { categoryLabel } from "@/lib/category"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 
 const GithubIcon = () => (
@@ -66,7 +67,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
 
           {/* Greeting */}
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-            {language === "fr" ? "👋 Bonjour, je suis" : "👋 Hello, I'm"}
+            {t("home.greeting")}
           </p>
 
           {/* Name + role */}
@@ -227,7 +228,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                   {allCategories.map((cat) => (
                     <Link key={cat} to={categoryPath(cat, language)}>
                       <Badge variant="outline" className="cursor-pointer hover:border-primary/60 hover:bg-primary/5 transition-colors">
-                        {cat}
+                        {categoryLabel(cat, language)}
                       </Badge>
                     </Link>
                   ))}

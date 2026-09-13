@@ -13,6 +13,7 @@ import {
 import { Clock, Calendar } from "lucide-react"
 import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
+import { categoryLabel } from "@/lib/category"
 import Giscus from "@/components/giscus"
 
 const ReadingProgress = () => {
@@ -161,7 +162,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
                 {frontmatter.category && (
                   <Link to={categoryPath(frontmatter.category, language)}>
                     <Badge variant="secondary" className="cursor-pointer hover:bg-accent transition-colors">
-                      {frontmatter.category}
+                      {categoryLabel(frontmatter.category, language)}
                     </Badge>
                   </Link>
                 )}

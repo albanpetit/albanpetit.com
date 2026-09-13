@@ -4,6 +4,7 @@ import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-imag
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { tagPath, categoryPath } from "@/lib/tag"
+import { categoryLabel } from "@/lib/category"
 
 export type PostCardData = {
   id: string
@@ -54,7 +55,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
             {frontmatter.category ? (
               <Link to={categoryPath(frontmatter.category, language)} className="relative z-10">
                 <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
-                  {frontmatter.category}
+                  {categoryLabel(frontmatter.category, language)}
                 </Badge>
               </Link>
             ) : <span />}

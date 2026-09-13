@@ -6,7 +6,17 @@
   "footer": {
     "copyright": "© {{year}} Alban Petit"
   },
+  "a11y": {
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation links",
+    "toggleTheme": "Toggle theme",
+    "openMenu": "Open menu",
+    "menu": "Menu",
+    "close": "Close",
+    "rssFeed": "RSS feed"
+  },
   "home": {
+    "greeting": "👋 Hello, I'm",
     "name": "Alban Petit",
     "role": "Developer · Maker · FabManager",
     "description": "I write about electronics, web development, and all things related to the maker world — tutorials, experiments, and projects built at <1>La Machinerie</1> and in my workshop.",
@@ -19,7 +29,12 @@
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
     "openSource": "Open Source enthusiast",
-    "skills": ["Electronics", "Web Development", "3D Printing", "Open Source"]
+    "skills": [
+      "Electronics",
+      "Web Development",
+      "3D Printing",
+      "Open Source"
+    ]
   },
   "blog": {
     "title": "Blog",
@@ -36,10 +51,21 @@
   },
   "about": {
     "role": "Developer · Maker · FabManager",
-    "skills": ["Web Development", "Electronics", "Maker", "Open Source"],
+    "skills": [
+      "Web Development",
+      "Electronics",
+      "Maker",
+      "Open Source"
+    ],
     "email": "Email",
     "twitter": "Twitter",
-    "github": "GitHub"
+    "github": "GitHub",
+    "stats": {
+      "experience": "years of engineering experience",
+      "posts_one": "post published",
+      "posts_other": "posts published",
+      "printing": "hours of 3D printing"
+    }
   },
   "search": {
     "title": "Search",
@@ -57,6 +83,11 @@
   "category": {
     "subtitle_one": "{{count}} post",
     "subtitle_other": "{{count}} posts"
+  },
+  "categories": {
+    "Projects": "Projects",
+    "Tutorials": "Tutorials",
+    "Web": "Web"
   },
   "breadcrumb": {
     "home": "Home"

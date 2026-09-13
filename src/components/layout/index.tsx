@@ -45,7 +45,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-6 text-sm" aria-label={t("a11y.mainNav")}>
             {navLinks.map(({ to, label }) => (
               <Link
                 key={to}
@@ -68,7 +68,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
                 <span><Search className="h-4 w-4" aria-hidden="true" /></span>
               </Button>
             </Link>
-            <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
+            <Button variant="ghost" size="icon" onClick={toggle} aria-label={t("a11y.toggleTheme")}>
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
           </nav>
@@ -88,17 +88,17 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
             >
               {otherLang}
             </Button>
-            <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
+            <Button variant="ghost" size="icon" onClick={toggle} aria-label={t("a11y.toggleTheme")}>
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Open menu">
+                <Button variant="ghost" size="icon" aria-label={t("a11y.openMenu")}>
                   <Menu className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-56" aria-label="Mobile navigation">
-                <nav className="flex flex-col gap-4 pt-8 text-sm" aria-label="Mobile navigation links">
+              <SheetContent side="right" className="w-56" closeLabel={t("a11y.close")} aria-label={t("a11y.menu")}>
+                <nav className="flex flex-col gap-4 pt-8 text-sm" aria-label={t("a11y.mobileNav")}>
                   {navLinks.map(({ to, label }) => (
                     <Link
                       key={to}
@@ -144,7 +144,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-orange-500 transition-colors"
-          aria-label="RSS feed"
+          aria-label={t("a11y.rssFeed")}
         >
           <Rss className="h-3.5 w-3.5" aria-hidden="true" />
         </a>

@@ -6,7 +6,17 @@
   "footer": {
     "copyright": "© {{year}} Alban Petit"
   },
+  "a11y": {
+    "mainNav": "Navigation principale",
+    "mobileNav": "Liens de navigation mobile",
+    "toggleTheme": "Changer de thème",
+    "openMenu": "Ouvrir le menu",
+    "menu": "Menu",
+    "close": "Fermer",
+    "rssFeed": "Flux RSS"
+  },
   "home": {
+    "greeting": "👋 Bonjour, je suis",
     "name": "Alban Petit",
     "role": "Développeur · Maker · FabManager",
     "description": "J'écris sur l'électronique, le développement web, et tout ce qui touche au monde des makers — tutoriels, expériences, et projets réalisés à <1>La Machinerie</1> et dans mon atelier.",
@@ -19,7 +29,12 @@
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
     "openSource": "Passionné d'Open Source",
-    "skills": ["Électronique", "Développement Web", "Impression 3D", "Open Source"]
+    "skills": [
+      "Électronique",
+      "Développement Web",
+      "Impression 3D",
+      "Open Source"
+    ]
   },
   "blog": {
     "title": "Articles",
@@ -36,10 +51,21 @@
   },
   "about": {
     "role": "Développeur · Maker · FabManager",
-    "skills": ["Développement Web", "Électronique", "Maker", "Open Source"],
+    "skills": [
+      "Développement Web",
+      "Électronique",
+      "Maker",
+      "Open Source"
+    ],
     "email": "Email",
     "twitter": "Twitter",
-    "github": "GitHub"
+    "github": "GitHub",
+    "stats": {
+      "experience": "ans d'expérience en ingénierie",
+      "posts_one": "article publié",
+      "posts_other": "articles publiés",
+      "printing": "heures d'impression 3D"
+    }
   },
   "search": {
     "title": "Recherche",
@@ -57,6 +83,11 @@
   "category": {
     "subtitle_one": "{{count}} article",
     "subtitle_other": "{{count}} articles"
+  },
+  "categories": {
+    "Projects": "Projets",
+    "Tutorials": "Tutoriels",
+    "Web": "Web"
   },
   "breadcrumb": {
     "home": "Accueil"

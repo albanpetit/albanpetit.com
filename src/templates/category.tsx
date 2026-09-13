@@ -6,6 +6,7 @@ import Layout from "@/components/layout"
 import { Separator } from "@/components/ui/separator"
 import Seo from "@/components/seo"
 import PostCard, { type PostCardData } from "@/components/PostCard"
+import { categoryLabel } from "@/lib/category"
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink,
   BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
@@ -25,6 +26,7 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
   const { t } = useTranslation()
   const { language } = useI18next()
   const { category } = pageContext
+  const label = categoryLabel(category, language)
   const posts = data.allMarkdownRemark.nodes
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
@@ -49,11 +51,11 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>{category}</BreadcrumbPage>
+                <BreadcrumbPage>{label}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <h1 className="text-3xl font-bold tracking-tight">{category}</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{label}</h1>
           <p className="mt-2 text-muted-foreground">
             {t("category.subtitle", { count: posts.length })}
           </p>
@@ -76,11 +78,12 @@ export default CategoryPage
 export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContext }) => {
   const { category, categorySlug, language } = pageContext
   const isEN = language !== "fr"
+  const label = categoryLabel(category, language)
   const canonical = isEN ? `/category/${categorySlug}/` : `/fr/category/${categorySlug}/`
   return (
     <Seo
-      title={`${category} · Alban Petit`}
-      description={isEN ? `Posts in category ${category}` : `Articles de la catégorie ${category}`}
+      title={`${label} · Alban Petit`}
+      description={isEN ? `Posts in category ${label}` : `Articles de la catégorie ${label}`}
       canonicalPath={canonical}
       lang={language}
     />
