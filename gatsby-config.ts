@@ -13,6 +13,11 @@ type FeedQuery = {
   }
 }
 
+type SitemapQuery = {
+  allSitePage: { nodes: { path: string }[] }
+  allMarkdownRemark: { nodes: { frontmatter: { slug: string; lang: string; date: string; lastmod: string | null } }[] }
+}
+
 // Feed readers have no base URL: rewrite root-relative src/href/srcset to absolute ones
 const absolutizeUrls = (html: string, siteUrl: string) =>
   html
@@ -94,6 +99,27 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-sitemap",
       options: {
         excludes: ["/search/", "/fr/search/", "/fr/404/", "/fr/404.html"],
+        query: `{
+          site { siteMetadata { siteUrl } }
+          allSitePage { nodes { path } }
+          allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/content/posts/" } }) {
+            nodes { frontmatter { slug lang date lastmod } }
+          }
+        }`,
+        // Post URLs get <lastmod> from front matter (lastmod, else date)
+        resolvePages: ({ allSitePage, allMarkdownRemark }: SitemapQuery) => {
+          const lastmodByPath = new Map(
+            allMarkdownRemark.nodes.map(({ frontmatter: f }) => [
+              f.lang === "en" ? `/post/${f.slug}/` : `/${f.lang}/post/${f.slug}/`,
+              f.lastmod ?? f.date,
+            ])
+          )
+          return allSitePage.nodes.map((page) => ({ ...page, lastmod: lastmodByPath.get(page.path) }))
+        },
+        serialize: ({ path, lastmod }: { path: string; lastmod?: string }) => ({
+          url: path,
+          ...(lastmod ? { lastmod } : {}),
+        }),
       },
     },
     {
