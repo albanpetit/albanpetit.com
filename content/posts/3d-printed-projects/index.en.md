@@ -78,7 +78,7 @@ I stick a label (handwritten or printed) on each bag with a reference ID that ma
 
 The design is simple and efficient: no supports, fast print.
 
-![Print](electonic-components-storage/print-1.jpg) ![Bags](electonic-components-storage/bag-1.jpg)
+![Print](electronic-components-storage/print-1.jpg) ![Bags](electronic-components-storage/bag-1.jpg)
 
 ### Download & Materials
 

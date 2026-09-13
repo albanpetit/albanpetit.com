@@ -78,7 +78,7 @@ Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un iden
 
 Le design est simple et efficace : pas de supports et une impression rapide.
 
-![Photo](electonic-components-storage/print-1.jpg) ![Sachets](electonic-components-storage/bag-1.jpg)
+![Photo](electronic-components-storage/print-1.jpg) ![Sachets](electronic-components-storage/bag-1.jpg)
 
 ### Téléchargement et matériel
 
