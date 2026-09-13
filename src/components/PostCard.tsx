@@ -1,7 +1,7 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { tagPath, categoryPath } from "@/lib/tag"
 
@@ -37,10 +37,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
     : `/fr/post/${frontmatter.slug}/`
 
   return (
-    <Card
-      className="overflow-hidden cursor-pointer group border transition-all duration-200 hover:border-primary/50 hover:shadow-md"
-      onClick={() => navigate(postUrl)}
-    >
+    <Card className="relative overflow-hidden group border transition-all duration-200 hover:border-primary/50 hover:shadow-md">
       <div className="flex flex-col sm:flex-row">
         {coverImage && (
           <div className={`${thumbnailWidth} sm:shrink-0 overflow-hidden`}>
@@ -55,11 +52,8 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
           {/* Category + date row */}
           <div className="flex items-center justify-between gap-2">
             {frontmatter.category ? (
-              <Link
-                to={categoryPath(frontmatter.category, language)}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Badge variant="secondary" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+              <Link to={categoryPath(frontmatter.category, language)} className="relative z-10">
+                <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
                   {frontmatter.category}
                 </Badge>
               </Link>
@@ -70,9 +64,14 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
             </span>
           </div>
 
-          {/* Title */}
+          {/* Title — its link is stretched over the whole card */}
           <h3 className="font-semibold leading-snug group-hover:text-secondary transition-colors line-clamp-2">
-            {frontmatter.title}
+            <Link
+              to={postUrl}
+              className="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
+            >
+              {frontmatter.title}
+            </Link>
           </h3>
 
           {/* Description */}
@@ -84,12 +83,8 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
           {frontmatter.tags?.length > 0 && (
             <div className="flex flex-wrap gap-1 pt-1">
               {frontmatter.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  to={tagPath(tag, language)}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Badge variant="secondary" className="text-xs cursor-pointer hover:bg-accent transition-colors">
+                <Link key={tag} to={tagPath(tag, language)} className="relative z-10">
+                  <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
                     {tag}
                   </Badge>
                 </Link>
