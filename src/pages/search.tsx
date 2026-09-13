@@ -107,7 +107,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
 
 export default SearchPage
 
-export const Head: HeadFC<{}, { language: string }> = ({ pageContext }) => {
+export const Head: HeadFC<object, { language: string }> = ({ pageContext }) => {
   const isEN = pageContext.language !== "fr"
   return (
     <Seo

@@ -7,6 +7,7 @@ import { ThemeProvider } from "./src/context/theme"
 const themeScript = `(function(){try{var s=localStorage.getItem("theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d)}catch(e){}})()`
 
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setPreBodyComponents }) => {
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: constant script defined in this file
   setPreBodyComponents([<script key="theme" dangerouslySetInnerHTML={{ __html: themeScript }} />])
 }
 

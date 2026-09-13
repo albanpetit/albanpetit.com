@@ -1,4 +1,4 @@
-import path from "path"
+import path from "node:path"
 import type { GatsbyNode } from "gatsby"
 import { slugifyTag, slugifyCategory } from "./src/lib/tag"
 
@@ -84,8 +84,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   nodes.forEach((node) => {
     const { lang, tags } = node.frontmatter
     if (!lang || !tags) return
-    if (!tagsByLang.has(lang)) tagsByLang.set(lang, new Map())
-    tags.forEach((tag) => tagsByLang.get(lang)!.set(tag, slugifyTag(tag)))
+    const langTags = tagsByLang.get(lang) ?? new Map<string, string>()
+    tagsByLang.set(lang, langTags)
+    for (const tag of tags) langTags.set(tag, slugifyTag(tag))
   })
 
   // Pair tags across languages: translated posts share a slug and list their tags in the same order
@@ -94,8 +95,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   nodes.forEach((node) => {
     const { slug, lang, tags } = node.frontmatter
     if (!slug || !lang || !tags) return
-    if (!tagsBySlug.has(slug)) tagsBySlug.set(slug, new Map())
-    tagsBySlug.get(slug)!.set(lang, tags)
+    const slugTags = tagsBySlug.get(slug) ?? new Map<string, string[]>()
+    tagsBySlug.set(slug, slugTags)
+    slugTags.set(lang, tags)
   })
 
   // Key: `${lang}:${tag}` — value: slug of the same tag in the other language
@@ -147,8 +149,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   nodes.forEach((node) => {
     const { lang, category } = node.frontmatter
     if (!lang || !category) return
-    if (!categoriesByLang.has(lang)) categoriesByLang.set(lang, new Map())
-    categoriesByLang.get(lang)!.set(category, slugifyCategory(category))
+    const langCategories = categoriesByLang.get(lang) ?? new Map<string, string>()
+    categoriesByLang.set(lang, langCategories)
+    langCategories.set(category, slugifyCategory(category))
   })
 
   categoriesByLang.forEach((categories, lang) => {

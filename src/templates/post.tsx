@@ -220,6 +220,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
             <div
               className="prose prose-neutral dark:prose-invert max-w-none"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: HTML generated at build time from our own Markdown
               dangerouslySetInnerHTML={{ __html: html }}
             />
 
@@ -235,7 +236,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
 export default PostTemplate
 
-export const Head: HeadFC<PostTemplateData> = ({ data, location }) => {
+export const Head: HeadFC<PostTemplateData> = ({ data }) => {
   const { title, description, image, date, lastmod, lang, slug } = data.markdownRemark.frontmatter
   const canonicalPath = lang === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
   const ogImage = image ? getSrc(image.childImageSharp.og) : undefined

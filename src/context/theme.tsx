@@ -18,13 +18,12 @@ const readStoredTheme = (): Theme | null => {
   }
 }
 
+const setDarkClass = (theme: Theme) => {
+  document.documentElement.classList.toggle("dark", theme === "dark")
+}
+
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("light")
-
-  const apply = (next: Theme) => {
-    setTheme(next)
-    document.documentElement.classList.toggle("dark", next === "dark")
-  }
 
   useEffect(() => {
     // The class is already set by the inline script in gatsby-ssr.tsx; sync React state with it
@@ -33,7 +32,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     // Follow OS changes until the reader picks a theme explicitly
     const media = window.matchMedia("(prefers-color-scheme: dark)")
     const onChange = (event: MediaQueryListEvent) => {
-      if (!readStoredTheme()) apply(event.matches ? "dark" : "light")
+      if (readStoredTheme()) return
+      const next: Theme = event.matches ? "dark" : "light"
+      setTheme(next)
+      setDarkClass(next)
     }
     media.addEventListener("change", onChange)
     return () => media.removeEventListener("change", onChange)
@@ -41,7 +43,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   const toggle = () => {
     const next: Theme = theme === "light" ? "dark" : "light"
-    apply(next)
+    setTheme(next)
+    setDarkClass(next)
     try {
       localStorage.setItem(STORAGE_KEY, next)
     } catch {

@@ -93,8 +93,8 @@ const Seo = ({
       <meta name="twitter:image" content={ogImage} />
 
       {/* JSON-LD */}
-      {schemas.map((schema, i) => (
-        <script key={i} type="application/ld+json">
+      {schemas.map((schema) => (
+        <script key={JSON.stringify(schema)} type="application/ld+json">
           {JSON.stringify(schema)}
         </script>
       ))}

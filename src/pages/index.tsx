@@ -99,12 +99,12 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
           {/* Info items */}
           <div className="flex flex-col gap-1.5 text-sm">
             {[
-              { icon: <MapPin className="h-3.5 w-3.5" />, content: <span>{t("home.location")}</span> },
-              { icon: <Cpu className="h-3.5 w-3.5" />, content: <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">{t("home.fablab")}</a> },
-              { icon: <GithubIcon />, content: <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">github.com/albanpetit</a> },
-              { icon: <Printer className="h-3.5 w-3.5" />, content: <a href="https://makerworld.com/en/@albanpetit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">makerworld.com/@albanpetit</a> },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2 text-muted-foreground">
+              { id: "location", icon: <MapPin className="h-3.5 w-3.5" />, content: <span>{t("home.location")}</span> },
+              { id: "fablab", icon: <Cpu className="h-3.5 w-3.5" />, content: <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">{t("home.fablab")}</a> },
+              { id: "github", icon: <GithubIcon />, content: <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">github.com/albanpetit</a> },
+              { id: "makerworld", icon: <Printer className="h-3.5 w-3.5" />, content: <a href="https://makerworld.com/en/@albanpetit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">makerworld.com/@albanpetit</a> },
+            ].map((item) => (
+              <div key={item.id} className="flex items-center gap-2 text-muted-foreground">
                 <span className="text-primary">{item.icon}</span>
                 {item.content}
               </div>

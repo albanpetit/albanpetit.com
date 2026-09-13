@@ -39,7 +39,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC<{}, { language: string }> = ({ pageContext }) => (
+export const Head: HeadFC<object, { language: string }> = ({ pageContext }) => (
   <Seo title="404 · Alban Petit" lang={pageContext.language} noindex />
 )
 
