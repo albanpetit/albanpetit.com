@@ -38,16 +38,6 @@ jobs:
       - name: Type check
         run: npm run type-check
 
-      - name: Restore Gatsby cache
-        uses: actions/cache@v6
-        with:
-          path: |
-            .cache
-            public
-          key: gatsby-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
-          restore-keys: |
-            gatsby-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
-
       - name: Build
         run: npm run build
         env:
