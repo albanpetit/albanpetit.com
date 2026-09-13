@@ -111,6 +111,8 @@
   .prose :not(pre) > code {
     @apply bg-muted text-foreground px-1.5 py-0.5 rounded text-[0.875em] font-medium;
     font-style: normal;
+    /* long URLs in inline code must wrap instead of widening the page on mobile */
+    overflow-wrap: anywhere;
   }
   .prose :not(pre) > code::before,
   .prose :not(pre) > code::after {
