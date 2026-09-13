@@ -193,7 +193,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
             </div>
             <div className="flex flex-col gap-3">
               {posts.slice(0, 5).map((post) => (
-                <PostCard key={post.id} post={post} language={language} thumbnailWidth="sm:w-40" />
+                <PostCard key={post.id} post={post} language={language} thumbnailWidth="sm:w-40" headingLevel="h3" />
               ))}
             </div>
           </div>

@@ -38,7 +38,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
             to={homePath}
             className="flex items-center gap-2 font-bold tracking-tight"
           >
-            <img src="/logo.svg" alt="albanpetit.com" className="h-7 w-7" />
+            <img src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" />
             <span>
               albanpetit<span className="text-muted-foreground font-normal">.com</span>
             </span>

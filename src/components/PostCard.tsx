@@ -26,9 +26,12 @@ interface PostCardProps {
   post: PostCardData
   language: string
   thumbnailWidth?: string
+  /** h2 on listing pages (below the page h1), h3 where the list sits under an h2 */
+  headingLevel?: "h2" | "h3"
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "sm:w-48" }) => {
+const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "sm:w-48", headingLevel = "h2" }) => {
+  const Heading = headingLevel
   const { frontmatter, excerpt, timeToRead } = post
   const coverImage = frontmatter.image
     ? getImage(frontmatter.image.childImageSharp.gatsbyImageData)
@@ -66,14 +69,14 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
           </div>
 
           {/* Title — its link is stretched over the whole card */}
-          <h3 className="font-semibold leading-snug group-hover:text-secondary transition-colors line-clamp-2">
+          <Heading className="font-semibold leading-snug group-hover:text-secondary transition-colors line-clamp-2">
             <Link
               to={postUrl}
               className="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
             >
               {frontmatter.title}
             </Link>
-          </h3>
+          </Heading>
 
           {/* Description */}
           <p className="text-sm text-muted-foreground line-clamp-2 flex-1">
