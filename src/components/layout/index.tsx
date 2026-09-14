@@ -7,6 +7,14 @@ import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { useTheme } from "@/context/theme"
 
+// Driven by the .dark class set before first paint, so the static HTML already shows the right icon
+const ThemeIcon = () => (
+  <>
+    <Sun className="hidden h-4 w-4 dark:block" aria-hidden="true" />
+    <Moon className="h-4 w-4 dark:hidden" aria-hidden="true" />
+  </>
+)
+
 interface LayoutProps {
   children: React.ReactNode
   /** Path of this page in the other language, without language prefix. Defaults to the current path. */
@@ -14,7 +22,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, alternatePath }: LayoutProps) => {
-  const { theme, toggle } = useTheme()
+  const { toggle } = useTheme()
   const { t } = useTranslation()
   const { language, changeLanguage } = useI18next()
 
@@ -69,7 +77,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
               </Link>
             </Button>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label={t("a11y.toggleTheme")}>
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              <ThemeIcon />
             </Button>
           </nav>
 
@@ -91,7 +99,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
               {otherLang}
             </Button>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label={t("a11y.toggleTheme")}>
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              <ThemeIcon />
             </Button>
             <Sheet>
               <SheetTrigger asChild>
