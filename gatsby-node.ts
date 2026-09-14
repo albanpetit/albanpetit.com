@@ -57,6 +57,22 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const nodes = result.data?.allMarkdownRemark.nodes ?? []
 
+  // Records `name -> slug` in `map`, warning instead of silently overwriting when a different name
+  // already claimed that slug (its page would otherwise vanish under the newer name)
+  const addSlug = (map: Map<string, string>, name: string, slug: string, kind: string, lang: string) => {
+    if (map.has(name)) return
+    for (const [existingName, existingSlug] of map) {
+      if (existingSlug === slug && existingName !== name) {
+        reporter.warn(
+          `${kind} "${existingName}" and "${name}" (${lang}) both produce the slug "${slug}" — ` +
+            `only "${existingName}" will get a page, "${name}" has none`
+        )
+        return
+      }
+    }
+    map.set(name, slug)
+  }
+
   // Post pages
   const postKeys = new Set(nodes.map(({ frontmatter: { slug, lang } }) => `${slug}:${lang}`))
 
@@ -96,7 +112,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     if (!lang || !tags) return
     const langTags = tagsByLang.get(lang) ?? new Map<string, string>()
     tagsByLang.set(lang, langTags)
-    for (const tag of tags) langTags.set(tag, slugifyTag(tag))
+    for (const tag of tags) addSlug(langTags, tag, slugifyTag(tag), "Tag", lang)
   })
 
   // Pair tags across languages: translated posts share a slug and list their tags in the same order
@@ -179,7 +195,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     if (!lang || !category) return
     const langCategories = categoriesByLang.get(lang) ?? new Map<string, string>()
     categoriesByLang.set(lang, langCategories)
-    langCategories.set(category, slugifyCategory(category))
+    addSlug(langCategories, category, slugifyCategory(category), "Category", lang)
   })
 
   categoriesByLang.forEach((categories, lang) => {

@@ -5,8 +5,10 @@ function slugify(str: string): string {
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
+    // Collapse any run of disallowed characters into a single separator, instead of deleting them,
+    // so distinct tags like "C++" and "C" don't both reduce to "c"
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
 }
 
 export function slugifyTag(tag: string): string {
