@@ -177,6 +177,9 @@
   .prose pre {
     @apply border border-border;
   }
+  .prose pre:focus-visible {
+    @apply outline-none ring-2 ring-ring;
+  }
 
   /* Table — wide tables scroll inside their own box on small screens */
   .prose table {

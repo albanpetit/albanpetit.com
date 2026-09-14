@@ -115,6 +115,8 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
+  // Code blocks scroll horizontally on small screens: make them reachable with the keyboard
+  const content = html.replace(/<pre class="/g, '<pre tabindex="0" class="')
 
   return (
     <Layout>
@@ -208,7 +210,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
             <div
               className="prose prose-neutral dark:prose-invert max-w-none"
               // biome-ignore lint/security/noDangerouslySetInnerHtml: HTML generated at build time from our own Markdown
-              dangerouslySetInnerHTML={{ __html: html }}
+              dangerouslySetInnerHTML={{ __html: content }}
             />
 
             <Separator className="my-12" />
