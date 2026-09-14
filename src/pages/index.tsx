@@ -13,7 +13,7 @@ import { tagPath, categoryPath } from "@/lib/tag"
 import { categoryLabel } from "@/lib/category"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 import { localizedPath } from "@/lib/i18n"
-import { SITE_URL } from "@/lib/site"
+import { SITE_URL, GITHUB_URL, TWITTER_URL, MAKERWORLD_URL } from "@/lib/site"
 import { GithubIcon, XIcon } from "@/components/icons"
 
 type IndexPageData = {
@@ -103,7 +103,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 icon: <GithubIcon />,
                 content: (
                   <a
-                    href="https://github.com/albanpetit"
+                    href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors"
@@ -117,7 +117,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 icon: <Printer className="h-3.5 w-3.5" />,
                 content: (
                   <a
-                    href="https://makerworld.com/en/@albanpetit"
+                    href={MAKERWORLD_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors"
@@ -159,12 +159,12 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
             </Button>
             <div className="flex gap-2 ml-auto md:ml-0">
               <Button variant="ghost" size="icon" asChild>
-                <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <GithubIcon />
                 </a>
               </Button>
               <Button variant="ghost" size="icon" asChild>
-                <a href="https://twitter.com/Padh_" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+                <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
                   <XIcon />
                 </a>
               </Button>

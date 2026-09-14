@@ -11,6 +11,7 @@ import { Mail, MapPin, Cpu, Printer } from "lucide-react"
 import Seo from "@/components/seo"
 import { localizedPath } from "@/lib/i18n"
 import { GithubIcon, XIcon } from "@/components/icons"
+import { GITHUB_URL, TWITTER_URL, MAKERWORLD_URL } from "@/lib/site"
 
 type AboutPageData = {
   en: { html: string; frontmatter: { title: string } } | null
@@ -65,7 +66,7 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
               <div className="flex items-center gap-2 text-muted-foreground">
                 <GithubIcon className="h-4 w-4 shrink-0 text-primary" />
                 <a
-                  href="https://github.com/albanpetit"
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
@@ -76,7 +77,7 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Printer className="h-4 w-4 shrink-0 text-primary" />
                 <a
-                  href="https://makerworld.com/en/@albanpetit"
+                  href={MAKERWORLD_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
@@ -101,13 +102,13 @@ const AboutPage: React.FC<PageProps<AboutPageData>> = ({ data }) => {
                 </a>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <a href="https://twitter.com/Padh_" target="_blank" rel="noopener noreferrer">
+                <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer">
                   <XIcon className="mr-1.5 h-3.5 w-3.5" />
                   {t("about.twitter")}
                 </a>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <a href="https://github.com/albanpetit" target="_blank" rel="noopener noreferrer">
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
                   <GithubIcon className="mr-1.5 h-3.5 w-3.5" />
                   {t("about.github")}
                 </a>

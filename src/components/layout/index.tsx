@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { useTheme } from "@/context/theme"
 import { localizedPath } from "@/lib/i18n"
+import { GITHUB_URL, TWITTER_URL } from "@/lib/site"
 
 // Driven by the .dark class set before first paint, so the static HTML already shows the right icon
 const ThemeIcon = () => (
@@ -140,7 +141,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
         <span>{t("footer.copyright", { year: __BUILD_YEAR__ })}</span>
         <span>·</span>
         <a
-          href="https://github.com/albanpetit"
+          href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors"
@@ -149,7 +150,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
         </a>
         <span>·</span>
         <a
-          href="https://twitter.com/Padh_"
+          href={TWITTER_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors"
