@@ -34,10 +34,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
   const { language } = useI18next()
   const [searchQuery, setSearchQuery] = useState("")
 
-  const posts = useMemo(
-    () => data.allMarkdownRemark.nodes.filter((p) => p.frontmatter.lang === language),
-    [data, language]
-  )
+  const posts = data.allMarkdownRemark.nodes
 
   const allTags = useMemo(() => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(), [posts])
 
@@ -347,7 +344,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/content/posts/" }, frontmatter: { lang: { eq: $language } } }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {

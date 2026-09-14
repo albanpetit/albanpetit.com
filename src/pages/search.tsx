@@ -29,10 +29,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
     setReady(true)
   }, [])
 
-  const posts = useMemo(
-    () => data.allMarkdownRemark.nodes.filter((p) => p.frontmatter.lang === language),
-    [data, language]
-  )
+  const posts = data.allMarkdownRemark.nodes
 
   const fuse = useMemo(
     () =>
@@ -128,7 +125,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/content/posts/" }, frontmatter: { lang: { eq: $language } } }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
