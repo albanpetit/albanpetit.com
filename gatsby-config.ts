@@ -81,6 +81,7 @@ const config: GatsbyConfig = {
             options: {
               maxWidth: 800,
               quality: 80,
+              withWebp: true,
             },
           },
           {
