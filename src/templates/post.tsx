@@ -64,6 +64,10 @@ type PostTemplateData = {
   }
 }
 
+type PostPageContext = {
+  hasTranslation: boolean
+}
+
 const TableOfContents = ({ headings, title }: { headings: Heading[]; title: string }) => {
   const [activeId, setActiveId] = useState<string>("")
 
@@ -107,7 +111,7 @@ const TableOfContents = ({ headings, title }: { headings: Heading[]; title: stri
   )
 }
 
-const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
+const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ data, pageContext }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
   const { html, timeToRead, headings, frontmatter } = data.markdownRemark
@@ -128,7 +132,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
     .join("</p>")
 
   return (
-    <Layout>
+    <Layout alternatePath={pageContext.hasTranslation ? undefined : "/blog/"}>
       <ReadingProgress />
       <div className={`mx-auto ${hasToc ? "max-w-5xl" : "max-w-2xl"}`}>
         <Breadcrumb className="mb-6" aria-label={t("a11y.breadcrumb")}>
@@ -234,7 +238,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
 export default PostTemplate
 
-export const Head: HeadFC<PostTemplateData> = ({ data }) => {
+export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageContext }) => {
   const { title, description, image, date, lastmod, lang, slug } = data.markdownRemark.frontmatter
   const canonicalPath = lang === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
   const ogImage = image ? getSrc(image.childImageSharp.og) : undefined
@@ -292,7 +296,7 @@ export const Head: HeadFC<PostTemplateData> = ({ data }) => {
       updatedAt={lastmod || date}
       canonicalPath={canonicalPath}
       lang={lang}
-      alternatePaths={{ en: `/post/${slug}/`, fr: `/fr/post/${slug}/` }}
+      alternatePaths={pageContext.hasTranslation ? { en: `/post/${slug}/`, fr: `/fr/post/${slug}/` } : undefined}
       structuredData={[breadcrumbData, structuredData]}
     />
   )

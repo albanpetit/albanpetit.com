@@ -59,6 +59,8 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const nodes = result.data?.allMarkdownRemark.nodes ?? []
 
   // Post pages
+  const postKeys = new Set(nodes.map(({ frontmatter: { slug, lang } }) => `${slug}:${lang}`))
+
   nodes.forEach((node) => {
     const { slug, lang } = node.frontmatter
     if (!slug || !lang) return
@@ -72,6 +74,8 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       context: {
         id: node.id,
         slug,
+        // A post may exist in one language only: no hreflang, and the language switch falls back to the blog
+        hasTranslation: postKeys.has(`${slug}:${lang === "en" ? "fr" : "en"}`),
         language: lang,
         i18n: {
           language: lang,
