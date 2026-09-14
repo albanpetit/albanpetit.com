@@ -110,7 +110,6 @@ export const Head: HeadFC<object, { language: string }> = ({ pageContext }) => {
     <Seo
       title={isEN ? "Search · Alban Petit" : "Recherche · Alban Petit"}
       description={isEN ? "Search posts on albanpetit.com" : "Rechercher des articles sur albanpetit.com"}
-      canonicalPath={isEN ? "/search/" : "/fr/search/"}
       lang={pageContext.language}
       noindex
     />
