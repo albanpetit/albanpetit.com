@@ -13,9 +13,9 @@ export type PostCardData = {
   frontmatter: {
     title: string
     date: string
-    description?: string
-    tags: string[]
-    category: string
+    description: string | null
+    tags: string[] | null
+    category: string | null
     slug: string
     lang: string
     image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
@@ -81,7 +81,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
           <p className="text-sm text-muted-foreground line-clamp-2 flex-1">{frontmatter.description || excerpt}</p>
 
           {/* Tags */}
-          {frontmatter.tags?.length > 0 && (
+          {frontmatter.tags && frontmatter.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 pt-1">
               {frontmatter.tags.map((tag) => (
                 <Link key={tag} to={tagPath(tag, language)} className="relative z-10">

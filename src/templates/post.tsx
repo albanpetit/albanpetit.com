@@ -53,10 +53,10 @@ type PostTemplateData = {
       title: string
       date: string
       displayDate: string
-      lastmod: string
-      description: string
-      tags: string[]
-      category: string
+      lastmod: string | null
+      description: string | null
+      tags: string[] | null
+      category: string | null
       lang: string
       slug: string
       image: {
@@ -199,7 +199,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
                 </p>
               )}
 
-              {frontmatter.tags?.length > 0 && (
+              {frontmatter.tags && frontmatter.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5">
                   {frontmatter.tags.map((tag) => (
                     <Link key={tag} to={tagPath(tag, language)}>
@@ -291,7 +291,7 @@ export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageCont
   return (
     <Seo
       title={`${title} · Alban Petit`}
-      description={description}
+      description={description ?? undefined}
       image={ogImage}
       type="article"
       publishedAt={date}

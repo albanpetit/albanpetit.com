@@ -30,7 +30,10 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
   const allTags = useMemo(() => Array.from(new Set(posts.flatMap((p) => p.frontmatter.tags ?? []))).sort(), [posts])
 
   const allCategories = useMemo(
-    () => Array.from(new Set(posts.map((p) => p.frontmatter.category).filter(Boolean))).sort(),
+    () =>
+      Array.from(
+        new Set(posts.map((p) => p.frontmatter.category).filter((category): category is string => Boolean(category)))
+      ).sort(),
     [posts]
   )
 
