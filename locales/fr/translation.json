@@ -29,7 +29,6 @@
     "tags": "Tags",
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
-    "openSource": "Passionné d'Open Source",
     "skills": ["Électronique", "Développement Web", "Impression 3D", "Open Source"]
   },
   "blog": {
@@ -40,7 +39,6 @@
     "empty": "Aucun article trouvé."
   },
   "post": {
-    "backToBlog": "Tous les articles",
     "minRead_one": "{{count}} min de lecture",
     "minRead_other": "{{count}} min de lecture",
     "toc": "Sommaire"
@@ -84,7 +82,6 @@
     "home": "Accueil"
   },
   "404": {
-    "title": "404",
     "subtitle": "Page introuvable",
     "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil"

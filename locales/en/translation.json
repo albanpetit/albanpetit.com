@@ -29,7 +29,6 @@
     "tags": "Tags",
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
-    "openSource": "Open Source enthusiast",
     "skills": ["Electronics", "Web Development", "3D Printing", "Open Source"]
   },
   "blog": {
@@ -40,7 +39,6 @@
     "empty": "No posts found."
   },
   "post": {
-    "backToBlog": "All posts",
     "minRead_one": "{{count}} min read",
     "minRead_other": "{{count}} min read",
     "toc": "Table of contents"
@@ -84,7 +82,6 @@
     "home": "Home"
   },
   "404": {
-    "title": "404",
     "subtitle": "Page not found",
     "description": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to home"
