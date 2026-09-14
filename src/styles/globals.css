@@ -59,8 +59,11 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  /* Smooth anchor scrolling, unless the reader asked for reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   * {
