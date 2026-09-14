@@ -102,6 +102,11 @@
     --tw-prose-invert-code: hsl(var(--foreground));
   }
 
+  /* Anchor targets (table of contents, #hash links) stop below the sticky header */
+  .prose :is(h1, h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 5rem;
+  }
+
   /* H2 with bottom border for visual separation */
   .prose h2 {
     @apply border-b border-border pb-2 mt-10;

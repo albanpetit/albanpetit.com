@@ -71,8 +71,8 @@ const config: GatsbyConfig = {
         plugins: [
           {
             resolve: "gatsby-remark-autolink-headers",
+            // No offsetY: headings get scroll-margin-top in globals.css, which the plugin already subtracts
             options: {
-              offsetY: 80,
               className: "anchor",
             },
           },
