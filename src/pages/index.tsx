@@ -12,6 +12,7 @@ import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
 import { categoryLabel } from "@/lib/category"
 import PostCard, { type PostCardData } from "@/components/PostCard"
+import { localizedPath } from "@/lib/i18n"
 
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
@@ -43,9 +44,9 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
     [posts]
   )
 
-  const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
-  const aboutPath = language === "en" ? "/about/" : "/fr/about/"
-  const searchPath = language === "en" ? "/search/" : "/fr/search/"
+  const blogPath = localizedPath("/blog/", language)
+  const aboutPath = localizedPath("/about/", language)
+  const searchPath = localizedPath("/search/", language)
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -316,14 +317,14 @@ export const Head: HeadFC<IndexPageData, { language: string }> = ({ pageContext 
     <Seo
       title="Alban Petit"
       description={description}
-      canonicalPath={isFR ? "/fr/" : "/"}
+      canonicalPath={localizedPath("/", pageContext.language)}
       lang={pageContext.language}
       alternatePaths={{ en: "/", fr: "/fr/" }}
       structuredData={{
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "Alban Petit",
-        url: `https://albanpetit.com${isFR ? "/fr/" : "/"}`,
+        url: `https://albanpetit.com${localizedPath("/", pageContext.language)}`,
         inLanguage: isFR ? "fr-FR" : "en-US",
         author: { "@type": "Person", name: "Alban Petit" },
         description,

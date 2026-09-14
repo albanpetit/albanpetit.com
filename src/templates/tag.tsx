@@ -14,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { localizedPath } from "@/lib/i18n"
 
 type TagPageData = {
   allMarkdownRemark: { nodes: PostCardData[] }
@@ -32,8 +33,8 @@ const TagPage: React.FC<PageProps<TagPageData, TagPageContext>> = ({ data, pageC
   const { tag, alternateTagSlug } = pageContext
   const posts = data.allMarkdownRemark.nodes
 
-  const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
-  const homePath = language === "en" ? "/" : "/fr/"
+  const blogPath = localizedPath("/blog/", language)
+  const homePath = localizedPath("/", language)
 
   return (
     <Layout alternatePath={alternateTagSlug ? `/tag/${alternateTagSlug}/` : "/blog/"}>
@@ -79,7 +80,7 @@ export default TagPage
 export const Head: HeadFC<TagPageData, TagPageContext> = ({ pageContext }) => {
   const { tag, tagSlug, alternateTagSlug, language } = pageContext
   const isEN = language !== "fr"
-  const canonical = isEN ? `/tag/${tagSlug}/` : `/fr/tag/${tagSlug}/`
+  const canonical = localizedPath(`/tag/${tagSlug}/`, language)
   return (
     <Seo
       title={`#${tag} · Alban Petit`}

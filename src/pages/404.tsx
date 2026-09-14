@@ -6,11 +6,12 @@ import Layout from "@/components/layout"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Seo from "@/components/seo"
+import { localizedPath } from "@/lib/i18n"
 
 const NotFoundPage: React.FC<PageProps> = () => {
   const { t } = useTranslation()
   const { language } = useI18next()
-  const homePath = language === "en" ? "/" : "/fr/"
+  const homePath = localizedPath("/", language)
 
   return (
     <Layout>

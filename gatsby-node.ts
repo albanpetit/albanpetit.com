@@ -1,10 +1,8 @@
 import { copyFile, mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import type { GatsbyNode } from "gatsby"
+import { DEFAULT_LANGUAGE, LANGUAGES, localizedPath } from "./src/lib/i18n"
 import { slugifyTag, slugifyCategory } from "./src/lib/tag"
-
-const LANGUAGES = ["en", "fr"]
-const DEFAULT_LANGUAGE = "en"
 
 // Read once, so the static HTML and the browser bundle print the same year (no hydration mismatch on January 1st)
 const BUILD_YEAR = new Date().getFullYear()
@@ -66,7 +64,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     if (!slug || !lang) return
 
     const originalPath = `/post/${slug}/`
-    const pagePath = lang === DEFAULT_LANGUAGE ? originalPath : `/${lang}${originalPath}`
+    const pagePath = localizedPath(originalPath, lang)
 
     createPage({
       path: pagePath,
@@ -131,7 +129,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   tagsByLang.forEach((tags, lang) => {
     tags.forEach((tagSlug, tag) => {
       const originalPath = `/tag/${tagSlug}/`
-      const pagePath = lang === DEFAULT_LANGUAGE ? originalPath : `/${lang}${originalPath}`
+      const pagePath = localizedPath(originalPath, lang)
 
       createPage({
         path: pagePath,
@@ -168,7 +166,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   categoriesByLang.forEach((categories, lang) => {
     categories.forEach((categorySlug, category) => {
       const originalPath = `/category/${categorySlug}/`
-      const pagePath = lang === DEFAULT_LANGUAGE ? originalPath : `/${lang}${originalPath}`
+      const pagePath = localizedPath(originalPath, lang)
 
       createPage({
         path: pagePath,
@@ -214,13 +212,12 @@ export const onPostBuild: GatsbyNode["onPostBuild"] = async ({ graphql, reporter
     }
   `)
 
-  const prefix = (lang: string) => (lang === DEFAULT_LANGUAGE ? "" : `/${lang}`)
   const redirects = new Map<string, string>(
-    LANGUAGES.map((lang) => [`${prefix(lang)}/posts/`, `${prefix(lang)}/blog/`])
+    LANGUAGES.map((lang) => [localizedPath("/posts/", lang), localizedPath("/blog/", lang)])
   )
   for (const { frontmatter } of result.data?.allMarkdownRemark.nodes ?? []) {
     const { slug, lang } = frontmatter
-    if (slug && lang) redirects.set(`${prefix(lang)}/posts/${slug}/`, `${prefix(lang)}/post/${slug}/`)
+    if (slug && lang) redirects.set(localizedPath(`/posts/${slug}/`, lang), localizedPath(`/post/${slug}/`, lang))
   }
 
   await Promise.all(

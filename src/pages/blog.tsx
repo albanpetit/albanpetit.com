@@ -6,6 +6,7 @@ import Layout from "@/components/layout"
 import { Badge } from "@/components/ui/badge"
 import Seo from "@/components/seo"
 import PostCard, { type PostCardData } from "@/components/PostCard"
+import { localizedPath } from "@/lib/i18n"
 
 type BlogPageData = {
   allMarkdownRemark: {
@@ -120,7 +121,7 @@ export const Head: HeadFC<BlogPageData, { language: string }> = ({ pageContext }
           ? "Posts on electronics, web development, and maker projects."
           : "Articles sur l'électronique, le développement web et les projets makers."
       }
-      canonicalPath={isEN ? "/blog/" : "/fr/blog/"}
+      canonicalPath={localizedPath("/blog/", pageContext.language)}
       lang={pageContext.language}
       alternatePaths={{ en: "/blog/", fr: "/fr/blog/" }}
     />

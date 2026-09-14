@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { useTheme } from "@/context/theme"
+import { localizedPath } from "@/lib/i18n"
 
 // Driven by the .dark class set before first paint, so the static HTML already shows the right icon
 const ThemeIcon = () => (
@@ -26,16 +27,16 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
   const { t } = useTranslation()
   const { language, originalPath } = useI18next()
 
-  const homePath = language === "en" ? "/" : "/fr/"
-  const searchPath = language === "en" ? "/search/" : "/fr/search/"
-  const rssPath = language === "en" ? "/rss.xml" : "/fr/rss.xml"
+  const homePath = localizedPath("/", language)
+  const searchPath = localizedPath("/search/", language)
+  const rssPath = localizedPath("/rss.xml", language)
   const otherLang = language === "en" ? "fr" : "en"
   // A real link: works before hydration and without JavaScript, and crawlers can follow it
-  const switchPath = `${otherLang === "en" ? "" : `/${otherLang}`}${alternatePath ?? originalPath}`
+  const switchPath = localizedPath(alternatePath ?? originalPath, otherLang)
 
   const navLinks = [
-    { to: language === "en" ? "/blog/" : "/fr/blog/", label: t("nav.blog") },
-    { to: language === "en" ? "/about/" : "/fr/about/", label: t("nav.about") },
+    { to: localizedPath("/blog/", language), label: t("nav.blog") },
+    { to: localizedPath("/about/", language), label: t("nav.about") },
   ]
 
   return (

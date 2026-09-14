@@ -1,3 +1,5 @@
+import { localizedPath } from "./i18n"
+
 function slugify(str: string): string {
   return str
     .normalize("NFD")
@@ -16,9 +18,9 @@ export function slugifyCategory(category: string): string {
 }
 
 export function tagPath(tag: string, language: string): string {
-  return language === "en" ? `/tag/${slugifyTag(tag)}/` : `/fr/tag/${slugifyTag(tag)}/`
+  return localizedPath(`/tag/${slugifyTag(tag)}/`, language)
 }
 
 export function categoryPath(category: string, language: string): string {
-  return language === "en" ? `/category/${slugifyCategory(category)}/` : `/fr/category/${slugifyCategory(category)}/`
+  return localizedPath(`/category/${slugifyCategory(category)}/`, language)
 }

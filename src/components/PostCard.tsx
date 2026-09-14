@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { tagPath, categoryPath } from "@/lib/tag"
 import { categoryLabel } from "@/lib/category"
+import { localizedPath } from "@/lib/i18n"
 
 export type PostCardData = {
   id: string
@@ -34,7 +35,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
   const Heading = headingLevel
   const { frontmatter, excerpt, timeToRead } = post
   const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
-  const postUrl = language === "en" ? `/post/${frontmatter.slug}/` : `/fr/post/${frontmatter.slug}/`
+  const postUrl = localizedPath(`/post/${frontmatter.slug}/`, language)
 
   return (
     <Card className="relative overflow-hidden group border transition-all duration-200 hover:border-primary/50 hover:shadow-md">

@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from "gatsby"
+import { DEFAULT_LANGUAGE, LANGUAGES, localizedPath } from "./src/lib/i18n"
 
 type FeedNode = {
   html: string
@@ -124,7 +125,7 @@ const config: GatsbyConfig = {
         resolvePages: ({ allSitePage, allMarkdownRemark }: SitemapQuery) => {
           const lastmodByPath = new Map(
             allMarkdownRemark.nodes.map(({ frontmatter: f }) => [
-              f.lang === "en" ? `/post/${f.slug}/` : `/${f.lang}/post/${f.slug}/`,
+              localizedPath(`/post/${f.slug}/`, f.lang),
               f.lastmod ?? f.date,
             ])
           )
@@ -149,7 +150,7 @@ const config: GatsbyConfig = {
         setup: ({ query: { site }, ...feed }: FeedSetup) => ({
           ...site.siteMetadata,
           ...feed,
-          site_url: `${site.siteMetadata.siteUrl}${feed.language === "fr" ? "/fr/" : "/"}`,
+          site_url: `${site.siteMetadata.siteUrl}${localizedPath("/", feed.language)}`,
           feed_url: `${site.siteMetadata.siteUrl}${feed.output}`,
         }),
         feeds: [
@@ -219,8 +220,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-react-i18next",
       options: {
         localeJsonSourceName: "locale",
-        languages: ["en", "fr"],
-        defaultLanguage: "en",
+        languages: LANGUAGES,
+        defaultLanguage: DEFAULT_LANGUAGE,
         siteUrl: "https://albanpetit.com",
         trailingSlash: "always",
         // No automatic language redirect: it prefixed /fr to paths that have no French page

@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Cpu, Printer } from "lucide-react"
 import Seo from "@/components/seo"
+import { localizedPath } from "@/lib/i18n"
 
 type AboutPageData = {
   en: { html: string; frontmatter: { title: string } } | null
@@ -171,7 +172,7 @@ export const Head: HeadFC<object, { language: string }> = ({ pageContext }) => {
           ? "About Alban Petit — developer, maker, and FabManager at La Machinerie."
           : "À propos d'Alban Petit — développeur, maker et FabManager à La Machinerie."
       }
-      canonicalPath={isEN ? "/about/" : "/fr/about/"}
+      canonicalPath={localizedPath("/about/", pageContext.language)}
       lang={pageContext.language}
       alternatePaths={{ en: "/about/", fr: "/fr/about/" }}
     />

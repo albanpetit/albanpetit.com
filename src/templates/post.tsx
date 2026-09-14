@@ -19,6 +19,7 @@ import Seo from "@/components/seo"
 import { tagPath, categoryPath } from "@/lib/tag"
 import { categoryLabel } from "@/lib/category"
 import Giscus from "@/components/giscus"
+import { localizedPath } from "@/lib/i18n"
 
 const ReadingProgress = () => {
   const [progress, setProgress] = useState(0)
@@ -117,7 +118,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
   const { html, timeToRead, headings, frontmatter } = data.markdownRemark
   const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
 
-  const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
+  const blogPath = localizedPath("/blog/", language)
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
   const content = html
     // Code blocks scroll horizontally on small screens: make them reachable with the keyboard
@@ -139,7 +140,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link to={language === "en" ? "/" : "/fr/"}>{t("breadcrumb.home")}</Link>
+                <Link to={localizedPath("/", language)}>{t("breadcrumb.home")}</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -240,7 +241,7 @@ export default PostTemplate
 
 export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageContext }) => {
   const { title, description, image, date, lastmod, lang, slug } = data.markdownRemark.frontmatter
-  const canonicalPath = lang === "en" ? `/post/${slug}/` : `/fr/post/${slug}/`
+  const canonicalPath = localizedPath(`/post/${slug}/`, lang)
   const ogImage = image ? getSrc(image.childImageSharp.og) : undefined
 
   const breadcrumbData = {
@@ -251,13 +252,13 @@ export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageCont
         "@type": "ListItem",
         position: 1,
         name: lang === "en" ? "Home" : "Accueil",
-        item: `https://albanpetit.com${lang === "en" ? "/" : "/fr/"}`,
+        item: `https://albanpetit.com${localizedPath("/", lang)}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: lang === "en" ? "Blog" : "Articles",
-        item: `https://albanpetit.com${lang === "en" ? "/blog/" : "/fr/blog/"}`,
+        item: `https://albanpetit.com${localizedPath("/blog/", lang)}`,
       },
       { "@type": "ListItem", position: 3, name: title, item: `https://albanpetit.com${canonicalPath}` },
     ],

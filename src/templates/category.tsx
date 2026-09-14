@@ -15,6 +15,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { localizedPath } from "@/lib/i18n"
 
 type CategoryPageData = {
   allMarkdownRemark: { nodes: PostCardData[] }
@@ -34,8 +35,8 @@ const CategoryPage: React.FC<PageProps<CategoryPageData, CategoryPageContext>> =
   const label = categoryLabel(category, language)
   const posts = data.allMarkdownRemark.nodes
 
-  const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
-  const homePath = language === "en" ? "/" : "/fr/"
+  const blogPath = localizedPath("/blog/", language)
+  const homePath = localizedPath("/", language)
 
   return (
     <Layout alternatePath={hasAlternate ? undefined : "/blog/"}>
@@ -82,7 +83,7 @@ export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContex
   const { category, categorySlug, hasAlternate, language } = pageContext
   const isEN = language !== "fr"
   const label = categoryLabel(category, language)
-  const canonical = isEN ? `/category/${categorySlug}/` : `/fr/category/${categorySlug}/`
+  const canonical = localizedPath(`/category/${categorySlug}/`, language)
   return (
     <Seo
       title={`${label} · Alban Petit`}
