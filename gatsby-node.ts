@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises"
+import { copyFile, mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import type { GatsbyNode } from "gatsby"
 import { slugifyTag, slugifyCategory } from "./src/lib/tag"
@@ -227,4 +227,13 @@ export const onPostBuild: GatsbyNode["onPostBuild"] = async ({ graphql, reporter
     })
   )
   reporter.info(`Wrote ${redirects.size} redirects from legacy /posts/ URLs`)
+
+  // Feed readers and search engines do not follow meta refresh: serve the Hugo feed and sitemap URLs as copies.
+  // Runs after gatsby-plugin-feed and gatsby-plugin-sitemap, whose onPostBuild come first.
+  const copies = [
+    ["rss.xml", "index.xml"],
+    ["fr/rss.xml", "fr/index.xml"],
+    ["sitemap-index.xml", "sitemap.xml"],
+  ]
+  await Promise.all(copies.map(([from, to]) => copyFile(path.join("public", from), path.join("public", to))))
 }

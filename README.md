@@ -100,7 +100,7 @@
 | Search           | `/search/`          | `/fr/search/`          |
 | 404              | `/404/`             | `/fr/404/`             |
 
-Legacy Hugo URLs `/posts/<slug>/` and `/fr/posts/<slug>/` (and `/posts/`, `/fr/posts/`) get meta-refresh redirect pages, written into `public/` by `onPostBuild`.
+Legacy Hugo URLs `/posts/<slug>/` and `/fr/posts/<slug>/` (and `/posts/`, `/fr/posts/`) get meta-refresh redirect pages, written into `public/` by `onPostBuild`. The Hugo feeds `/index.xml` and `/fr/index.xml` and the sitemap `/sitemap.xml` are served as copies of `rss.xml`, `fr/rss.xml` and `sitemap-index.xml`.
 
 Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built with NFD-normalized lowercase ASCII (`slugifyTag`, `slugifyCategory` in `src/lib/tag.ts`).
 
