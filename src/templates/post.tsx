@@ -153,7 +153,8 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
         <div className={hasToc ? "grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start" : undefined}>
           {hasToc && (
-            <div className="lg:order-2">
+            // Sidebar on large screens only: in the single-column layout it pushed the title ~400px down
+            <div className="hidden lg:block lg:order-2">
               <TableOfContents headings={headings} title={t("post.toc")} />
             </div>
           )}
