@@ -13,6 +13,7 @@ import { tagPath, categoryPath } from "@/lib/tag"
 import { categoryLabel } from "@/lib/category"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 import { localizedPath } from "@/lib/i18n"
+import { SITE_URL } from "@/lib/site"
 
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
@@ -324,7 +325,7 @@ export const Head: HeadFC<IndexPageData, { language: string }> = ({ pageContext 
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "Alban Petit",
-        url: `https://albanpetit.com${localizedPath("/", pageContext.language)}`,
+        url: `${SITE_URL}${localizedPath("/", pageContext.language)}`,
         inLanguage: isFR ? "fr-FR" : "en-US",
         author: { "@type": "Person", name: "Alban Petit" },
         description,

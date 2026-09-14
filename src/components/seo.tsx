@@ -1,6 +1,6 @@
 import React from "react"
+import { SITE_URL } from "@/lib/site"
 
-const SITE_URL = "https://albanpetit.com"
 const TWITTER_HANDLE = "@Padh_"
 // 1200×630, like the Open Graph crops generated for post covers
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`

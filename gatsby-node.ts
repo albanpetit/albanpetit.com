@@ -3,6 +3,7 @@ import path from "node:path"
 import type { GatsbyNode } from "gatsby"
 import { DEFAULT_LANGUAGE, LANGUAGES, localizedPath } from "./src/lib/i18n"
 import { slugifyTag, slugifyCategory } from "./src/lib/tag"
+import { SITE_URL } from "./src/lib/site"
 
 // Read once, so the static HTML and the browser bundle print the same year (no hydration mismatch on January 1st)
 const BUILD_YEAR = new Date().getFullYear()
@@ -190,8 +191,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     })
   })
 }
-
-const SITE_URL = "https://albanpetit.com"
 
 const redirectPage = (to: string) =>
   `<!doctype html><html><head><meta charset="utf-8"><title>Redirecting…</title><link rel="canonical" href="${SITE_URL}${to}"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=${to}"></head><body><a href="${to}">${SITE_URL}${to}</a></body></html>`

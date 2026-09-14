@@ -20,6 +20,7 @@ import { tagPath, categoryPath } from "@/lib/tag"
 import { categoryLabel } from "@/lib/category"
 import Giscus from "@/components/giscus"
 import { localizedPath } from "@/lib/i18n"
+import { SITE_URL } from "@/lib/site"
 
 const ReadingProgress = () => {
   const [progress, setProgress] = useState(0)
@@ -252,15 +253,15 @@ export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageCont
         "@type": "ListItem",
         position: 1,
         name: lang === "en" ? "Home" : "Accueil",
-        item: `https://albanpetit.com${localizedPath("/", lang)}`,
+        item: `${SITE_URL}${localizedPath("/", lang)}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: lang === "en" ? "Blog" : "Articles",
-        item: `https://albanpetit.com${localizedPath("/blog/", lang)}`,
+        item: `${SITE_URL}${localizedPath("/blog/", lang)}`,
       },
-      { "@type": "ListItem", position: 3, name: title, item: `https://albanpetit.com${canonicalPath}` },
+      { "@type": "ListItem", position: 3, name: title, item: `${SITE_URL}${canonicalPath}` },
     ],
   }
 
@@ -269,11 +270,11 @@ export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageCont
     "@type": "Article",
     headline: title,
     description,
-    image: ogImage ? `https://albanpetit.com${ogImage}` : undefined,
+    image: ogImage ? `${SITE_URL}${ogImage}` : undefined,
     author: {
       "@type": "Person",
       name: "Alban Petit",
-      url: "https://albanpetit.com",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Person",
@@ -283,7 +284,7 @@ export const Head: HeadFC<PostTemplateData, PostPageContext> = ({ data, pageCont
     dateModified: lastmod || date,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://albanpetit.com${canonicalPath}`,
+      "@id": `${SITE_URL}${canonicalPath}`,
     },
   }
 

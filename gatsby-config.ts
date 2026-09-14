@@ -1,5 +1,6 @@
 import type { GatsbyConfig } from "gatsby"
 import { DEFAULT_LANGUAGE, LANGUAGES, localizedPath } from "./src/lib/i18n"
+import { SITE_URL } from "./src/lib/site"
 
 type FeedNode = {
   html: string
@@ -35,7 +36,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: "Alban Petit",
     description: "Personal blog of Alban Petit — electronics, web development, and the maker world.",
-    siteUrl: "https://albanpetit.com",
+    siteUrl: SITE_URL,
     author: "Alban Petit",
   },
   graphqlTypegen: true,
@@ -222,7 +223,7 @@ const config: GatsbyConfig = {
         localeJsonSourceName: "locale",
         languages: LANGUAGES,
         defaultLanguage: DEFAULT_LANGUAGE,
-        siteUrl: "https://albanpetit.com",
+        siteUrl: SITE_URL,
         trailingSlash: "always",
         // No automatic language redirect: it prefixed /fr to paths that have no French page
         // (translated tag slugs, 404s → /fr/fr/…). hreflang and the header switch handle language.
