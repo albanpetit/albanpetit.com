@@ -115,8 +115,17 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 
   const blogPath = language === "en" ? "/blog/" : "/fr/blog/"
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
-  // Code blocks scroll horizontally on small screens: make them reachable with the keyboard
-  const content = html.replace(/<pre class="/g, '<pre tabindex="0" class="')
+  const content = html
+    // Code blocks scroll horizontally on small screens: make them reachable with the keyboard
+    .replace(/<pre class="/g, '<pre tabindex="0" class="')
+    // Paragraphs with several images are laid out as a grid (globals.css): ask for thumbnail-sized sources
+    .split("</p>")
+    .map((chunk) =>
+      (chunk.match(/gatsby-resp-image-wrapper/g) ?? []).length > 1
+        ? chunk.replace(/sizes="\(max-width: 800px\) 100vw, 800px"/g, 'sizes="(max-width: 640px) 100vw, 380px"')
+        : chunk
+    )
+    .join("</p>")
 
   return (
     <Layout>
