@@ -35,7 +35,7 @@ const absolutizeUrls = (html: string, siteUrl: string) =>
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "Alban Petit",
-    description: "Personal blog of Alban Petit — electronics, web development, and the maker world.",
+    description: "Personal blog of Alban Petit, electronics, web development, and the maker world.",
     siteUrl: SITE_URL,
     author: "Alban Petit",
   },
@@ -181,7 +181,7 @@ const config: GatsbyConfig = {
               }
             }`,
             output: "/rss.xml",
-            title: "Alban Petit — Blog",
+            title: "Alban Petit · Blog",
             language: "en",
           },
           {
@@ -210,8 +210,8 @@ const config: GatsbyConfig = {
               }
             }`,
             output: "/fr/rss.xml",
-            title: "Alban Petit — Articles",
-            description: "Blog d'Alban Petit — électronique, développement web et monde maker.",
+            title: "Alban Petit · Articles",
+            description: "Blog d'Alban Petit, électronique, développement web et monde maker.",
             language: "fr",
           },
         ],

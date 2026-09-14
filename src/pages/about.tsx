@@ -165,8 +165,8 @@ export const Head: HeadFC<object, { language: string }> = ({ pageContext }) => {
       title={isEN ? "About · Alban Petit" : "À propos · Alban Petit"}
       description={
         isEN
-          ? "About Alban Petit — developer, maker, and FabManager at La Machinerie."
-          : "À propos d'Alban Petit — développeur, maker et FabManager à La Machinerie."
+          ? "About Alban Petit, developer, maker, and FabManager at La Machinerie."
+          : "À propos d'Alban Petit, développeur, maker et FabManager à La Machinerie."
       }
       canonicalPath={localizedPath("/about/", pageContext.language)}
       lang={pageContext.language}

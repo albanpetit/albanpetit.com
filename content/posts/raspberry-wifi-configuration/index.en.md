@@ -4,7 +4,7 @@ slug: raspberry-wifi-config
 lang: en
 date: 2023-12-26
 lastmod: 2024-01-06
-description: "How to configure WiFi on a Raspberry Pi — before first boot with Raspberry Pi Imager, or after boot via command line and raspi-config."
+description: "How to configure WiFi on a Raspberry Pi: before first boot with Raspberry Pi Imager, or after boot via command line and raspi-config."
 tags:
   - Bash
   - Raspberry Pi
@@ -17,7 +17,7 @@ The Raspberry Pi is a fantastic microcomputer that, thanks to its versatility, i
 
 ## Raspberry Pi Imager
 
-This section focuses on configuring **Wi-Fi** and **SSH** even before the first Raspberry startup. Thanks to the [Raspberry Pi Foundation](https://www.raspberrypi.org), there's no longer a need for a keyboard and screen. They provide a utility available on all platforms—Windows, Apple, and Linux—that enables the creation of functional SD cards with multiple operating systems. Besides writing OS images, this utility even allows the configuration of essential elements for setting up a **Raspberry Pi**.
+This section focuses on configuring **Wi-Fi** and **SSH** even before the first Raspberry startup. Thanks to the [Raspberry Pi Foundation](https://www.raspberrypi.org), there's no longer a need for a keyboard and screen. They provide a utility available on all platforms (Windows, Apple, and Linux) that enables the creation of functional SD cards with multiple operating systems. Besides writing OS images, this utility even allows the configuration of essential elements for setting up a **Raspberry Pi**.
 
 ![Raspberry Pi Imager](raspberry-pi-imager-1.png)
 

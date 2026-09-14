@@ -36,7 +36,7 @@ Aujourd'hui, La Machinerie regroupe 4 grands pôles d'activités :
 - Un incubateur d'entreprise
 - Un espace de coworking
 - Un Fablab
-- Une Manufacture — un service orienté vers les professionnels désireux de développer et de produire des prototypes divers (électronique, mobilier, pièce fonctionnelle, objet connecté)
+- Une Manufacture : un service orienté vers les professionnels désireux de développer et de produire des prototypes divers (électronique, mobilier, pièce fonctionnelle, objet connecté)
 
 Le Fablab, situé en plein cœur d'Amiens près de la gare, accueille régulièrement des visiteurs que j'assiste lors de sessions libres dans leurs différents projets techniques.
 

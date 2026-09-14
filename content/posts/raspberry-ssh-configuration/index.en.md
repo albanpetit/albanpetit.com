@@ -3,7 +3,7 @@ title: Raspberry SSH configuration
 slug: raspberry-ssh-config
 lang: en
 date: 2024-01-05
-description: "How to enable and configure SSH on a Raspberry Pi — from basic setup to SSH keys and port changes."
+description: "How to enable and configure SSH on a Raspberry Pi: from basic setup to SSH keys and port changes."
 tags:
   - Bash
   - Raspberry Pi

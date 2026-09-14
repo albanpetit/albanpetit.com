@@ -4,7 +4,7 @@ slug: adxl-335-accelerometer
 lang: fr
 date: 2024-03-02
 lastmod: 2025-03-12
-description: "Conception d'un PCB autour de l'accéléromètre MEMS ADXL335 — schémas KiCad, fabrication du PCB et mise en œuvre avec un Raspberry Pi Pico."
+description: "Conception d'un PCB autour de l'accéléromètre MEMS ADXL335 : schémas KiCad, fabrication du PCB et mise en œuvre avec un Raspberry Pi Pico."
 tags:
   - Électronique
   - PCB
@@ -106,7 +106,7 @@ Habitant en France, les fournisseurs habituels (chinois) de cartes électronique
 
 L'utilisation d'un **stencil** donne accès à des solutions pour souder des **PCB** bien plus précisément que les méthodes conventionnelles avec un fer à souder. L'idée est de faire fabriquer pour chaque circuit électronique un pochoir qui permet de déposer de la crème à braser sur les surfaces accueillant plus tard de l'étain. Une fois l'ensemble des composants placés, une plaque chauffante ou un four à refusion peut être utilisé pour faire fondre la crème à braser, il en résulte des points de soudure parfaitement homogènes.
 
-**GreatScott** explique et présente cette méthode dans une de ses vidéos : [Voir sur YouTube — Soudure avec un stencil](https://www.youtube.com/watch?v=QarizoUnRfk)
+**GreatScott** explique et présente cette méthode dans une de ses vidéos : [Voir sur YouTube : Soudure avec un stencil](https://www.youtube.com/watch?v=QarizoUnRfk)
 
 Voici quelques photos de différentes étapes de cette réalisation :
 
@@ -130,13 +130,13 @@ Ce microcontrôleur dispose de deux cœurs de 133 MHz, offrant des performances 
 
 ### Branchement
 
-La carte électronique fille doit être alimentée par l'interface **+** et **-** — le **Raspberry Pico** dispose pour cela des interfaces **40** et **38**. Ensuite les sorties **X**, **Y** et **Z** de notre carte doivent être respectivement branchées aux interfaces **31**, **32** et **34** du **Pico**.
+La carte électronique fille doit être alimentée par l'interface **+** et **-**. Le **Raspberry Pico** dispose pour cela des interfaces **40** et **38**. Ensuite les sorties **X**, **Y** et **Z** de notre carte doivent être respectivement branchées aux interfaces **31**, **32** et **34** du **Pico**.
 
 ![Brochage Raspberry Pi Pico](raspberry-pico-pinout.png)
 
 #### Code Arduino
 
-Avant toute chose, le **Pico** n'est pas naturellement disponible dans le logiciel **Arduino** — une installation est nécessaire. Il faut ajouter cette URL dans les préférences d'**Arduino** (*Fichier > Préférences*, option `Gestionnaire de cartes supplémentaires`) :
+Avant toute chose, le **Pico** n'est pas naturellement disponible dans le logiciel **Arduino**. Une installation est nécessaire. Il faut ajouter cette URL dans les préférences d'**Arduino** (*Fichier > Préférences*, option `Gestionnaire de cartes supplémentaires`) :
 
 `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json`
 

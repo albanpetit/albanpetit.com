@@ -66,7 +66,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
           {/* Description */}
           <p className="text-base leading-relaxed text-foreground/75 max-w-sm">
             <Trans i18nKey="home.description">
-              I write about electronics, web development, and all things related to the maker world — tutorials,
+              I write about electronics, web development, and all things related to the maker world, tutorials,
               experiments, and projects built at{" "}
               <a
                 href="https://lamachinerie.org"
@@ -200,7 +200,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
       {/* Main content + sidebar */}
       {posts.length > 0 && (
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-12">
-          {/* Latest posts — 2/3 */}
+          {/* Latest posts (2/3) */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -220,7 +220,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
             </div>
           </div>
 
-          {/* Sidebar — 1/3 */}
+          {/* Sidebar (1/3) */}
           <aside className="flex flex-col gap-5">
             {/* Search */}
             <div className="rounded-xl border bg-card p-4 flex flex-col gap-3">
@@ -304,8 +304,8 @@ export default IndexPage
 export const Head: HeadFC<IndexPageData, { language: string }> = ({ pageContext }) => {
   const isFR = pageContext.language === "fr"
   const description = isFR
-    ? "Blog d'Alban Petit — électronique, développement web et monde maker."
-    : "Personal blog of Alban Petit — electronics, web development, and the maker world."
+    ? "Blog d'Alban Petit, électronique, développement web et monde maker."
+    : "Personal blog of Alban Petit, electronics, web development, and the maker world."
   return (
     <Seo
       title="Alban Petit"

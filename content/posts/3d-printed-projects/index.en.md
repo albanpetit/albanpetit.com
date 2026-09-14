@@ -4,7 +4,7 @@ slug: 3d-printed-projects
 lang: en
 date: 2025-03-10
 lastmod: 2025-07-08
-description: "A collection of 3D printing projects made with the Bambulab A1 — a deck box for Altered, a parametric handle, and an electronic component storage system."
+description: "A collection of 3D printing projects made with the Bambulab A1: a deck box for Altered, a parametric handle, and an electronic component storage system."
 tags:
   - 3D Printing
   - CAD
@@ -42,7 +42,7 @@ Another everyday issue: broken or poorly fitted handles. Instead of looking for 
 
 ### Why this handle?
 
-- Fully customizable: length, diameter, grip shape, hole size — everything can be adjusted.
+- Fully customizable: length, diameter, grip shape, hole size. Everything can be adjusted.
 - Support-free printing, simple and efficient.
 - Suitable for many uses: replacing broken handles, improving grip ergonomics, customizing tools…
 
@@ -74,7 +74,7 @@ Each component goes into an antistatic bag. The bags are then stored vertically 
 - The printed boxes keep everything neatly upright.
 - It's modular: whenever I need more space, I just print another holder.
 
-I stick a label (handwritten or printed) on each bag with a reference ID that matches an entry in my Excel sheet. The spreadsheet includes the reference, supplier link, datasheet, package type, and quantity — so I don't reorder what I already have.
+I stick a label (handwritten or printed) on each bag with a reference ID that matches an entry in my Excel sheet. The spreadsheet includes the reference, supplier link, datasheet, package type, and quantity, so I don't reorder what I already have.
 
 The design is simple and efficient: no supports, fast print.
 
@@ -84,7 +84,7 @@ The design is simple and efficient: no supports, fast print.
 
 The STL files are available on [MakerWorld](https://makerworld.com/en) and on [GitHub](https://github.com/albanpetit/3d-printed-projects).
 
-For the bags: 5x8" antistatic bags, also compatible with 5x7" ones. Available from most electronics suppliers — for example at [Mouser](https://www.mouser.fr/ProductDetail/SCS/30058?qs=atelM%2FHH1ECEPEBWw31qNQ%3D%3D).
+For the bags: 5x8" antistatic bags, also compatible with 5x7" ones. Available from most electronics suppliers, for example at [Mouser](https://www.mouser.fr/ProductDetail/SCS/30058?qs=atelM%2FHH1ECEPEBWw31qNQ%3D%3D).
 
 ---
 
@@ -92,4 +92,4 @@ For the bags: 5x8" antistatic bags, also compatible with 5x7" ones. Available fr
 
 These projects are just a glimpse of what I've been able to create with the Bambulab A1. Between everyday objects, game accessories, and practical solutions, I plan to keep experimenting. More ideas are already in the works, and I'll be sharing them here soon!
 
-If you have suggestions for models, or if you'd like a copy of the Excel spreadsheet I use — just let me know!
+If you have suggestions for models, or if you'd like a copy of the Excel spreadsheet I use, just let me know!

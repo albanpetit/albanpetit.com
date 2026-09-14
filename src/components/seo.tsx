@@ -8,7 +8,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`
 interface SeoProps {
   title: string
   description?: string
-  /** 1200×630 image: path relative to site root — e.g. /static/abc/main.jpg — or absolute URL */
+  /** 1200×630 image: path relative to site root, e.g. /static/abc/main.jpg, or absolute URL */
   image?: string
   type?: "website" | "article"
   publishedAt?: string

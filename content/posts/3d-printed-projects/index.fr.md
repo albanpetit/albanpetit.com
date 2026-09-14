@@ -42,7 +42,7 @@ Autre problème du quotidien : les poignées cassées ou mal adaptées. Plutôt 
 
 ### Pourquoi cette poignée ?
 
-- Entièrement personnalisable : longueur, diamètre, forme du grip, taille du trou — tout est modifiable.
+- Entièrement personnalisable : longueur, diamètre, forme du grip, taille du trou. Tout est modifiable.
 - Impression sans support, simple et efficace.
 - Convient pour de nombreux usages : remplacement de poignées cassées, création d'une prise en main plus ergonomique, customisation d'outils…
 
@@ -74,7 +74,7 @@ Chaque composant est rangé dans un sachet antistatique. Ensuite, les sachets so
 - Les boîtes permettent un rangement propre et bien ordonné.
 - C'est modulaire : dès que j'ai besoin de plus de place, j'imprime un nouveau support.
 
-Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de référence qui correspond à une entrée dans mon tableau Excel. Ce tableau contient la référence, le lien vers le revendeur, la datasheet, le package et la quantité — pour ne pas racheter ce que j'ai déjà en stock.
+Je colle une étiquette (manuscrite ou imprimée) sur chaque sachet avec un identifiant de référence qui correspond à une entrée dans mon tableau Excel. Ce tableau contient la référence, le lien vers le revendeur, la datasheet, le package et la quantité, pour ne pas racheter ce que j'ai déjà en stock.
 
 Le design est simple et efficace : pas de supports et une impression rapide.
 
@@ -84,7 +84,7 @@ Le design est simple et efficace : pas de supports et une impression rapide.
 
 Les fichiers STL sont disponibles sur [MakerWorld](https://makerworld.com/en) et sur [GitHub](https://github.com/albanpetit/3d-printed-projects).
 
-Pour les sachets : des sachets antistatiques en 5x8", également compatibles avec les 5x7". Disponibles chez la plupart des grossistes en électronique — par exemple chez [Mouser](https://www.mouser.fr/ProductDetail/SCS/30058?qs=atelM%2FHH1ECEPEBWw31qNQ%3D%3D).
+Pour les sachets : des sachets antistatiques en 5x8", également compatibles avec les 5x7". Disponibles chez la plupart des grossistes en électronique, par exemple chez [Mouser](https://www.mouser.fr/ProductDetail/SCS/30058?qs=atelM%2FHH1ECEPEBWw31qNQ%3D%3D).
 
 ---
 
@@ -92,4 +92,4 @@ Pour les sachets : des sachets antistatiques en 5x8", également compatibles ave
 
 Ces projets ne sont qu'un aperçu de ce que j'ai pu créer avec la Bambulab A1. Entre les objets du quotidien, les accessoires de jeux et les solutions pratiques, je compte bien continuer à expérimenter. D'autres idées sont en cours, et je partagerai tout ça ici bientôt !
 
-Si vous avez des suggestions de modèles ou si vous voulez récupérer le fichier Excel que j'utilise — faites-moi signe !
+Si vous avez des suggestions de modèles ou si vous voulez récupérer le fichier Excel que j'utilise, faites-moi signe !

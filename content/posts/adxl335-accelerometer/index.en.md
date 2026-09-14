@@ -4,7 +4,7 @@ slug: adxl-335-accelerometer
 lang: en
 date: 2024-03-02
 lastmod: 2025-03-12
-description: "Designing a custom PCB around the ADXL335 MEMS accelerometer — KiCad schematics, PCB manufacturing, and implementation with a Raspberry Pi Pico."
+description: "Designing a custom PCB around the ADXL335 MEMS accelerometer: KiCad schematics, PCB manufacturing, and implementation with a Raspberry Pi Pico."
 tags:
   - Electronics
   - PCB
@@ -108,7 +108,7 @@ Aisler offers PCBs with **ENIG** (Electroless Nickel Immersion Gold) treatment, 
 
 Using a stencil provides solutions for soldering PCBs much more precisely than conventional methods with a soldering iron. The idea is to have a stencil made for each electronic circuit, allowing solder paste to be deposited on the surfaces that will later receive solder. Once all the components are placed, a hotplate or reflow oven can be used to melt the solder paste, resulting in perfectly homogeneous solder joints.
 
-GreatScott explains and presents this method in one of his videos: [Watch on YouTube — Soldering with a stencil](https://www.youtube.com/watch?v=QarizoUnRfk)
+GreatScott explains and presents this method in one of his videos: [Watch on YouTube: Soldering with a stencil](https://www.youtube.com/watch?v=QarizoUnRfk)
 
 Here are some photos of different stages of this realization:
 
@@ -132,13 +132,13 @@ This ARM architecture microcontroller has two cores clocked at 133 MHz. The Pico
 
 ### Connection
 
-The daughter electronic board must be powered by the **+** and **-** interfaces — the Raspberry Pico has interfaces **40** and **38** for this purpose. Then the **X**, **Y**, and **Z** outputs of our board must be respectively connected to interfaces **31**, **32**, and **34** of the **Pico**.
+The daughter electronic board must be powered by the **+** and **-** interfaces. The Raspberry Pico has interfaces **40** and **38** for this purpose. Then the **X**, **Y**, and **Z** outputs of our board must be respectively connected to interfaces **31**, **32**, and **34** of the **Pico**.
 
 ![Raspberry Pi Pico Pinout](raspberry-pico-pinout.png)
 
 #### Arduino Code
 
-First, the **Pico** is not naturally available in the **Arduino** software — an installation is required. Add this URL to the `Additional Board Manager URLs` option in Arduino preferences (*File > Preferences*):
+First, the **Pico** is not naturally available in the **Arduino** software. An installation is required. Add this URL to the `Additional Board Manager URLs` option in Arduino preferences (*File > Preferences*):
 
 `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json`
 

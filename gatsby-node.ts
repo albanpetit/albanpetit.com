@@ -64,7 +64,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     for (const [existingName, existingSlug] of map) {
       if (existingSlug === slug && existingName !== name) {
         reporter.warn(
-          `${kind} "${existingName}" and "${name}" (${lang}) both produce the slug "${slug}" — ` +
+          `${kind} "${existingName}" and "${name}" (${lang}) both produce the slug "${slug}"; ` +
             `only "${existingName}" will get a page, "${name}" has none`
         )
         return
@@ -104,7 +104,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     })
   })
 
-  // Tag pages — one page per unique tag+lang combination
+  // Tag pages: one page per unique tag+lang combination
   const tagsByLang = new Map<string, Map<string, string>>()
 
   nodes.forEach((node) => {
@@ -126,7 +126,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     slugTags.set(lang, tags)
   })
 
-  // Key: `${lang}:${tag}` — value: slug of the same tag in the other language
+  // Key: `${lang}:${tag}`, value: slug of the same tag in the other language
   const tagCounterparts = new Map<string, string>()
   // Keys whose pairing disagrees across posts: order-based pairing can't be trusted for them
   const conflictingTagKeys = new Set<string>()
@@ -155,7 +155,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   conflictingTagKeys.forEach((key) => {
     reporter.warn(
-      `Tag "${key}" pairs with different translations depending on the post — its tag pages won't link to a translation ` +
+      `Tag "${key}" pairs with different translations depending on the post; its tag pages won't link to a translation ` +
         "(translated posts must list matching tags in the same order)"
     )
     tagCounterparts.delete(key)
@@ -187,7 +187,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     })
   })
 
-  // Category pages — one page per unique category+lang combination
+  // Category pages: one page per unique category+lang combination
   const categoriesByLang = new Map<string, Map<string, string>>()
 
   nodes.forEach((node) => {

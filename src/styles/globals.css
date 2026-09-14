@@ -222,7 +222,7 @@
     font-style: italic;
   }
 
-  /* Table — wide tables scroll inside their own box on small screens */
+  /* Table: wide tables scroll inside their own box on small screens */
   .prose table {
     @apply block max-w-full overflow-x-auto md:table;
   }

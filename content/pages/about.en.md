@@ -5,7 +5,7 @@ lang: en
 date: 2022-01-23
 ---
 
-Hi! I'm Alban Petit, a French web developer passionate about technology, working at [La Machinerie](https://lamachinerie.org) — an association that hosts a Fablab and coworking space in Amiens. I've been involved with this organisation for over 7 years, starting as a volunteer and eventually becoming manager of a service pole dedicated to electronics, computing, and digital fabrication.
+Hi! I'm Alban Petit, a French web developer passionate about technology, working at [La Machinerie](https://lamachinerie.org), an association that hosts a Fablab and coworking space in Amiens. I've been involved with this organisation for over 7 years, starting as a volunteer and eventually becoming manager of a service pole dedicated to electronics, computing, and digital fabrication.
 
 These experiences revealed a genuine passion for software development, electronics, and prototyping in general.
 
@@ -36,7 +36,7 @@ Today La Machinerie comprises 4 major activity poles:
 - A business incubator
 - A coworking space
 - A Fablab
-- A Manufacture — a service aimed at professionals developing and producing prototypes (electronics, furniture, functional parts, connected objects)
+- A Manufacture: a service aimed at professionals developing and producing prototypes (electronics, furniture, functional parts, connected objects)
 
 The Fablab, located in the heart of Amiens near the train station, regularly welcomes visitors I assist during open sessions with their technical projects.
 

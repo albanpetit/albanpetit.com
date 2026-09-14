@@ -4,7 +4,7 @@ slug: raspberry-wifi-config
 lang: fr
 date: 2023-12-26
 lastmod: 2024-01-06
-description: "Comment configurer le WiFi sur un Raspberry Pi — avant le premier démarrage avec Raspberry Pi Imager, ou après via la ligne de commande et raspi-config."
+description: "Comment configurer le WiFi sur un Raspberry Pi : avant le premier démarrage avec Raspberry Pi Imager, ou après via la ligne de commande et raspi-config."
 tags:
   - Bash
   - Raspberry Pi

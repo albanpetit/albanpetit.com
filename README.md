@@ -15,7 +15,7 @@
   <a href="https://albanpetit.com/about/">About</a>
 </p>
 
-> This repository is the source of my personal site, not a starter template. It's shared for transparency and so anyone spotting a bug, typo, or accessibility issue can send a fix — not to be forked into someone else's blog.
+> This repository is the source of my personal site, not a starter template. It's shared for transparency and so anyone spotting a bug, typo, or accessibility issue can send a fix, not to be forked into someone else's blog.
 
 ---
 
