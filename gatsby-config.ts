@@ -114,7 +114,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        excludes: ["/search/", "/fr/search/", "/fr/404/", "/fr/404.html"],
+        excludes: ["/search/", "/fr/search/", "/404/", "/404.html", "/fr/404/", "/fr/404.html"],
         query: `{
           site { siteMetadata { siteUrl } }
           allSitePage { nodes { path } }
