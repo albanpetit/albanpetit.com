@@ -126,7 +126,7 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
 
       <Separator />
       <footer className="container flex h-14 items-center justify-center gap-1 text-sm text-muted-foreground">
-        <span>{t("footer.copyright", { year: new Date().getFullYear() })}</span>
+        <span>{t("footer.copyright", { year: __BUILD_YEAR__ })}</span>
         <span>·</span>
         <a
           href="https://github.com/albanpetit"

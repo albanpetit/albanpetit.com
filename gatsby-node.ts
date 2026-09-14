@@ -6,8 +6,12 @@ import { slugifyTag, slugifyCategory } from "./src/lib/tag"
 const LANGUAGES = ["en", "fr"]
 const DEFAULT_LANGUAGE = "en"
 
-export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions, stage }) => {
+// Read once, so the static HTML and the browser bundle print the same year (no hydration mismatch on January 1st)
+const BUILD_YEAR = new Date().getFullYear()
+
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions, stage, plugins }) => {
   actions.setWebpackConfig({
+    plugins: [plugins.define({ __BUILD_YEAR__: JSON.stringify(BUILD_YEAR) })],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
