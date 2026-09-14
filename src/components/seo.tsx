@@ -50,10 +50,6 @@ const Seo = ({
       <link rel="icon" href="/favicon.ico" />
       <meta name="author" content="Alban Petit" />
 
-      {/* RSS feeds */}
-      <link rel="alternate" type="application/rss+xml" title="Alban Petit — Blog" href={`${SITE_URL}/rss.xml`} />
-      <link rel="alternate" type="application/rss+xml" title="Alban Petit — Articles" href={`${SITE_URL}/fr/rss.xml`} />
-
       {/* hreflang */}
       {alternatePaths && (
         <>

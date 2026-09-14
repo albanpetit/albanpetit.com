@@ -130,6 +130,7 @@ const config: GatsbyConfig = {
       },
     },
     {
+      // Also adds the <link rel="alternate"> tags for both feeds to every page head
       resolve: "gatsby-plugin-feed",
       options: {
         query: `{
@@ -165,6 +166,7 @@ const config: GatsbyConfig = {
             }`,
             output: "/rss.xml",
             title: "Alban Petit — Blog",
+            language: "en",
           },
           {
             serialize: ({ query: { site, allMarkdownRemark } }: FeedQuery) =>
@@ -193,6 +195,7 @@ const config: GatsbyConfig = {
             }`,
             output: "/fr/rss.xml",
             title: "Alban Petit — Articles",
+            language: "fr",
           },
         ],
       },
