@@ -20,7 +20,8 @@ const Giscus = () => {
       category="Website comments"
       categoryId="DIC_kwDOF6hErc4CeFTI"
       mapping="pathname"
-      strict="0"
+      // Exact pathname match: fuzzy search attached EN pages to FR discussions
+      strict="1"
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="bottom"
