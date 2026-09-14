@@ -140,11 +140,11 @@ Avant toute chose, le **Pico** n'est pas naturellement disponible dans le logici
 
 `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json`
 
-![Paramètres Arduino](arduino-settings-1.png)
+![Paramètres Arduino](arduino-settings-1.webp)
 
 Ensuite, installez la carte via le gestionnaire de cartes :
 
-![Gestionnaire de carte Arduino](arduino-settings-2.png)
+![Gestionnaire de carte Arduino](arduino-settings-2.webp)
 
 Voici un exemple de script fonctionnel qui relève les valeurs des interfaces analogiques :
 

@@ -142,11 +142,11 @@ First, the **Pico** is not naturally available in the **Arduino** software — a
 
 `https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json`
 
-![Arduino Settings](arduino-settings-1.png)
+![Arduino Settings](arduino-settings-1.webp)
 
 Then install the board via the Board Manager:
 
-![Arduino Board Manager](arduino-settings-2.png)
+![Arduino Board Manager](arduino-settings-2.webp)
 
 Here is an example of a functional script that reads the voltage values from the analog interfaces:
 
