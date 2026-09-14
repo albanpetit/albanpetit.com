@@ -4,7 +4,7 @@ slug: adxl-335-accelerometer
 lang: fr
 date: 2024-03-02
 lastmod: 2025-03-12
-description: "Conception et fabrication d'un PCB personnalisé autour de l'accéléromètre MEMS ADXL335 — schémas KiCad, fabrication PCB, et mise en œuvre avec un Raspberry Pi Pico."
+description: "Conception d'un PCB autour de l'accéléromètre MEMS ADXL335 — schémas KiCad, fabrication du PCB et mise en œuvre avec un Raspberry Pi Pico."
 tags:
   - Électronique
   - PCB

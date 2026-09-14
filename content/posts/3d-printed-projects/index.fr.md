@@ -4,7 +4,7 @@ slug: 3d-printed-projects
 lang: fr
 date: 2025-03-10
 lastmod: 2025-07-08
-description: "Une collection de projets d'impression 3D réalisés avec la Bambulab A1 — une boîte de rangement pour Altered, une poignée paramétrique, et un système de rangement pour composants électroniques."
+description: "Projets d'impression 3D réalisés avec la Bambulab A1 : boîte de rangement pour Altered, poignée paramétrique et rangement de composants électroniques."
 tags:
   - Impression 3D
   - CAO
