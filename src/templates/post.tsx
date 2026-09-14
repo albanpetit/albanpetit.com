@@ -95,7 +95,7 @@ const TableOfContents = ({ headings, title }: { headings: Heading[]; title: stri
             <a
               href={`#${h.id}`}
               className={`block leading-snug transition-colors hover:text-foreground ${
-                activeId === h.id ? "text-secondary font-medium" : "text-muted-foreground"
+                activeId === h.id ? "text-link font-medium" : "text-muted-foreground"
               }`}
             >
               {h.value}

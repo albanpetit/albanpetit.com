@@ -17,6 +17,8 @@
     /* secondary: #3F72AF */
     --secondary: 213 47% 47%;
     --secondary-foreground: 0 0% 98%;
+    /* blue text: #3F72AF passes 4.5:1 on white */
+    --link: 213 47% 47%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
     --accent: 0 0% 93%;
@@ -42,6 +44,8 @@
     --primary-foreground: 0 0% 8%;
     --secondary: 213 47% 47%;
     --secondary-foreground: 0 0% 98%;
+    /* #3F72AF is 3.8:1 on the dark background: lighter blue for text */
+    --link: 213 60% 65%;
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 55%;
     --accent: 0 0% 18%;
@@ -96,8 +100,8 @@
 /* Prose overrides */
 @layer components {
   .prose {
-    --tw-prose-links: hsl(var(--secondary));
-    --tw-prose-invert-links: hsl(213 60% 65%);
+    --tw-prose-links: hsl(var(--link));
+    --tw-prose-invert-links: hsl(var(--link));
     --tw-prose-code: hsl(var(--foreground));
     --tw-prose-invert-code: hsl(var(--foreground));
   }

@@ -69,7 +69,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
           {/* Name + role */}
           <div>
             <h1 className="text-5xl font-black tracking-tight leading-none">{t("home.name")}</h1>
-            <p className="mt-2 text-lg font-medium text-secondary">{t("home.role")}</p>
+            <p className="mt-2 text-lg font-medium text-link">{t("home.role")}</p>
           </div>
 
           {/* Description */}
@@ -79,7 +79,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
               experiments, and projects built at{" "}
               <a
                 href="https://lamachinerie.org"
-                className="text-secondary font-medium underline underline-offset-4 hover:text-secondary/80 transition-colors"
+                className="text-link font-medium underline underline-offset-4 hover:text-link/80 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -216,7 +216,7 @@ const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
                 <span className="h-6 w-1 rounded-full bg-primary" />
                 <h2 className="text-xl font-bold tracking-tight">{t("home.latestPosts")}</h2>
               </div>
-              <Button variant="ghost" size="sm" asChild className="text-secondary hover:text-secondary/80">
+              <Button variant="ghost" size="sm" asChild className="text-link hover:text-link/80">
                 <Link to={blogPath}>
                   {t("home.allPosts")} <ArrowRight className="ml-1 h-3 w-3" />
                 </Link>

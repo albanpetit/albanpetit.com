@@ -88,11 +88,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           {filtered.length === 0 && (
             <div className="flex flex-col items-center gap-2 py-16 text-center">
               <p className="text-muted-foreground">{t("blog.empty")}</p>
-              <button
-                type="button"
-                onClick={() => setActiveTag(null)}
-                className="text-sm text-secondary hover:underline"
-              >
+              <button type="button" onClick={() => setActiveTag(null)} className="text-sm text-link hover:underline">
                 {t("blog.all")}
               </button>
             </div>

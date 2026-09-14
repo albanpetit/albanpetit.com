@@ -67,7 +67,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
           </div>
 
           {/* Title — its link is stretched over the whole card */}
-          <Heading className="font-semibold leading-snug group-hover:text-secondary transition-colors line-clamp-2">
+          <Heading className="font-semibold leading-snug group-hover:text-link transition-colors line-clamp-2">
             <Link
               to={postUrl}
               className="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
