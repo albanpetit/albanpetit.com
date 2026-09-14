@@ -41,6 +41,8 @@
 
 - Bilingual posts (English / French) with URL routing (`/` → EN, `/fr/` → FR); no automatic redirect — readers switch language from the header, search engines follow `hreflang`
 - Tag pages and category pages, each fully bilingual
+- Blog tag filter kept in the URL (`/blog/?tag=PCB`), so a filtered list can be shared
+- Legacy `/posts/<slug>/` URLs from the Hugo site redirect to `/post/<slug>/`
 - Full-text fuzzy search across titles, descriptions, tags, and excerpts
 - RSS feeds at `/rss.xml` (EN) and `/fr/rss.xml` (FR)
 - Sitemap at `/sitemap-index.xml`
@@ -75,11 +77,12 @@
 
 - Post cards are real links (keyboard, middle-click, crawlers) stretched over the card
 - Visible focus ring in both themes, named mobile menu dialog
+- Text colors meet WCAG AA contrast in both themes; scrollable code blocks are keyboard focusable
 - All UI strings and `aria-label`s translated through `locales/`
 
 ### Comments
 
-- GitHub Discussions comments via Giscus
+- GitHub Discussions comments via Giscus, matched by exact pathname (`strict`)
 - Automatically inherits the active dark / light theme
 
 ---
@@ -96,6 +99,8 @@
 | About            | `/about/`           | `/fr/about/`           |
 | Search           | `/search/`          | `/fr/search/`          |
 | 404              | `/404/`             | `/fr/404/`             |
+
+Legacy Hugo URLs `/posts/<slug>/` and `/fr/posts/<slug>/` (and `/posts/`, `/fr/posts/`) get meta-refresh redirect pages, written into `public/` by `onPostBuild`.
 
 Pages and tags are created programmatically in `gatsby-node.ts`. Slugs are built with NFD-normalized lowercase ASCII (`slugifyTag`, `slugifyCategory` in `src/lib/tag.ts`).
 
@@ -217,7 +222,9 @@ All fields except `lastmod` and `image` are required. The `image` path is relati
 
 **Categories** — write the English category name in both files: it drives the slug (`/category/projects/`, `/fr/category/projects/`). The displayed name comes from `categories` in `locales/<lang>/translation.json`; add new categories there.
 
-**Source images** — keep originals at 2400 px on the longest side at most; Gatsby generates every display size from them.
+**Source images** — keep originals at 2400 px on the longest side at most; Gatsby generates every display size (JPEG/PNG plus WebP) from them. Name files after their real format (a WebP file ends in `.webp`).
+
+**Linked files** — link other files placed in the post directory with a relative path (`[Datasheet](datasheet.pdf)`): `gatsby-remark-copy-linked-files` copies them to `/static/` and rewrites the link.
 
 ### Image layout helpers
 
@@ -264,7 +271,20 @@ Pull requests targeting `master` run the **build** job only, so type errors and 
 
 The Node.js version is read from `.nvmrc`; `NODE_OPTIONS=--max-old-space-size=4096` is set to handle large builds.
 
+Dependabot (`.github/dependabot.yml`) opens weekly PRs for npm packages (minor and patch grouped) and GitHub Actions. Majors of `react`, `i18next` and `react-i18next` are ignored: `gatsby-plugin-react-i18next` pins them.
+
+### Cloudflare
+
+The domain is proxied through Cloudflare in front of GitHub Pages, so GitHub's "Enforce HTTPS" does not apply to visitors. HTTPS and security headers are set in the Cloudflare dashboard:
+
+- **SSL/TLS → Edge Certificates**: enable *Always Use HTTPS* and *HSTS*
+- **Rules → Transform Rules → Response headers**: `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+
+Cloudflare also prepends its managed *content signals* block (AI crawler rules) to `static/robots.txt`.
+
 ### DNS configuration
+
+Records in Cloudflare, proxied:
 
 ```
 A     @    185.199.108.153
