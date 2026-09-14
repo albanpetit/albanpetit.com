@@ -5,13 +5,15 @@ import { slugifyTag, slugifyCategory } from "./src/lib/tag"
 const LANGUAGES = ["en", "fr"]
 const DEFAULT_LANGUAGE = "en"
 
-export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions }) => {
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions, stage }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
       },
     },
+    // Do not publish source maps of the production bundles
+    ...(stage === "build-javascript" ? { devtool: false } : {}),
   })
 }
 
