@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react"
-import { graphql } from "gatsby"
+import React, { useState, useMemo, useEffect } from "react"
+import { graphql, navigate } from "gatsby"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "@/components/layout"
@@ -13,10 +13,22 @@ type BlogPageData = {
   }
 }
 
-const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
+const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data, location }) => {
   const { t } = useTranslation()
   const { language } = useI18next()
+  // Start unfiltered so the first client render matches the static HTML, then read ?tag= once hydrated
   const [activeTag, setActiveTag] = useState<string | null>(null)
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: initial read of the query string only
+  useEffect(() => {
+    setActiveTag(new URLSearchParams(location.search).get("tag"))
+  }, [])
+
+  // Keep the filter in the URL so a filtered list can be shared and survives going back
+  const selectTag = (tag: string | null) => {
+    setActiveTag(tag)
+    navigate(tag ? `?tag=${encodeURIComponent(tag)}` : location.pathname, { replace: true })
+  }
 
   const posts = data.allMarkdownRemark.nodes
 
@@ -53,7 +65,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
             <button
               type="button"
               aria-pressed={activeTag === null}
-              onClick={() => setActiveTag(null)}
+              onClick={() => selectTag(null)}
               className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
             >
               <Badge variant={activeTag === null ? "default" : "outline"} className="cursor-pointer rounded-full px-3">
@@ -65,7 +77,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
                 key={tag}
                 type="button"
                 aria-pressed={activeTag === tag}
-                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                onClick={() => selectTag(activeTag === tag ? null : tag)}
                 className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-full"
               >
                 <Badge variant={activeTag === tag ? "default" : "outline"} className="cursor-pointer rounded-full px-3">
@@ -85,7 +97,7 @@ const BlogPage: React.FC<PageProps<BlogPageData>> = ({ data }) => {
           {filtered.length === 0 && (
             <div className="flex flex-col items-center gap-2 py-16 text-center">
               <p className="text-muted-foreground">{t("blog.empty")}</p>
-              <button type="button" onClick={() => setActiveTag(null)} className="text-sm text-link hover:underline">
+              <button type="button" onClick={() => selectTag(null)} className="text-sm text-link hover:underline">
                 {t("blog.all")}
               </button>
             </div>
