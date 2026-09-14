@@ -84,6 +84,14 @@ const config: GatsbyConfig = {
             },
           },
           {
+            // Linked non-image files (PDF datasheets…) are copied to /static/ and their links rewritten
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: "static",
+              ignoreFileExtensions: ["png", "jpg", "jpeg", "webp", "gif", "bmp", "tiff"],
+            },
+          },
+          {
             resolve: "gatsby-remark-prismjs",
             options: {
               classPrefix: "language-",
