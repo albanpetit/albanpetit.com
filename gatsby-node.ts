@@ -112,6 +112,8 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   // Key: `${lang}:${tag}` — value: slug of the same tag in the other language
   const tagCounterparts = new Map<string, string>()
+  // Keys whose pairing disagrees across posts: order-based pairing can't be trusted for them
+  const conflictingTagKeys = new Set<string>()
 
   tagsBySlug.forEach((tagsForSlug, slug) => {
     const en = tagsForSlug.get("en")
@@ -122,9 +124,25 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       return
     }
     en.forEach((tag, i) => {
-      tagCounterparts.set(`en:${tag}`, slugifyTag(fr[i]))
-      tagCounterparts.set(`fr:${fr[i]}`, slugifyTag(tag))
+      const enKey = `en:${tag}`
+      const frKey = `fr:${fr[i]}`
+      const enSlug = slugifyTag(tag)
+      const frSlug = slugifyTag(fr[i])
+
+      if (tagCounterparts.has(enKey) && tagCounterparts.get(enKey) !== frSlug) conflictingTagKeys.add(enKey)
+      else tagCounterparts.set(enKey, frSlug)
+
+      if (tagCounterparts.has(frKey) && tagCounterparts.get(frKey) !== enSlug) conflictingTagKeys.add(frKey)
+      else tagCounterparts.set(frKey, enSlug)
     })
+  })
+
+  conflictingTagKeys.forEach((key) => {
+    reporter.warn(
+      `Tag "${key}" pairs with different translations depending on the post — its tag pages won't link to a translation ` +
+        "(translated posts must list matching tags in the same order)"
+    )
+    tagCounterparts.delete(key)
   })
 
   tagsByLang.forEach((tags, lang) => {
