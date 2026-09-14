@@ -1,3 +1,4 @@
+import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import type { GatsbyNode } from "gatsby"
 import { slugifyTag, slugifyCategory } from "./src/lib/tag"
@@ -182,4 +183,44 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       })
     })
   })
+}
+
+const SITE_URL = "https://albanpetit.com"
+
+const redirectPage = (to: string) =>
+  `<!doctype html><html><head><meta charset="utf-8"><title>Redirecting…</title><link rel="canonical" href="${SITE_URL}${to}"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=${to}"></head><body><a href="${to}">${SITE_URL}${to}</a></body></html>`
+
+// The Hugo site served posts under /posts/ (its Giscus discussions still carry those paths).
+// GitHub Pages has no server redirects: write meta-refresh pages so old links keep working.
+export const onPostBuild: GatsbyNode["onPostBuild"] = async ({ graphql, reporter }) => {
+  const result = await graphql<{ allMarkdownRemark: { nodes: { frontmatter: { slug: string; lang: string } }[] } }>(`
+    query LegacyPostUrls {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/content/posts/" } }) {
+        nodes {
+          frontmatter {
+            slug
+            lang
+          }
+        }
+      }
+    }
+  `)
+
+  const prefix = (lang: string) => (lang === DEFAULT_LANGUAGE ? "" : `/${lang}`)
+  const redirects = new Map<string, string>(
+    LANGUAGES.map((lang) => [`${prefix(lang)}/posts/`, `${prefix(lang)}/blog/`])
+  )
+  for (const { frontmatter } of result.data?.allMarkdownRemark.nodes ?? []) {
+    const { slug, lang } = frontmatter
+    if (slug && lang) redirects.set(`${prefix(lang)}/posts/${slug}/`, `${prefix(lang)}/post/${slug}/`)
+  }
+
+  await Promise.all(
+    [...redirects].map(async ([from, to]) => {
+      const dir = path.join("public", from)
+      await mkdir(dir, { recursive: true })
+      await writeFile(path.join(dir, "index.html"), redirectPage(to))
+    })
+  )
+  reporter.info(`Wrote ${redirects.size} redirects from legacy /posts/ URLs`)
 }
