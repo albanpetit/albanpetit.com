@@ -112,23 +112,7 @@ export const query = graphql`
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        id
-        timeToRead
-        excerpt(pruneLength: 160)
-        frontmatter {
-          title
-          date(formatString: "LL", locale: $language)
-          description
-          tags
-          category
-          slug
-          lang
-          image {
-            childImageSharp {
-              gatsbyImageData(width: 400, height: 300, placeholder: BLURRED)
-            }
-          }
-        }
+        ...PostCardFields
       }
     }
   }

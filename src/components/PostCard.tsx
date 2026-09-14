@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -99,3 +99,26 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
 }
 
 export default PostCard
+
+// Fields every post list needs for its cards; the including query must declare $language
+export const query = graphql`
+  fragment PostCardFields on MarkdownRemark {
+    id
+    timeToRead
+    excerpt(pruneLength: 160)
+    frontmatter {
+      title
+      date(formatString: "LL", locale: $language)
+      description
+      tags
+      category
+      slug
+      lang
+      image {
+        childImageSharp {
+          gatsbyImageData(width: 400, height: 300, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`

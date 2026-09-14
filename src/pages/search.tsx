@@ -11,7 +11,7 @@ import Seo from "@/components/seo"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 
 type SearchPageData = {
-  allMarkdownRemark: { nodes: PostCardData[] }
+  allMarkdownRemark: { nodes: (PostCardData & { searchExcerpt: string })[] }
 }
 
 const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => {
@@ -39,7 +39,7 @@ const SearchPage: React.FC<PageProps<SearchPageData>> = ({ data, location }) => 
           { name: "frontmatter.description", weight: 2 },
           { name: "frontmatter.tags", weight: 2 },
           { name: "frontmatter.category", weight: 1 },
-          { name: "excerpt", weight: 1 },
+          { name: "searchExcerpt", weight: 1 },
         ],
         threshold: 0.4,
         includeScore: true,
@@ -128,23 +128,9 @@ export const query = graphql`
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        id
-        timeToRead
-        excerpt(pruneLength: 200)
-        frontmatter {
-          title
-          date(formatString: "LL", locale: $language)
-          description
-          tags
-          category
-          slug
-          lang
-          image {
-            childImageSharp {
-              gatsbyImageData(width: 400, height: 300, placeholder: BLURRED)
-            }
-          }
-        }
+        ...PostCardFields
+        # Longer excerpt to match against than the card shows
+        searchExcerpt: excerpt(pruneLength: 200)
       }
     }
   }
