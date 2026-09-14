@@ -24,12 +24,14 @@ interface LayoutProps {
 const Layout = ({ children, alternatePath }: LayoutProps) => {
   const { toggle } = useTheme()
   const { t } = useTranslation()
-  const { language, changeLanguage } = useI18next()
+  const { language, originalPath } = useI18next()
 
   const homePath = language === "en" ? "/" : "/fr/"
   const searchPath = language === "en" ? "/search/" : "/fr/search/"
   const rssPath = language === "en" ? "/rss.xml" : "/fr/rss.xml"
   const otherLang = language === "en" ? "fr" : "en"
+  // A real link: works before hydration and without JavaScript, and crawlers can follow it
+  const switchPath = `${otherLang === "en" ? "" : `/${otherLang}`}${alternatePath ?? originalPath}`
 
   const navLinks = [
     { to: language === "en" ? "/blog/" : "/fr/blog/", label: t("nav.blog") },
@@ -67,15 +69,15 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
                 {label}
               </Link>
             ))}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => changeLanguage(otherLang, alternatePath)}
-              lang={otherLang}
-              aria-label={otherLang === "fr" ? "Français" : "English"}
-              className="text-muted-foreground uppercase font-medium"
-            >
-              {otherLang}
+            <Button variant="ghost" size="sm" asChild className="text-muted-foreground uppercase font-medium">
+              <Link
+                to={switchPath}
+                lang={otherLang}
+                hrefLang={otherLang}
+                aria-label={otherLang === "fr" ? "Français" : "English"}
+              >
+                {otherLang}
+              </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
               <Link to={searchPath} aria-label={t("search.title")}>
@@ -94,15 +96,15 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
                 <Search className="h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => changeLanguage(otherLang, alternatePath)}
-              lang={otherLang}
-              aria-label={otherLang === "fr" ? "Français" : "English"}
-              className="text-muted-foreground uppercase font-medium text-xs"
-            >
-              {otherLang}
+            <Button variant="ghost" size="sm" asChild className="text-muted-foreground uppercase font-medium text-xs">
+              <Link
+                to={switchPath}
+                lang={otherLang}
+                hrefLang={otherLang}
+                aria-label={otherLang === "fr" ? "Français" : "English"}
+              >
+                {otherLang}
+              </Link>
             </Button>
             <Button variant="ghost" size="icon" onClick={toggle} aria-label={t("a11y.toggleTheme")}>
               <ThemeIcon />
