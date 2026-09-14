@@ -13,6 +13,12 @@ type FeedQuery = {
   }
 }
 
+type FeedSetup = {
+  query: { site: { siteMetadata: { siteUrl: string } } }
+  output: string
+  language: string
+}
+
 type SitemapQuery = {
   allSitePage: { nodes: { path: string }[] }
   allMarkdownRemark: { nodes: { frontmatter: { slug: string; lang: string; date: string; lastmod: string | null } }[] }
@@ -139,6 +145,13 @@ const config: GatsbyConfig = {
             siteMetadata { title description siteUrl }
           }
         }`,
+        // The rss package reads site_url (channel <link>) and feed_url (atom:link self), not siteUrl
+        setup: ({ query: { site }, ...feed }: FeedSetup) => ({
+          ...site.siteMetadata,
+          ...feed,
+          site_url: `${site.siteMetadata.siteUrl}${feed.language === "fr" ? "/fr/" : "/"}`,
+          feed_url: `${site.siteMetadata.siteUrl}${feed.output}`,
+        }),
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }: FeedQuery) =>
@@ -196,6 +209,7 @@ const config: GatsbyConfig = {
             }`,
             output: "/fr/rss.xml",
             title: "Alban Petit — Articles",
+            description: "Blog d'Alban Petit — électronique, développement web et monde maker.",
             language: "fr",
           },
         ],
