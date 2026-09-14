@@ -181,6 +181,44 @@
     @apply outline-none ring-2 ring-ring;
   }
 
+  /* Prism tokens (Tomorrow Night palette): code blocks have a dark background in both themes */
+  .prose pre :is(.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata) {
+    color: #999;
+  }
+  .prose pre .token.punctuation {
+    color: #ccc;
+  }
+  .prose pre :is(.token.tag, .token.attr-name, .token.namespace, .token.deleted) {
+    color: #e2777a;
+  }
+  .prose pre .token.function-name {
+    color: #6196cc;
+  }
+  .prose pre :is(.token.boolean, .token.number, .token.function) {
+    color: #f08d49;
+  }
+  .prose pre :is(.token.property, .token.class-name, .token.constant, .token.symbol) {
+    color: #f8c555;
+  }
+  .prose pre :is(.token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin) {
+    color: #cc99cd;
+  }
+  .prose pre :is(.token.string, .token.char, .token.attr-value, .token.regex, .token.variable) {
+    color: #7ec699;
+  }
+  .prose pre :is(.token.operator, .token.entity, .token.url) {
+    color: #67cdcc;
+  }
+  .prose pre .token.inserted {
+    color: #7ec699;
+  }
+  .prose pre :is(.token.important, .token.bold) {
+    font-weight: bold;
+  }
+  .prose pre .token.italic {
+    font-style: italic;
+  }
+
   /* Table — wide tables scroll inside their own box on small screens */
   .prose table {
     @apply block max-w-full overflow-x-auto md:table;
