@@ -38,6 +38,12 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
 
   return (
     <div className="min-h-screen font-sans antialiased">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        {t("a11y.skipToContent")}
+      </a>
       <div
         className="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10"
         style={{
@@ -122,7 +128,9 @@ const Layout = ({ children, alternatePath }: LayoutProps) => {
         </div>
       </header>
 
-      <main className="container py-10">{children}</main>
+      <main id="main-content" tabIndex={-1} className="container py-10 focus:outline-none">
+        {children}
+      </main>
 
       <Separator />
       <footer className="container flex h-14 items-center justify-center gap-1 text-sm text-muted-foreground">

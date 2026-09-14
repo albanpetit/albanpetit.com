@@ -76,6 +76,7 @@
 ### Accessibility
 
 - Post cards are real links (keyboard, middle-click, crawlers) stretched over the card
+- Skip-to-content link as the first tab stop
 - Visible focus ring in both themes, named mobile menu dialog
 - Text colors meet WCAG AA contrast in both themes; scrollable code blocks are keyboard focusable
 - All UI strings and `aria-label`s translated through `locales/`

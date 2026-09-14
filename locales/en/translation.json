@@ -7,6 +7,7 @@
     "copyright": "© {{year}} Alban Petit"
   },
   "a11y": {
+    "skipToContent": "Skip to content",
     "mainNav": "Main navigation",
     "mobileNav": "Mobile navigation links",
     "toggleTheme": "Toggle theme",
