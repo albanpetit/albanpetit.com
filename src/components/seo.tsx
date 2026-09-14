@@ -36,7 +36,8 @@ const Seo = ({
   structuredData,
 }: SeoProps) => {
   const ogImage = image ? (image.startsWith("http") ? image : `${SITE_URL}${image}`) : DEFAULT_OG_IMAGE
-  const canonical = canonicalPath ? `${SITE_URL}${canonicalPath}` : SITE_URL
+  // Pages without their own URL (404) get no canonical rather than pointing at the home page
+  const canonical = canonicalPath ? `${SITE_URL}${canonicalPath}` : undefined
 
   const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []
 
@@ -46,7 +47,7 @@ const Seo = ({
       <title>{title}</title>
       {description && <meta name="description" content={description} />}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
-      <link rel="canonical" href={canonical} />
+      {canonical && <link rel="canonical" href={canonical} />}
       <link rel="icon" href="/favicon.ico" />
       <meta name="author" content="Alban Petit" />
 
@@ -64,7 +65,7 @@ const Seo = ({
       <meta property="og:title" content={title} />
       {description && <meta property="og:description" content={description} />}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonical} />
+      {canonical && <meta property="og:url" content={canonical} />}
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
