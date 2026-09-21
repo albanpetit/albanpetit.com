@@ -31,6 +31,15 @@ Le principe repose sur l'inertie : un objet au repos tend à rester immobile, ta
 
 Lorsqu'une accélération est appliquée, la masse bouge, ce qui entraîne une variation de capacité ou génère une tension proportionnelle à la force appliquée. Ce signal est ensuite traité pour fournir une donnée exploitable sur l'accélération subie par l'appareil.
 
+```mermaid
+flowchart LR
+    A["Accélération mécanique"] --> B["Déplacement de<br/>la masse suspendue"]
+    B --> C["Variation de capacité"]
+    C --> D["Tension analogique<br/>par axe"]
+    D --> E["Filtre passe-bas<br/>32kΩ + 4,7nF"]
+    E --> F["CAN du<br/>microcontrôleur"]
+```
+
 ## Conception de la carte électronique
 
 Ce PCB est compact et simple à intégrer dans différents projets. Il comprend un régulateur de tension AP2112 pour assurer une alimentation stable de 3,3V, permettant une compatibilité avec des dispositifs fonctionnant sous 5V, comme les cartes Arduino. Ses dimensions sont de 19mm x 24mm, et il comporte deux connecteurs :
@@ -63,6 +72,12 @@ En prime, il est simple de mise en œuvre. Le document de données techniques fo
 Le cœur du projet, l'accéléromètre **ADXL335** de la marque **Analog Devices**, dispose d'une sensibilité à la vibration de 3G. Disponible uniquement en format **LFCSP-16**, il présente également des dimensions réduites (4mm x 4mm).
 
 Ce composant dispose de trois sorties analogiques, chacune responsable de fournir l'information d'accélération d'une des trois dimensions. Une résistance de 32K ohms est disposée sur chacune d'entre elles. Ces résistances permettent, via l'ajout d'un condensateur, de créer un filtre passe-bas, réduisant ainsi le bruit sur les données et l'effet de crénelage d'un suréchantillonnage. La valeur minimale conseillée de ces condensateurs est de 4,7nF.
+
+Avec la résistance interne de 32kΩ et un condensateur de 4,7nF, la fréquence de coupure de ce filtre RC du premier ordre est :
+
+$$
+f_c = \frac{1}{2\pi RC} = \frac{1}{2\pi \times 32\,\mathrm{k}\Omega \times 4.7\,\mathrm{nF}} \approx 1058\,\mathrm{Hz}
+$$
 
 Il est également intéressant de relever que la fréquence utile maximale de chaque axe est différente : 1600Hz pour X et Y, et seulement 500Hz pour Z.
 

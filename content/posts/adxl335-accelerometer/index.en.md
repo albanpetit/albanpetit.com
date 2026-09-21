@@ -31,6 +31,15 @@ Inside the structure, a mass suspended by flexible beams moves in response to ac
 
 When acceleration is applied, the mass moves, causing a change in capacitance or generating a voltage proportional to the applied force. This signal is then processed to provide usable acceleration data.
 
+```mermaid
+flowchart LR
+    A["Mechanical acceleration"] --> B["Suspended mass<br/>moves"]
+    B --> C["Capacitance change"]
+    C --> D["Analog voltage<br/>per axis"]
+    D --> E["32kΩ + 4.7nF<br/>low-pass filter"]
+    E --> F["Microcontroller<br/>ADC"]
+```
+
 ## Electronic Board Design
 
 This PCB is compact and easy to integrate into various projects. It includes an AP2112 voltage regulator to ensure a stable 3.3V power supply, allowing compatibility with 5V devices like Arduino boards. Its dimensions are 19mm x 24mm, and it features two connectors:
@@ -63,6 +72,12 @@ Additionally, it is extremely simple to implement. The datasheet contains all th
 The heart of the project, the Analog Devices ADXL335 accelerometer, has a vibration sensitivity of 3g. Available only in **LFCSP-16** format, it is relatively easy to implement as well, partly due to its small size (4mm x 4mm).
 
 This component has three analog outputs, each responsible for providing acceleration information along one of the three dimensions. A 32K ohm resistor is placed on each of them. These resistors, via the addition of a capacitor, allow the creation of a low-pass filter, reducing noise on the data and the effect of aliasing from oversampling. The recommended minimum value for these capacitors is 4.7nF.
+
+With the internal 32kΩ resistor and a 4.7nF capacitor, the cutoff frequency of this first-order RC filter is:
+
+$$
+f_c = \frac{1}{2\pi RC} = \frac{1}{2\pi \times 32\,\mathrm{k}\Omega \times 4.7\,\mathrm{nF}} \approx 1058\,\mathrm{Hz}
+$$
 
 It is also interesting to note that the maximum useful frequency of each axis is different: 1600Hz for X and Y, and only 500Hz for Z.
 
