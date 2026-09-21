@@ -113,6 +113,7 @@ Vous pouvez également explorer le schéma et le circuit imprimé directement, e
 <div class="kicad-embed">
 <kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/adxl335/main/ecad/adxl335.kicad_sch" controls="full"></kicanvas-embed>
 </div>
+
 <div class="kicad-embed">
 <kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/adxl335/main/ecad/adxl335.kicad_pcb" controls="full"></kicanvas-embed>
 </div>
