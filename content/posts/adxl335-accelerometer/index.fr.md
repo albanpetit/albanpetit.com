@@ -92,6 +92,17 @@ L'ensemble des fichiers de conception et de fabrication sont disponibles sur [Gi
 4. Le connecteur JST-PH avec trois broches, une pour chaque sortie analogique.
 5. Le connecteur JST-PH d'alimentation en 5 volts.
 
+Vous pouvez également explorer le schéma et le circuit imprimé directement, en zoomant sur chaque piste et empreinte :
+
+<div class="kicad-embed-pair">
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/adxl335/main/ecad/adxl335.kicad_sch" controls="full"></kicanvas-embed>
+</div>
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/adxl335/main/ecad/adxl335.kicad_pcb" controls="full"></kicanvas-embed>
+</div>
+</div>
+
 ## Fabrication de la carte électronique
 
 <div class="float-left">

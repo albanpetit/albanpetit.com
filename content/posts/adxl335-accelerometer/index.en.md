@@ -94,6 +94,17 @@ All design and manufacturing files are available on [GitHub](https://github.com/
 4. The JST-PH connector with three pins, one for each analog output.
 5. The power supply JST-PH connector for 5 volts.
 
+You can also explore the schematic and the PCB directly, pan and zoom into every trace and footprint:
+
+<div class="kicad-embed-pair">
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/adxl335/main/ecad/adxl335.kicad_sch" controls="full"></kicanvas-embed>
+</div>
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/adxl335/main/ecad/adxl335.kicad_pcb" controls="full"></kicanvas-embed>
+</div>
+</div>
+
 ## Electronic Board Manufacturing
 
 <div class="float-left">
