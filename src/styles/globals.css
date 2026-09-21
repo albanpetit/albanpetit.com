@@ -141,34 +141,33 @@
     @apply my-6 rounded-lg shadow-sm;
   }
 
-  /* Multi-image paragraph → gallery grid */
+  /* Media row: a group of images/videos (consecutive image lines, or wrapped in a
+     .media-row div) form a single full-width row. Each item gets an equal share of
+     the width; height follows from its own aspect ratio instead of being cropped to
+     a fixed box — the existing padding-bottom placeholder already does that math. */
+  .prose .media-row,
   .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.75rem;
-    align-items: start;
-    @apply my-6;
+    @apply my-6 flex items-start gap-3;
   }
 
+  .prose .media-row > *,
   .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper {
+    @apply min-w-0 flex-1;
     margin: 0 !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    padding-bottom: 0 !important;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    @apply rounded-lg shadow-sm;
+    max-width: none !important;
   }
 
-  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper img,
-  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper picture {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    max-width: none !important;
+  /* Videos keep their own aspect ratio via flex-grow (not an equal share like photos):
+     with flex-basis 0 and grow set to each item's own ratio, width ∝ ratio and — since
+     height = width / ratio — every item in the row lands at the same height, so a
+     portrait Short sits at a sensible width next to a landscape video instead of
+     towering over it. */
+  .prose .media-row .youtube-embed {
+    flex: 1.7778 1 0%;
+    max-width: none;
+  }
+  .prose .media-row .youtube-embed--vertical {
+    flex: 0.5625 1 0%;
   }
 
   /* Blockquote accent */
@@ -249,7 +248,9 @@
     margin: 0;
   }
   .prose .float-left .gatsby-resp-image-wrapper,
-  .prose .float-right .gatsby-resp-image-wrapper {
+  .prose .float-right .gatsby-resp-image-wrapper,
+  .prose .float-left .youtube-embed,
+  .prose .float-right .youtube-embed {
     @apply rounded-lg shadow-sm;
     margin-left: 0 !important;
     margin-right: 0 !important;
