@@ -259,4 +259,21 @@
   .prose .clearfix {
     clear: both;
   }
+
+  /* KiCanvas schematic/PCB embed: the custom element needs an explicit height */
+  .prose .kicad-embed {
+    @apply my-6 rounded-lg border border-border overflow-hidden shadow-sm;
+  }
+  .prose .kicad-embed kicanvas-embed {
+    display: block;
+    width: 100%;
+    height: 480px;
+  }
+  /* Side-by-side schematic + PCB on wide screens, stacked on mobile */
+  .prose .kicad-embed-pair {
+    @apply my-6 grid grid-cols-1 gap-4 md:grid-cols-2;
+  }
+  .prose .kicad-embed-pair .kicad-embed {
+    @apply my-0;
+  }
 }

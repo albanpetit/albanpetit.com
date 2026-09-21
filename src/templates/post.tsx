@@ -21,6 +21,22 @@ import { categoryLabel } from "@/lib/category"
 import Giscus from "@/components/giscus"
 import { localizedPath } from "@/lib/i18n"
 import { SITE_URL } from "@/lib/site"
+import { useTheme } from "@/context/theme"
+
+// KiCanvas theme names differ from ours: "kicad" is its light scheme, "witchhazel" its dark one
+const KICANVAS_THEME = { light: "kicad", dark: "witchhazel" } as const
+
+const KicadEmbedThemeSync = () => {
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    for (const el of document.querySelectorAll("kicanvas-embed")) {
+      el.setAttribute("theme", KICANVAS_THEME[theme])
+    }
+  }, [theme])
+
+  return null
+}
 
 const ReadingProgress = () => {
   const [progress, setProgress] = useState(0)
@@ -121,6 +137,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
 
   const blogPath = localizedPath("/blog/", language)
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
+  const hasKicadEmbed = html.includes("<kicanvas-embed")
   const content = html
     // Code blocks scroll horizontally on small screens: make them reachable with the keyboard
     .replace(/<pre class="/g, '<pre tabindex="0" class="')
@@ -228,6 +245,12 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
               // biome-ignore lint/security/noDangerouslySetInnerHtml: HTML generated at build time from our own Markdown
               dangerouslySetInnerHTML={{ __html: content }}
             />
+            {hasKicadEmbed && (
+              <>
+                <script type="module" src="https://kicanvas.org/kicanvas/kicanvas.js" />
+                <KicadEmbedThemeSync />
+              </>
+            )}
 
             <Separator className="my-12" />
             <Giscus />
