@@ -284,4 +284,27 @@
   .prose pre.mermaid svg {
     max-width: 100%;
   }
+
+  /* GitHub repo card: link-out widget, typically used in a post's intro */
+  .prose a.repo-card {
+    @apply my-6 flex items-center gap-4 rounded-xl border border-border bg-card p-4 no-underline shadow-sm transition-colors hover:bg-accent;
+  }
+  .prose a.repo-card:hover {
+    text-decoration: none;
+  }
+  .prose .repo-card-icon {
+    @apply h-8 w-8 shrink-0 text-foreground;
+  }
+  .prose .repo-card-body {
+    @apply min-w-0 flex-1;
+  }
+  .prose .repo-card-name {
+    @apply block truncate font-mono text-sm font-semibold text-foreground;
+  }
+  .prose .repo-card-desc {
+    @apply mt-0.5 block text-sm text-muted-foreground;
+  }
+  .prose .repo-card-arrow {
+    @apply h-5 w-5 shrink-0 text-muted-foreground;
+  }
 }
