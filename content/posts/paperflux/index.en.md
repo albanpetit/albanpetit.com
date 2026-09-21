@@ -11,9 +11,6 @@ tags:
 category: Projects
 image: main.jpg
 ---
-
-![PaperFlux](https://youtube.com/shorts/C_qkXi_1vpE?si=sbbnYrKRebQKxX2-)
-
 PaperFlux is a small connected object that, once a week, prints a summary of my GitHub activity on a receipt: stars, followers, commits from the last seven days, top languages and repositories. No screen, no notification: just a strip of paper that comes out on its own, like a bank statement for my open-source work.
 
 Behind this receipt lies a complete project spanning four disciplines: designing a custom electronic board, developing embedded firmware, running a web service in production, and modeling a 3D-printed enclosure. This article walks through the project step by step, in the logical order it was built.
@@ -34,6 +31,10 @@ Behind this receipt lies a complete project spanning four disciplines: designing
 | **Tools** | KiCad, PlatformIO, Ruby / Sinatra, Docker, Kamal, GitHub Actions, FreeCAD |
 | **Hardware** | ESP32-C3, AP33772S USB-C Power Delivery controller, 58 mm thermal printer |
 | **License** | MIT |
+
+<div class="youtube-embed youtube-embed--vertical">
+  <iframe src="https://www.youtube-nocookie.com/embed/C_qkXi_1vpE" title="PaperFlux" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 
@@ -215,6 +216,7 @@ The **AP63203WU (U3)** turns the negotiated voltage, usually 9 V, into a clean 3
 The sensitive spot is the **switching loop**: the path between the input capacitor, the chip, and ground switches several hundred thousand times per second. The larger this loop, the more it radiates, and the Wi-Fi antenna sits two centimeters away. Hence the tight placement of U3, L1, and the capacitors, and the continuous ground plane running right underneath, on the internal In1 layer.
 
 ![Schematic of the AP63203 buck regulator](schematic-buck-converter.png)
+
 ![Placement of the AP63203 regulator and its inductor on the PCB](pcb-buck-converter.png)
 
 ### 7.2 The power switch and its measurements
@@ -229,6 +231,7 @@ The AP33772S doesn't switch current itself: it drives two external MOSFETs. What
 - **NTC1 (10 kΩ at 25 °C)** on the OTP pin gives the controller a picture of the board's temperature, and triggers its thermal protection.
 
 ![Schematic of the AP33772S and the back-to-back MOSFET switch](schematic-power-switch.png)
+
 ![Placement of the AP33772S, the shunt, and the MOSFETs on the PCB](pcb-power-switch.png)
 
 ### 7.3 The I²C link between two voltage worlds
@@ -578,9 +581,13 @@ The timelapse shows what the 3D model can't tell you: the piece builds up layer 
 
 The real validation comes once the piece has cooled and been removed from the bed: fitting the board and printer into the enclosure, checking that the connectors line up with their openings, and that the USB-C cable goes in without force. That's the payoff of the work done earlier in FreeCAD, where the board imported as STEP and the simplified printer volume existed precisely to avoid surprises at this stage.
 
-[Watch the enclosure's 3D-printing timelapse on YouTube](https://youtu.be/g7p2XE0RZsE?si=O8b9UDyzDpgZAD-I)
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/g7p2XE0RZsE" title="PaperFlux - 3D-printing timelapse of the enclosure" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-[Watch the board fitted into the enclosure on YouTube](https://youtube.com/shorts/m-B9OKOYSVs?si=OTndaz4JzeSRzjjJ)
+<div class="youtube-embed youtube-embed--vertical">
+  <iframe src="https://www.youtube-nocookie.com/embed/m-B9OKOYSVs" title="PaperFlux - Fitting the board into the enclosure" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ## 13. Enjoying it
 
@@ -592,7 +599,9 @@ The rest of the week, the object does exactly one thing: wake up every minute, c
 
 Everything described in this article, the 4-layer board, the USB-C negotiation, the PNG decoder written line by line, the service running in production, all ends up fitting in this strip of paper coming out of a small 3D-printed box.
 
-[Watch the board print a receipt on YouTube](https://youtu.be/SV1ZxY0D_t8?si=mpXSwgA-HMu9siHo)
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/SV1ZxY0D_t8" title="PaperFlux - The board prints a receipt" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ## 14. What this project taught me
 

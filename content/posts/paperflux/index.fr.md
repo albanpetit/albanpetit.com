@@ -12,8 +12,6 @@ category: Projects
 image: main.jpg
 ---
 
-[PaperFlux](https://youtube.com/shorts/C_qkXi_1vpE?si=sbbnYrKRebQKxX2-)
-
 PaperFlux est un petit objet connecté qui, une fois par semaine, imprime sur un ticket de caisse le résumé de mon activité GitHub : étoiles, abonnés, commits des sept derniers jours, langages et dépôts les plus populaires. Aucun écran, aucune notification : juste un bout de papier qui sort tout seul, comme un relevé bancaire de mon travail open source.
 
 Derrière ce ticket se cache un projet complet qui touche à quatre disciplines : la conception électronique d'une carte sur mesure, le développement d'un firmware embarqué, un service web déployé en production et la modélisation d'un boîtier imprimé en 3D. Cet article retrace le projet étape par étape, dans l'ordre logique de sa construction.
@@ -34,6 +32,10 @@ Derrière ce ticket se cache un projet complet qui touche à quatre disciplines 
 | **Outils** | KiCad, PlatformIO, Ruby / Sinatra, Docker, Kamal, GitHub Actions, FreeCAD |
 | **Matériel** | ESP32-C3, contrôleur USB-C Power Delivery AP33772S, imprimante thermique 58 mm |
 | **Licence** | MIT |
+
+<div class="youtube-embed youtube-embed--vertical">
+  <iframe src="https://www.youtube-nocookie.com/embed/C_qkXi_1vpE" title="PaperFlux" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ---
 
@@ -215,6 +217,7 @@ L'**AP63203WU (U3)** transforme la tension négociée, 9 V le plus souvent, en u
 Le point sensible est la **boucle de commutation** : le chemin entre le condensateur d'entrée, la puce et la masse commute plusieurs centaines de milliers de fois par seconde. Plus cette boucle est grande, plus elle rayonne, et l'antenne Wi-Fi est à deux centimètres. D'où le placement serré de U3, L1 et des condensateurs, et le plan de masse continu qui court juste en dessous, sur la couche interne In1.
 
 ![Schéma du régulateur abaisseur AP63203](schematic-buck-converter.png)
+
 ![Placement du régulateur AP63203 et de son inductance sur le PCB](pcb-buck-converter.png)
 
 ### 7.2 L'interrupteur de puissance et ses mesures
@@ -229,6 +232,7 @@ L'AP33772S ne coupe pas le courant lui-même : il commande deux MOSFET externes.
 - **NTC1 (10 kΩ à 25 °C)** sur la broche OTP donne au contrôleur une image de la température de la carte, et déclenche sa protection thermique.
 
 ![Schéma de l'AP33772S et de l'interrupteur MOSFET tête-bêche](schematic-power-switch.png)
+
 ![Placement de l'AP33772S, du shunt et des MOSFET sur le PCB](pcb-power-switch.png)
 
 ### 7.3 Le lien I²C entre deux mondes de tension
@@ -578,9 +582,13 @@ Le timelapse montre bien ce que le modèle 3D ne raconte pas : la pièce se cons
 
 La vraie validation vient une fois la pièce refroidie et retirée du plateau : présenter la carte et l'imprimante dans le boîtier, vérifier que les connecteurs tombent en face de leurs ouvertures et que le câble USB-C entre sans forcer. C'est la contrepartie du travail fait en amont dans FreeCAD, où la carte importée au format STEP et le volume simplifié de l'imprimante servaient précisément à éviter les mauvaises surprises à cette étape.
 
-[Voir le timelapse de l'impression 3D du boîtier sur YouTube](https://youtu.be/g7p2XE0RZsE?si=O8b9UDyzDpgZAD-I)
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/g7p2XE0RZsE" title="PaperFlux - Timelapse de l'impression 3D du boîtier" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-[Voir le montage de la carte dans le boîtier sur YouTube](https://youtube.com/shorts/m-B9OKOYSVs?si=OTndaz4JzeSRzjjJ)
+<div class="youtube-embed youtube-embed--vertical">
+  <iframe src="https://www.youtube-nocookie.com/embed/m-B9OKOYSVs" title="PaperFlux - Montage de la carte dans le boîtier" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ## 13. Profiter
 
@@ -592,7 +600,9 @@ Le reste de la semaine, l'objet ne fait qu'une seule chose : se réveiller chaqu
 
 Tout ce qui précède dans cet article, la carte 4 couches, la négociation USB-C, le décodeur PNG écrit ligne par ligne, le service déployé en production, tient finalement dans ce bout de papier qui sort d'une petite boîte imprimée en 3D.
 
-[Voir la carte imprimer un ticket sur YouTube](https://youtu.be/SV1ZxY0D_t8?si=mpXSwgA-HMu9siHo)
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/SV1ZxY0D_t8" title="PaperFlux - La carte imprime un ticket" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 ## 14. Ce que ce projet m'a appris
 
