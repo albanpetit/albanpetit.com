@@ -307,4 +307,19 @@
   .prose .repo-card-arrow {
     @apply h-5 w-5 shrink-0 text-muted-foreground;
   }
+
+  /* YouTube embed: responsive iframe, 16:9 by default; add youtube-embed--vertical for Shorts */
+  .prose .youtube-embed {
+    @apply relative my-6 mx-auto overflow-hidden rounded-lg border border-border shadow-sm;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+  }
+  .prose .youtube-embed--vertical {
+    aspect-ratio: 9 / 16;
+    max-width: 360px;
+  }
+  .prose .youtube-embed iframe {
+    @apply absolute inset-0 h-full w-full;
+    border: 0;
+  }
 }
