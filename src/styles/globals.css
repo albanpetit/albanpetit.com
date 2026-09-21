@@ -140,21 +140,43 @@
   .prose .gatsby-resp-image-wrapper {
     @apply my-6 rounded-lg shadow-sm;
   }
+  /* Typography's default `.prose picture { margin: 2em 0 }` adds phantom height
+     inside the wrapper on top of the padding-bottom placeholder that already
+     encodes its real aspect ratio. That slack went unnoticed for single images
+     (no cropping happens either way), but it throws off a row where wrappers of
+     different ratios must line up by height. */
+  .prose .gatsby-resp-image-wrapper picture {
+    margin: 0;
+  }
 
   /* Media row: a group of images/videos (consecutive image lines, or wrapped in a
-     .media-row div) form a single full-width row. Each item gets an equal share of
-     the width; height follows from its own aspect ratio instead of being cropped to
-     a fixed box — the existing padding-bottom placeholder already does that math. */
+     .media-row div) form a single full-width row at a shared, responsive height —
+     like a justified photo strip. Photos of unrelated ratios can't both fill the
+     row's width AND keep their exact ratio AND match each other's height without
+     knowing every ratio ahead of time (a pure-CSS limit, no JS here) — cover
+     crops the excess instead of stretching, so nothing ever gets distorted; videos
+     override this below with their exact known ratio instead, so no crop needed. */
   .prose .media-row,
   .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) {
-    @apply my-6 flex items-start gap-3;
+    @apply my-6 flex gap-3;
+    height: clamp(9rem, 32vw, 22rem);
   }
 
   .prose .media-row > *,
   .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper {
-    @apply min-w-0 flex-1;
+    @apply min-w-0 flex-1 overflow-hidden rounded-lg shadow-sm;
+    height: 100%;
     margin: 0 !important;
     max-width: none !important;
+  }
+
+  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper picture,
+  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Videos keep their own aspect ratio via flex-grow (not an equal share like photos):
