@@ -12,9 +12,17 @@ category: Projects
 image: main.jpg
 ---
 
+<div class="float-left">
+<div class="youtube-embed youtube-embed--vertical">
+  <iframe src="https://www.youtube-nocookie.com/embed/C_qkXi_1vpE" title="PaperFlux" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+
 PaperFlux est un petit objet connecté qui, une fois par semaine, imprime sur un ticket de caisse le résumé de mon activité GitHub : étoiles, abonnés, commits des sept derniers jours, langages et dépôts les plus populaires. Aucun écran, aucune notification : juste un bout de papier qui sort tout seul, comme un relevé bancaire de mon travail open source.
 
 Derrière ce ticket se cache un projet complet qui touche à quatre disciplines : la conception électronique d'une carte sur mesure, le développement d'un firmware embarqué, un service web déployé en production et la modélisation d'un boîtier imprimé en 3D. Cet article retrace le projet étape par étape, dans l'ordre logique de sa construction.
+
+<div class="clearfix"></div>
 
 <a class="repo-card" href="https://github.com/albanpetit/paperflux" target="_blank" rel="noopener noreferrer">
   <svg class="repo-card-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -32,10 +40,6 @@ Derrière ce ticket se cache un projet complet qui touche à quatre disciplines 
 | **Outils** | KiCad, PlatformIO, Ruby / Sinatra, Docker, Kamal, GitHub Actions, FreeCAD |
 | **Matériel** | ESP32-C3, contrôleur USB-C Power Delivery AP33772S, imprimante thermique 58 mm |
 | **Licence** | MIT |
-
-<div class="youtube-embed youtube-embed--vertical">
-  <iframe src="https://www.youtube-nocookie.com/embed/C_qkXi_1vpE" title="PaperFlux" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
 
 ---
 
@@ -590,12 +594,13 @@ Le timelapse montre bien ce que le modèle 3D ne raconte pas : la pièce se cons
 
 La vraie validation vient une fois la pièce refroidie et retirée du plateau : présenter la carte et l'imprimante dans le boîtier, vérifier que les connecteurs tombent en face de leurs ouvertures et que le câble USB-C entre sans forcer. C'est la contrepartie du travail fait en amont dans FreeCAD, où la carte importée au format STEP et le volume simplifié de l'imprimante servaient précisément à éviter les mauvaises surprises à cette étape.
 
+<div class="media-row">
 <div class="youtube-embed">
   <iframe src="https://www.youtube-nocookie.com/embed/g7p2XE0RZsE" title="PaperFlux - Timelapse de l'impression 3D du boîtier" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-
 <div class="youtube-embed youtube-embed--vertical">
   <iframe src="https://www.youtube-nocookie.com/embed/m-B9OKOYSVs" title="PaperFlux - Montage de la carte dans le boîtier" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </div>
 
 ## 13. Profiter
