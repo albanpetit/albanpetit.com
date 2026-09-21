@@ -228,7 +228,6 @@ The **AP63203WU (U3)** turns the negotiated voltage, usually 9 V, into a clean 3
 The sensitive spot is the **switching loop**: the path between the input capacitor, the chip, and ground switches several hundred thousand times per second. The larger this loop, the more it radiates, and the Wi-Fi antenna sits two centimeters away. Hence the tight placement of U3, L1, and the capacitors, and the continuous ground plane running right underneath, on the internal In1 layer.
 
 ![Schematic of the AP63203 buck regulator](schematic-buck-converter.png)
-
 ![Placement of the AP63203 regulator and its inductor on the PCB](pcb-buck-converter.png)
 
 ### 7.2 The power switch and its measurements
@@ -243,7 +242,6 @@ The AP33772S doesn't switch current itself: it drives two external MOSFETs. What
 - **NTC1 (10 kΩ at 25 °C)** on the OTP pin gives the controller a picture of the board's temperature, and triggers its thermal protection.
 
 ![Schematic of the AP33772S and the back-to-back MOSFET switch](schematic-power-switch.png)
-
 ![Placement of the AP33772S, the shunt, and the MOSFETs on the PCB](pcb-power-switch.png)
 
 ### 7.3 The I²C link between two voltage worlds
