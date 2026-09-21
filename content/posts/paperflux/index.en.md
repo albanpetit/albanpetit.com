@@ -163,7 +163,11 @@ flowchart LR
 
 These three LEDs form an instant visual diagnostic: at a glance you know whether the cable is delivering power, whether negotiation succeeded, and whether the logic is powered.
 
-![Full schematic of the PaperFlux board](schematic-overview.png)
+You can explore the full schematic directly, zooming into every trace and component:
+
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/paperflux/main/ecad/ecad.kicad_sch" controls="full"></kicanvas-embed>
+</div>
 
 ## 6. Routing the PCB and getting it manufactured
 
@@ -185,7 +189,11 @@ A few rules guided placement:
 - **The shunt R6 and the MOSFETs Q1 and Q2** are grouped near the AP33772S, on the current path between the USB-C connector and the terminal block, and connected with copper pours rather than thin traces.
 - **The ESP32-C3 module's antenna** sits at the board edge. A keep-out zone forbids traces, vias, and copper pours under the antenna, on all four layers, as Espressif recommends.
 
-![Top-copper routing view of the PCB in KiCad](pcb-layout-top.png)
+You can also explore the routing directly, layer by layer:
+
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/paperflux/main/ecad/ecad.kicad_pcb" controls="full"></kicanvas-embed>
+</div>
 
 ### 6.2 Manufacturing and assembly
 

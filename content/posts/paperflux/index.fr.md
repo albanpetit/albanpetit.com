@@ -164,7 +164,11 @@ flowchart LR
 
 Ces trois LED forment un diagnostic visuel immédiat : on sait d'un coup d'œil si le câble apporte du courant, si la négociation a abouti et si la logique est alimentée.
 
-![Schéma électronique complet de la carte PaperFlux](schematic-overview.png)
+Vous pouvez explorer le schéma complet directement, en zoomant sur chaque piste et chaque composant :
+
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/paperflux/main/ecad/ecad.kicad_sch" controls="full"></kicanvas-embed>
+</div>
 
 ## 6. Router le PCB et le faire fabriquer
 
@@ -186,7 +190,11 @@ Quelques règles guident le placement :
 - **Le shunt R6 et les MOSFET Q1 et Q2** sont regroupés près de l'AP33772S, sur le trajet du courant entre le connecteur USB-C et le bornier, et reliés par des zones de cuivre plutôt que par des pistes fines.
 - **L'antenne du module ESP32-C3** est placée en bord de carte. Une zone d'exclusion interdit pistes, vias et plans de cuivre sous l'antenne, sur les quatre couches, comme le recommande Espressif.
 
-![Vue du routage de la face avant du PCB dans KiCad](pcb-layout-top.png)
+Vous pouvez également explorer le routage directement, couche par couche :
+
+<div class="kicad-embed">
+<kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/paperflux/main/ecad/ecad.kicad_pcb" controls="full"></kicanvas-embed>
+</div>
 
 ### 6.2 Fabrication et assemblage
 
