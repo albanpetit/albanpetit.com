@@ -229,7 +229,6 @@ L'**AP63203WU (U3)** transforme la tension négociée, 9 V le plus souvent, en u
 Le point sensible est la **boucle de commutation** : le chemin entre le condensateur d'entrée, la puce et la masse commute plusieurs centaines de milliers de fois par seconde. Plus cette boucle est grande, plus elle rayonne, et l'antenne Wi-Fi est à deux centimètres. D'où le placement serré de U3, L1 et des condensateurs, et le plan de masse continu qui court juste en dessous, sur la couche interne In1.
 
 ![Schéma du régulateur abaisseur AP63203](schematic-buck-converter.png)
-
 ![Placement du régulateur AP63203 et de son inductance sur le PCB](pcb-buck-converter.png)
 
 ### 7.2 L'interrupteur de puissance et ses mesures
@@ -244,7 +243,6 @@ L'AP33772S ne coupe pas le courant lui-même : il commande deux MOSFET externes.
 - **NTC1 (10 kΩ à 25 °C)** sur la broche OTP donne au contrôleur une image de la température de la carte, et déclenche sa protection thermique.
 
 ![Schéma de l'AP33772S et de l'interrupteur MOSFET tête-bêche](schematic-power-switch.png)
-
 ![Placement de l'AP33772S, du shunt et des MOSFET sur le PCB](pcb-power-switch.png)
 
 ### 7.3 Le lien I²C entre deux mondes de tension
