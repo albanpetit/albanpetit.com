@@ -100,12 +100,21 @@ const config: GatsbyConfig = {
               ignoreFileExtensions: ["png", "jpg", "jpeg", "webp", "gif", "bmp", "tiff"],
             },
           },
+          // Must run before gatsby-remark-prismjs: it pulls mermaid fences out of the AST so
+          // Prism never sees them as code to tokenize
+          "gatsby-remark-mermaid-passthrough",
           {
             resolve: "gatsby-remark-prismjs",
             options: {
               classPrefix: "language-",
               inlineCodeMarker: null,
               showLineNumbers: false,
+            },
+          },
+          {
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "ignore",
             },
           },
         ],

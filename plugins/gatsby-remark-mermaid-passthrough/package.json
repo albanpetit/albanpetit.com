@@ -1,0 +1,6 @@
+{
+  "name": "gatsby-remark-mermaid-passthrough",
+  "version": "1.0.0",
+  "description": "Turns ```mermaid code fences into a plain-text container for client-side rendering by mermaid.js, bypassing gatsby-remark-prismjs",
+  "main": "index.js"
+}

@@ -30,18 +30,21 @@
     "gatsby-remark-autolink-headers": "^6.16.0",
     "gatsby-remark-copy-linked-files": "^6.16.0",
     "gatsby-remark-images": "^7.16.0",
+    "gatsby-remark-katex": "^7.16.0",
     "gatsby-remark-prismjs": "^7.16.0",
     "gatsby-source-filesystem": "^5.16.0",
     "gatsby-transformer-remark": "^6.16.0",
     "gatsby-transformer-sharp": "^5.16.0",
     "i18next": "^22.5.1",
+    "katex": "^0.13.24",
     "lucide-react": "^1.46.0",
     "prismjs": "^1.30.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-i18next": "^12.3.1",
     "tailwind-merge": "^2.0.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",

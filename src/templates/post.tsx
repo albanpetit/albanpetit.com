@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { graphql, Link } from "gatsby"
+import "katex/dist/katex.min.css"
 import { GatsbyImage, getImage, getSrc, type IGatsbyImageData } from "gatsby-plugin-image"
 import type { HeadFC, PageProps } from "gatsby"
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next"
@@ -32,6 +33,40 @@ const KicadEmbedThemeSync = () => {
   useEffect(() => {
     for (const el of document.querySelectorAll("kicanvas-embed")) {
       el.setAttribute("theme", KICANVAS_THEME[theme])
+    }
+  }, [theme])
+
+  return null
+}
+
+const MERMAID_CDN_URL = "https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs"
+
+// The original source is stashed on each element before mermaid.js replaces its content with
+// rendered SVG, so a later theme change can restore it and re-run the render from scratch
+// (mermaid has no supported way to re-theme an already-rendered diagram in place).
+const MermaidRenderer = () => {
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>("pre.mermaid"))
+    if (elements.length === 0) return
+
+    let cancelled = false
+
+    for (const el of elements) {
+      if (el.dataset.mermaidSource === undefined) el.dataset.mermaidSource = el.textContent ?? ""
+      el.removeAttribute("data-processed")
+      el.textContent = el.dataset.mermaidSource ?? ""
+    }
+
+    import(/* webpackIgnore: true */ MERMAID_CDN_URL).then(({ default: mermaid }) => {
+      if (cancelled) return
+      mermaid.initialize({ startOnLoad: false, theme: theme === "dark" ? "dark" : "default" })
+      mermaid.run({ nodes: elements })
+    })
+
+    return () => {
+      cancelled = true
     }
   }, [theme])
 
@@ -138,6 +173,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
   const blogPath = localizedPath("/blog/", language)
   const hasToc = headings.filter((h) => h.depth <= 3).length >= 2
   const hasKicadEmbed = html.includes("<kicanvas-embed")
+  const hasMermaid = html.includes('class="mermaid"')
   const content = html
     // Code blocks scroll horizontally on small screens: make them reachable with the keyboard
     .replace(/<pre class="/g, '<pre tabindex="0" class="')
@@ -251,6 +287,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData, PostPageContext>> = ({ 
                 <KicadEmbedThemeSync />
               </>
             )}
+            {hasMermaid && <MermaidRenderer />}
 
             <Separator className="my-12" />
             <Giscus />
