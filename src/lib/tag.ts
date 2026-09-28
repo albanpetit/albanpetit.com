@@ -7,7 +7,8 @@ function slugify(str: string): string {
       .replace(/[̀-ͯ]/g, "")
       .toLowerCase()
       // Collapse any run of disallowed characters into a single separator, instead of deleting them,
-      // so distinct tags like "C++" and "C" don't both reduce to "c"
+      // so "Node.js" gives "node-js". Some tags still collide ("C++" and "C" both give "c"):
+      // src/lib/taxonomy.ts then gives them one shared page
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
   )

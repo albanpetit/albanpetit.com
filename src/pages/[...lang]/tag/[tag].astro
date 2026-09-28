@@ -9,14 +9,18 @@ export async function getStaticPaths() {
   const posts = await getPosts()
   return tagPages(posts).map((page) => ({
     params: { lang: languageParam(page.lang), tag: page.slug },
-    props: { page, posts: posts.filter(({ data }) => data.lang === page.lang && data.tags.includes(page.name)) },
+    props: {
+      page,
+      posts: posts.filter(({ data }) => data.lang === page.lang && data.tags.some((tag) => page.names.includes(tag))),
+    },
   }))
 }
 
 type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]["props"]
 
 const { page, posts } = Astro.props as Props
-const { lang, name, slug, alternateSlug } = page
+const { lang, names, slug, alternateSlug } = page
+const name = names.join(" / ")
 const t = getTranslations(lang)
 const isEN = lang === "en"
 ---

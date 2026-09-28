@@ -4,8 +4,8 @@ import { slugifyCategory, slugifyTag } from "@/lib/tag"
 
 export type TaxonomyPage = {
   lang: Language
-  /** Name as written in the front matter */
-  name: string
+  /** Names as written in the front matter that share this slug ("C" and "C++" both give "c") */
+  names: string[]
   slug: string
 }
 
@@ -16,29 +16,23 @@ const warn = (message: string) => {
   console.warn(`[taxonomy] ${message}`)
 }
 
-// Records `name -> slug` in `map`, warning instead of silently overwriting when a different name
-// already claimed that slug (its page would otherwise vanish under the newer name)
-function addSlug(map: Map<string, string>, name: string, slug: string, kind: string, lang: string) {
-  if (map.has(name)) return
-  for (const [existingName, existingSlug] of map) {
-    if (existingSlug === slug && existingName !== name) {
-      warn(
-        `${kind} "${existingName}" and "${name}" (${lang}) both produce the slug "${slug}"; ` +
-          `only "${existingName}" will get a page, "${name}" has none`
-      )
-      return
-    }
-  }
-  map.set(name, slug)
+// Groups names by slug in `map`. Names that share a slug share a page: every link built with
+// tagPath/categoryPath points there, so that page must list the posts of all of them
+function addName(map: Map<string, string[]>, name: string, slug: string, kind: string, lang: string) {
+  const names = map.get(slug) ?? []
+  if (names.includes(name)) return
+  if (names.length > 0) warn(`${kind} "${names[0]}" and "${name}" (${lang}) share the slug "${slug}" and its page`)
+  names.push(name)
+  map.set(slug, names)
 }
 
-/** One page per tag and language, with the slug of the same tag in the other language when it can be paired */
+/** One page per tag slug and language, with the slug of the same tag in the other language when it can be paired */
 export function tagPages(posts: Post[]): (TaxonomyPage & { alternateSlug: string | null })[] {
-  const tagsByLang = new Map<Language, Map<string, string>>()
+  const tagsByLang = new Map<Language, Map<string, string[]>>()
   for (const { data } of posts) {
-    const langTags = tagsByLang.get(data.lang) ?? new Map<string, string>()
+    const langTags = tagsByLang.get(data.lang) ?? new Map<string, string[]>()
     tagsByLang.set(data.lang, langTags)
-    for (const tag of data.tags) addSlug(langTags, tag, slugifyTag(tag), "Tag", data.lang)
+    for (const tag of data.tags) addName(langTags, tag, slugifyTag(tag), "Tag", data.lang)
   }
 
   // Pair tags across languages: translated posts share a slug and list their tags in the same order
@@ -49,7 +43,7 @@ export function tagPages(posts: Post[]): (TaxonomyPage & { alternateSlug: string
     slugTags.set(data.lang, data.tags)
   }
 
-  // Key: `${lang}:${tag}`, value: slug of the same tag in the other language
+  // Key: `${lang}:${tag slug}`, value: slug of the same tag in the other language
   const counterparts = new Map<string, string>()
   // Keys whose pairing disagrees across posts: order-based pairing can't be trusted for them
   const conflicting = new Set<string>()
@@ -63,10 +57,10 @@ export function tagPages(posts: Post[]): (TaxonomyPage & { alternateSlug: string
       return
     }
     en.forEach((tag, i) => {
-      const enKey = `en:${tag}`
-      const frKey = `fr:${fr[i]}`
       const enSlug = slugifyTag(tag)
       const frSlug = slugifyTag(fr[i])
+      const enKey = `en:${enSlug}`
+      const frKey = `fr:${frSlug}`
 
       if (counterparts.has(enKey) && counterparts.get(enKey) !== frSlug) conflicting.add(enKey)
       else counterparts.set(enKey, frSlug)
@@ -85,27 +79,32 @@ export function tagPages(posts: Post[]): (TaxonomyPage & { alternateSlug: string
   })
 
   return [...tagsByLang].flatMap(([lang, tags]) =>
-    [...tags].map(([name, slug]) => ({ lang, name, slug, alternateSlug: counterparts.get(`${lang}:${name}`) ?? null }))
+    [...tags].map(([slug, names]) => ({
+      lang,
+      names,
+      slug,
+      alternateSlug: counterparts.get(`${lang}:${slug}`) ?? null,
+    }))
   )
 }
 
-/** One page per category and language; category names are shared across languages */
+/** One page per category slug and language; category names are shared across languages */
 export function categoryPages(posts: Post[]): (TaxonomyPage & { hasAlternate: boolean })[] {
-  const categoriesByLang = new Map<Language, Map<string, string>>()
+  const categoriesByLang = new Map<Language, Map<string, string[]>>()
   for (const { data } of posts) {
     if (!data.category) continue
-    const langCategories = categoriesByLang.get(data.lang) ?? new Map<string, string>()
+    const langCategories = categoriesByLang.get(data.lang) ?? new Map<string, string[]>()
     categoriesByLang.set(data.lang, langCategories)
-    addSlug(langCategories, data.category, slugifyCategory(data.category), "Category", data.lang)
+    addName(langCategories, data.category, slugifyCategory(data.category), "Category", data.lang)
   }
 
   return [...categoriesByLang].flatMap(([lang, categories]) =>
-    [...categories].map(([name, slug]) => ({
+    [...categories].map(([slug, names]) => ({
       lang,
-      name,
+      names,
       slug,
       // The page exists in the other language if a post uses the category there
-      hasAlternate: categoriesByLang.get(lang === "en" ? "fr" : "en")?.has(name) ?? false,
+      hasAlternate: categoriesByLang.get(lang === "en" ? "fr" : "en")?.has(slug) ?? false,
     }))
   )
 }
