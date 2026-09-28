@@ -3,6 +3,7 @@ import { Image } from "astro:assets"
 import { ArrowRight, Cpu, MapPin, Printer, Search } from "lucide-react"
 import { GithubIcon, XIcon } from "@/components/icons"
 import PostCard from "@/components/PostCard"
+import ProjectStatus from "@/components/ProjectStatus.astro"
 import { badgeVariants } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,6 +12,7 @@ import Layout from "@/layouts/Layout.astro"
 import { categoryLabel } from "@/lib/category"
 import { type Language, languagePaths, localizedPath, getTranslations } from "@/lib/i18n"
 import { getPosts, toCardData } from "@/lib/posts"
+import { getProjects } from "@/lib/projects"
 import { GITHUB_URL, MAKERWORLD_URL, SITE_URL, TWITTER_URL } from "@/lib/site"
 import { categoryPath, tagPath } from "@/lib/tag"
 import { cn } from "@/lib/utils"
@@ -24,10 +26,13 @@ const posts = await getPosts(lang)
 const latest = await Promise.all(posts.slice(0, 5).map(toCardData))
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort()
 const allCategories = [...new Set(posts.flatMap((p) => p.data.category ?? []))].sort()
+// In progress first: the sidebar shows what is being built right now
+const projects = (await getProjects(lang)).slice(0, 5)
 
 const blogPath = localizedPath("/blog/", lang)
 const aboutPath = localizedPath("/about/", lang)
 const searchPath = localizedPath("/search/", lang)
+const projectsPath = localizedPath("/projects/", lang)
 
 // "… at <1>La Machinerie</1> and …": the i18next <Trans> markup of home.description
 const [beforeLink, linkText, afterLink] = t("home.description").split(/<1>|<\/1>/)
@@ -213,6 +218,29 @@ const sidebarTitle = "text-xs font-semibold uppercase tracking-widest text-muted
                 <Input name="q" aria-label={t("search.title")} placeholder={t("search.placeholder")} className="pl-9 h-9" />
               </form>
             </div>
+
+            {projects.length > 0 && (
+              <div class={sidebarCard}>
+                <div class="flex items-center gap-2">
+                  <span class="h-4 w-0.5 rounded-full bg-primary" />
+                  <h3 class={sidebarTitle}>{t("home.projects")}</h3>
+                </div>
+                <ul class="flex flex-col gap-2">
+                  {projects.map((project) => (
+                    <li class="flex items-center justify-between gap-3 text-sm">
+                      <a href={project.url} class="font-medium hover:text-link transition-colors">
+                        {project.name}
+                      </a>
+                      <ProjectStatus status={project.status} lang={lang} />
+                    </li>
+                  ))}
+                </ul>
+                <a href={projectsPath} class="flex items-center gap-1 text-xs font-medium text-link hover:text-link/80">
+                  {t("home.allProjects")}
+                  <ArrowRight className="h-3 w-3" />
+                </a>
+              </div>
+            )}
 
             {allCategories.length > 0 && (
               <div class={sidebarCard}>
