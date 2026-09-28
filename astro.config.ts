@@ -15,7 +15,7 @@ import { linkedFiles, remarkLinkedFiles } from "./src/markdown/linked-files"
 import rehypeImageSizes from "./src/markdown/rehype-image-sizes"
 import rehypePreTabindex from "./src/markdown/rehype-pre-tabindex"
 import remarkMermaid from "./src/markdown/remark-mermaid"
-import { localizedPath } from "./src/lib/i18n"
+import { LANGUAGES, localizedPath } from "./src/lib/i18n"
 import { SITE_URL } from "./src/lib/site"
 
 const contentDir = fileURLToPath(new URL("./content", import.meta.url))
@@ -50,8 +50,9 @@ const postLastmod = new Map(
   })
 )
 
-// Pages kept out of the sitemap: search results, 404s and the redirects from the Hugo /posts/ URLs
-const SITEMAP_EXCLUDED = /\/(search|404|posts)(\/|$)/
+// Pages kept out of the sitemap: search results, 404s and the redirects from the Hugo /posts/ URLs.
+// Anchored after the optional language prefix so a tag or post slug named "search", "404" or "posts" stays in.
+const SITEMAP_EXCLUDED = new RegExp(`^(/(${LANGUAGES.join("|")}))?/(search|404|posts)(/|$)`)
 
 // Search engines do not follow meta refresh: serve the Hugo sitemap URL as a copy. Must come after sitemap().
 const legacySitemap: AstroIntegration = {
