@@ -43,8 +43,8 @@ const isoDate = (value: unknown) => (value instanceof Date ? value.toISOString()
 // Post URL → <lastmod> for the sitemap (front matter lastmod, else date). Read from the files directly:
 // content collections are not available while the config loads.
 const postLastmod = new Map(
-  globSync("content/posts/*/index.*.md").map((file) => {
-    const { frontmatter } = parseFrontmatter(readFileSync(file, "utf8"))
+  globSync("posts/*/index.*.md", { cwd: contentDir }).map((file) => {
+    const { frontmatter } = parseFrontmatter(readFileSync(path.join(contentDir, file), "utf8"))
     const url = `${SITE_URL}${localizedPath(`/post/${frontmatter.slug}/`, frontmatter.lang)}`
     return [url, isoDate(frontmatter.lastmod ?? frontmatter.date)]
   })
