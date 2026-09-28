@@ -87,7 +87,12 @@ const articleData = {
   }}
 >
   <div class="fixed top-0 left-0 right-0 z-50 h-0.5 bg-transparent">
-    <div id="reading-progress" class="h-full bg-primary transition-all duration-75 ease-out" style="width: 0%"></div>
+    <div
+      id="reading-progress"
+      class="h-full w-full origin-left bg-primary transition-transform duration-75 ease-out"
+      style="transform: scaleX(0)"
+    >
+    </div>
   </div>
 
   <div class={cn("mx-auto", hasToc ? "max-w-5xl" : "max-w-2xl")}>

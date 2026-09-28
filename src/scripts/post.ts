@@ -1,13 +1,13 @@
 import { currentTheme, onThemeChange, type Theme } from "@/scripts/theme"
 import "@/scripts/mermaid"
 
-// Reading progress bar
+// Reading progress bar: scaled rather than resized, so scrolling never triggers a layout
 const bar = document.getElementById("reading-progress")
 if (bar) {
   const update = () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement
     const total = scrollHeight - clientHeight
-    bar.style.width = `${total > 0 ? (scrollTop / total) * 100 : 0}%`
+    bar.style.transform = `scaleX(${total > 0 ? scrollTop / total : 0})`
   }
   window.addEventListener("scroll", update, { passive: true })
   update()
