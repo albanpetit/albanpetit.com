@@ -55,6 +55,29 @@ async function collectFiles(contentDir: string) {
   return files
 }
 
+// /static/ URLs in the generated pages and feeds (feeds use absolute URLs, hence no leading anchor)
+const STATIC_URL_PATTERN = /\/static\/[0-9a-f]{32}\/[^"'\s<>)]+/g
+
+const safeDecode = (url: string) => {
+  try {
+    return decodeURIComponent(url)
+  } catch {
+    return url
+  }
+}
+
+/** /static/ URLs referenced by the HTML pages and XML feeds of the build output */
+async function referencedUrls(outDir: string) {
+  const entries = await readdir(outDir, { withFileTypes: true, recursive: true })
+  const urls = new Set<string>()
+  for (const entry of entries) {
+    if (!entry.isFile() || !/\.(html|xml)$/.test(entry.name)) continue
+    const content = await readFile(path.join(entry.parentPath, entry.name), "utf8")
+    for (const [url] of content.matchAll(STATIC_URL_PATTERN)) urls.add(safeDecode(url))
+  }
+  return urls
+}
+
 /** Serves linked files in dev and copies them to the build output */
 export function linkedFiles(contentDir: string): AstroIntegration {
   return {
@@ -70,16 +93,19 @@ export function linkedFiles(contentDir: string): AstroIntegration {
         })
       },
       "astro:build:done": async ({ dir, logger }) => {
-        const files = await collectFiles(contentDir)
+        // Only files a page actually links to are published, like gatsby-remark-copy-linked-files did:
+        // drafts or sources lying next to a post stay private
         const outDir = fileURLToPath(dir)
+        const referenced = await referencedUrls(outDir)
+        const files = [...(await collectFiles(contentDir))].filter(([url]) => referenced.has(url))
         await Promise.all(
-          [...files].map(async ([url, file]) => {
+          files.map(async ([url, file]) => {
             const dest = path.join(outDir, url)
             await mkdir(path.dirname(dest), { recursive: true })
             await copyFile(file, dest)
           })
         )
-        logger.info(`Copied ${files.size} linked files`)
+        logger.info(`Copied ${files.length} linked files`)
       },
     },
   }
