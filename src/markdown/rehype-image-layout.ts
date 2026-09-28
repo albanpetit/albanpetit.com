@@ -9,8 +9,18 @@ const COLUMN_WIDTH = 800
 // Images per row in a group: 4 images give 2 rows of 2, 5 give 3 + 2…
 const MAX_PER_ROW = 3
 
+const SINGLE_SIZES = `(max-width: ${COLUMN_WIDTH}px) 100vw, ${COLUMN_WIDTH}px`
+
 const isImage = (node: ElementContent): node is Element => node.type === "element" && node.tagName === "img"
 const isBlank = (node: ElementContent) => node.type === "text" && node.value.trim() === ""
+
+/** The image of a layout unit: an image, or a link around a single image ([![alt](img)](url)) */
+function imageOf(node: ElementContent): Element | undefined {
+  if (isImage(node)) return node
+  if (node.type !== "element" || node.tagName !== "a") return undefined
+  const content = node.children.filter((child) => !isBlank(child))
+  return content.length === 1 && isImage(content[0]) ? content[0] : undefined
+}
 
 /** Width / height of a local image, as displayed (EXIF rotation applied); undefined when it cannot be read */
 async function aspectRatio(img: Element, file: VFile) {
@@ -42,40 +52,40 @@ export default function rehypeImageLayout() {
   return async (tree: Root, file: VFile) => {
     const paragraphs: Element[] = []
     visit(tree, "element", (node: Element) => {
-      if (node.tagName === "p" && node.children.some(isImage)) paragraphs.push(node)
+      if (node.tagName === "p") paragraphs.push(node)
     })
 
     for (const p of paragraphs) {
-      const images = p.children.filter(isImage)
-      // Images mixed with text stay inline, as written
-      if (!p.children.every((child) => isImage(child) || isBlank(child))) {
-        for (const img of images) img.properties.sizes ??= `(max-width: ${COLUMN_WIDTH}px) 100vw, ${COLUMN_WIDTH}px`
+      // Layout units: images, or links around an image. Anything else (text…) keeps the paragraph as written
+      const units = p.children.filter((child): child is Element => !isBlank(child))
+      const images = units.map(imageOf)
+      if (units.length === 0 || images.some((img) => img === undefined)) continue
+      const unitImages = images as Element[]
+
+      if (units.length === 1) {
+        unitImages[0].properties.className = ["media-single"]
+        unitImages[0].properties.sizes ??= SINGLE_SIZES
         continue
       }
 
-      if (images.length === 1) {
-        images[0].properties.className = ["media-single"]
-        images[0].properties.sizes ??= `(max-width: ${COLUMN_WIDTH}px) 100vw, ${COLUMN_WIDTH}px`
-        continue
-      }
-
-      const ratios = await Promise.all(images.map((img) => aspectRatio(img, file)))
+      const ratios = await Promise.all(unitImages.map((img) => aspectRatio(img, file)))
       const rows: Element[] = []
       let start = 0
-      for (const size of rowSizes(images.length)) {
-        const rowImages = images.slice(start, start + size)
+      for (const size of rowSizes(units.length)) {
+        const rowUnits = units.slice(start, start + size)
         const rowRatios = ratios.slice(start, start + size).map((ratio) => ratio ?? 1)
         const total = rowRatios.reduce((sum, ratio) => sum + ratio, 0)
-        rowImages.forEach((img, i) => {
-          img.properties.style = `--ratio: ${rowRatios[i].toFixed(4)}`
+        rowUnits.forEach((unit, i) => {
+          unit.properties.style = `--ratio: ${rowRatios[i].toFixed(4)}`
           // Stacked full width on phones (globals.css), its share of the column above
-          img.properties.sizes ??= `(max-width: 640px) 100vw, ${Math.round((COLUMN_WIDTH * rowRatios[i]) / total)}px`
+          unitImages[start + i].properties.sizes ??=
+            `(max-width: 640px) 100vw, ${Math.round((COLUMN_WIDTH * rowRatios[i]) / total)}px`
         })
         rows.push({
           type: "element",
           tagName: "div",
           properties: { className: ["media-grid-row"] },
-          children: rowImages,
+          children: rowUnits,
         })
         start += size
       }
@@ -85,5 +95,10 @@ export default function rehypeImageLayout() {
       p.properties = { className: ["media-grid"] }
       p.children = rows
     }
+
+    // Every other image (next to text, in a list, a table, raw HTML…) is at most as wide as the column
+    visit(tree, "element", (node: Element) => {
+      if (node.tagName === "img") node.properties.sizes ??= SINGLE_SIZES
+    })
   }
 }
