@@ -9,17 +9,6 @@ updates:
       minor-and-patch:
         update-types: [minor, patch]
     ignore:
-      # Pinned by gatsby-plugin-react-i18next (react ^18, i18next ^22, react-i18next ^12)
-      - dependency-name: react
-        update-types: [version-update:semver-major]
-      - dependency-name: react-dom
-        update-types: [version-update:semver-major]
-      - dependency-name: "@types/react*"
-        update-types: [version-update:semver-major]
-      - dependency-name: i18next
-        update-types: [version-update:semver-major]
-      - dependency-name: react-i18next
-        update-types: [version-update:semver-major]
       # Majors that need a migration first: Tailwind CSS 4 (tailwind-merge 3 requires it), TypeScript 7
       - dependency-name: tailwindcss
         update-types: [version-update:semver-major]
