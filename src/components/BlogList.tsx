@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 import { Badge } from "@/components/ui/badge"
-import { type Language, getTranslations } from "@/lib/i18n"
+import type { Language } from "@/lib/i18n"
+import { createTranslator, type Translations } from "@/lib/translate"
 
 /** Blog post list with its tag filter, kept in ?tag= so a filtered list can be shared and survives going back */
-const BlogList = ({ posts, lang }: { posts: PostCardData[]; lang: Language }) => {
-  const t = getTranslations(lang)
+const BlogList = ({ posts, lang, strings }: { posts: PostCardData[]; lang: Language; strings: Translations }) => {
+  const t = createTranslator(lang, strings)
   // Start unfiltered so the first client render matches the static HTML, then read ?tag= once hydrated
   const [activeTag, setActiveTag] = useState<string | null>(null)
 

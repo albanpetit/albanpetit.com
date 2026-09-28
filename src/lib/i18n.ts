@@ -1,5 +1,6 @@
 import en from "../../locales/en/translation.json"
 import fr from "../../locales/fr/translation.json"
+import { createTranslator, type Translations } from "@/lib/translate"
 
 export const LANGUAGES = ["en", "fr"] as const
 export type Language = (typeof LANGUAGES)[number]
@@ -27,36 +28,15 @@ export const languagePaths = () =>
 /** `lang` route param (undefined for the default language) → language */
 export const languageParam = (lang: Language) => (lang === DEFAULT_LANGUAGE ? undefined : lang)
 
-type Values = Record<string, string | number>
-
-const lookup = (language: Language, key: string): unknown =>
-  key
-    .split(".")
-    .reduce<unknown>((node, part) => (node as Record<string, unknown> | undefined)?.[part], resources[language])
+/** Translation function of `language`, see createTranslator for the conventions */
+export const getTranslations = (language: Language) => createTranslator(language, resources[language])
 
 /**
- * Translation function for locales/<language>/translation.json, with the i18next conventions the files use:
- * `{{name}}` interpolation and `_one`/`_other` plural suffixes picked from `count`.
+ * Only the given top-level sections of the translations, for React islands: passing them as props keeps
+ * the full locale files out of the client bundle. Use with createTranslator from "@/lib/translate".
  */
-export function getTranslations(language: Language) {
-  const plurals = new Intl.PluralRules(language)
-
-  function t(key: string, values?: Values): string {
-    const count = values?.count
-    const value =
-      (typeof count === "number" && lookup(language, `${key}_${plurals.select(count)}`)) || lookup(language, key)
-    if (typeof value !== "string") return key
-    return value.replace(/\{\{(\w+)\}\}/g, (_, name: string) => String(values?.[name] ?? ""))
-  }
-
-  /** Array values (skill lists…) */
-  t.list = (key: string): string[] => {
-    const value = lookup(language, key)
-    return Array.isArray(value) ? value : []
-  }
-
-  return t
-}
+export const pickTranslations = (language: Language, ...sections: string[]): Translations =>
+  Object.fromEntries(sections.map((section) => [section, (resources[language] as Translations)[section]]))
 
 /** Long date in the page language: "March 10, 2025" / "10 mars 2025" */
 export const formatDate = (date: Date, language: Language) =>

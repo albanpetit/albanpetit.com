@@ -1,7 +1,7 @@
 ---
 import Search, { type SearchablePost } from "@/components/Search"
 import Layout from "@/layouts/Layout.astro"
-import { type Language, languagePaths, getTranslations } from "@/lib/i18n"
+import { type Language, getTranslations, languagePaths, pickTranslations } from "@/lib/i18n"
 import { excerpt, getPosts, toCardData } from "@/lib/posts"
 
 export const getStaticPaths = languagePaths
@@ -27,6 +27,6 @@ const isEN = lang === "en"
       <h1 class="text-4xl font-bold tracking-tight">{t("search.title")}</h1>
       <p class="mt-2 text-muted-foreground">{t("search.subtitle")}</p>
     </div>
-    <Search client:load posts={posts} lang={lang} />
+    <Search client:load posts={posts} lang={lang} strings={pickTranslations(lang, "search")} />
   </div>
 </Layout>

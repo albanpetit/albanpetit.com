@@ -1,7 +1,7 @@
 ---
 import BlogList from "@/components/BlogList"
 import Layout from "@/layouts/Layout.astro"
-import { type Language, languagePaths, localizedPath } from "@/lib/i18n"
+import { type Language, languagePaths, localizedPath, pickTranslations } from "@/lib/i18n"
 import { getPosts, toCardData } from "@/lib/posts"
 
 export const getStaticPaths = languagePaths
@@ -22,5 +22,5 @@ const isEN = lang === "en"
     alternatePaths: { en: "/blog/", fr: "/fr/blog/" },
   }}
 >
-  <BlogList client:load posts={posts} lang={lang} />
+  <BlogList client:load posts={posts} lang={lang} strings={pickTranslations(lang, "blog")} />
 </Layout>

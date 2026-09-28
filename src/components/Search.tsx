@@ -3,7 +3,8 @@ import { Search as SearchIcon } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
 import PostCard, { type PostCardData } from "@/components/PostCard"
 import { Input } from "@/components/ui/input"
-import { type Language, getTranslations } from "@/lib/i18n"
+import type { Language } from "@/lib/i18n"
+import { createTranslator, type Translations } from "@/lib/translate"
 
 export type SearchablePost = PostCardData & {
   /** Longer excerpt to match against than the card shows */
@@ -11,8 +12,8 @@ export type SearchablePost = PostCardData & {
 }
 
 /** Client-side fuzzy search over the posts of one language; the query lives in ?q= */
-const Search = ({ posts, lang }: { posts: SearchablePost[]; lang: Language }) => {
-  const t = getTranslations(lang)
+const Search = ({ posts, lang, strings }: { posts: SearchablePost[]; lang: Language; strings: Translations }) => {
+  const t = createTranslator(lang, strings)
   // Start empty so the first client render matches the static HTML, then read ?q= once hydrated
   const [query, setQuery] = useState("")
   const [ready, setReady] = useState(false)
