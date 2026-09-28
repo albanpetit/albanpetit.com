@@ -185,8 +185,10 @@ export default function remarkChart({ contentDir }: { contentDir: string }) {
 
       const t = getTranslations(languageOf(file.path))
       const title = options.title ? escapeHtml(options.title) : ""
-      // /static/ URL: the linked-files integration serves it in dev and copies it to the build
-      const download = `<a class="chart-download" href="${publicUrl(csvPath, csv)}" download>${escapeHtml(t("chart.download"))}</a>`
+      // /static/ URL: the linked-files integration serves it in dev and copies it to the build. Encoded: the build
+      // only spots unbroken URLs, so "my data.csv" must become "my%20data.csv" (it decodes them back)
+      const href = encodeURI(publicUrl(csvPath, csv))
+      const download = `<a class="chart-download" href="${href}" download>${escapeHtml(t("chart.download"))}</a>`
       const table = tableHtml(rows)
 
       let html: string
