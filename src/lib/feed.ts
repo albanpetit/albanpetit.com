@@ -1,4 +1,4 @@
-import rss from "@astrojs/rss"
+import { getRssString } from "@astrojs/rss"
 import { render } from "astro:content"
 import { experimental_AstroContainer as AstroContainer } from "astro/container"
 import { type Language, localizedPath } from "@/lib/i18n"
@@ -23,12 +23,12 @@ const absolutizeUrls = (html: string) =>
     .replace(/(,\s*)\/_astro\//g, `$1${SITE_URL}/_astro/`)
 
 /** RSS feed of one language, with the full post HTML in content:encoded */
-export async function feed(lang: Language) {
+async function feedXml(lang: Language) {
   const container = await AstroContainer.create()
   const posts = await getPosts(lang)
   const selfUrl = `${SITE_URL}${localizedPath("/rss.xml", lang)}`
 
-  return rss({
+  return getRssString({
     ...FEEDS[lang],
     site: `${SITE_URL}${localizedPath("/", lang)}`,
     xmlns: { atom: "http://www.w3.org/2005/Atom" },
@@ -46,4 +46,16 @@ export async function feed(lang: Language) {
       })
     ),
   })
+}
+
+// rss.xml and its legacy copy index.xml share one render per language in a build; dev always re-renders
+const builtFeeds = new Map<Language, Promise<string>>()
+
+export async function feed(lang: Language) {
+  let xml = builtFeeds.get(lang)
+  if (!xml) {
+    xml = feedXml(lang)
+    if (import.meta.env.PROD) builtFeeds.set(lang, xml)
+  }
+  return new Response(await xml, { headers: { "Content-Type": "application/xml" } })
 }
