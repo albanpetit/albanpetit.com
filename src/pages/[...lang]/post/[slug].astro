@@ -11,7 +11,7 @@ import { badgeVariants } from "@/components/ui/badge"
 import Layout from "@/layouts/Layout.astro"
 import { categoryLabel } from "@/lib/category"
 import { formatDate, languageParam, localizedPath, getTranslations } from "@/lib/i18n"
-import { getPosts, type Post, postPath, readingTime } from "@/lib/posts"
+import { excerpt, getPosts, type Post, postPath, readingTime } from "@/lib/posts"
 import { SITE_URL } from "@/lib/site"
 import { categoryPath, tagPath } from "@/lib/tag"
 import { cn } from "@/lib/utils"
@@ -31,6 +31,8 @@ export async function getStaticPaths() {
 
 const { post, hasTranslation } = Astro.props as { post: Post; hasTranslation: boolean }
 const { title, date, lastmod, description, tags, category, lang, slug, image } = post.data
+// Search engines and link previews get the same fallback as the post cards and the RSS feed
+const metaDescription = description ?? excerpt(post, 160)
 const t = getTranslations(lang)
 const { Content, headings } = await render(post)
 
@@ -59,7 +61,7 @@ const articleData = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: title,
-  description,
+  description: metaDescription,
   image: ogImage ? `${SITE_URL}${ogImage}` : undefined,
   author: { "@type": "Person", name: "Alban Petit", url: SITE_URL },
   publisher: { "@type": "Person", name: "Alban Petit" },
@@ -74,7 +76,7 @@ const articleData = {
   alternatePath={hasTranslation ? undefined : "/blog/"}
   seo={{
     title: `${title} · Alban Petit`,
-    description,
+    description: metaDescription,
     image: ogImage,
     type: "article",
     publishedAt: date.toISOString(),
