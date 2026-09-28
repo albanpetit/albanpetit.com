@@ -30,6 +30,7 @@ const TableOfContents = ({ headings, title }: { headings: Heading[]; title: stri
           <li key={h.slug} style={{ paddingLeft: h.depth === 3 ? "0.75rem" : undefined }}>
             <a
               href={`#${h.slug}`}
+              aria-current={activeId === h.slug ? "location" : undefined}
               className={`block leading-snug transition-colors hover:text-foreground ${
                 activeId === h.slug ? "text-link font-medium" : "text-muted-foreground"
               }`}

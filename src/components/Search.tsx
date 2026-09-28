@@ -68,12 +68,11 @@ const Search = ({ posts, lang, strings }: { posts: SearchablePost[]; lang: Langu
         />
       </div>
 
-      {query.trim() && (
-        <>
-          <p className="text-sm text-muted-foreground">{t("search.results", { count: results.length, query })}</p>
-          <div role="none" className="shrink-0 bg-border h-[1px] w-full" />
-        </>
-      )}
+      {/* Always in the page, even empty: screen readers only announce changes to a live region they already know */}
+      <p className={query.trim() ? "text-sm text-muted-foreground" : "sr-only"} aria-live="polite">
+        {query.trim() && t("search.results", { count: results.length, query })}
+      </p>
+      {query.trim() && <div role="none" className="shrink-0 bg-border h-[1px] w-full" />}
 
       <div className="flex flex-col gap-4">
         {results.map((post) => (

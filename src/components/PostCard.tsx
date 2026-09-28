@@ -38,7 +38,8 @@ const PostCard = ({ post, thumbnailWidth = "sm:w-48", headingLevel = "h2" }: Pos
               sizes="(min-width: 640px) 12rem, 100vw"
               width={post.cover.width}
               height={post.cover.height}
-              alt={post.title}
+              // Decorative: the title link next to it already names the post, screen readers would read it twice
+              alt=""
               loading="lazy"
               decoding="async"
               className="h-44 sm:h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
