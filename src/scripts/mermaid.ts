@@ -1,7 +1,5 @@
 import { currentTheme, onThemeChange, type Theme } from "@/scripts/theme"
 
-const MERMAID_CDN_URL = "https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs"
-
 // The original source is stashed on each element before mermaid.js replaces its content with
 // rendered SVG, so a theme change can restore it and re-run the render from scratch
 // (mermaid has no supported way to re-theme an already-rendered diagram in place).
@@ -15,7 +13,8 @@ function renderDiagrams(theme: Theme) {
   const render = ++latestRender
   queue = queue
     .then(async () => {
-      const { default: mermaid } = await import(/* @vite-ignore */ MERMAID_CDN_URL)
+      // Dynamic import: its own chunk, downloaded only by the pages that have a diagram
+      const { default: mermaid } = await import("mermaid")
       // A newer theme change came in meanwhile: let that one render
       if (render !== latestRender) return
       for (const el of elements) {
