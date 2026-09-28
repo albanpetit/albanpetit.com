@@ -27,11 +27,11 @@ export const plainText = (markdown: string) =>
     .trim()
 
 /** Same estimate as Gatsby's timeToRead: 265 words per minute, at least one minute */
-export const readingTime = (post: Post) =>
+export const readingTime = (post: { body?: string }) =>
   Math.max(1, Math.round((plainText(post.body ?? "").match(/\S+/g)?.length ?? 0) / 265))
 
-/** First `length` characters of the text, cut on a word boundary */
-export function excerpt(post: Post, length: number) {
+/** First `length` characters of the text (of a post, a log…), cut on a word boundary */
+export function excerpt(post: { body?: string }, length: number) {
   const text = plainText((post.body ?? "").replace(/```[\s\S]*?```/g, " ").replace(/\$\$[\s\S]*?\$\$/g, " "))
   if (text.length <= length) return text
   const lastSpace = text.slice(0, length).lastIndexOf(" ")

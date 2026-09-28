@@ -1,8 +1,9 @@
 import { getRssString } from "@astrojs/rss"
 import { render } from "astro:content"
 import { experimental_AstroContainer as AstroContainer } from "astro/container"
-import { type Language, localizedPath } from "@/lib/i18n"
+import { formatDate, getTranslations, type Language, localizedPath } from "@/lib/i18n"
 import { excerpt, getPosts, postPath } from "@/lib/posts"
+import { getLogs, logDate, logPath } from "@/lib/projects"
 import { SITE_URL } from "@/lib/site"
 
 const FEEDS: Record<Language, { title: string; description: string }> = {
@@ -51,25 +52,47 @@ const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
     .replace(/<div class="chart-canvas">[\s\S]*?<\/script>/g, placeholder(PLACEHOLDERS[lang].chart))
 }
 
-/** RSS feed of one language, with the full post HTML in content:encoded */
-async function feedXml(lang: Language) {
+type Kind = "posts" | "logs"
+
+/** Title, date and path of every entry of a feed, newest first */
+async function entries(kind: Kind, lang: Language) {
+  if (kind === "posts") {
+    return (await getPosts(lang)).map((post) => ({
+      entry: post,
+      title: post.data.title,
+      description: post.data.description ?? excerpt(post, 160),
+      pubDate: post.data.date,
+      path: postPath(post),
+    }))
+  }
+  return (await getLogs(lang)).map((log) => ({
+    entry: log,
+    title: log.data.title ?? formatDate(logDate(log), lang),
+    description: excerpt(log, 160),
+    pubDate: logDate(log),
+    path: logPath(log),
+  }))
+}
+
+/** RSS feed of the posts or the logs of one language, with the full HTML in content:encoded */
+async function feedXml(kind: Kind, lang: Language) {
   const container = await AstroContainer.create()
-  const posts = await getPosts(lang)
-  const selfUrl = `${SITE_URL}${localizedPath("/rss.xml", lang)}`
+  const t = getTranslations(lang)
+  const channel =
+    kind === "posts" ? FEEDS[lang] : { title: t("logs.feedTitle"), description: t("logs.feedDescription") }
+  const selfUrl = `${SITE_URL}${localizedPath(kind === "posts" ? "/rss.xml" : "/logs/rss.xml", lang)}`
 
   return getRssString({
-    ...FEEDS[lang],
-    site: `${SITE_URL}${localizedPath("/", lang)}`,
+    ...channel,
+    site: `${SITE_URL}${localizedPath(kind === "posts" ? "/" : "/logs/", lang)}`,
     xmlns: { atom: "http://www.w3.org/2005/Atom" },
     customData: `<language>${lang}</language><atom:link href="${selfUrl}" rel="self" type="application/rss+xml"/>`,
     items: await Promise.all(
-      posts.map(async (post) => {
-        const { Content } = await render(post)
-        const link = `${SITE_URL}${postPath(post)}`
+      (await entries(kind, lang)).map(async ({ entry, path, ...item }) => {
+        const { Content } = await render(entry)
+        const link = `${SITE_URL}${path}`
         return {
-          title: post.data.title,
-          description: post.data.description ?? excerpt(post, 160),
-          pubDate: post.data.date,
+          ...item,
           link,
           content: forFeedReaders(absolutizeUrls(await container.renderToString(Content)), link, lang),
         }
@@ -79,13 +102,20 @@ async function feedXml(lang: Language) {
 }
 
 // rss.xml and its legacy copy index.xml share one render per language in a build; dev always re-renders
-const builtFeeds = new Map<Language, Promise<string>>()
+const builtFeeds = new Map<string, Promise<string>>()
 
-export async function feed(lang: Language) {
-  let xml = builtFeeds.get(lang)
+async function respond(kind: Kind, lang: Language) {
+  const key = `${kind}:${lang}`
+  let xml = builtFeeds.get(key)
   if (!xml) {
-    xml = feedXml(lang)
-    if (import.meta.env.PROD) builtFeeds.set(lang, xml)
+    xml = feedXml(kind, lang)
+    if (import.meta.env.PROD) builtFeeds.set(key, xml)
   }
   return new Response(await xml, { headers: { "Content-Type": "application/xml" } })
 }
+
+/** Feed of the posts */
+export const feed = (lang: Language) => respond("posts", lang)
+
+/** Feed of the daily logs */
+export const logsFeed = (lang: Language) => respond("logs", lang)

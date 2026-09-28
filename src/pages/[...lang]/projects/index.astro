@@ -1,0 +1,69 @@
+---
+import { Card } from "@/components/ui/card"
+import ProjectStatus from "@/components/ProjectStatus.astro"
+import Separator from "@/components/Separator.astro"
+import Layout from "@/layouts/Layout.astro"
+import { formatDate, getTranslations, type Language, languagePaths, localizedPath } from "@/lib/i18n"
+import { getLogs, getProjects, logDate, projectPath } from "@/lib/projects"
+
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const t = getTranslations(lang)
+const [projects, logs] = await Promise.all([getProjects(lang), getLogs(lang)])
+
+const cards = projects.map((project) => {
+  // Newest first: the first matching log is the latest
+  const projectLogs = logs.filter(({ data }) => data.projects.includes(project.data.slug))
+  return { project, logCount: projectLogs.length, lastLog: projectLogs[0] }
+})
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: `${t("projects.title")} · Alban Petit`,
+    description: t("projects.subtitle"),
+    canonicalPath: localizedPath("/projects/", lang),
+    alternatePaths: { en: "/projects/", fr: "/fr/projects/" },
+  }}
+>
+  <div class="flex flex-col gap-8">
+    <div>
+      <h1 class="text-4xl font-bold tracking-tight">{t("projects.title")}</h1>
+      <p class="mt-2 text-muted-foreground">{t("projects.subtitle")}</p>
+    </div>
+
+    <Separator />
+
+    {
+      cards.length > 0 ? (
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {cards.map(({ project, logCount, lastLog }) => (
+            <Card className="relative flex flex-col gap-3 p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-md">
+              <div class="flex items-start justify-between gap-3">
+                <h2 class="text-lg font-semibold leading-snug">
+                  <a
+                    href={projectPath(project)}
+                    class="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
+                  >
+                    {project.data.title}
+                  </a>
+                </h2>
+                <ProjectStatus status={project.data.status} lang={lang} />
+              </div>
+              <p class="flex-1 text-sm text-muted-foreground">{project.data.description}</p>
+              <p class="text-xs text-muted-foreground">
+                {t("projects.started", { date: formatDate(project.data.started, lang) })} ·{" "}
+                {t("projects.logCount", { count: logCount })}
+                {lastLog && <>, {t("projects.lastLog", { date: formatDate(logDate(lastLog), lang) })}</>}
+              </p>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <p class="py-16 text-center text-muted-foreground">{t("projects.empty")}</p>
+      )
+    }
+  </div>
+</Layout>

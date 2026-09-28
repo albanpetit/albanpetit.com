@@ -1,0 +1,52 @@
+---
+import { Rss } from "lucide-react"
+import LogEntry from "@/components/LogEntry.astro"
+import Separator from "@/components/Separator.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getTranslations, type Language, languagePaths, localizedPath } from "@/lib/i18n"
+import { getLogs, getProjects } from "@/lib/projects"
+
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const t = getTranslations(lang)
+const [logs, projects] = await Promise.all([getLogs(lang), getProjects(lang)])
+const feedPath = localizedPath("/logs/rss.xml", lang)
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: `${t("logs.title")} · Alban Petit`,
+    description: t("logs.subtitle"),
+    canonicalPath: localizedPath("/logs/", lang),
+    alternatePaths: { en: "/logs/", fr: "/fr/logs/" },
+  }}
+>
+  <link slot="head" rel="alternate" type="application/rss+xml" title={t("logs.feedTitle")} href={feedPath} />
+  <div class="mx-auto max-w-3xl flex flex-col gap-8">
+    <div>
+      <div class="flex items-center justify-between gap-4">
+        <h1 class="text-4xl font-bold tracking-tight">{t("logs.title")}</h1>
+        <a href={feedPath} aria-label={t("logs.feed")} class="text-muted-foreground hover:text-orange-500 transition-colors">
+          <Rss className="h-5 w-5" aria-hidden="true" />
+        </a>
+      </div>
+      <p class="mt-2 text-muted-foreground">{t("logs.subtitle")}</p>
+    </div>
+
+    <Separator />
+
+    {
+      logs.length > 0 ? (
+        <div class="flex flex-col gap-8">
+          {logs.map((log) => (
+            <LogEntry log={log} projects={projects} />
+          ))}
+        </div>
+      ) : (
+        <p class="py-16 text-center text-muted-foreground">{t("logs.empty")}</p>
+      )
+    }
+  </div>
+</Layout>

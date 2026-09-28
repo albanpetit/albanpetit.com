@@ -12,6 +12,7 @@ import Layout from "@/layouts/Layout.astro"
 import { categoryLabel } from "@/lib/category"
 import { formatDate, languageParam, localizedPath, getTranslations } from "@/lib/i18n"
 import { excerpt, getPosts, type Post, postPath, readingTime } from "@/lib/posts"
+import { getProjects, projectPath } from "@/lib/projects"
 import { SITE_URL } from "@/lib/site"
 import { categoryPath, tagPath } from "@/lib/tag"
 import { cn } from "@/lib/utils"
@@ -39,6 +40,8 @@ const { Content, headings } = await render(post)
 const tocHeadings = headings.filter((h) => h.depth <= 3)
 const hasToc = tocHeadings.length >= 2
 const hasKicadEmbed = post.body?.includes("<kicanvas-embed") ?? false
+// The project this post concludes, if any: its logs hold the day-by-day story behind the post
+const project = (await getProjects(lang)).find(({ data }) => data.post === slug)
 
 const canonicalPath = postPath(post)
 const homePath = localizedPath("/", lang)
@@ -191,6 +194,15 @@ const articleData = {
         <div class="prose prose-neutral dark:prose-invert max-w-none">
           <Content />
         </div>
+        {
+          project && (
+            <p class="mt-10 rounded-lg border border-primary/40 bg-primary/5 p-4 text-sm">
+              <a href={projectPath(project)} class="font-medium text-link underline underline-offset-4">
+                {t("post.project", { project: project.data.title })}
+              </a>
+            </p>
+          )
+        }
         {
           // Self-hosted copy of https://kicanvas.org/kicanvas/kicanvas.js (not on npm, no versioned URL),
           // so an upstream change never runs on the site unreviewed. Taken on 2026-09-28; to update, download it again
