@@ -40,6 +40,8 @@ const ogImage = image ? (image.startsWith("http") ? image : `${SITE_URL}${image}
 // Pages without their own URL (404) get no canonical rather than pointing at the home page
 const canonical = canonicalPath ? `${SITE_URL}${canonicalPath}` : undefined
 const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []
+// set:html writes the JSON as is: escape "<" so a "</script>" or "<!--" in a title cannot end the script early
+const toJsonLd = (schema: unknown) => JSON.stringify(schema).replace(/</g, "\\u003c")
 ---
 
 <title>{title}</title>
@@ -87,4 +89,4 @@ const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData
 {description && <meta name="twitter:description" content={description} />}
 <meta name="twitter:image" content={ogImage} />
 
-{schemas.map((schema) => <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />)}
+{schemas.map((schema) => <script type="application/ld+json" is:inline set:html={toJsonLd(schema)} />)}
