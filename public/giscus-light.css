@@ -1,8 +1,14 @@
+/* Same font stack as the site (Tailwind font-sans): the comments iframe does not inherit the page's fonts */
 .gsc-main {
-  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Droid Sans", "Helvetica Neue";
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   color: #171717;
   gap: 0;
+}
+
+/* Form controls do not inherit the font by default */
+.gsc-main :is(button, input, textarea, select) {
+  font-family: inherit;
 }
 
 .gsc-main .gsc-reactions-count {
