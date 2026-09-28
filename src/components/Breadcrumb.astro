@@ -1,0 +1,42 @@
+---
+import { ChevronRight } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+interface Props {
+  label: string
+  /** The last item is the current page: no link */
+  items: { label: string; href?: string }[]
+  class?: string
+  /** Extra classes on the current page item */
+  currentClass?: string
+}
+
+const { label, items, class: className, currentClass } = Astro.props
+---
+
+<nav aria-label={label} class={className}>
+  <ol class="flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5">
+    {
+      items.map((item, i) => (
+        <>
+          {i > 0 && (
+            <li role="presentation" aria-hidden="true" class="[&>svg]:w-3.5 [&>svg]:h-3.5">
+              <ChevronRight />
+            </li>
+          )}
+          <li class="inline-flex items-center gap-1.5">
+            {item.href ? (
+              <a href={item.href} class="transition-colors hover:text-foreground">
+                {item.label}
+              </a>
+            ) : (
+              <span aria-current="page" class={cn("font-normal text-foreground", currentClass)}>
+                {item.label}
+              </span>
+            )}
+          </li>
+        </>
+      ))
+    }
+  </ol>
+</nav>

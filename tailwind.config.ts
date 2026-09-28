@@ -1,8 +1,11 @@
+import typography from "@tailwindcss/typography"
 import type { Config } from "tailwindcss"
+import animate from "tailwindcss-animate"
 
 const config: Config = {
   darkMode: ["class"],
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  // Posts use a few layout classes in raw HTML (float-left, media-row…)
+  content: ["./src/**/*.{astro,js,ts,jsx,tsx}", "./content/**/*.md"],
   theme: {
     container: {
       center: true,
@@ -55,7 +58,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [animate, typography],
 }
 
 export default config

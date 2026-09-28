@@ -9,15 +9,11 @@
     "ghcr.io/devcontainers/features/git:1": {}
   },
   "runArgs": ["--name", "albanpetit-com"],
-  "forwardPorts": [8000, 9000],
+  "forwardPorts": [4321],
   "portsAttributes": {
-    "8000": {
-      "label": "Gatsby Dev Server",
+    "4321": {
+      "label": "Astro Dev Server",
       "onAutoForward": "notify"
-    },
-    "9000": {
-      "label": "Gatsby Serve",
-      "onAutoForward": "silent"
     }
   },
   "postCreateCommand": "sudo chown node node_modules && npm ci",
@@ -27,6 +23,7 @@
       "extensions": [
         "biomejs.biome",
         "bradlc.vscode-tailwindcss",
+        "astro-build.astro-vscode",
         "ms-vscode.vscode-typescript-next",
         "PKief.material-icon-theme",
         "formulahendry.auto-rename-tag",

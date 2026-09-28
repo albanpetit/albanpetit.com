@@ -1,0 +1,15 @@
+---
+import { languageParam } from "@/lib/i18n"
+import { getPosts, postPath } from "@/lib/posts"
+
+// The Hugo site served posts under /posts/ (its Giscus discussions still carry those paths).
+// GitHub Pages has no server redirects: Astro writes a meta-refresh page so old links keep working.
+export async function getStaticPaths() {
+  return (await getPosts()).map((post) => ({
+    params: { lang: languageParam(post.data.lang), slug: post.data.slug },
+    props: { to: postPath(post) },
+  }))
+}
+
+return Astro.redirect(Astro.props.to, 301)
+---

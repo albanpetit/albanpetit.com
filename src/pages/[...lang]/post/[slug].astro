@@ -1,0 +1,198 @@
+---
+import "katex/dist/katex.min.css"
+import { getImage, Image } from "astro:assets"
+import { render } from "astro:content"
+import { Calendar, Clock } from "lucide-react"
+import Breadcrumb from "@/components/Breadcrumb.astro"
+import Giscus from "@/components/giscus"
+import Separator from "@/components/Separator.astro"
+import TableOfContents from "@/components/TableOfContents"
+import { badgeVariants } from "@/components/ui/badge"
+import Layout from "@/layouts/Layout.astro"
+import { categoryLabel } from "@/lib/category"
+import { formatDate, languageParam, localizedPath, getTranslations } from "@/lib/i18n"
+import { getPosts, type Post, postPath, readingTime } from "@/lib/posts"
+import { SITE_URL } from "@/lib/site"
+import { categoryPath, tagPath } from "@/lib/tag"
+import { cn } from "@/lib/utils"
+
+export async function getStaticPaths() {
+  const posts = await getPosts()
+  const keys = new Set(posts.map(({ data }) => `${data.slug}:${data.lang}`))
+  return posts.map((post) => ({
+    params: { lang: languageParam(post.data.lang), slug: post.data.slug },
+    props: {
+      post,
+      // A post may exist in one language only: no hreflang, and the language switch falls back to the blog
+      hasTranslation: keys.has(`${post.data.slug}:${post.data.lang === "en" ? "fr" : "en"}`),
+    },
+  }))
+}
+
+const { post, hasTranslation } = Astro.props as { post: Post; hasTranslation: boolean }
+const { title, date, lastmod, description, tags, category, lang, slug, image } = post.data
+const t = getTranslations(lang)
+const { Content, headings } = await render(post)
+
+const tocHeadings = headings.filter((h) => h.depth <= 3)
+const hasToc = tocHeadings.length >= 2
+const hasKicadEmbed = post.body?.includes("<kicanvas-embed") ?? false
+
+const canonicalPath = postPath(post)
+const homePath = localizedPath("/", lang)
+const blogPath = localizedPath("/blog/", lang)
+const ogImage = image
+  ? (await getImage({ src: image, width: 1200, height: 630, format: "jpg", fit: "cover" })).src
+  : undefined
+
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: t("breadcrumb.home"), item: `${SITE_URL}${homePath}` },
+    { "@type": "ListItem", position: 2, name: t("nav.blog"), item: `${SITE_URL}${blogPath}` },
+    { "@type": "ListItem", position: 3, name: title, item: `${SITE_URL}${canonicalPath}` },
+  ],
+}
+
+const articleData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  image: ogImage ? `${SITE_URL}${ogImage}` : undefined,
+  author: { "@type": "Person", name: "Alban Petit", url: SITE_URL },
+  publisher: { "@type": "Person", name: "Alban Petit" },
+  datePublished: date.toISOString(),
+  dateModified: (lastmod ?? date).toISOString(),
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${canonicalPath}` },
+}
+---
+
+<Layout
+  lang={lang}
+  alternatePath={hasTranslation ? undefined : "/blog/"}
+  seo={{
+    title: `${title} · Alban Petit`,
+    description,
+    image: ogImage,
+    type: "article",
+    publishedAt: date.toISOString(),
+    updatedAt: (lastmod ?? date).toISOString(),
+    canonicalPath,
+    alternatePaths: hasTranslation ? { en: `/post/${slug}/`, fr: `/fr/post/${slug}/` } : undefined,
+    structuredData: [breadcrumbData, articleData],
+  }}
+>
+  <div class="fixed top-0 left-0 right-0 z-50 h-0.5 bg-transparent">
+    <div id="reading-progress" class="h-full bg-primary transition-all duration-75 ease-out" style="width: 0%"></div>
+  </div>
+
+  <div class={cn("mx-auto", hasToc ? "max-w-5xl" : "max-w-2xl")}>
+    <Breadcrumb
+      class="mb-6"
+      label={t("a11y.breadcrumb")}
+      currentClass="max-w-xs truncate"
+      items={[{ label: t("breadcrumb.home"), href: homePath }, { label: t("nav.blog"), href: blogPath }, { label: title }]}
+    />
+
+    <div class={hasToc ? "grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start" : undefined}>
+      {
+        hasToc && (
+          // Sidebar on large screens only: in the single-column layout it pushed the title ~400px down
+          <div class="hidden lg:block lg:order-2">
+            <TableOfContents client:media="(min-width: 1024px)" headings={tocHeadings} title={t("post.toc")} />
+          </div>
+        )
+      }
+      <article class={hasToc ? "lg:order-1" : undefined}>
+        <header class="flex flex-col gap-5 mb-10">
+          <div class="flex items-center gap-2 flex-wrap">
+            {
+              category && (
+                <a href={categoryPath(category, lang)}>
+                  <span
+                    class={cn(
+                      badgeVariants({ variant: "secondary" }),
+                      "cursor-pointer hover:bg-accent transition-colors"
+                    )}
+                  >
+                    {categoryLabel(category, lang)}
+                  </span>
+                </a>
+              )
+            }
+            <div class="flex items-center gap-3 text-sm text-muted-foreground ml-auto">
+              <span class="flex items-center gap-1.5">
+                <Calendar className="h-3.5 w-3.5" />
+                {formatDate(date, lang)}
+              </span>
+              <span class="text-border">·</span>
+              <span class="flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" />
+                {t("post.minRead", { count: readingTime(post) })}
+              </span>
+            </div>
+          </div>
+
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight">{title}</h1>
+
+          {
+            description && (
+              <p class="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary pl-4">{description}</p>
+            )
+          }
+
+          {
+            tags.length > 0 && (
+              <div class="flex flex-wrap gap-1.5">
+                {tags.map((tag) => (
+                  <a href={tagPath(tag, lang)}>
+                    <span
+                      class={cn(
+                        badgeVariants({ variant: "outline" }),
+                        "text-xs cursor-pointer hover:bg-accent transition-colors rounded-full"
+                      )}
+                    >
+                      {tag}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )
+          }
+        </header>
+
+        {
+          image && (
+            <div class="mb-8 overflow-hidden rounded-lg">
+              <Image
+                src={image}
+                alt={title}
+                width={800}
+                widths={[400, 800, 1200]}
+                sizes="(min-width: 1024px) 800px, 100vw"
+                loading="eager"
+                class="w-full aspect-video object-cover"
+              />
+            </div>
+          )
+        }
+
+        <Separator class="mb-8" />
+
+        <div class="prose prose-neutral dark:prose-invert max-w-none">
+          <Content />
+        </div>
+        {hasKicadEmbed && <script is:inline type="module" src="https://kicanvas.org/kicanvas/kicanvas.js"></script>}
+
+        <Separator class="my-12" />
+        <Giscus client:only="react" lang={lang} />
+      </article>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import "@/scripts/post"
+</script>

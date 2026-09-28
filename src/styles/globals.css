@@ -114,6 +114,26 @@
     scroll-margin-top: 5rem;
   }
 
+  /* Heading anchors: a link icon in the left margin, shown on hover (rehype-autolink-headings) */
+  .prose :is(h1, h2, h3, h4, h5, h6)[id] {
+    position: relative;
+  }
+  .prose .anchor.before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    padding-right: 4px;
+  }
+  .prose .anchor svg {
+    visibility: hidden;
+    fill: currentColor;
+  }
+  .prose :is(h1, h2, h3, h4, h5, h6):hover .anchor svg,
+  .prose .anchor:focus svg {
+    visibility: visible;
+  }
+
   /* H2 with bottom border for visual separation */
   .prose h2 {
     @apply border-b border-border pb-2 mt-10;
@@ -131,22 +151,9 @@
     content: none;
   }
 
-  /* Single image */
+  /* Single image: a centered block, capped at its own width */
   .prose img {
-    @apply rounded-lg shadow-sm;
-  }
-
-  /* Image spacing */
-  .prose .gatsby-resp-image-wrapper {
-    @apply my-6 rounded-lg shadow-sm;
-  }
-  /* Typography's default `.prose picture { margin: 2em 0 }` adds phantom height
-     inside the wrapper on top of the padding-bottom placeholder that already
-     encodes its real aspect ratio. That slack went unnoticed for single images
-     (no cropping happens either way), but it throws off a row where wrappers of
-     different ratios must line up by height. */
-  .prose .gatsby-resp-image-wrapper picture {
-    margin: 0;
+    @apply mx-auto my-6 block rounded-lg shadow-sm;
   }
 
   /* Media row: a group of images/videos (consecutive image lines, or wrapped in a
@@ -157,25 +164,23 @@
      crops the excess instead of stretching, so nothing ever gets distorted; videos
      override this below with their exact known ratio instead, so no crop needed. */
   .prose .media-row,
-  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) {
+  .prose p:has(> img ~ img) {
     @apply my-6 flex gap-3;
     height: clamp(9rem, 32vw, 22rem);
   }
 
-  .prose .media-row > *,
-  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper {
+  .prose .media-row > * {
     @apply min-w-0 flex-1 overflow-hidden rounded-lg shadow-sm;
     height: 100%;
     margin: 0 !important;
     max-width: none !important;
   }
 
-  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper picture,
-  .prose p:has(.gatsby-resp-image-wrapper ~ .gatsby-resp-image-wrapper) .gatsby-resp-image-wrapper img {
-    position: absolute;
-    inset: 0;
+  .prose p:has(> img ~ img) > img {
+    @apply min-w-0 flex-1;
     width: 100%;
     height: 100%;
+    margin: 0;
     object-fit: cover;
   }
 
@@ -269,8 +274,8 @@
   .prose .float-right p {
     margin: 0;
   }
-  .prose .float-left .gatsby-resp-image-wrapper,
-  .prose .float-right .gatsby-resp-image-wrapper,
+  .prose .float-left img,
+  .prose .float-right img,
   .prose .float-left .youtube-embed,
   .prose .float-right .youtube-embed {
     @apply rounded-lg shadow-sm;

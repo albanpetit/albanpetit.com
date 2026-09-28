@@ -1,0 +1,173 @@
+---
+import "@/styles/globals.css"
+import { Moon, Rss, Search, Sun } from "lucide-react"
+import MobileNav from "@/components/MobileNav"
+import Seo, { type Props as SeoProps } from "@/components/Seo.astro"
+import Separator from "@/components/Separator.astro"
+import { buttonVariants } from "@/components/ui/button"
+import { type Language, localizedPath, otherLanguage, unlocalizedPath, getTranslations } from "@/lib/i18n"
+import { GITHUB_URL, TWITTER_URL } from "@/lib/site"
+import { cn } from "@/lib/utils"
+
+interface Props {
+  lang: Language
+  seo: Omit<SeoProps, "lang">
+  /** Path of this page in the other language, without language prefix. Defaults to the current path. */
+  alternatePath?: string
+}
+
+const { lang, seo, alternatePath } = Astro.props
+const t = getTranslations(lang)
+
+const homePath = localizedPath("/", lang)
+const searchPath = localizedPath("/search/", lang)
+const rssPath = localizedPath("/rss.xml", lang)
+const otherLang = otherLanguage(lang)
+const switchPath = localizedPath(alternatePath ?? unlocalizedPath(Astro.url.pathname), otherLang)
+const switchLabel = otherLang === "fr" ? "Français" : "English"
+
+const navLinks = [
+  { to: localizedPath("/blog/", lang), label: t("nav.blog") },
+  { to: localizedPath("/about/", lang), label: t("nav.about") },
+]
+
+const ghostIcon = buttonVariants({ variant: "ghost", size: "icon" })
+const ghostSmall = buttonVariants({ variant: "ghost", size: "sm" })
+const year = new Date().getFullYear()
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* Runs before the page is painted so dark-mode readers never see a light flash */}
+    <script is:inline>
+      ;(() => {
+        try {
+          const s = localStorage.getItem("theme")
+          const d = s ? s === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches
+          document.documentElement.classList.toggle("dark", d)
+        } catch (e) {}
+      })()
+    </script>
+    <Seo {...seo} lang={lang} />
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="min-h-screen font-sans antialiased">
+      <a
+        href="#main-content"
+        class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        {t("a11y.skipToContent")}
+      </a>
+      <div
+        class="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10"
+        style="background: linear-gradient(to bottom, hsl(49 93% 66% / 0.06), hsl(49 93% 66% / 0.02) 50%, transparent)"
+      >
+      </div>
+
+      <header
+        class="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      >
+        <div class="container flex h-14 items-center justify-between">
+          <a href={homePath} class="flex items-center gap-2 font-bold tracking-tight">
+            <img src="/logo.svg" alt="" width="28" height="28" class="h-7 w-7" />
+            <span>albanpetit<span class="text-muted-foreground font-normal">.com</span></span>
+          </a>
+
+          {/* Desktop nav */}
+          <nav class="hidden md:flex items-center gap-6 text-sm" aria-label={t("a11y.mainNav")}>
+            {
+              navLinks.map(({ to, label }) => (
+                <a href={to} class="text-muted-foreground transition-colors hover:text-foreground">
+                  {label}
+                </a>
+              ))
+            }
+            <a
+              href={switchPath}
+              lang={otherLang}
+              hreflang={otherLang}
+              aria-label={switchLabel}
+              class={cn(ghostSmall, "text-muted-foreground uppercase font-medium")}
+            >
+              {otherLang}
+            </a>
+            <a href={searchPath} aria-label={t("search.title")} class={ghostIcon}>
+              <Search className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <button type="button" data-theme-toggle aria-label={t("a11y.toggleTheme")} class={ghostIcon}>
+              <Sun className="hidden h-4 w-4 dark:block" aria-hidden="true" />
+              <Moon className="h-4 w-4 dark:hidden" aria-hidden="true" />
+            </button>
+          </nav>
+
+          {/* Mobile nav */}
+          <div class="flex items-center gap-1 md:hidden">
+            <a href={searchPath} aria-label={t("search.title")} class={ghostIcon}>
+              <Search className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href={switchPath}
+              lang={otherLang}
+              hreflang={otherLang}
+              aria-label={switchLabel}
+              class={cn(ghostSmall, "text-muted-foreground uppercase font-medium text-xs")}
+            >
+              {otherLang}
+            </a>
+            <button type="button" data-theme-toggle aria-label={t("a11y.toggleTheme")} class={ghostIcon}>
+              <Sun className="hidden h-4 w-4 dark:block" aria-hidden="true" />
+              <Moon className="h-4 w-4 dark:hidden" aria-hidden="true" />
+            </button>
+            <MobileNav
+              client:media="(max-width: 767px)"
+              links={navLinks}
+              labels={{
+                open: t("a11y.openMenu"),
+                menu: t("a11y.menu"),
+                nav: t("a11y.mobileNav"),
+                close: t("a11y.close"),
+              }}
+            />
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content" tabindex="-1" class="container py-10 focus:outline-none">
+        <slot />
+      </main>
+
+      <Separator />
+      <footer class="container flex h-14 items-center justify-center gap-1 text-sm text-muted-foreground">
+        <span>{t("footer.copyright", { year })}</span>
+        <span>·</span>
+        <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
+          GitHub
+        </a>
+        <span>·</span>
+        <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
+          Twitter
+        </a>
+        <span>·</span>
+        <a
+          href={rssPath}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-orange-500 transition-colors"
+          aria-label={t("a11y.rssFeed")}
+        >
+          <Rss className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </footer>
+    </div>
+
+    <script>
+      import { initThemeToggle } from "@/scripts/theme"
+
+      initThemeToggle()
+    </script>
+  </body>
+</html>

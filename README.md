@@ -6,7 +6,7 @@
 
 <p align="center">
   A bilingual personal blog covering electronics, embedded systems, web development, and maker projects.<br/>
-  Built as a fully static site with Gatsby, deployed on GitHub Pages, and designed for fast reading and strong SEO.
+  Built as a fully static site with Astro, deployed on GitHub Pages, and designed for fast reading and strong SEO.
 </p>
 
 <p align="center">
@@ -21,18 +21,20 @@
 
 ## Stack
 
-| Tool                                                                                     | Role                                        |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [Gatsby 5](https://www.gatsbyjs.com/)                                                    | Static site generator (React + GraphQL)     |
-| [shadcn/ui](https://ui.shadcn.com/)                                                      | Component library (Radix UI + Tailwind CSS) |
-| [Tailwind CSS](https://tailwindcss.com/)                                                 | Utility-first styling                       |
-| [TypeScript](https://www.typescriptlang.org/)                                            | Type safety throughout                      |
-| [gatsby-transformer-remark](https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/) | Markdown → HTML processing                  |
-| [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/)             | Responsive lazy-loaded images               |
-| [gatsby-plugin-react-i18next](https://github.com/microapps/gatsby-plugin-react-i18next)  | EN / FR bilingual support                   |
-| [Fuse.js](https://fusejs.io/)                                                            | Client-side fuzzy search                    |
-| [Giscus](https://giscus.app/)                                                            | GitHub Discussions-powered comments         |
-| [Biome](https://biomejs.dev/)                                                            | Linting and formatting                      |
+| Tool                                                           | Role                                          |
+| -------------------------------------------------------------- | --------------------------------------------- |
+| [Astro 7](https://astro.build/)                                | Static site generator, content collections    |
+| [React](https://react.dev/)                                    | Interactive islands (search, filters, menu…)  |
+| [shadcn/ui](https://ui.shadcn.com/)                            | Component library (Radix UI + Tailwind CSS)   |
+| [Tailwind CSS](https://tailwindcss.com/)                       | Utility-first styling                         |
+| [TypeScript](https://www.typescriptlang.org/)                  | Type safety throughout                        |
+| [remark / rehype](https://unifiedjs.com/)                      | Markdown → HTML (Prism, KaTeX, Mermaid)       |
+| [astro:assets](https://docs.astro.build/en/guides/images/)     | Responsive, optimized images                  |
+| [Fuse.js](https://fusejs.io/)                                  | Client-side fuzzy search                      |
+| [Giscus](https://giscus.app/)                                  | GitHub Discussions-powered comments           |
+| [Biome](https://biomejs.dev/)                                  | Linting and formatting                        |
+
+EN / FR routing lives in `src/pages/[...lang]/`: each page is built once per language, without prefix for English and under `/fr/` for French. UI strings are in `locales/<lang>/translation.json`.
 
 ---
 
@@ -44,16 +46,15 @@ The devcontainer keeps `node_modules` in a named Docker volume (reading it throu
 
 ```bash
 npm install
-npm run develop        # dev server at http://localhost:8000
+npm run dev            # dev server at http://localhost:4321
 ```
 
 Available scripts:
 
 ```bash
-npm run build          # production build → public/
-npm run serve          # serve the production build locally
-npm run clean          # clear .cache and public/
-npm run type-check     # TypeScript check without emitting
+npm run build          # production build → dist/
+npm run preview        # serve the production build locally
+npm run type-check     # astro check (TypeScript + .astro files)
 npm run lint           # Biome lint + formatting check (run in CI)
 npm run format         # apply Biome formatting
 ```
@@ -91,7 +92,7 @@ feat(post): add reading progress bar
 fix(ui): change logo to yellow
 refactor: extract PostCard as shared component
 chore: add .gitkeep to empty content/images directory
-docs: rewrite README for Gatsby stack
+docs: rewrite README for Astro stack
 content: add adxl335 accelerometer post
 ```
 

@@ -1,0 +1,9 @@
+---
+import { type Language, languagePaths, localizedPath } from "@/lib/i18n"
+
+// The Hugo site listed posts under /posts/. GitHub Pages has no server redirects: Astro writes a meta-refresh page.
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+return Astro.redirect(localizedPath("/blog/", lang), 301)
+---

@@ -1,5 +1,3 @@
-import React from "react"
-
 // Brand marks that lucide-react does not ship
 type IconProps = { className?: string }
 

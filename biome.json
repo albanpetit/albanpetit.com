@@ -1,8 +1,12 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.5.13/schema.json",
-  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
   "files": {
-    "includes": ["**", "!src/gatsby-types.d.ts", "!static"]
+    "includes": ["**", "!public", "!dist", "!.astro"]
   },
   "formatter": {
     "enabled": true,
@@ -11,18 +15,29 @@
     "lineWidth": 120
   },
   "javascript": {
-    "jsxRuntime": "reactClassic",
-    "formatter": { "semicolons": "asNeeded", "quoteStyle": "double", "trailingCommas": "es5" }
+    "jsxRuntime": "transparent",
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "double",
+      "trailingCommas": "es5"
+    }
   },
   "css": {
-    "parser": { "tailwindDirectives": true }
+    "parser": {
+      "tailwindDirectives": true
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
       "preset": "recommended",
       "suspicious": {
-        "noUnknownAtRules": { "level": "error", "options": { "ignore": ["tailwind"] } }
+        "noUnknownAtRules": {
+          "level": "error",
+          "options": {
+            "ignore": ["tailwind"]
+          }
+        }
       }
     }
   },
@@ -31,11 +46,32 @@
       "includes": ["src/styles/globals.css"],
       "linter": {
         "rules": {
-          "complexity": { "noImportantStyles": "off" },
-          "style": { "noDescendingSpecificity": "off" }
+          "complexity": {
+            "noImportantStyles": "off"
+          },
+          "style": {
+            "noDescendingSpecificity": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
         }
       }
     }
   ],
-  "assist": { "actions": { "source": { "organizeImports": "off" } } }
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  }
 }

@@ -1,0 +1,26 @@
+---
+import BlogList from "@/components/BlogList"
+import Layout from "@/layouts/Layout.astro"
+import { type Language, languagePaths, localizedPath } from "@/lib/i18n"
+import { getPosts, toCardData } from "@/lib/posts"
+
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const posts = await Promise.all((await getPosts(lang)).map(toCardData))
+const isEN = lang === "en"
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: isEN ? "Blog · Alban Petit" : "Articles · Alban Petit",
+    description: isEN
+      ? "Posts on electronics, web development, and maker projects."
+      : "Articles sur l'électronique, le développement web et les projets makers.",
+    canonicalPath: localizedPath("/blog/", lang),
+    alternatePaths: { en: "/blog/", fr: "/fr/blog/" },
+  }}
+>
+  <BlogList client:load posts={posts} lang={lang} />
+</Layout>

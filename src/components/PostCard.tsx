@@ -1,50 +1,46 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import { GatsbyImage, getImage, type IGatsbyImageData } from "gatsby-plugin-image"
-import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { tagPath, categoryPath } from "@/lib/tag"
-import { categoryLabel } from "@/lib/category"
-import { localizedPath } from "@/lib/i18n"
+import { Card } from "@/components/ui/card"
 
+type Link = { name: string; url: string }
+
+/** Built by toCardData() in src/lib/posts.ts */
 export type PostCardData = {
   id: string
-  timeToRead?: number
-  frontmatter: {
-    title: string
-    date: string
-    description: string | null
-    tags: string[] | null
-    category: string | null
-    slug: string
-    lang: string
-    image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } } | null
-  }
-  excerpt?: string
+  url: string
+  title: string
+  /** Already formatted in the page language */
+  date: string
+  timeToRead: number
+  description: string
+  tags: Link[]
+  category?: Link & { label: string }
+  cover?: { src: string; srcset: string; width: number; height: number }
 }
 
 interface PostCardProps {
   post: PostCardData
-  language: string
   thumbnailWidth?: string
   /** h2 on listing pages (below the page h1), h3 where the list sits under an h2 */
   headingLevel?: "h2" | "h3"
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "sm:w-48", headingLevel = "h2" }) => {
+const PostCard = ({ post, thumbnailWidth = "sm:w-48", headingLevel = "h2" }: PostCardProps) => {
   const Heading = headingLevel
-  const { frontmatter, excerpt, timeToRead } = post
-  const coverImage = frontmatter.image ? getImage(frontmatter.image.childImageSharp.gatsbyImageData) : null
-  const postUrl = localizedPath(`/post/${frontmatter.slug}/`, language)
 
   return (
     <Card className="relative overflow-hidden group border transition-all duration-200 hover:border-primary/50 hover:shadow-md">
       <div className="flex flex-col sm:flex-row">
-        {coverImage && (
+        {post.cover && (
           <div className={`${thumbnailWidth} sm:shrink-0 overflow-hidden`}>
-            <GatsbyImage
-              image={coverImage}
-              alt={frontmatter.title}
+            <img
+              src={post.cover.src}
+              srcSet={post.cover.srcset}
+              sizes="(min-width: 640px) 12rem, 100vw"
+              width={post.cover.width}
+              height={post.cover.height}
+              alt={post.title}
+              loading="lazy"
+              decoding="async"
               className="h-44 sm:h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -52,43 +48,40 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
         <div className="flex flex-col flex-1 min-w-0 p-4 gap-2">
           {/* Category + date row */}
           <div className="flex items-center justify-between gap-2">
-            {frontmatter.category ? (
-              <Link to={categoryPath(frontmatter.category, language)} className="relative z-10">
+            {post.category ? (
+              <a href={post.category.url} className="relative z-10">
                 <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
-                  {categoryLabel(frontmatter.category, language)}
+                  {post.category.label}
                 </Badge>
-              </Link>
+              </a>
             ) : (
               <span />
             )}
             <span className="text-xs text-muted-foreground shrink-0">
-              {frontmatter.date}
-              {timeToRead ? ` · ${timeToRead} min` : ""}
+              {post.date} · {post.timeToRead} min
             </span>
           </div>
 
           {/* Title: its link is stretched over the whole card */}
           <Heading className="font-semibold leading-snug group-hover:text-link transition-colors line-clamp-2">
-            <Link
-              to={postUrl}
+            <a
+              href={post.url}
               className="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring"
             >
-              {frontmatter.title}
-            </Link>
+              {post.title}
+            </a>
           </Heading>
 
-          {/* Description */}
-          <p className="text-sm text-muted-foreground line-clamp-2 flex-1">{frontmatter.description || excerpt}</p>
+          <p className="text-sm text-muted-foreground line-clamp-2 flex-1">{post.description}</p>
 
-          {/* Tags */}
-          {frontmatter.tags && frontmatter.tags.length > 0 && (
+          {post.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 pt-1">
-              {frontmatter.tags.map((tag) => (
-                <Link key={tag} to={tagPath(tag, language)} className="relative z-10">
+              {post.tags.map((tag) => (
+                <a key={tag.name} href={tag.url} className="relative z-10">
                   <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
-                    {tag}
+                    {tag.name}
                   </Badge>
-                </Link>
+                </a>
               ))}
             </div>
           )}
@@ -99,26 +92,3 @@ const PostCard: React.FC<PostCardProps> = ({ post, language, thumbnailWidth = "s
 }
 
 export default PostCard
-
-// Fields every post list needs for its cards; the including query must declare $language
-export const query = graphql`
-  fragment PostCardFields on MarkdownRemark {
-    id
-    timeToRead
-    excerpt(pruneLength: 160)
-    frontmatter {
-      title
-      date(formatString: "LL", locale: $language)
-      description
-      tags
-      category
-      slug
-      lang
-      image {
-        childImageSharp {
-          gatsbyImageData(width: 400, height: 300, placeholder: BLURRED)
-        }
-      }
-    }
-  }
-`

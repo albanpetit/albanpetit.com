@@ -39,15 +39,12 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          NODE_OPTIONS: --max-old-space-size=4096
-          GATSBY_CPU_COUNT: 2
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v5
         with:
-          path: public
+          path: dist
 
   deploy:
     if: github.event_name != 'pull_request'

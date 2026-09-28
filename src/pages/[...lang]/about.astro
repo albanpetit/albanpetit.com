@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets"
+import { getEntry, render } from "astro:content"
+import { Cpu, Mail, MapPin, Printer } from "lucide-react"
+import { GithubIcon, XIcon } from "@/components/icons"
+import Separator from "@/components/Separator.astro"
+import { badgeVariants } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
+import avatar from "@/images/avatar.jpg"
+import Layout from "@/layouts/Layout.astro"
+import { type Language, languagePaths, localizedPath, getTranslations } from "@/lib/i18n"
+import { getPosts } from "@/lib/posts"
+import { GITHUB_URL, MAKERWORLD_URL, TWITTER_URL } from "@/lib/site"
+
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const t = getTranslations(lang)
+
+const page = await getEntry("pages", `about.${lang}`)
+if (!page) throw new Error(`content/pages/about.${lang}.md is missing`)
+const { Content } = await render(page)
+
+const postCount = (await getPosts(lang)).length
+const stats = [
+  { value: "10+", label: t("about.stats.experience") },
+  { value: String(postCount), label: t("about.stats.posts", { count: postCount }) },
+  { value: "2000+", label: t("about.stats.printing") },
+]
+
+const isEN = lang === "en"
+const infoLink = "hover:text-foreground transition-colors"
+const outlineSmall = buttonVariants({ variant: "outline", size: "sm" })
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: isEN ? "About · Alban Petit" : "À propos · Alban Petit",
+    description: isEN
+      ? "About Alban Petit, developer, maker, and FabManager at La Machinerie."
+      : "À propos d'Alban Petit, développeur, maker et FabManager à La Machinerie.",
+    canonicalPath: localizedPath("/about/", lang),
+    alternatePaths: { en: "/about/", fr: "/fr/about/" },
+  }}
+>
+  <div class="mx-auto max-w-3xl flex flex-col gap-10">
+    {/* Hero */}
+    <section class="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-4 overflow-hidden">
+      <div class="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/15 blur-3xl -z-10">
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <div class="border-l-4 border-primary pl-4">
+          <h1 class="text-3xl font-bold tracking-tight">Alban Petit</h1>
+          <p class="mt-1 text-muted-foreground">{t("about.role")}</p>
+        </div>
+
+        <div class="rounded-xl border bg-card p-4 flex flex-col gap-2 text-sm">
+          <div class="flex items-center gap-2 text-muted-foreground">
+            <MapPin className="h-4 w-4 shrink-0 text-primary" />
+            <span>{t("home.location")}</span>
+          </div>
+          <div class="flex items-center gap-2 text-muted-foreground">
+            <Cpu className="h-4 w-4 shrink-0 text-primary" />
+            <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" class={infoLink}>
+              {t("home.fablab")}
+            </a>
+          </div>
+          <div class="flex items-center gap-2 text-muted-foreground">
+            <GithubIcon className="h-4 w-4 shrink-0 text-primary" />
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class={infoLink}>github.com/albanpetit</a>
+          </div>
+          <div class="flex items-center gap-2 text-muted-foreground">
+            <Printer className="h-4 w-4 shrink-0 text-primary" />
+            <a href={MAKERWORLD_URL} target="_blank" rel="noopener noreferrer" class={infoLink}>
+              makerworld.com/@albanpetit
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          {t.list("about.skills").map((skill) => <span class={badgeVariants({ variant: "secondary" })}>{skill}</span>)}
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          <a href="mailto:contact@albanpetit.com" class={outlineSmall}>
+            <Mail className="mr-1.5 h-3.5 w-3.5" />
+            {t("about.email")}
+          </a>
+          <a href={TWITTER_URL} target="_blank" rel="noopener noreferrer" class={outlineSmall}>
+            <XIcon className="mr-1.5 h-3.5 w-3.5" />
+            {t("about.twitter")}
+          </a>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class={outlineSmall}>
+            <GithubIcon className="mr-1.5 h-3.5 w-3.5" />
+            {t("about.github")}
+          </a>
+        </div>
+      </div>
+
+      {/* Photo */}
+      <div class="flex justify-center md:justify-end">
+        <div class="relative w-56 h-72 md:w-64 md:h-80">
+          <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-primary/30"></div>
+          <Image
+            src={avatar}
+            alt="Alban Petit"
+            width={368}
+            height={460}
+            densities={[1, 2]}
+            loading="eager"
+            class="relative w-full h-full rounded-2xl shadow-lg object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    {/* Stats */}
+    <div class="grid grid-cols-3 gap-4">
+      {
+        stats.map((stat) => (
+          <div class="rounded-xl border bg-card p-4 text-center">
+            <p class="text-2xl font-bold text-amber-700 dark:text-primary">{stat.value}</p>
+            <p class="text-xs text-muted-foreground mt-1">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <Separator />
+
+    <div class="prose prose-neutral dark:prose-invert max-w-none">
+      <Content />
+    </div>
+  </div>
+</Layout>

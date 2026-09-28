@@ -1,0 +1,32 @@
+---
+import Search, { type SearchablePost } from "@/components/Search"
+import Layout from "@/layouts/Layout.astro"
+import { type Language, languagePaths, getTranslations } from "@/lib/i18n"
+import { excerpt, getPosts, toCardData } from "@/lib/posts"
+
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const t = getTranslations(lang)
+const posts: SearchablePost[] = await Promise.all(
+  (await getPosts(lang)).map(async (post) => ({ ...(await toCardData(post)), searchExcerpt: excerpt(post, 200) }))
+)
+const isEN = lang === "en"
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: isEN ? "Search · Alban Petit" : "Recherche · Alban Petit",
+    description: isEN ? "Search posts on albanpetit.com" : "Rechercher des articles sur albanpetit.com",
+    noindex: true,
+  }}
+>
+  <div class="flex flex-col gap-8">
+    <div class="border-b border-border pb-6">
+      <h1 class="text-4xl font-bold tracking-tight">{t("search.title")}</h1>
+      <p class="mt-2 text-muted-foreground">{t("search.subtitle")}</p>
+    </div>
+    <Search client:load posts={posts} lang={lang} />
+  </div>
+</Layout>

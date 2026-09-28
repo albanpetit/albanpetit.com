@@ -1,0 +1,271 @@
+---
+import { Image } from "astro:assets"
+import { ArrowRight, Cpu, MapPin, Printer, Search } from "lucide-react"
+import { GithubIcon, XIcon } from "@/components/icons"
+import PostCard from "@/components/PostCard"
+import { badgeVariants } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
+import avatar from "@/images/avatar.jpg"
+import Layout from "@/layouts/Layout.astro"
+import { categoryLabel } from "@/lib/category"
+import { type Language, languagePaths, localizedPath, getTranslations } from "@/lib/i18n"
+import { getPosts, toCardData } from "@/lib/posts"
+import { GITHUB_URL, MAKERWORLD_URL, SITE_URL, TWITTER_URL } from "@/lib/site"
+import { categoryPath, tagPath } from "@/lib/tag"
+import { cn } from "@/lib/utils"
+
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const t = getTranslations(lang)
+
+const posts = await getPosts(lang)
+const latest = await Promise.all(posts.slice(0, 5).map(toCardData))
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort()
+const allCategories = [...new Set(posts.flatMap((p) => p.data.category ?? []))].sort()
+
+const blogPath = localizedPath("/blog/", lang)
+const aboutPath = localizedPath("/about/", lang)
+const searchPath = localizedPath("/search/", lang)
+
+// "… at <1>La Machinerie</1> and …": the i18next <Trans> markup of home.description
+const [beforeLink, linkText, afterLink] = t("home.description").split(/<1>|<\/1>/)
+
+const description =
+  lang === "fr"
+    ? "Blog d'Alban Petit, électronique, développement web et monde maker."
+    : "Personal blog of Alban Petit, electronics, web development, and the maker world."
+
+const infoLink = "hover:text-foreground transition-colors"
+const sidebarCard = "rounded-xl border bg-card p-4 flex flex-col gap-3"
+const sidebarTitle = "text-xs font-semibold uppercase tracking-widest text-muted-foreground"
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: "Alban Petit",
+    description,
+    canonicalPath: localizedPath("/", lang),
+    alternatePaths: { en: "/", fr: "/fr/" },
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Alban Petit",
+      url: `${SITE_URL}${localizedPath("/", lang)}`,
+      inLanguage: lang === "fr" ? "fr-FR" : "en-US",
+      author: { "@type": "Person", name: "Alban Petit" },
+      description,
+    },
+  }}
+>
+  {/* Hero */}
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-12 py-14 md:py-24 items-center">
+    <div class="flex flex-col gap-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-amber-700 dark:text-primary">
+        {t("home.greeting")}
+      </p>
+
+      <div>
+        <h1 class="text-5xl font-black tracking-tight leading-none">{t("home.name")}</h1>
+        <p class="mt-2 text-lg font-medium text-link">{t("home.role")}</p>
+      </div>
+
+      <p class="text-base leading-relaxed text-foreground/75 max-w-sm">
+        {beforeLink}<a
+          href="https://lamachinerie.org"
+          class="text-link font-medium underline underline-offset-4 hover:text-link/80 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer">{linkText}</a
+        >{afterLink}
+      </p>
+
+      <div class="flex flex-col gap-1.5 text-sm">
+        <div class="flex items-center gap-2 text-muted-foreground">
+          <span class="text-primary"><MapPin className="h-3.5 w-3.5" /></span>
+          <span>{t("home.location")}</span>
+        </div>
+        <div class="flex items-center gap-2 text-muted-foreground">
+          <span class="text-primary"><Cpu className="h-3.5 w-3.5" /></span>
+          <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" class={infoLink}>
+            {t("home.fablab")}
+          </a>
+        </div>
+        <div class="flex items-center gap-2 text-muted-foreground">
+          <span class="text-primary"><GithubIcon /></span>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class={infoLink}>github.com/albanpetit</a>
+        </div>
+        <div class="flex items-center gap-2 text-muted-foreground">
+          <span class="text-primary"><Printer className="h-3.5 w-3.5" /></span>
+          <a href={MAKERWORLD_URL} target="_blank" rel="noopener noreferrer" class={infoLink}>
+            makerworld.com/@albanpetit
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {
+          t.list("home.skills").map((skill) => (
+            <span
+              class={cn(
+                badgeVariants({ variant: "outline" }),
+                "border-primary/40 bg-primary/5 text-foreground hover:bg-primary/10 transition-colors"
+              )}
+            >
+              {skill}
+            </span>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <a href={blogPath} class={cn(buttonVariants({ size: "lg" }), "font-semibold")}>
+          {t("home.readBlog")}
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </a>
+        <a href={aboutPath} class={buttonVariants({ variant: "outline", size: "lg" })}>{t("home.aboutMe")}</a>
+        <div class="flex gap-2 ml-auto md:ml-0">
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class={buttonVariants({ variant: "ghost", size: "icon" })}
+          >
+            <GithubIcon />
+          </a>
+          <a
+            href={TWITTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter / X"
+            class={buttonVariants({ variant: "ghost", size: "icon" })}
+          >
+            <XIcon />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Photo */}
+    <div class="flex justify-center md:justify-end pb-3 pr-3">
+      <div class="relative w-64 h-80 md:w-72 md:h-96">
+        <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-primary/40"></div>
+        <Image
+          src={avatar}
+          alt="Alban Petit"
+          width={345}
+          height={460}
+          densities={[1, 2]}
+          loading="eager"
+          class="relative w-full h-full rounded-2xl shadow-xl object-cover"
+        />
+        <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10"></div>
+      </div>
+    </div>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <>
+        {/* Divider */}
+        <div class="relative h-px my-2">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-border to-transparent" />
+        </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-12 py-12">
+          {/* Latest posts (2/3) */}
+          <div class="lg:col-span-2 flex flex-col gap-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="h-6 w-1 rounded-full bg-primary" />
+                <h2 class="text-xl font-bold tracking-tight">{t("home.latestPosts")}</h2>
+              </div>
+              <a
+                href={blogPath}
+                class={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-link hover:text-link/80")}
+              >
+                {t("home.allPosts")}
+                <ArrowRight className="ml-1 h-3 w-3" />
+              </a>
+            </div>
+            <div class="flex flex-col gap-3">
+              {latest.map((post) => (
+                <PostCard post={post} thumbnailWidth="sm:w-40" headingLevel="h3" />
+              ))}
+            </div>
+          </div>
+
+          {/* Sidebar (1/3) */}
+          <aside class="flex flex-col gap-5">
+            {/* Search: a plain GET form, works before any JavaScript */}
+            <div class={sidebarCard}>
+              <div class="flex items-center gap-2">
+                <span class="h-4 w-0.5 rounded-full bg-primary" />
+                <h3 class={sidebarTitle}>{t("search.title")}</h3>
+              </div>
+              <form action={searchPath} method="get" class="relative">
+                <Search
+                  className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none"
+                  aria-hidden="true"
+                />
+                <input
+                  name="q"
+                  aria-label={t("search.title")}
+                  placeholder={t("search.placeholder")}
+                  class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm pl-9 h-9"
+                />
+              </form>
+            </div>
+
+            {allCategories.length > 0 && (
+              <div class={sidebarCard}>
+                <div class="flex items-center gap-2">
+                  <span class="h-4 w-0.5 rounded-full bg-primary" />
+                  <h3 class={sidebarTitle}>{t("home.categories")}</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  {allCategories.map((category) => (
+                    <a href={categoryPath(category, lang)}>
+                      <span
+                        class={cn(
+                          badgeVariants({ variant: "outline" }),
+                          "cursor-pointer hover:border-primary/60 hover:bg-primary/5 transition-colors"
+                        )}
+                      >
+                        {categoryLabel(category, lang)}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {allTags.length > 0 && (
+              <div class={sidebarCard}>
+                <div class="flex items-center gap-2">
+                  <span class="h-4 w-0.5 rounded-full bg-primary" />
+                  <h3 class={sidebarTitle}>{t("home.tags")}</h3>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  {allTags.map((tag) => (
+                    <a href={tagPath(tag, lang)}>
+                      <span
+                        class={cn(
+                          badgeVariants({ variant: "secondary" }),
+                          "cursor-pointer hover:bg-primary/10 transition-colors text-xs"
+                        )}
+                      >
+                        {tag}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </aside>
+        </section>
+      </>
+    )
+  }
+</Layout>
