@@ -36,6 +36,34 @@
 
 EN / FR routing lives in `src/pages/[...lang]/`: each page is built once per language, without prefix for English and under `/fr/` for French. UI strings are in `locales/<lang>/translation.json`.
 
+### Projects and daily logs
+
+A project gathers the day-by-day logs written while working on it, the raw material of its final post. Both are bilingual like posts (`index.en.md` + `index.fr.md`):
+
+```md
+<!-- content/projects/paperflux/index.en.md: page /projects/paperflux/ -->
+---
+title: PaperFlux
+slug: paperflux
+lang: en
+description: My GitHub week printed on a thermal receipt.
+status: in-progress        # in-progress (default), paused or done
+started: 2026-06-01
+post: paperflux            # slug of the final post, once published: linked both ways
+---
+What the project is about.
+
+<!-- content/logs/2026-09-28/index.en.md: page /logs/2026-09-28/, the folder name is the day -->
+---
+title: First print test    # optional, the date is enough
+lang: en
+projects: [paperflux]      # one or more project slugs
+---
+What I did today. Images and CSV charts go in the day's folder.
+```
+
+Logs show up on `/logs/` (with an RSS feed at `/logs/rss.xml`) and, in full, on each of their projects' pages. A project slug that does not exist in the log's language fails the build.
+
 ### Charts from a CSV
 
 Put the CSV next to the post's images and add a `chart` block; [Chart.js](https://www.chartjs.org/) draws it, with the data as a table below (and in the RSS feed) plus a download link:
