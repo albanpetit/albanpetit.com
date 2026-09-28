@@ -27,14 +27,26 @@ const publicUrl = (file: string, content: Buffer) =>
 
 const isRelative = (url: string) => !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(url)
 
-/** Rewrites relative links to non-image files so they point to the copies made by the `linkedFiles` integration */
-export function remarkLinkedFiles() {
+const safeDecode = (url: string) => {
+  try {
+    return decodeURIComponent(url)
+  } catch {
+    return url
+  }
+}
+
+/**
+ * Rewrites relative links to non-image files so they point to the copies made by the `linkedFiles` integration.
+ * Files outside `contentDir` are left alone: the integration only serves and copies files from there.
+ */
+export function remarkLinkedFiles({ contentDir }: { contentDir: string }) {
   return (tree: Root, file: VFile) => {
     if (!file.path) return
     const dir = path.dirname(file.path)
     visit(tree, "link", (node: Link) => {
       if (!isRelative(node.url)) return
-      const target = path.resolve(dir, decodeURIComponent(node.url.split(/[?#]/)[0]))
+      const target = path.resolve(dir, safeDecode(node.url.split(/[?#]/)[0]))
+      if (!target.startsWith(`${contentDir}${path.sep}`)) return
       if (SKIPPED_EXTENSIONS.test(target) || !existsSync(target) || !statSync(target).isFile()) return
       node.url = publicUrl(target, readFileSync(target))
     })
@@ -58,14 +70,6 @@ async function collectFiles(contentDir: string) {
 // /static/ URLs in the generated pages and feeds (feeds use absolute URLs, hence no leading anchor)
 const STATIC_URL_PATTERN = /\/static\/[0-9a-f]{32}\/[^"'\s<>)]+/g
 
-const safeDecode = (url: string) => {
-  try {
-    return decodeURIComponent(url)
-  } catch {
-    return url
-  }
-}
-
 /** /static/ URLs referenced by the HTML pages and XML feeds of the build output */
 async function referencedUrls(outDir: string) {
   const entries = await readdir(outDir, { withFileTypes: true, recursive: true })
@@ -86,7 +90,7 @@ export function linkedFiles(contentDir: string): AstroIntegration {
       "astro:server:setup": ({ server }) => {
         server.middlewares.use(async (req, res, next) => {
           if (!req.url?.startsWith("/static/")) return next()
-          const file = (await collectFiles(contentDir)).get(decodeURIComponent(req.url.split("?")[0]))
+          const file = (await collectFiles(contentDir)).get(safeDecode(req.url.split("?")[0]))
           if (!file) return next()
           res.setHeader("Content-Type", MIME_TYPES[path.extname(file).toLowerCase()] ?? "application/octet-stream")
           res.end(await readFile(file))

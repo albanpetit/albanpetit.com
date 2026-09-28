@@ -18,6 +18,8 @@ import remarkMermaid from "./src/markdown/remark-mermaid"
 import { localizedPath } from "./src/lib/i18n"
 import { SITE_URL } from "./src/lib/site"
 
+const contentDir = fileURLToPath(new URL("./content", import.meta.url))
+
 // Link icon of the heading anchors (the one gatsby-remark-autolink-headers used)
 const anchorIcon: Element = {
   type: "element",
@@ -68,7 +70,7 @@ export default defineConfig({
   build: { format: "directory" },
   integrations: [
     react(),
-    linkedFiles(fileURLToPath(new URL("./content", import.meta.url))),
+    linkedFiles(contentDir),
     sitemap({
       filter: (page) => !SITEMAP_EXCLUDED.test(new URL(page).pathname),
       serialize: (item) => {
@@ -88,7 +90,7 @@ export default defineConfig({
       // Straight quotes and dots are kept as written, like the Gatsby build did
       smartypants: false,
       // remarkMermaid must run before Prism: it takes mermaid fences out of the code blocks
-      remarkPlugins: [remarkMermaid, remarkMath, remarkLinkedFiles],
+      remarkPlugins: [remarkMermaid, remarkMath, [remarkLinkedFiles, { contentDir }]],
       rehypePlugins: [
         [rehypeKatex, { strict: "ignore" }],
         rehypePreTabindex,
