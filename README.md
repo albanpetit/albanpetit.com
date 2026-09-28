@@ -36,6 +36,24 @@
 
 EN / FR routing lives in `src/pages/[...lang]/`: each page is built once per language, without prefix for English and under `/fr/` for French. UI strings are in `locales/<lang>/translation.json`.
 
+### Charts from a CSV
+
+Put the CSV next to the post's images and add a `chart` block; [Chart.js](https://www.chartjs.org/) draws it, with the data as a table below (and in the RSS feed) plus a download link:
+
+````md
+```chart
+file: ./temperatures.csv   # required, relative to the post
+type: line                 # line (default), bar, scatter, pie, doughnut, or table for the table alone
+title: Temperature over a day
+x: hour                    # label column, the first one by default
+y: [inside, outside]       # plotted columns, every other one by default
+xLabel: Hour
+yLabel: °C
+```
+````
+
+`,`, `;` and tab delimiters and French decimals (`19,5`) are accepted; an empty cell is a gap. A typo in an option or a column name fails the build. Astro caches rendered posts: after editing only a CSV, restart with `npm run dev -- --force`.
+
 ---
 
 ## Getting started
