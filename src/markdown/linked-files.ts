@@ -88,9 +88,16 @@ export function linkedFiles(contentDir: string): AstroIntegration {
     name: "linked-files",
     hooks: {
       "astro:server:setup": ({ server }) => {
+        // Hashing every file is costly: compute the map once, again only after a file under content/ changes
+        let files: Promise<Map<string, string>> | undefined
+        server.watcher.add(contentDir)
+        server.watcher.on("all", (_event, changed) => {
+          if (changed.startsWith(contentDir)) files = undefined
+        })
         server.middlewares.use(async (req, res, next) => {
           if (!req.url?.startsWith("/static/")) return next()
-          const file = (await collectFiles(contentDir)).get(safeDecode(req.url.split("?")[0]))
+          files ??= collectFiles(contentDir)
+          const file = (await files).get(safeDecode(req.url.split("?")[0]))
           if (!file) return next()
           res.setHeader("Content-Type", MIME_TYPES[path.extname(file).toLowerCase()] ?? "application/octet-stream")
           res.end(await readFile(file))
