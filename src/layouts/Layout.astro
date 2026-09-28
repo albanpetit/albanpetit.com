@@ -6,6 +6,7 @@ import Seo, { type Props as SeoProps } from "@/components/Seo.astro"
 import Separator from "@/components/Separator.astro"
 import { buttonVariants } from "@/components/ui/button"
 import { type Language, localizedPath, otherLanguage, unlocalizedPath, getTranslations } from "@/lib/i18n"
+import { categoryPath } from "@/lib/tag"
 import { GITHUB_URL, TWITTER_URL } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -29,6 +30,7 @@ const switchLabel = otherLang === "fr" ? "Français" : "English"
 const navLinks = [
   { to: localizedPath("/blog/", lang), label: t("nav.blog") },
   { to: localizedPath("/projects/", lang), label: t("nav.projects") },
+  { to: categoryPath("Tutorials", lang), label: t("nav.tutorials") },
   { to: localizedPath("/about/", lang), label: t("nav.about") },
 ]
 

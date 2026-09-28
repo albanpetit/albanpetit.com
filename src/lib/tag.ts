@@ -30,6 +30,10 @@ export function tagPath(tag: string, language: string): string {
   return localizedPath(`/tag/${slugifyTag(tag)}/`, language)
 }
 
+/** Categories with a page of their own, in the navigation: /category/<slug>/ redirects there */
+export const CATEGORY_PAGES: Record<string, string> = { tutorials: "/tutorials/" }
+
 export function categoryPath(category: string, language: string): string {
-  return localizedPath(`/category/${slugifyCategory(category)}/`, language)
+  const slug = slugifyCategory(category)
+  return localizedPath(CATEGORY_PAGES[slug] ?? `/category/${slug}/`, language)
 }

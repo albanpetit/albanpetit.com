@@ -1,0 +1,25 @@
+---
+import PostListPage from "@/components/PostListPage.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getTranslations, type Language, languagePaths, localizedPath } from "@/lib/i18n"
+import { getPosts } from "@/lib/posts"
+
+// The "Tutorials" category, promoted to a page of the navigation
+export const getStaticPaths = languagePaths
+
+const { lang } = Astro.props as { lang: Language }
+const t = getTranslations(lang)
+const posts = (await getPosts(lang)).filter(({ data }) => data.category === "Tutorials")
+---
+
+<Layout
+  lang={lang}
+  seo={{
+    title: `${t("nav.tutorials")} · Alban Petit`,
+    description: t("tutorials.subtitle"),
+    canonicalPath: localizedPath("/tutorials/", lang),
+    alternatePaths: { en: "/tutorials/", fr: "/fr/tutorials/" },
+  }}
+>
+  <PostListPage lang={lang} title={t("nav.tutorials")} subtitle={t("tutorials.subtitle")} posts={posts} topLevel />
+</Layout>

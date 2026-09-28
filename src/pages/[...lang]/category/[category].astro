@@ -4,6 +4,7 @@ import Layout from "@/layouts/Layout.astro"
 import { categoryLabel } from "@/lib/category"
 import { languageParam, localizedPath, getTranslations } from "@/lib/i18n"
 import { getPosts } from "@/lib/posts"
+import { CATEGORY_PAGES } from "@/lib/tag"
 import { categoryPages } from "@/lib/taxonomy"
 
 export async function getStaticPaths() {
@@ -21,6 +22,9 @@ type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]["props"]
 
 const { page, posts } = Astro.props as Props
 const { lang, names, slug, hasAlternate } = page
+// A category with a page of its own (tutorials) keeps its old /category/ address as a redirect
+const ownPage = CATEGORY_PAGES[slug]
+if (ownPage) return Astro.redirect(localizedPath(ownPage, lang), 301)
 const t = getTranslations(lang)
 const label = names.map((name) => categoryLabel(name, lang)).join(" / ")
 ---

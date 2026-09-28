@@ -52,10 +52,10 @@ const postLastmod = new Map(
 )
 
 // Pages kept out of the sitemap: search results, 404s and the redirects (Hugo /posts/ URLs, the former "Projects"
-// category, /projects/<slug>/ to a project's overview). Anchored after the optional language prefix so a tag or
+// category, /category/tutorials/ to /tutorials/, /projects/<slug>/ to a project's overview). Anchored after the optional language prefix so a tag or
 // post slug named "search", "404" or "posts" stays in; the /projects/ list itself stays in.
 const SITEMAP_EXCLUDED = new RegExp(
-  `^(/(${LANGUAGES.join("|")}))?/(search|404|posts|category/projects|projects/[^/]+)(/|$)`
+  `^(/(${LANGUAGES.join("|")}))?/(search|404|posts|category/(projects|tutorials)|projects/[^/]+)(/|$)`
 )
 
 // Search engines do not follow meta refresh: serve the Hugo sitemap URL as a copy. Must come after sitemap().

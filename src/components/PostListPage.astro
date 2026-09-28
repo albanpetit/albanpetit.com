@@ -5,15 +5,17 @@ import Separator from "@/components/Separator.astro"
 import { type Language, localizedPath, getTranslations } from "@/lib/i18n"
 import { type Post, toCardData } from "@/lib/posts"
 
-/** Body of the tag and category pages: breadcrumb, title and the matching posts */
+/** Body of the tag, category and tutorials pages: breadcrumb, title and the matching posts */
 interface Props {
   lang: Language
   title: string
   subtitle: string
   posts: Post[]
+  /** A page of the navigation (tutorials) sits right under the home page, not under the posts */
+  topLevel?: boolean
 }
 
-const { lang, title, subtitle, posts } = Astro.props
+const { lang, title, subtitle, posts, topLevel = false } = Astro.props
 const t = getTranslations(lang)
 const cards = await Promise.all(posts.map(toCardData))
 ---
@@ -25,7 +27,7 @@ const cards = await Promise.all(posts.map(toCardData))
       label={t("a11y.breadcrumb")}
       items={[
         { label: t("breadcrumb.home"), href: localizedPath("/", lang) },
-        { label: t("nav.blog"), href: localizedPath("/blog/", lang) },
+        ...(topLevel ? [] : [{ label: t("nav.blog"), href: localizedPath("/blog/", lang) }]),
         { label: title },
       ]}
     />

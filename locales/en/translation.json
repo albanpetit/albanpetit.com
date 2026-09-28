@@ -2,7 +2,8 @@
   "nav": {
     "blog": "Blog",
     "about": "About",
-    "projects": "Projects"
+    "projects": "Projects",
+    "tutorials": "Tutorials"
   },
   "footer": {
     "copyright": "© {{year}} Alban Petit"
@@ -29,7 +30,8 @@
     "allPosts": "All posts",
     "projects": "Projects",
     "allProjects": "All projects",
-    "categories": "Categories",
+    "tutorials": "Latest tutorials",
+    "allTutorials": "All tutorials",
     "tags": "Tags",
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
@@ -91,6 +93,9 @@
     "title": "#{{tag}}",
     "subtitle_one": "{{count}} post",
     "subtitle_other": "{{count}} posts"
+  },
+  "tutorials": {
+    "subtitle": "Step-by-step guides to set up, wire and program."
   },
   "category": {
     "subtitle_one": "{{count}} post",

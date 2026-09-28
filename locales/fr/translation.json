@@ -2,7 +2,8 @@
   "nav": {
     "blog": "Articles",
     "about": "À propos",
-    "projects": "Projets"
+    "projects": "Projets",
+    "tutorials": "Tutoriels"
   },
   "footer": {
     "copyright": "© {{year}} Alban Petit"
@@ -29,7 +30,8 @@
     "allPosts": "Tous les articles",
     "projects": "Projets",
     "allProjects": "Tous les projets",
-    "categories": "Catégories",
+    "tutorials": "Derniers tutoriels",
+    "allTutorials": "Tous les tutoriels",
     "tags": "Tags",
     "location": "France",
     "fablab": "FabManager @ La Machinerie",
@@ -91,6 +93,9 @@
     "title": "#{{tag}}",
     "subtitle_one": "{{count}} article",
     "subtitle_other": "{{count}} articles"
+  },
+  "tutorials": {
+    "subtitle": "Des guides pas à pas pour configurer, câbler et programmer."
   },
   "category": {
     "subtitle_one": "{{count}} article",

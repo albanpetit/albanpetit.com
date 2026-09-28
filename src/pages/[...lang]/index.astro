@@ -9,9 +9,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import avatar from "@/images/avatar.jpg"
 import Layout from "@/layouts/Layout.astro"
-import { categoryLabel } from "@/lib/category"
 import { type Language, languagePaths, localizedPath, getTranslations } from "@/lib/i18n"
-import { getPosts, toCardData } from "@/lib/posts"
+import { getPosts, postPath, toCardData } from "@/lib/posts"
 import { getProjects } from "@/lib/projects"
 import { GITHUB_URL, MAKERWORLD_URL, SITE_URL, TWITTER_URL } from "@/lib/site"
 import { categoryPath, tagPath } from "@/lib/tag"
@@ -25,7 +24,7 @@ const t = getTranslations(lang)
 const posts = await getPosts(lang)
 const latest = await Promise.all(posts.slice(0, 5).map(toCardData))
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort()
-const allCategories = [...new Set(posts.flatMap((p) => p.data.category ?? []))].sort()
+const tutorials = posts.filter(({ data }) => data.category === "Tutorials").slice(0, 5)
 // In progress first: the sidebar shows what is being built right now
 const projects = (await getProjects(lang)).slice(0, 5)
 
@@ -33,6 +32,7 @@ const blogPath = localizedPath("/blog/", lang)
 const aboutPath = localizedPath("/about/", lang)
 const searchPath = localizedPath("/search/", lang)
 const projectsPath = localizedPath("/projects/", lang)
+const tutorialsPath = categoryPath("Tutorials", lang)
 
 // "… at <1>La Machinerie</1> and …": the i18next <Trans> markup of home.description
 const [beforeLink, linkText, afterLink] = t("home.description").split(/<1>|<\/1>/)
@@ -242,26 +242,25 @@ const sidebarTitle = "text-xs font-semibold uppercase tracking-widest text-muted
               </div>
             )}
 
-            {allCategories.length > 0 && (
+            {tutorials.length > 0 && (
               <div class={sidebarCard}>
                 <div class="flex items-center gap-2">
                   <span class="h-4 w-0.5 rounded-full bg-primary" />
-                  <h3 class={sidebarTitle}>{t("home.categories")}</h3>
+                  <h3 class={sidebarTitle}>{t("home.tutorials")}</h3>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                  {allCategories.map((category) => (
-                    <a href={categoryPath(category, lang)}>
-                      <span
-                        class={cn(
-                          badgeVariants({ variant: "outline" }),
-                          "cursor-pointer hover:border-primary/60 hover:bg-primary/5 transition-colors"
-                        )}
-                      >
-                        {categoryLabel(category, lang)}
-                      </span>
-                    </a>
+                <ul class="flex flex-col gap-2">
+                  {tutorials.map((tutorial) => (
+                    <li class="text-sm">
+                      <a href={postPath(tutorial)} class="font-medium hover:text-link transition-colors">
+                        {tutorial.data.title}
+                      </a>
+                    </li>
                   ))}
-                </div>
+                </ul>
+                <a href={tutorialsPath} class="flex items-center gap-1 text-xs font-medium text-link hover:text-link/80">
+                  {t("home.allTutorials")}
+                  <ArrowRight className="h-3 w-3" />
+                </a>
               </div>
             )}
 
