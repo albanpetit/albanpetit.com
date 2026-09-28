@@ -16,11 +16,30 @@ const FEEDS: Record<Language, { title: string; description: string }> = {
   },
 }
 
+// Links that replace what only renders with the site's scripts (Mermaid, KiCanvas)
+const PLACEHOLDERS: Record<Language, { diagram: string; kicad: string }> = {
+  en: { diagram: "View the diagram on the site", kicad: "Open the interactive KiCad viewer on the site" },
+  fr: { diagram: "Voir le diagramme sur le site", kicad: "Ouvrir la visionneuse KiCad interactive sur le site" },
+}
+
 // Feed readers have no base URL: rewrite root-relative src/href/srcset to absolute ones
 const absolutizeUrls = (html: string) =>
   html
     .replace(/(\s(?:src|href|srcset)=")\/(?!\/)/g, `$1${SITE_URL}/`)
     .replace(/(,\s*)\/_astro\//g, `$1${SITE_URL}/_astro/`)
+
+/**
+ * Fits the post HTML for feed readers, which run no script and resolve "#…" against the feed, not the post:
+ * heading anchor icons go, in-page links point to the post, and diagrams and KiCad viewers become links to it
+ */
+const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
+  const placeholder = (text: string) => `<p><a href="${postUrl}">${text}</a></p>`
+  return html
+    .replace(/<a class="anchor before"[^>]*>[\s\S]*?<\/a>/g, "")
+    .replace(/(\shref=")#/g, `$1${postUrl}#`)
+    .replace(/<pre class="mermaid"[^>]*>[\s\S]*?<\/pre>/g, placeholder(PLACEHOLDERS[lang].diagram))
+    .replace(/<kicanvas-embed[^>]*>[\s\S]*?<\/kicanvas-embed>/g, placeholder(PLACEHOLDERS[lang].kicad))
+}
 
 /** RSS feed of one language, with the full post HTML in content:encoded */
 async function feedXml(lang: Language) {
@@ -36,12 +55,13 @@ async function feedXml(lang: Language) {
     items: await Promise.all(
       posts.map(async (post) => {
         const { Content } = await render(post)
+        const link = `${SITE_URL}${postPath(post)}`
         return {
           title: post.data.title,
           description: post.data.description ?? excerpt(post, 160),
           pubDate: post.data.date,
-          link: `${SITE_URL}${postPath(post)}`,
-          content: absolutizeUrls(await container.renderToString(Content)),
+          link,
+          content: forFeedReaders(absolutizeUrls(await container.renderToString(Content)), link, lang),
         }
       })
     ),
