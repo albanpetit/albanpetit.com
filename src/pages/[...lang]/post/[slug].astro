@@ -186,7 +186,11 @@ const articleData = {
         <div class="prose prose-neutral dark:prose-invert max-w-none">
           <Content />
         </div>
-        {hasKicadEmbed && <script is:inline type="module" src="https://kicanvas.org/kicanvas/kicanvas.js"></script>}
+        {
+          // Self-hosted copy of https://kicanvas.org/kicanvas/kicanvas.js (not on npm, no versioned URL),
+          // so an upstream change never runs on the site unreviewed. Taken on 2026-09-28; to update, download it again
+          hasKicadEmbed && <script is:inline type="module" src="/vendor/kicanvas.js"></script>
+        }
 
         <Separator class="my-12" />
         <Giscus client:only="react" lang={lang} />
