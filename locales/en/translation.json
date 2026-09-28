@@ -44,6 +44,11 @@
     "minRead_other": "{{count}} min read",
     "toc": "Table of contents"
   },
+  "chart": {
+    "chart": "Chart",
+    "data": "Data",
+    "download": "Download the CSV"
+  },
   "about": {
     "role": "Developer · Maker · FabManager",
     "skills": ["Web Development", "Electronics", "Maker", "Open Source"],

@@ -16,13 +16,14 @@ const MIME_TYPES: Record<string, string> = {
   ".zip": "application/zip",
   ".stl": "model/stl",
   ".3mf": "model/3mf",
+  ".csv": "text/csv; charset=utf-8",
 }
 
 /**
  * Public URL of a file linked from Markdown (PDF datasheets…). Same scheme as gatsby-remark-copy-linked-files:
  * the md5 of the file keeps URLs stable across builds and busts caches when the file changes.
  */
-const publicUrl = (file: string, content: Buffer) =>
+export const publicUrl = (file: string, content: Buffer) =>
   `/static/${createHash("md5").update(content).digest("hex")}/${path.basename(file)}`
 
 const isRelative = (url: string) => !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(url)

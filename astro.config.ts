@@ -14,6 +14,7 @@ import remarkMath from "remark-math"
 import { linkedFiles, remarkLinkedFiles } from "./src/markdown/linked-files"
 import rehypeImageSizes from "./src/markdown/rehype-image-sizes"
 import rehypePreTabindex from "./src/markdown/rehype-pre-tabindex"
+import remarkChart from "./src/markdown/remark-chart"
 import remarkMermaid from "./src/markdown/remark-mermaid"
 import { LANGUAGES, localizedPath } from "./src/lib/i18n"
 import { SITE_URL } from "./src/lib/site"
@@ -86,12 +87,12 @@ export default defineConfig({
     layout: "constrained",
   },
   markdown: {
-    syntaxHighlight: { type: "prism", excludeLangs: ["mermaid", "math"] },
+    syntaxHighlight: { type: "prism", excludeLangs: ["mermaid", "chart", "math"] },
     processor: unified({
       // Straight quotes and dots are kept as written, like the Gatsby build did
       smartypants: false,
-      // remarkMermaid must run before Prism: it takes mermaid fences out of the code blocks
-      remarkPlugins: [remarkMermaid, remarkMath, [remarkLinkedFiles, { contentDir }]],
+      // remarkMermaid and remarkChart must run before Prism: they take their fences out of the code blocks
+      remarkPlugins: [remarkMermaid, [remarkChart, { contentDir }], remarkMath, [remarkLinkedFiles, { contentDir }]],
       rehypePlugins: [
         [rehypeKatex, { strict: "ignore" }],
         rehypePreTabindex,

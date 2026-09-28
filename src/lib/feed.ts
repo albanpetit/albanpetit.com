@@ -16,10 +16,18 @@ const FEEDS: Record<Language, { title: string; description: string }> = {
   },
 }
 
-// Links that replace what only renders with the site's scripts (Mermaid, KiCanvas)
-const PLACEHOLDERS: Record<Language, { diagram: string; kicad: string }> = {
-  en: { diagram: "View the diagram on the site", kicad: "Open the interactive KiCad viewer on the site" },
-  fr: { diagram: "Voir le diagramme sur le site", kicad: "Ouvrir la visionneuse KiCad interactive sur le site" },
+// Links that replace what only renders with the site's scripts (Mermaid, KiCanvas, Chart.js)
+const PLACEHOLDERS: Record<Language, { diagram: string; kicad: string; chart: string }> = {
+  en: {
+    diagram: "View the diagram on the site",
+    kicad: "Open the interactive KiCad viewer on the site",
+    chart: "View the chart on the site",
+  },
+  fr: {
+    diagram: "Voir le diagramme sur le site",
+    kicad: "Ouvrir la visionneuse KiCad interactive sur le site",
+    chart: "Voir le graphique sur le site",
+  },
 }
 
 // Feed readers have no base URL: rewrite root-relative src/href/srcset to absolute ones
@@ -30,7 +38,8 @@ const absolutizeUrls = (html: string) =>
 
 /**
  * Fits the post HTML for feed readers, which run no script and resolve "#…" against the feed, not the post:
- * heading anchor icons go, in-page links point to the post, and diagrams and KiCad viewers become links to it
+ * heading anchor icons go, in-page links point to the post, and diagrams, KiCad viewers and charts become links
+ * to it (a chart's data table stays)
  */
 const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
   const placeholder = (text: string) => `<p><a href="${postUrl}">${text}</a></p>`
@@ -39,6 +48,7 @@ const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
     .replace(/(\shref=")#/g, `$1${postUrl}#`)
     .replace(/<pre class="mermaid"[^>]*>[\s\S]*?<\/pre>/g, placeholder(PLACEHOLDERS[lang].diagram))
     .replace(/<kicanvas-embed[^>]*>[\s\S]*?<\/kicanvas-embed>/g, placeholder(PLACEHOLDERS[lang].kicad))
+    .replace(/<div class="chart-canvas">[\s\S]*?<\/script>/g, placeholder(PLACEHOLDERS[lang].chart))
 }
 
 /** RSS feed of one language, with the full post HTML in content:encoded */

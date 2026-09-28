@@ -312,6 +312,46 @@
     max-width: 100%;
   }
 
+  /* Chart from a CSV (remark-chart.ts): canvas drawn by src/scripts/chart.ts, data table below */
+  .prose figure.chart {
+    @apply my-6 rounded-lg border border-border bg-card p-4;
+  }
+  .prose .chart-canvas {
+    position: relative;
+    height: clamp(16rem, 50vw, 22rem);
+  }
+  .prose figure.chart figcaption {
+    @apply mt-3 text-center text-sm text-muted-foreground;
+  }
+  .prose figure.chart details {
+    @apply mt-3 text-sm;
+  }
+  .prose figure.chart summary {
+    @apply cursor-pointer text-muted-foreground hover:text-foreground;
+  }
+  .prose .chart-table {
+    @apply mt-2 max-h-96 overflow-auto rounded-md border border-border;
+  }
+  .prose .chart-table:focus-visible {
+    @apply outline-none ring-2 ring-ring;
+  }
+  /* The wrapper scrolls: the table keeps its own layout instead of the prose "block" one */
+  .prose .chart-table table {
+    @apply my-0 table w-full text-sm;
+  }
+  .prose .chart-table th {
+    @apply sticky top-0 bg-muted px-3 py-2;
+  }
+  .prose .chart-table td {
+    @apply px-3 py-1.5 tabular-nums;
+  }
+  .prose figure.chart--table figcaption {
+    @apply mt-3;
+  }
+  .prose .chart-download {
+    @apply mt-2 inline-block text-sm;
+  }
+
   /* GitHub repo card: link-out widget, typically used in a post's intro */
   .prose a.repo-card {
     @apply my-6 flex items-center gap-4 rounded-xl border border-border bg-card p-4 no-underline shadow-sm transition-colors hover:bg-accent;
