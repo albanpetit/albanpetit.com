@@ -27,8 +27,9 @@ Indication de l'utilisateur (peut être vide) : $ARGUMENTS
    - Si des fichiers sont déjà indexés, committe **uniquement** ceux-là. Ne touche pas au reste sans demande explicite.
    - Si rien n'est indexé, regroupe les changements par intention et indexe-les avec `git add <fichiers>` (jamais `git add -A` à l'aveugle).
    - Un commit porte une seule intention. Si le diff mélange plusieurs intentions (un fix plus du contenu, par exemple), propose plusieurs commits.
-3. Écris le message selon le format ci-dessous.
-4. Committe avec un heredoc pour préserver les sauts de ligne :
+3. Contrôle les médias avant de les indexer (section « Médias » ci-dessous) : images, CSV, PDF, modèles 3D… Un fichier committé reste dans l'historique pour toujours, même supprimé ensuite.
+4. Écris le message selon le format ci-dessous.
+5. Committe avec un heredoc pour préserver les sauts de ligne :
    ```bash
    git commit -F - <<'EOF'
    type(scope): description
@@ -36,8 +37,45 @@ Indication de l'utilisateur (peut être vide) : $ARGUMENTS
    corps éventuel
    EOF
    ```
-5. Vérifie le résultat avec `git log -1 --format=%B`. Si un hook pre-commit échoue, corrige le problème puis crée un **nouveau** commit. N'utilise ni `--amend` ni `--no-verify`, sauf demande explicite.
-6. Ne push pas, sauf demande explicite.
+6. Vérifie le résultat avec `git log -1 --format=%B`. Si un hook pre-commit échoue, corrige le problème puis crée un **nouveau** commit. N'utilise ni `--amend` ni `--no-verify`, sauf demande explicite.
+7. Ne push pas, sauf demande explicite.
+
+## Médias : dimensions et poids avant publication
+
+Astro optimise les images pour le site (WebP, srcset), mais c'est le fichier **source** qui entre dans l'historique git, et il y reste même s'il est remplacé ou supprimé plus tard. Une photo de téléphone de 12 Mpx pèse 4 à 8 Mo pour rien : le site ne l'affiche jamais au-delà de 1 600 px (colonne de 800 px, écrans 2x).
+
+Avant d'indexer un média, vérifie ses dimensions et son poids :
+
+| Média | Limite | Si c'est au-dessus |
+| ----- | ------ | ------------------ |
+| Photo (JPEG, WebP) | 2 000 px sur le plus grand côté, 500 Ko environ | Redimensionner et recompresser (qualité 82) |
+| Capture, schéma (PNG) | 2 000 px sur le plus grand côté, 500 Ko environ | Redimensionner ; une photo enregistrée en PNG passe en JPEG |
+| GIF animé | 2 Mo | Préférer une vidéo YouTube |
+| Vidéo | Jamais dans le dépôt | YouTube (`.youtube-embed`), comme dans les articles existants |
+| PDF, STL, 3MF, ZIP, CSV | 5 Mo | Signaler à l'utilisateur avant de committer |
+
+Mesure les fichiers ajoutés ou modifiés (sharp est déjà installé) :
+
+```bash
+git diff --cached --name-only --diff-filter=AM | grep -iE '\.(jpe?g|png|webp|gif)$' | xargs -r node -e '
+  const sharp = require("sharp"), fs = require("fs")
+  ;(async () => { for (const f of process.argv.slice(1)) {
+    const m = await sharp(f).metadata(), kb = fs.statSync(f).size / 1024 | 0
+    const flag = Math.max(m.width, m.height) > 2000 || kb > 500 ? "  ← trop gros" : ""
+    console.log(`${f}  ${m.width}×${m.height}  ${kb} Ko${flag}`) } })()' --
+git diff --cached --name-only --diff-filter=AM | xargs -r du -k | awk '$1 > 5120 { print $2 "  " $1 " Ko  ← plus de 5 Mo" }'
+```
+
+Réduis une image trop grande sur place, en gardant son orientation EXIF :
+
+```bash
+node -e '
+  const sharp = require("sharp"), f = process.argv[1]
+  sharp(f).rotate().resize(2000, 2000, { fit: "inside", withoutEnlargement: true })
+    .jpeg({ quality: 82, mozjpeg: true }).toBuffer().then((b) => require("fs").writeFileSync(f, b))' chemin/vers/photo.jpg
+```
+
+Pour un PNG, remplace `.jpeg({ … })` par `.png({ compressionLevel: 9, palette: true })`. Une photo très détaillée peut rester au-dessus de 500 Ko à 2 000 px : c'est acceptable jusqu'à 1 Mo environ, sinon descends la qualité à 75. Ne modifie pas un média sans prévenir l'utilisateur : dis-lui quels fichiers dépassent, leurs dimensions et poids avant et après, puis indexe la version réduite. Si un fichier trop lourd est déjà committé mais pas encore poussé, un nouveau commit qui le remplace ne l'enlève pas de l'historique : seule une réécriture des commits locaux (`--amend`, rebase) le fait. Propose-la à l'utilisateur au lieu de la lancer. Une fois poussé, le fichier y reste.
 
 ## Format du message
 
