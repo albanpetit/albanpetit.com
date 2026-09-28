@@ -14,6 +14,8 @@ export type PostCardData = {
   description: string
   tags: Link[]
   category?: Link & { label: string }
+  /** Project this post concludes, when it has no category */
+  project?: { label: string; url: string }
   cover?: { src: string; srcset: string; width: number; height: number }
 }
 
@@ -47,12 +49,18 @@ const PostCard = ({ post, thumbnailWidth = "sm:w-48", headingLevel = "h2" }: Pos
           </div>
         )}
         <div className="flex flex-col flex-1 min-w-0 p-4 gap-2">
-          {/* Category + date row */}
+          {/* Category (or project) + date row */}
           <div className="flex items-center justify-between gap-2">
             {post.category ? (
               <a href={post.category.url} className="relative z-10">
                 <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
                   {post.category.label}
+                </Badge>
+              </a>
+            ) : post.project ? (
+              <a href={post.project.url} className="relative z-10">
+                <Badge variant="secondary" className="text-xs hover:bg-accent transition-colors">
+                  {post.project.label}
                 </Badge>
               </a>
             ) : (

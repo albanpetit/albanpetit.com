@@ -2,7 +2,8 @@ import { getImage } from "astro:assets"
 import { type CollectionEntry, getCollection } from "astro:content"
 import type { PostCardData } from "@/components/PostCard"
 import { categoryLabel } from "@/lib/category"
-import { formatDate, type Language, localizedPath } from "@/lib/i18n"
+import { formatDate, getTranslations, type Language, localizedPath } from "@/lib/i18n"
+import { projectOf } from "@/lib/projects"
 import { categoryPath, tagPath } from "@/lib/tag"
 
 export type Post = CollectionEntry<"posts">
@@ -42,6 +43,9 @@ export function excerpt(post: { body?: string }, length: number) {
 /** Everything a post card needs, serializable so React islands (search, blog filter) can receive it */
 export async function toCardData(post: Post): Promise<PostCardData> {
   const { title, date, description, tags, category, image, lang } = post.data
+  // The project this post belongs to, if any: its badge stands where a category would, and leads to the project's
+  // overview, or to the list of projects when the project is this post alone
+  const project = await projectOf(post)
   const cover = image
     ? await getImage({ src: image, width: 400, height: 300, widths: [240, 400, 640, 800], fit: "cover" })
     : undefined
@@ -57,6 +61,10 @@ export async function toCardData(post: Post): Promise<PostCardData> {
     category: category
       ? { name: category, label: categoryLabel(category, lang), url: categoryPath(category, lang) }
       : undefined,
+    project: project && {
+      label: getTranslations(lang)("projects.badge"),
+      url: project.posts.length > 1 ? project.url : localizedPath("/projects/", lang),
+    },
     cover: cover && {
       src: cover.src,
       srcset: cover.srcSet.attribute,

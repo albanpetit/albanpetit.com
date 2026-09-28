@@ -1,0 +1,9 @@
+---
+import { languagePaths, localizedPath } from "@/lib/i18n"
+
+// Posts used to carry a "Projects" category, now replaced by the projects themselves: old links land on their list.
+// GitHub Pages has no server redirects: Astro writes a meta-refresh page.
+export const getStaticPaths = languagePaths
+
+return Astro.redirect(localizedPath("/projects/", Astro.props.lang), 301)
+---

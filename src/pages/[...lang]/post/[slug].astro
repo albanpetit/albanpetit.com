@@ -12,7 +12,7 @@ import Layout from "@/layouts/Layout.astro"
 import { categoryLabel } from "@/lib/category"
 import { formatDate, languageParam, localizedPath, getTranslations } from "@/lib/i18n"
 import { excerpt, getPosts, type Post, postPath, readingTime } from "@/lib/posts"
-import { getProjects, projectPath } from "@/lib/projects"
+import { projectOf } from "@/lib/projects"
 import { SITE_URL } from "@/lib/site"
 import { categoryPath, tagPath } from "@/lib/tag"
 import { cn } from "@/lib/utils"
@@ -40,8 +40,9 @@ const { Content, headings } = await render(post)
 const tocHeadings = headings.filter((h) => h.depth <= 3)
 const hasToc = tocHeadings.length >= 2
 const hasKicadEmbed = post.body?.includes("<kicanvas-embed") ?? false
-// The project this post concludes, if any: its logs hold the day-by-day story behind the post
-const project = (await getProjects(lang)).find(({ data }) => data.post === slug)
+// The project this post belongs to, if any. With several posts, they read as a series: the post lists them all
+const project = await projectOf(post)
+const series = project && project.posts.length > 1 ? project : undefined
 
 const canonicalPath = postPath(post)
 const homePath = localizedPath("/", lang)
@@ -132,6 +133,20 @@ const articleData = {
                 </a>
               )
             }
+            {
+              !category && project && (
+                <a href={series ? series.url : localizedPath("/projects/", lang)}>
+                  <span
+                    class={cn(
+                      badgeVariants({ variant: "secondary" }),
+                      "cursor-pointer hover:bg-accent transition-colors"
+                    )}
+                  >
+                    {t("projects.badge")}
+                  </span>
+                </a>
+              )
+            }
             <div class="flex items-center gap-3 text-sm text-muted-foreground ml-auto">
               <span class="flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
@@ -171,6 +186,32 @@ const articleData = {
               </div>
             )
           }
+
+          {
+            series && (
+              <nav
+                aria-label={t("post.series", { project: series.name })}
+                class="flex flex-col gap-2 rounded-lg border border-primary/40 bg-primary/5 p-4 text-sm"
+              >
+                <p class="font-medium">{t("post.series", { project: series.name })}</p>
+                <ol class="list-decimal pl-5 text-muted-foreground">
+                  {series.posts.map((seriesPost) =>
+                    seriesPost.data.slug === slug ? (
+                      <li aria-current="page" class="font-medium text-foreground">
+                        {seriesPost.data.title}
+                      </li>
+                    ) : (
+                      <li>
+                        <a href={postPath(seriesPost)} class="hover:text-link underline underline-offset-4">
+                          {seriesPost.data.title}
+                        </a>
+                      </li>
+                    )
+                  )}
+                </ol>
+              </nav>
+            )
+          }
         </header>
 
         {
@@ -194,15 +235,6 @@ const articleData = {
         <div class="prose prose-neutral dark:prose-invert max-w-none">
           <Content />
         </div>
-        {
-          project && (
-            <p class="mt-10 rounded-lg border border-primary/40 bg-primary/5 p-4 text-sm">
-              <a href={projectPath(project)} class="font-medium text-link underline underline-offset-4">
-                {t("post.project", { project: project.data.title })}
-              </a>
-            </p>
-          )
-        }
         {
           // Self-hosted copy of https://kicanvas.org/kicanvas/kicanvas.js (not on npm, no versioned URL),
           // so an upstream change never runs on the site unreviewed. Taken on 2026-09-28; to update, download it again

@@ -19,6 +19,13 @@ const posts = defineCollection({
       tags: z.array(z.string()).default([]),
       // English name in both languages: it drives the slug, src/lib/category.ts translates the label
       category: z.string().optional(),
+      // Name of the project the post belongs to, the same in both languages: it drives the slug (src/lib/projects.ts).
+      // A project with several posts gets a page listing them, and each of them a navigation between them
+      project: z.string().optional(),
+      // The project's overview: it comes first in the project, and its status is the project's
+      overview: z.boolean().default(false),
+      // Overview only: a project is in progress until its overview says it is done
+      status: z.enum(["in-progress", "done"]).optional(),
       image: image().optional(),
     }),
 })
@@ -32,34 +39,4 @@ const pages = defineCollection({
   }),
 })
 
-// A project gathers the daily logs written while working on it, until its final post is published
-const projects = defineCollection({
-  loader: glob({ pattern: "*/index.*.md", base: "./content/projects", generateId: idFromPath }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      slug: z.string(),
-      lang: z.enum(["en", "fr"]),
-      description: z.string(),
-      status: z.enum(["in-progress", "paused", "done"]).default("in-progress"),
-      started: z.coerce.date(),
-      // Slug of the final post, once written: the project page links to it and the post back to the logs
-      post: z.string().optional(),
-      image: image().optional(),
-    }),
-})
-
-// One file per day and language, content/logs/<YYYY-MM-DD>/index.<lang>.md: the folder name is the date and
-// the URL, and holds the day's images and CSV files
-const logs = defineCollection({
-  loader: glob({ pattern: "*/index.*.md", base: "./content/logs", generateId: idFromPath }),
-  schema: z.object({
-    // Optional: the date alone makes a fine title for a daily log
-    title: z.string().optional(),
-    lang: z.enum(["en", "fr"]),
-    // Slugs of the projects this day's work was about (content/projects/<slug>/)
-    projects: z.array(z.string()).min(1),
-  }),
-})
-
-export const collections = { posts, pages, projects, logs }
+export const collections = { posts, pages }

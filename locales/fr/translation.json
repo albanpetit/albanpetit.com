@@ -2,8 +2,7 @@
   "nav": {
     "blog": "Articles",
     "about": "À propos",
-    "projects": "Projets",
-    "logs": "Journal"
+    "projects": "Projets"
   },
   "footer": {
     "copyright": "© {{year}} Alban Petit"
@@ -45,7 +44,7 @@
     "minRead_one": "{{count}} min de lecture",
     "minRead_other": "{{count}} min de lecture",
     "toc": "Sommaire",
-    "project": "Cet article est issu du projet {{project}} : lire son journal"
+    "series": "Projet {{project}} : tous ses articles"
   },
   "chart": {
     "chart": "Graphique",
@@ -54,31 +53,16 @@
   },
   "projects": {
     "title": "Projets",
-    "subtitle": "Ce que je construis, avec le journal au jour le jour de chaque projet.",
+    "subtitle": "Ce que je construis, raconté article après article.",
     "empty": "Aucun projet pour l'instant.",
     "status": {
       "in-progress": "En cours",
-      "paused": "En pause",
       "done": "Terminé"
     },
-    "started": "Commencé le {{date}}",
-    "logCount_one": "{{count}} entrée",
-    "logCount_other": "{{count}} entrées",
-    "lastLog": "la dernière le {{date}}",
-    "finalPost": "Lire l'article final",
-    "logs": "Journal",
-    "noLogs": "Aucune entrée pour ce projet pour l'instant."
-  },
-  "logs": {
-    "title": "Journal",
-    "subtitle": "Mes notes au jour le jour sur ce que je fais, avant que ça devienne un article.",
-    "empty": "Aucune entrée pour l'instant.",
-    "projects": "Projets",
-    "previous": "Jour précédent",
-    "next": "Jour suivant",
-    "feed": "Flux RSS du journal",
-    "feedTitle": "Alban Petit · Journal",
-    "feedDescription": "Les notes au jour le jour d'Alban Petit sur ses projets d'électronique, de web et de maker."
+    "updated": "Mis à jour le {{date}}",
+    "postCount_one": "{{count}} article",
+    "postCount_other": "{{count}} articles",
+    "badge": "Projet"
   },
   "about": {
     "role": "Développeur · Maker · FabManager",
@@ -111,7 +95,6 @@
     "subtitle_other": "{{count}} articles"
   },
   "categories": {
-    "Projects": "Projets",
     "Tutorials": "Tutoriels",
     "Web": "Web"
   },

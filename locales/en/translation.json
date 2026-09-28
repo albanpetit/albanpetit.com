@@ -2,8 +2,7 @@
   "nav": {
     "blog": "Blog",
     "about": "About",
-    "projects": "Projects",
-    "logs": "Logs"
+    "projects": "Projects"
   },
   "footer": {
     "copyright": "© {{year}} Alban Petit"
@@ -45,7 +44,7 @@
     "minRead_one": "{{count}} min read",
     "minRead_other": "{{count}} min read",
     "toc": "Table of contents",
-    "project": "This post comes out of the {{project}} project: read its logs"
+    "series": "Project {{project}}: all its posts"
   },
   "chart": {
     "chart": "Chart",
@@ -54,31 +53,16 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "What I'm building, with the day-by-day logs of each project.",
+    "subtitle": "What I build, told post after post.",
     "empty": "No projects yet.",
     "status": {
       "in-progress": "In progress",
-      "paused": "Paused",
       "done": "Done"
     },
-    "started": "Started {{date}}",
-    "logCount_one": "{{count}} log",
-    "logCount_other": "{{count}} logs",
-    "lastLog": "last one {{date}}",
-    "finalPost": "Read the final post",
-    "logs": "Logs",
-    "noLogs": "No logs for this project yet."
-  },
-  "logs": {
-    "title": "Logs",
-    "subtitle": "Day-by-day notes on what I'm working on, before it becomes a post.",
-    "empty": "No logs yet.",
-    "projects": "Projects",
-    "previous": "Previous day",
-    "next": "Next day",
-    "feed": "Logs RSS feed",
-    "feedTitle": "Alban Petit · Logs",
-    "feedDescription": "Day-by-day notes of Alban Petit on his electronics, web and maker projects."
+    "updated": "Updated {{date}}",
+    "postCount_one": "{{count}} post",
+    "postCount_other": "{{count}} posts",
+    "badge": "Project"
   },
   "about": {
     "role": "Developer · Maker · FabManager",
@@ -111,7 +95,6 @@
     "subtitle_other": "{{count}} posts"
   },
   "categories": {
-    "Projects": "Projects",
     "Tutorials": "Tutorials",
     "Web": "Web"
   },

@@ -9,7 +9,9 @@ tags:
   - Électronique
   - PCB
   - KiCad
-category: Projects
+project: ADXL335
+overview: true
+status: done
 image: main.jpg
 ---
 

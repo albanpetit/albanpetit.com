@@ -1,53 +1,106 @@
-import { type CollectionEntry, getCollection } from "astro:content"
+import { getCollection } from "astro:content"
 import { type Language, localizedPath } from "@/lib/i18n"
+import { type Post, postPath } from "@/lib/posts"
+import { slugifyProject } from "@/lib/tag"
 
-export type Project = CollectionEntry<"projects">
-export type Log = CollectionEntry<"logs">
-export type ProjectStatus = Project["data"]["status"]
+export type ProjectStatus = "in-progress" | "done"
 
-/** "2026-09-28/index.fr" → "2026-09-28": the folder of a log is its date and its URL */
-export const logSlug = (log: Log) => log.id.split("/")[0]
-
-/** Day of a log, at midnight UTC like the post dates */
-export function logDate(log: Log): Date {
-  const slug = logSlug(log)
-  const date = new Date(`${slug}T00:00:00Z`)
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(slug) || Number.isNaN(date.getTime())) {
-    throw new Error(`content/logs/${slug}/: log folders are named after their day, YYYY-MM-DD`)
-  }
-  return date
+/** Posts sharing a `project` name, in one language */
+export type Project = {
+  name: string
+  slug: string
+  lang: Language
+  /** Reading order: the overview first, then the other posts oldest first */
+  posts: Post[]
+  overview?: Post
+  /** Set by the overview's `status`: in progress without one */
+  status: ProjectStatus
+  /** Latest publication or update among its posts */
+  updated: Date
+  /** Its landing page: the overview, or its only post */
+  url: string
 }
 
-export const projectPath = (project: Project) => localizedPath(`/projects/${project.data.slug}/`, project.data.lang)
-export const logPath = (log: Log) => localizedPath(`/logs/${logSlug(log)}/`, log.data.lang)
+/** Stable address of a project, redirecting to its landing page */
+export const projectPagePath = (slug: string, lang: string) => localizedPath(`/projects/${slug}/`, lang)
 
-/** Projects of one language (all languages without argument): in progress first, then the most recently started */
-export async function getProjects(language?: Language): Promise<Project[]> {
-  const projects = await getCollection("projects", ({ data }) => !language || data.lang === language)
-  const order: Record<ProjectStatus, number> = { "in-progress": 0, paused: 1, done: 2 }
+/**
+ * Groups posts by project. Fails the build on what would silently split or hide a project: two names that share a
+ * slug in one language, two overviews, an overview outside any project, a status outside an overview, several posts
+ * without an overview to land on.
+ */
+export function projectsOf(posts: Post[]): Project[] {
+  const groups = new Map<string, Post[]>()
+  for (const post of posts) {
+    const { project, overview, status, lang } = post.data
+    if (status && !overview) throw new Error(`content/posts/${post.id}.md: "status" is for a project's overview only`)
+    if (!project) {
+      if (overview) throw new Error(`content/posts/${post.id}.md: "overview: true" without a project`)
+      continue
+    }
+    const key = `${lang}:${slugifyProject(project)}`
+    groups.set(key, [...(groups.get(key) ?? []), post])
+  }
+
+  const projects = [...groups.values()].map((group): Project => {
+    const { project: name = "", lang } = group[0].data
+    const slug = slugifyProject(name)
+    const other = group.find(({ data }) => data.project !== name)
+    if (other) {
+      throw new Error(`content/posts/${other.id}.md: project "${other.data.project}" shares its slug with "${name}"`)
+    }
+    const overviews = group.filter(({ data }) => data.overview)
+    if (overviews.length > 1) {
+      throw new Error(`Project "${name}" (${lang}) has several overviews: ${overviews.map(({ id }) => id).join(", ")}`)
+    }
+    const oldestFirst = group.toSorted((a, b) => a.data.date.getTime() - b.data.date.getTime())
+    const overview = overviews[0]
+    if (group.length > 1 && !overview) {
+      throw new Error(
+        `Project "${name}" (${lang}) has several posts but no overview: add "overview: true" to the post that presents it`
+      )
+    }
+    const ordered = overview ? [overview, ...oldestFirst.filter((post) => post !== overview)] : oldestFirst
+    return {
+      name,
+      slug,
+      lang,
+      posts: ordered,
+      overview,
+      status: overview?.data.status ?? "in-progress",
+      updated: new Date(Math.max(...group.map(({ data }) => (data.lastmod ?? data.date).getTime()))),
+      url: postPath(ordered[0]),
+    }
+  })
+
+  // In progress first, then the most recently updated
   return projects.sort(
-    (a, b) => order[a.data.status] - order[b.data.status] || b.data.started.getTime() - a.data.started.getTime()
+    (a, b) => Number(a.status === "done") - Number(b.status === "done") || b.updated.getTime() - a.updated.getTime()
   )
 }
 
 /**
- * Logs of one language (all languages without argument), newest first. Fails the build when a log names a
- * project that does not exist in its language: a typo would otherwise hide it from the project page.
+ * Projects of one language (all languages without argument). Fails the build when a project exists in one language
+ * only: the site is bilingual, so that is most likely a typo in a post's `project` name ("Axom" for "Axon").
  */
-export async function getLogs(language?: Language): Promise<Log[]> {
-  const [logs, projects] = await Promise.all([
-    getCollection("logs", ({ data }) => !language || data.lang === language),
-    getCollection("projects"),
-  ])
-  const known = new Set(projects.map(({ data }) => `${data.lang}:${data.slug}`))
-  for (const log of logs) {
-    for (const slug of log.data.projects) {
-      if (!known.has(`${log.data.lang}:${slug}`)) {
-        throw new Error(
-          `content/logs/${log.id}.md: no project "${slug}" in ${log.data.lang} (content/projects/${slug}/index.${log.data.lang}.md)`
-        )
-      }
+export async function getProjects(language?: Language): Promise<Project[]> {
+  const projects = projectsOf(await getCollection("posts"))
+  const keys = new Set(projects.map(({ slug, lang }) => `${lang}:${slug}`))
+  for (const { name, slug, lang, posts } of projects) {
+    const other = lang === "en" ? "fr" : "en"
+    if (!keys.has(`${other}:${slug}`)) {
+      throw new Error(
+        `Project "${name}" exists in ${lang} only (${posts.map(({ id }) => id).join(", ")}): ` +
+          `no ${other} post has "project: ${name}"`
+      )
     }
   }
-  return logs.sort((a, b) => logDate(b).getTime() - logDate(a).getTime())
+  return language ? projects.filter(({ lang }) => lang === language) : projects
+}
+
+/** Project of a post, if it belongs to one */
+export async function projectOf(post: Post): Promise<Project | undefined> {
+  const { project, lang } = post.data
+  if (!project) return undefined
+  return (await getProjects(lang)).find(({ slug }) => slug === slugifyProject(project))
 }

@@ -8,7 +8,9 @@ tags:
   - Electronics
   - Firmware
   - ESP32
-category: Projects
+project: PaperFlux
+overview: true
+status: done
 image: main.jpg
 ---
 <div class="float-left">

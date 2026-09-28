@@ -9,7 +9,6 @@ tags:
   - Impression 3D
   - CAO
   - Fusion 360
-category: Projects
 image: altered-deck-box/print-2.jpg
 ---
 

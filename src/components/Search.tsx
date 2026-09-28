@@ -31,6 +31,7 @@ const Search = ({ posts, lang, strings }: { posts: SearchablePost[]; lang: Langu
           { name: "description", weight: 2 },
           { name: "tags.name", weight: 2 },
           { name: "category.label", weight: 1 },
+          { name: "project.label", weight: 1 },
           { name: "searchExcerpt", weight: 1 },
         ],
         threshold: 0.4,

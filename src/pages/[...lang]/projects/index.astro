@@ -4,18 +4,18 @@ import ProjectStatus from "@/components/ProjectStatus.astro"
 import Separator from "@/components/Separator.astro"
 import Layout from "@/layouts/Layout.astro"
 import { formatDate, getTranslations, type Language, languagePaths, localizedPath } from "@/lib/i18n"
-import { getLogs, getProjects, logDate, projectPath } from "@/lib/projects"
+import { excerpt } from "@/lib/posts"
+import { getProjects } from "@/lib/projects"
 
 export const getStaticPaths = languagePaths
 
 const { lang } = Astro.props as { lang: Language }
 const t = getTranslations(lang)
-const [projects, logs] = await Promise.all([getProjects(lang), getLogs(lang)])
 
-const cards = projects.map((project) => {
-  // Newest first: the first matching log is the latest
-  const projectLogs = logs.filter(({ data }) => data.projects.includes(project.data.slug))
-  return { project, logCount: projectLogs.length, lastLog: projectLogs[0] }
+const cards = (await getProjects(lang)).map((project) => {
+  // The overview presents the project once written; until then, its latest post tells where it stands
+  const lead = project.overview ?? project.posts[project.posts.length - 1]
+  return { project, description: lead.data.description ?? excerpt(lead, 160) }
 })
 ---
 
@@ -39,24 +39,23 @@ const cards = projects.map((project) => {
     {
       cards.length > 0 ? (
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {cards.map(({ project, logCount, lastLog }) => (
+          {cards.map(({ project, description }) => (
             <Card className="relative flex flex-col gap-3 p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-md">
               <div class="flex items-start justify-between gap-3">
                 <h2 class="text-lg font-semibold leading-snug">
                   <a
-                    href={projectPath(project)}
+                    href={project.url}
                     class="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
                   >
-                    {project.data.title}
+                    {project.name}
                   </a>
                 </h2>
-                <ProjectStatus status={project.data.status} lang={lang} />
+                <ProjectStatus status={project.status} lang={lang} />
               </div>
-              <p class="flex-1 text-sm text-muted-foreground">{project.data.description}</p>
+              <p class="flex-1 text-sm text-muted-foreground">{description}</p>
               <p class="text-xs text-muted-foreground">
-                {t("projects.started", { date: formatDate(project.data.started, lang) })} ·{" "}
-                {t("projects.logCount", { count: logCount })}
-                {lastLog && <>, {t("projects.lastLog", { date: formatDate(logDate(lastLog), lang) })}</>}
+                {t("projects.updated", { date: formatDate(project.updated, lang) })} ·{" "}
+                {t("projects.postCount", { count: project.posts.length })}
               </p>
             </Card>
           ))}

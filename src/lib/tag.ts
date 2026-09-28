@@ -22,6 +22,10 @@ export function slugifyCategory(category: string): string {
   return slugify(category)
 }
 
+export function slugifyProject(project: string): string {
+  return slugify(project)
+}
+
 export function tagPath(tag: string, language: string): string {
   return localizedPath(`/tag/${slugifyTag(tag)}/`, language)
 }

@@ -36,33 +36,25 @@
 
 EN / FR routing lives in `src/pages/[...lang]/`: each page is built once per language, without prefix for English and under `/fr/` for French. UI strings are in `locales/<lang>/translation.json`.
 
-### Projects and daily logs
+### Projects
 
-A project gathers the day-by-day logs written while working on it, the raw material of its final post. Both are bilingual like posts (`index.en.md` + `index.fr.md`):
+A project is a set of posts sharing a `project` name in their front matter, the same in both languages:
 
 ```md
-<!-- content/projects/paperflux/index.en.md: page /projects/paperflux/ -->
 ---
-title: PaperFlux
-slug: paperflux
-lang: en
-description: My GitHub week printed on a thermal receipt.
-status: in-progress        # in-progress (default), paused or done
-started: 2026-06-01
-post: paperflux            # slug of the final post, once published: linked both ways
+title: "Axon, part 2: the prototype"
+project: Axon              # the name drives the project's address: /projects/axon/
+overview: true             # optional: the project's overview
+status: done               # overview only: in-progress (default) or done
 ---
-What the project is about.
-
-<!-- content/logs/2026-09-28/index.en.md: page /logs/2026-09-28/, the folder name is the day -->
----
-title: First print test    # optional, the date is enough
-lang: en
-projects: [paperflux]      # one or more project slugs
----
-What I did today. Images and CSV charts go in the day's folder.
 ```
 
-Logs show up on `/logs/` (with an RSS feed at `/logs/rss.xml`) and, in full, on each of their projects' pages. A project slug that does not exist in the log's language fails the build.
+- A project with **one post** shows as any other post: its card on `/projects/` leads straight to it.
+- A project with **several posts** must have an **overview**, its landing page: it presents the whole project and links to its posts, and can be written early and updated along the way. Each post of the project lists the others under its header, the overview first, then the other posts oldest first.
+- `/projects/<slug>/` redirects to the overview (or the only post): a stable address to share.
+- The project is in progress until the overview says `status: done`.
+
+Project posts show a "Project" badge where a category would be; tutorials keep the `Tutorials` category. Two overviews in a project, an overview outside any project, a `status` outside an overview, several posts without an overview, two project names sharing a slug, or a project in one language only (most likely a typo in its name) fail the build.
 
 ### Charts from a CSV
 

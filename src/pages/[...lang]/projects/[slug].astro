@@ -1,130 +1,15 @@
 ---
-import "katex/dist/katex.min.css"
-import { getImage, Image } from "astro:assets"
-import { render } from "astro:content"
-import { ArrowRight } from "lucide-react"
-import Breadcrumb from "@/components/Breadcrumb.astro"
-import LogEntry from "@/components/LogEntry.astro"
-import ProjectStatus from "@/components/ProjectStatus.astro"
-import Separator from "@/components/Separator.astro"
-import { buttonVariants } from "@/components/ui/button"
-import Layout from "@/layouts/Layout.astro"
-import { formatDate, getTranslations, languageParam, localizedPath } from "@/lib/i18n"
-import { getPosts, postPath } from "@/lib/posts"
-import { getLogs, getProjects, projectPath } from "@/lib/projects"
+import { languageParam } from "@/lib/i18n"
+import { getProjects } from "@/lib/projects"
 
+// A project lands on its overview (or its only post): /projects/<slug>/ is a stable address that redirects there.
+// GitHub Pages has no server redirects: Astro writes a meta-refresh page.
 export async function getStaticPaths() {
-  const [projects, logs, posts] = await Promise.all([getProjects(), getLogs(), getPosts()])
-  const keys = new Set(projects.map(({ data }) => `${data.slug}:${data.lang}`))
-  return projects.map((project) => {
-    const { slug, lang, post } = project.data
-    const finalPost = post ? posts.find(({ data }) => data.slug === post && data.lang === lang) : undefined
-    if (post && !finalPost) {
-      throw new Error(
-        `content/projects/${project.id}.md: no post "${post}" in ${lang} (content/posts/${post}/index.${lang}.md)`
-      )
-    }
-    return {
-      params: { lang: languageParam(lang), slug },
-      props: {
-        project,
-        projects: projects.filter(({ data }) => data.lang === lang),
-        logs: logs.filter(({ data }) => data.lang === lang && data.projects.includes(slug)),
-        finalPost,
-        hasTranslation: keys.has(`${slug}:${lang === "en" ? "fr" : "en"}`),
-      },
-    }
-  })
+  return (await getProjects()).map(({ slug, lang, url }) => ({
+    params: { lang: languageParam(lang), slug },
+    props: { to: url },
+  }))
 }
 
-type Props = Awaited<ReturnType<typeof getStaticPaths>>[number]["props"]
-
-const { project, projects, logs, finalPost, hasTranslation } = Astro.props as Props
-const { title, slug, lang, description, status, started, image } = project.data
-const t = getTranslations(lang)
-const { Content } = await render(project)
-const ogImage = image
-  ? (await getImage({ src: image, width: 1200, height: 630, format: "jpg", fit: "cover" })).src
-  : undefined
+return Astro.redirect(Astro.props.to, 301)
 ---
-
-<Layout
-  lang={lang}
-  alternatePath={hasTranslation ? undefined : "/projects/"}
-  seo={{
-    title: `${title} · ${t("projects.title")} · Alban Petit`,
-    description,
-    image: ogImage,
-    canonicalPath: projectPath(project),
-    alternatePaths: hasTranslation ? { en: `/projects/${slug}/`, fr: `/fr/projects/${slug}/` } : undefined,
-  }}
->
-  <div class="mx-auto max-w-3xl flex flex-col gap-8">
-    <Breadcrumb
-      label={t("a11y.breadcrumb")}
-      currentClass="max-w-xs truncate"
-      items={[
-        { label: t("breadcrumb.home"), href: localizedPath("/", lang) },
-        { label: t("projects.title"), href: localizedPath("/projects/", lang) },
-        { label: title },
-      ]}
-    />
-
-    <header class="flex flex-col gap-4">
-      <div class="flex flex-wrap items-center gap-3">
-        <ProjectStatus status={status} lang={lang} />
-        <span class="text-sm text-muted-foreground">
-          {t("projects.started", { date: formatDate(started, lang) })} · {t("projects.logCount", { count: logs.length })}
-        </span>
-      </div>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight">{title}</h1>
-      <p class="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary pl-4">{description}</p>
-      {
-        finalPost && (
-          <a href={postPath(finalPost)} class={buttonVariants({ className: "self-start font-semibold" })}>
-            {t("projects.finalPost")}
-            <ArrowRight className="h-4 w-4" />
-          </a>
-        )
-      }
-    </header>
-
-    {
-      image && (
-        <div class="overflow-hidden rounded-lg">
-          <Image
-            src={image}
-            alt=""
-            width={800}
-            widths={[400, 800, 1200]}
-            sizes="(min-width: 800px) 800px, 100vw"
-            loading="eager"
-            class="w-full aspect-video object-cover"
-          />
-        </div>
-      )
-    }
-
-    <div class="prose prose-neutral dark:prose-invert max-w-none">
-      <Content />
-    </div>
-
-    <Separator />
-
-    <section class="flex flex-col gap-8" aria-labelledby="project-logs">
-      <h2 id="project-logs" class="text-2xl font-bold tracking-tight">{t("projects.logs")}</h2>
-      {
-        logs.length > 0 ? (
-          logs.map((log) => <LogEntry log={log} projects={projects} full headingLevel="h3" currentProject={slug} />)
-        ) : (
-          <p class="text-muted-foreground">{t("projects.noLogs")}</p>
-        )
-      }
-    </section>
-  </div>
-</Layout>
-
-<script>
-  import "@/scripts/chart"
-  import "@/scripts/mermaid"
-</script>
