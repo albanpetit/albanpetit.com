@@ -34,7 +34,9 @@ export const readingTime = (post: Post) =>
 export function excerpt(post: Post, length: number) {
   const text = plainText((post.body ?? "").replace(/```[\s\S]*?```/g, " ").replace(/\$\$[\s\S]*?\$\$/g, " "))
   if (text.length <= length) return text
-  return `${text.slice(0, text.slice(0, length).lastIndexOf(" "))}…`
+  const lastSpace = text.slice(0, length).lastIndexOf(" ")
+  // No space to cut on (a long URL for instance): cut mid-word rather than keep the whole text
+  return `${text.slice(0, lastSpace > 0 ? lastSpace : length)}…`
 }
 
 /** Everything a post card needs, serializable so React islands (search, blog filter) can receive it */
