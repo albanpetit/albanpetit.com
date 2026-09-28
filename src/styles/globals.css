@@ -150,44 +150,50 @@
     content: none;
   }
 
-  /* Single image: a centered block, capped at its own width */
   .prose img {
     @apply mx-auto my-6 block rounded-lg shadow-sm;
   }
 
-  /* Media row: a group of images/videos (consecutive image lines, or wrapped in a
-     .media-row div) form a single full-width row at a shared, responsive height —
-     like a justified photo strip. Photos of unrelated ratios can't both fill the
-     row's width AND keep their exact ratio AND match each other's height without
-     knowing every ratio ahead of time (a pure-CSS limit, no JS here) — cover
-     crops the excess instead of stretching, so nothing ever gets distorted; videos
-     override this below with their exact known ratio instead, so no crop needed. */
-  .prose .media-row,
-  .prose p:has(> img ~ img) {
-    @apply my-6 flex gap-3;
-    height: clamp(9rem, 32vw, 22rem);
+  /* An image alone in its paragraph spans the whole column (rehype-image-layout.ts) */
+  .prose img.media-single {
+    width: 100%;
   }
 
+  /* Group of images (consecutive image lines) and .media-row of videos: justified rows. With
+     flex-basis 0 and flex-grow set to each item's aspect ratio (--ratio, measured at build time for
+     images), width ∝ ratio, and since height = width / ratio every item of a row gets the same
+     height: the row fills the column with nothing cropped or stretched. */
+  .prose .media-grid {
+    @apply my-6 flex flex-col gap-3;
+  }
+  .prose .media-grid-row,
+  .prose .media-row {
+    @apply my-0 flex gap-3;
+  }
+  .prose .media-row {
+    @apply my-6;
+  }
+  .prose .media-grid-row > img {
+    flex: var(--ratio, 1) 1 0%;
+    @apply m-0 min-w-0;
+    width: 100%;
+    height: auto;
+  }
   .prose .media-row > * {
-    @apply min-w-0 flex-1 overflow-hidden rounded-lg shadow-sm;
-    height: 100%;
+    @apply min-w-0 overflow-hidden rounded-lg shadow-sm;
     margin: 0 !important;
     max-width: none !important;
   }
-
-  .prose p:has(> img ~ img) > img {
-    @apply min-w-0 flex-1;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    object-fit: cover;
+  /* Phones: one image per line, each at full width */
+  @media (max-width: 639px) {
+    .prose .media-grid-row {
+      @apply flex-col;
+    }
+    .prose .media-grid-row > img {
+      flex: none;
+    }
   }
 
-  /* Videos keep their own aspect ratio via flex-grow (not an equal share like photos):
-     with flex-basis 0 and grow set to each item's own ratio, width ∝ ratio and — since
-     height = width / ratio — every item in the row lands at the same height, so a
-     portrait Short sits at a sensible width next to a landscape video instead of
-     towering over it. */
   .prose .media-row .youtube-embed {
     flex: 1.7778 1 0%;
     max-width: none;

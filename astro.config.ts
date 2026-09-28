@@ -12,7 +12,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypeKatex from "rehype-katex"
 import remarkMath from "remark-math"
 import { linkedFiles, remarkLinkedFiles } from "./src/markdown/linked-files"
-import rehypeImageSizes from "./src/markdown/rehype-image-sizes"
+import rehypeImageLayout from "./src/markdown/rehype-image-layout"
 import rehypePreTabindex from "./src/markdown/rehype-pre-tabindex"
 import remarkChart from "./src/markdown/remark-chart"
 import remarkMermaid from "./src/markdown/remark-mermaid"
@@ -96,7 +96,7 @@ export default defineConfig({
       rehypePlugins: [
         [rehypeKatex, { strict: "ignore" }],
         rehypePreTabindex,
-        rehypeImageSizes,
+        rehypeImageLayout,
         // Ids first so the anchors have something to point at; headings get scroll-margin-top in globals.css
         rehypeHeadingIds,
         [
