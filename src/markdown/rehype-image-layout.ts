@@ -16,8 +16,9 @@ const isBlank = (node: ElementContent) => node.type === "text" && node.value.tri
 
 /** The image of a layout unit: an image, or a link around a single image ([![alt](img)](url)) */
 function imageOf(node: ElementContent): Element | undefined {
-  if (isImage(node)) return node
-  if (node.type !== "element" || node.tagName !== "a") return undefined
+  if (node.type !== "element") return undefined
+  if (node.tagName === "img") return node
+  if (node.tagName !== "a") return undefined
   const content = node.children.filter((child) => !isBlank(child))
   return content.length === 1 && isImage(content[0]) ? content[0] : undefined
 }
