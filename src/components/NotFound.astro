@@ -11,7 +11,8 @@ const other = otherLanguage(lang)
 const tOther = getTranslations(other)
 ---
 
-<Layout lang={lang} seo={{ title: "404 · Alban Petit", noindex: true }}>
+{/* One 404.html serves every missing URL: the language switch goes to the other home page */}
+<Layout lang={lang} alternatePath="/" seo={{ title: "404 · Alban Petit", noindex: true }}>
   <div class="flex flex-col items-center justify-center gap-8 py-24 text-center">
     <div class="relative select-none">
       <span
