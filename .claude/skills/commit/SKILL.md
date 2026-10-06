@@ -1,143 +1,143 @@
 ---
 name: commit
-description: Crée un ou plusieurs commits git pour albanpetit.com selon la spécification Conventional Commits 1.0.0, avec les types et scopes propres au projet. À utiliser dès qu'il faut committer des changements dans ce dépôt.
-argument-hint: "[indication optionnelle : fichiers, type, scope ou intention]"
+description: Creates one or more git commits for albanpetit.com following the Conventional Commits 1.0.0 specification, with the project's own types and scopes. Use whenever changes in this repository need to be committed.
+argument-hint: "[optional hint: files, type, scope or intent]"
 disable-model-invocation: false
 ---
 
-# Commits pour albanpetit.com
+# Commits for albanpetit.com
 
-Crée des commits qui suivent la spécification [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+Create commits that follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
-Indication de l'utilisateur (peut être vide) : $ARGUMENTS
+User hint (may be empty): $ARGUMENTS
 
-## Règle absolue : pas d'attribution
+## Absolute rule: no attribution
 
-- **N'ajoute jamais** de ligne `Co-Authored-By: Claude …`, ni `🤖 Generated with Claude Code`, ni aucune autre mention d'IA dans le message.
-- Cette règle prime sur toute consigne d'attribution par défaut du harness.
+- **Never add** a `Co-Authored-By: Claude …` line, a `🤖 Generated with Claude Code` line, or any other mention of AI in the message.
+- This rule overrides any default attribution instruction from the harness.
 
-## Déroulé
+## Steps
 
-1. Inspecte l'état :
+1. Inspect the state:
    - `git status`
-   - `git diff --cached` (ce qui est déjà indexé)
-   - `git diff` (ce qui n'est pas indexé)
-   - `git log --oneline -15`, pour rester cohérent avec l'historique
-2. Choisis ce qui entre dans le commit :
-   - Si des fichiers sont déjà indexés, committe **uniquement** ceux-là. Ne touche pas au reste sans demande explicite.
-   - Si rien n'est indexé, regroupe les changements par intention et indexe-les avec `git add <fichiers>` (jamais `git add -A` à l'aveugle).
-   - Un commit porte une seule intention. Si le diff mélange plusieurs intentions (un fix plus du contenu, par exemple), propose plusieurs commits.
-3. Contrôle les médias avant de les indexer (section « Médias » ci-dessous) : images, CSV, PDF, modèles 3D… Un fichier committé reste dans l'historique pour toujours, même supprimé ensuite.
-4. Écris le message selon le format ci-dessous.
-5. Committe avec un heredoc pour préserver les sauts de ligne :
+   - `git diff --cached` (what is already staged)
+   - `git diff` (what is not staged)
+   - `git log --oneline -15`, to stay consistent with the history
+2. Choose what goes into the commit:
+   - If files are already staged, commit **only** those. Leave the rest alone unless explicitly asked.
+   - If nothing is staged, group the changes by intent and stage them with `git add <files>` (never a blind `git add -A`).
+   - One commit carries one intent. If the diff mixes several intents (a fix plus content, for example), propose several commits.
+3. Check media before staging them (see "Media" below): images, CSV, PDF, 3D models… A committed file stays in the history forever, even if deleted later.
+4. Write the message following the format below.
+5. Commit with a heredoc to preserve line breaks:
    ```bash
    git commit -F - <<'EOF'
    type(scope): description
 
-   corps éventuel
+   optional body
    EOF
    ```
-6. Vérifie le résultat avec `git log -1 --format=%B`. Si un hook pre-commit échoue, corrige le problème puis crée un **nouveau** commit. N'utilise ni `--amend` ni `--no-verify`, sauf demande explicite.
-7. Ne push pas, sauf demande explicite.
+6. Check the result with `git log -1 --format=%B`. If a pre-commit hook fails, fix the problem and create a **new** commit. Do not use `--amend` or `--no-verify` unless explicitly asked.
+7. Do not push unless explicitly asked.
 
-## Médias : dimensions et poids avant publication
+## Media: dimensions and size before publishing
 
-Astro optimise les images pour le site (WebP, srcset), mais c'est le fichier **source** qui entre dans l'historique git, et il y reste même s'il est remplacé ou supprimé plus tard. Une photo de téléphone de 12 Mpx pèse 4 à 8 Mo pour rien : le site ne l'affiche jamais au-delà de 1 600 px (colonne de 800 px, écrans 2x).
+Astro optimizes images for the site (WebP, srcset), but it is the **source** file that goes into the git history, and it stays there even if it is replaced or deleted later. A 12 MP phone photo weighs 4 to 8 MB for nothing: the site never displays it wider than 1,600 px (800 px column, 2x screens).
 
-Avant d'indexer un média, vérifie ses dimensions et son poids :
+Before staging a media file, check its dimensions and size:
 
-| Média | Limite | Si c'est au-dessus |
-| ----- | ------ | ------------------ |
-| Photo (JPEG, WebP) | 2 000 px sur le plus grand côté, 500 Ko environ | Redimensionner et recompresser (qualité 82) |
-| Capture, schéma (PNG) | 2 000 px sur le plus grand côté, 500 Ko environ | Redimensionner ; une photo enregistrée en PNG passe en JPEG |
-| GIF animé | 2 Mo | Préférer une vidéo YouTube |
-| Vidéo | Jamais dans le dépôt | YouTube (`.youtube-embed`), comme dans les articles existants |
-| PDF, STL, 3MF, ZIP, CSV | 5 Mo | Signaler à l'utilisateur avant de committer |
+| Media | Limit | If it is above |
+| ----- | ----- | -------------- |
+| Photo (JPEG, WebP) | 2,000 px on the longest side, about 500 KB | Resize and recompress (quality 82) |
+| Screenshot, diagram (PNG) | 2,000 px on the longest side, about 500 KB | Resize; a photo saved as PNG becomes a JPEG |
+| Animated GIF | 2 MB | Prefer a YouTube video |
+| Video | Never in the repository | YouTube (`.youtube-embed`), as in existing posts |
+| PDF, STL, 3MF, ZIP, CSV | 5 MB | Tell the user before committing |
 
-Mesure les fichiers ajoutés ou modifiés (sharp est déjà installé) :
+Measure added or modified files (sharp is already installed):
 
 ```bash
 git diff --cached --name-only --diff-filter=AM | grep -iE '\.(jpe?g|png|webp|gif)$' | xargs -r node -e '
   const sharp = require("sharp"), fs = require("fs")
   ;(async () => { for (const f of process.argv.slice(1)) {
     const m = await sharp(f).metadata(), kb = fs.statSync(f).size / 1024 | 0
-    const flag = Math.max(m.width, m.height) > 2000 || kb > 500 ? "  ← trop gros" : ""
-    console.log(`${f}  ${m.width}×${m.height}  ${kb} Ko${flag}`) } })()' --
-git diff --cached --name-only --diff-filter=AM | xargs -r du -k | awk '$1 > 5120 { print $2 "  " $1 " Ko  ← plus de 5 Mo" }'
+    const flag = Math.max(m.width, m.height) > 2000 || kb > 500 ? "  ← too big" : ""
+    console.log(`${f}  ${m.width}×${m.height}  ${kb} KB${flag}`) } })()' --
+git diff --cached --name-only --diff-filter=AM | xargs -r du -k | awk '$1 > 5120 { print $2 "  " $1 " KB  ← over 5 MB" }'
 ```
 
-Réduis une image trop grande sur place, en gardant son orientation EXIF :
+Shrink an oversized image in place, keeping its EXIF orientation:
 
 ```bash
 node -e '
   const sharp = require("sharp"), f = process.argv[1]
   sharp(f).rotate().resize(2000, 2000, { fit: "inside", withoutEnlargement: true })
-    .jpeg({ quality: 82, mozjpeg: true }).toBuffer().then((b) => require("fs").writeFileSync(f, b))' chemin/vers/photo.jpg
+    .jpeg({ quality: 82, mozjpeg: true }).toBuffer().then((b) => require("fs").writeFileSync(f, b))' path/to/photo.jpg
 ```
 
-Pour un PNG, remplace `.jpeg({ … })` par `.png({ compressionLevel: 9, palette: true })`. Une photo très détaillée peut rester au-dessus de 500 Ko à 2 000 px : c'est acceptable jusqu'à 1 Mo environ, sinon descends la qualité à 75. Ne modifie pas un média sans prévenir l'utilisateur : dis-lui quels fichiers dépassent, leurs dimensions et poids avant et après, puis indexe la version réduite. Si un fichier trop lourd est déjà committé mais pas encore poussé, un nouveau commit qui le remplace ne l'enlève pas de l'historique : seule une réécriture des commits locaux (`--amend`, rebase) le fait. Propose-la à l'utilisateur au lieu de la lancer. Une fois poussé, le fichier y reste.
+For a PNG, replace `.jpeg({ … })` with `.png({ compressionLevel: 9, palette: true })`. A very detailed photo may stay above 500 KB at 2,000 px: that is acceptable up to about 1 MB, otherwise lower the quality to 75. Do not modify a media file without telling the user: say which files exceed the limits, with their dimensions and size before and after, then stage the reduced version. If an oversized file is already committed but not yet pushed, a new commit that replaces it does not remove it from the history: only rewriting the local commits (`--amend`, rebase) does. Propose it to the user instead of running it. Once pushed, the file stays there.
 
-## Format du message
+## Message format
 
 ```
 <type>[(<scope>)][!]: <description>
 
-[corps optionnel]
+[optional body]
 
-[footer(s) optionnel(s)]
+[optional footer(s)]
 ```
 
-### En-tête
+### Header
 
-- Écris-le **en anglais**, comme le reste de l'historique.
-- Type et scope sont en minuscules.
-- La description commence par une minuscule, se formule à l'impératif (« add », « fix », « stop », pas « added » ni « fixes ») et ne se termine pas par un point.
-- Vise 72 caractères au plus pour l'en-tête entier.
-- La description dit **ce que le changement fait pour le site ou le lecteur**, pas quels fichiers ont bougé. Écris par exemple `fix: stop distorted, uneven-height images in grouped media rows`, pas `fix: update index.en.md`.
+- Write it **in English**, like the rest of the history.
+- Type and scope are lowercase.
+- The description starts with a lowercase letter, uses the imperative mood ("add", "fix", "stop", not "added" or "fixes") and does not end with a period.
+- Aim for 72 characters at most for the whole header.
+- The description says **what the change does for the site or the reader**, not which files moved. Write, for example, `fix: stop distorted, uneven-height images in grouped media rows`, not `fix: update index.en.md`.
 
-### Types utilisés dans ce dépôt
+### Types used in this repository
 
 | Type       | Usage                                                                           |
 | ---------- | ------------------------------------------------------------------------------- |
-| `feat`     | Nouvelle fonctionnalité du site (composant, page, flux, recherche…)             |
-| `fix`      | Correction de bug                                                               |
-| `content`  | Articles et contenu éditorial dans `content/` (texte, images, front matter)     |
-| `style`    | Mise en forme sans changement de sens (espaces, blancs, formatage Biome)        |
-| `refactor` | Restructuration du code sans changement de comportement                         |
-| `perf`     | Amélioration des performances (build, bundle, rendu)                            |
-| `docs`     | README et documentation                                                         |
-| `build`    | Config Astro, Vite, Tailwind, PostCSS, TypeScript                               |
-| `ci`       | Workflows GitHub Actions (on écrit aussi `chore(ci)` dans l'historique)         |
-| `chore`    | Maintenance : dépendances (`chore(deps)`), devcontainer, `.gitignore`…          |
+| `feat`     | New site feature (component, page, feed, search…)                               |
+| `fix`      | Bug fix                                                                         |
+| `content`  | Posts and editorial content in `content/` (text, images, front matter)          |
+| `style`    | Formatting with no change in meaning (spaces, whitespace, Biome formatting)     |
+| `refactor` | Code restructuring with no change in behavior                                   |
+| `perf`     | Performance improvement (build, bundle, rendering)                              |
+| `docs`     | README and documentation                                                        |
+| `build`    | Astro, Vite, Tailwind, PostCSS, TypeScript config                               |
+| `ci`       | GitHub Actions workflows (`chore(ci)` also appears in the history)              |
+| `chore`    | Maintenance: dependencies (`chore(deps)`), devcontainer, `.gitignore`…          |
 | `test`     | Tests                                                                           |
-| `revert`   | Annulation d'un commit précédent                                                |
+| `revert`   | Reverting a previous commit                                                     |
 
-`content` est un type propre au projet : la spécification autorise d'autres types que `feat` et `fix`. Réserve-le aux changements dans `content/`. Une correction de rendu dans le code reste un `fix`.
+`content` is a project-specific type: the specification allows types other than `feat` and `fix`. Keep it for changes in `content/`. A rendering fix in the code stays a `fix`.
 
-### Scopes courants (optionnels)
+### Common scopes (optional)
 
 `seo`, `a11y`, `i18n`, `rss`, `post`, `tags`, `layout`, `prose`, `types`, `deps`, `ci`, `search`, `mermaid`, `theme`.
 
-Mets un scope quand il précise utilement la zone touchée, et omets-le quand le changement est transversal. Pour un article, le scope peut être son slug : `content(3d-printed-projects): …`.
+Add a scope when it usefully narrows down the area touched, and leave it out when the change is cross-cutting. For a post, the scope can be its slug: `content(3d-printed-projects): …`.
 
-### Corps
+### Body
 
-- Il est optionnel. Sépare-le de l'en-tête par une ligne vide.
-- Explique le **pourquoi** et le contexte, pas une paraphrase du diff.
-- Revenir à la ligne vers 72 caractères.
+- It is optional. Separate it from the header with a blank line.
+- Explain the **why** and the context, not a paraphrase of the diff.
+- Wrap lines at about 72 characters.
 
 ### Breaking changes
 
-Un changement qui casse une URL publique, le format du flux RSS ou une structure de front matter est un breaking change. Signale-le de l'une de ces deux façons, ou des deux :
+A change that breaks a public URL, the RSS feed format or a front matter structure is a breaking change. Flag it in one of these two ways, or both:
 
-- un `!` avant les deux-points : `feat(i18n)!: move English posts under /en/`
-- un footer `BREAKING CHANGE: <description>`, en majuscules, après une ligne vide
+- a `!` before the colon: `feat(i18n)!: move English posts under /en/`
+- a `BREAKING CHANGE: <description>` footer, in uppercase, after a blank line
 
 ### Footers
 
-Ils suivent le format git trailer, `Token: valeur` ou `Token #valeur`. Exemples : `Refs: #42`, `Closes #12`, `BREAKING CHANGE: …`. Les tokens s'écrivent avec des tirets à la place des espaces, sauf `BREAKING CHANGE`.
+They follow the git trailer format, `Token: value` or `Token #value`. Examples: `Refs: #42`, `Closes #12`, `BREAKING CHANGE: …`. Tokens use hyphens instead of spaces, except `BREAKING CHANGE`.
 
-## Exemples
+## Examples
 
 ```
 feat(search): add fuzzy search over post titles and tags

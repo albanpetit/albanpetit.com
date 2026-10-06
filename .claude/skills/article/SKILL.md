@@ -1,113 +1,132 @@
 ---
 name: article
-description: Écrit, importe ou traduit un article de blog pour albanpetit.com, en français et en anglais, avec son front matter, ses images et sa mise en forme (graphiques, schémas KiCad, vidéos YouTube, Mermaid, formules). À utiliser dès que l'utilisateur veut publier un article (tuto, article de projet, présentation d'un projet), transformer une note (Bear, Obsidian…) en article, ou retoucher un article existant.
-argument-hint: "[sujet, note à importer ou projet]"
+description: Writes, imports or translates a blog post for albanpetit.com, in French and English, with its front matter, images and formatting (charts, KiCad schematics, YouTube videos, Mermaid, formulas). Use whenever the user wants to publish a post (tutorial, project post, project overview), turn a note (Bear, Obsidian…) into a post, or edit an existing post.
+argument-hint: "[topic, note to import or project]"
 disable-model-invocation: false
 ---
 
-# Articles pour albanpetit.com
+# Posts for albanpetit.com
 
-Demande de l'utilisateur (peut être vide) : $ARGUMENTS
+User request (may be empty): $ARGUMENTS
 
-Un article se trouve dans `content/posts/<dossier>/`, avec `index.fr.md`, `index.en.md` et ses médias à côté. Il est publié sur `/post/<slug>/` et `/fr/post/<slug>/`. Les deux langues ont la même structure, les mêmes images et les mêmes tags dans le même ordre. L'utilisateur écrit en français ; l'anglais est une traduction fidèle, pas un résumé.
+A post lives in `content/posts/<folder>/`, with `index.fr.md`, `index.en.md` and its media next to them. It is published at `/post/<slug>/` and `/fr/post/<slug>/`. Both languages have the same structure, the same images and the same tags in the same order. The user writes in French; the English version is a faithful translation, not a summary.
 
-## Déroulé
+## Steps
 
-1. Identifie la source :
-   - une note à importer (souvent `Nom.md` + un dossier `Nom/` à la racine du dépôt) ;
-   - un sujet à rédiger avec l'utilisateur ;
-   - un article existant à retoucher ou à traduire.
-2. Identifie le genre : un **tuto** (catégorie `Tutorials`), un **article de projet** (champ `project`, voir « Articles d'un projet ») ou un article isolé. Les projets existants : `grep -h "^project:" content/posts/*/index.fr.md | sort -u`.
-3. Lis un ou deux articles existants du même genre pour caler le ton et la mise en forme : `content/posts/paperflux/` pour un projet, `content/posts/raspberry-ssh-configuration/` pour un tutoriel.
-4. Écris `index.fr.md`, puis traduis-le en `index.en.md`.
-5. Traite les médias (section « Médias »).
-6. Vérifie avec `npm run lint` puis `npm run build`, et corrige ce qui échoue.
-7. Résume : titre, URL, description, tags, catégorie ou projet relié, et les médias réduits ou renommés. Ne committe pas : l'utilisateur lancera le skill `commit`.
+1. Identify the source:
+   - a note to import (often `Name.md` + a `Name/` folder at the root of the repository);
+   - a topic to write with the user;
+   - an existing post to edit or translate.
+2. Identify the kind: a **tutorial** (category `Tutorials`), a **project post** (`project` field, see "Project posts") or a standalone post. Existing projects: `grep -h "^project:" content/posts/*/index.fr.md | sort -u`.
+3. Read one or two existing posts of the same kind to match the tone and formatting: `content/posts/paperflux/` for a project, `content/posts/raspberry-ssh-configuration/` for a tutorial.
+4. Write `index.fr.md`, then translate it into `index.en.md`.
+5. Handle the media (see "Media").
+6. Check with `npm run lint` then `npm run build`, and fix whatever fails.
+7. Summarize: title, URL, description, tags, category or linked project, and the media that were reduced or renamed. Do not commit: the user will run the `commit` skill.
 
 ## Front matter
 
 ```md
 ---
 title: "Axon, partie 1 : concevoir un fond de panier modulaire pour mes robots"
-slug: axon-design          # identique en FR et EN, en kebab-case ; c'est l'URL, il ne change plus une fois publié
+slug: axon-design          # same in FR and EN, kebab-case; it is the URL and never changes once published
 lang: fr
-date: 2026-09-28           # date de publication, celle du jour par défaut (date +%F)
-lastmod: 2026-10-02        # seulement lors d'une retouche d'un article publié
+date: 2026-09-28           # publication date, today by default (date +%F)
+lastmod: 2026-10-02        # only when editing a published post
 description: "150 à 160 caractères qui donnent envie de lire : le quoi et le comment."
 tags:
   - Électronique
   - PCB
   - KiCad
-category: Tutorials        # tutos seulement
-project: Axon              # articles de projet seulement : nom du projet, identique en FR et EN
-overview: true             # présentation du projet seulement
-status: in-progress        # présentation seulement : in-progress (défaut) ou done
-image: main.jpg            # image de couverture, dans le dossier de l'article
+category: Tutorials        # tutorials only
+project: Axon              # project posts only: project name, identical in FR and EN
+overview: true             # project overview only
+status: in-progress        # overview only: in-progress (default) or done
+image: main.jpg            # cover image, in the post folder
 ---
 ```
 
-- Mets `title` et `description` entre guillemets dès qu'ils contiennent `:`.
-- **Tags** : 3 à 5, traduits, **dans le même ordre** en FR et en EN (le site apparie les pages de tags par position). Réutilise les tags existants avant d'en créer : `grep -h -A6 "^tags:" content/posts/*/index.fr.md`.
-- **Catégorie** : `Tutorials` pour un tuto, rien sinon. Un article de projet n'a pas de catégorie : son champ `project` le marque, et le site affiche un badge « Projet » à la place. Une nouvelle catégorie doit être traduite dans `categories` de `locales/en/translation.json` et `locales/fr/translation.json` ; demande à l'utilisateur avant d'en créer une.
-- **Couverture** : `main.jpg` au format paysage, lisible une fois recadrée en 16:9. Elle sert aussi d'aperçu pour les réseaux sociaux.
+- Quote `title` and `description` whenever they contain `:`.
+- **Tags**: 3 to 5, translated, **in the same order** in FR and EN (the site pairs tag pages by position). Reuse existing tags before creating new ones: `grep -h -A6 "^tags:" content/posts/*/index.fr.md`.
+- **Category**: `Tutorials` for a tutorial, nothing otherwise. A project post has no category: its `project` field marks it, and the site shows a "Project" badge instead. A new category must be translated in `categories` in `locales/en/translation.json` and `locales/fr/translation.json`; ask the user before creating one.
+- **Cover**: `main.jpg` in landscape format, still readable once cropped to 16:9. It also serves as the social media preview.
 
-## Articles d'un projet
+## Project posts
 
-Un projet n'est rien d'autre que les articles qui portent le même `project` : il n'y a pas de fiche à créer. Les logs de l'utilisateur restent dans ses notes personnelles ; ils servent de matière aux articles mais ne sont pas publiés.
+A project is nothing more than the posts that share the same `project`: there is no project page to create. The user's logs stay in their personal notes; they are material for the posts but are not published.
 
-- **`project: <Nom>`** dans les deux langues, écrit à l'identique : le nom donne l'adresse du projet (`Axon` → `/projects/axon/`, qui redirige vers sa page de garde). Réutilise le nom exact d'un projet existant ; une variante (`axon`, `AXON`) crée un conflit qui fait échouer le build.
-- **Un seul article** : il s'affiche comme n'importe quel article, et sa carte sur `/projects/` y mène directement. Si ce projet est terminé, cet article en est la présentation : ajoute `overview: true` et `status: done`.
-- **Plusieurs articles** : ils forment une série, et le projet **doit** avoir une présentation, qui sert de page de garde (sinon le build échoue). Chaque article affiche sous son en-tête la liste de la série. Numérote-les dans le titre (« Axon, partie 2 : le prototype »), donne un slug qui dit l'étape (`axon-design`, `axon-prototype`), et annonce la suite en fin d'article.
-- **La présentation** (`overview: true`, une seule par projet) est la page de garde du projet : c'est là que mènent la liste des projets, l'accueil et les badges. Elle passe en tête de la série. Elle peut s'écrire dès le début et s'enrichir au fil des parties ; son `status` donne celui du projet (`in-progress` par défaut, `done` quand il est terminé). Elle présente le projet et guide le lecteur vers les articles de la série, avec des liens aux endroits utiles (« le choix du connecteur est détaillé dans la [partie 1](/fr/post/axon-design/) »).
-- Un article écrit à partir de notes de travail en est la synthèse : raconte le projet dans l'ordre logique de sa construction, pas jour par jour. Garde les mesures, les erreurs et les choix abandonnés qui éclairent le résultat.
+- **`project: <Name>`** in both languages, written identically: the name gives the project's address (`Axon` → `/projects/axon/`, which redirects to its landing page). Reuse the exact name of an existing project; a variant (`axon`, `AXON`) creates a conflict that makes the build fail.
+- **A single post**: it is displayed like any other post, and its card on `/projects/` links straight to it. If the project is finished, this post is its overview: add `overview: true` and `status: done`.
+- **Several posts**: they form a series, and the project **must** have an overview, which serves as its landing page (otherwise the build fails). Each post shows the list of the series below its header. Number them in the title ("Axon, part 2: the prototype"), give a slug that names the stage (`axon-design`, `axon-prototype`), and announce what comes next at the end of the post.
+- **The overview** (`overview: true`, only one per project) is the project's landing page: it is where the project list, the home page and the badges lead. It comes first in the series. It can be written from the start and expanded as parts are published; its `status` gives the project's status (`in-progress` by default, `done` once finished). It introduces the project and guides the reader to the posts in the series, with links where they help ("the connector choice is detailed in [part 1](/post/axon-design/)").
+- A post written from work notes is a synthesis of them: tell the project in the logical order of how it was built, not day by day. Keep the measurements, mistakes and abandoned choices that shed light on the result.
 
-## Rédaction
+## Writing
 
-- **Première personne**, ton direct et concret, comme dans les articles existants : le besoin, ce qui existe, les choix, ce qui a raté, le résultat.
-- Pas de `# Titre` dans le corps : la page affiche `title` en h1. Les intertitres commencent à `##` ; les `##` et `###` forment la table des matières.
-- Français : apostrophes droites `'`, espace avant `:`, `;`, `!`, `?`. Pas de tiret cadratin (`—`) : utilise deux-points, parenthèses ou une nouvelle phrase.
-- Anglais : même découpage en sections et en paragraphes, pour que les deux versions restent faciles à comparer.
-- Chaque image a un texte alternatif qui la décrit (« Carte PaperFlux assemblée, vue de dessus »), jamais « Photo 1 » ni un alt vide.
-- Les liens internes sont absolus et localisés : `/fr/post/axon-design/` dans la version française, `/post/axon-design/` dans la version anglaise.
-- Ne retouche pas le fond du texte de l'utilisateur sans le dire. Corrige l'orthographe et la typographie ; pour une reformulation plus large, propose-la.
+- **First person**, direct and concrete tone, as in existing posts: the need, what already exists, the choices, what went wrong, the result.
+- No `# Title` in the body: the page renders `title` as the h1. Headings start at `##`; `##` and `###` make up the table of contents.
+- French: straight apostrophes `'`, a space before `:`, `;`, `!`, `?`. No em dash (`—`): use a colon, parentheses or a new sentence.
+- English: same split into sections and paragraphs, so both versions stay easy to compare.
+- Every image has alt text that describes it ("Carte PaperFlux assemblée, vue de dessus" / "Assembled PaperFlux board, top view"), never "Photo 1" or an empty alt.
+- Internal links are absolute and localized: `/fr/post/axon-design/` in the French version, `/post/axon-design/` in the English version.
+- Do not change the substance of the user's text without saying so. Fix spelling and typography; for broader rewording, propose it.
 
-## Importer une note (Bear, Obsidian…)
+## Importing a note (Bear, Obsidian…)
 
-- Supprime les lignes de tags (`#projets/axon`, `#website/to-publish`…).
-- Le `# Titre` de la première ligne devient le `title` ; la note a souvent un titre sans ponctuation (« Axon Concevoir un fond de panier… »), rétablis-la (« Axon : concevoir… »).
-- Supprime les commentaires de mise en page (`<!-- {"width":523} -->`) et remets une ligne vide avant et après chaque image, liste et intertitre.
-- Remplace `’` par `'`.
-- Déplace les images dans le dossier de l'article, renomme-les en kebab-case descriptif (`vme-bus-chassis.png` et non `d469a6b2-….jpg` ou `AC104.png.webp`) et mets à jour les liens.
-- Une image trouvée sur le web (photo de presse, Wikimedia…) doit citer sa source et sa licence sous l'image. Si elles sont inconnues, signale-le à l'utilisateur au lieu de publier sans.
-- Ne supprime pas la note d'origine : dis à l'utilisateur qu'elle peut l'être une fois l'import validé.
+- Remove tag lines (`#projets/axon`, `#website/to-publish`…).
+- The `# Title` on the first line becomes the `title`; the note often has a title without punctuation ("Axon Concevoir un fond de panier…"), restore it ("Axon : concevoir…").
+- Remove layout comments (`<!-- {"width":523} -->`) and put back a blank line before and after every image, list and heading.
+- Replace `’` with `'`.
+- Move the images into the post folder, rename them in descriptive kebab-case (`vme-bus-chassis.png`, not `d469a6b2-….jpg` or `AC104.png.webp`) and update the links.
+- An image found on the web (press photo, Wikimedia…) must credit its source and license below the image. If they are unknown, tell the user instead of publishing without them.
+- Do not delete the original note: tell the user it can be deleted once the import is approved.
 
-## Mise en forme disponible
+## Available formatting
 
-- **Images** : `![alt](fichier.jpg)`. Plusieurs images sur une même ligne, séparées par un espace, forment une rangée (3 par ligne au plus) ; une image seule prend toute la largeur. Une image cliquable `[![alt](img.jpg)](url)` fonctionne aussi.
-- **Fichier à télécharger** (PDF, STL…) : un lien relatif `[Datasheet ADXL335](datasheet-adxl-335.pdf)` ; le fichier est copié avec le site.
-- **Graphique depuis un CSV** : bloc ` ```chart ` (options dans le README, section « Charts from a CSV »).
-- **Diagramme** : bloc ` ```mermaid `.
-- **Formules** : `$…$` en ligne, `$$…$$` en bloc.
-- **Tableau** : Markdown classique. Un tableau récapitulatif sans en-tête (`| | |`) en début d'article, comme dans PaperFlux, marche bien pour un projet.
-- **Schéma et PCB KiCad interactifs** :
+- **Images**: `![alt](file.jpg)`. Several images on the same line, separated by a space, form a row (3 per line at most); a single image takes the full width. A clickable image `[![alt](img.jpg)](url)` works too.
+- **Downloadable file** (PDF, STL…): a relative link `[ADXL335 datasheet](datasheet-adxl-335.pdf)`; the file is copied with the site.
+- **Chart from a CSV**: put the CSV next to the post's images and add a ` ```chart ` block. Chart.js draws it, with the data as a table below (and in the RSS feed) plus a download link:
+  ````md
+  ```chart
+  file: ./temperatures.csv   # required, relative to the post
+  type: line                 # line (default), bar, scatter, pie, doughnut, or table for the table alone
+  title: Temperature over a day
+  x: hour                    # label column, the first one by default
+  y: [inside, outside]       # plotted columns, every other one by default
+  xLabel: Hour
+  yLabel: °C
+  ```
+  ````
+  `,`, `;` and tab delimiters and French decimals (`19,5`) are accepted; an empty cell is a gap. A typo in an option or a column name fails the build. After editing only a CSV, restart with `npm run dev -- --force` (Astro caches rendered posts).
+- **Diagram**: a ` ```mermaid ` block.
+- **Formulas**: `$…$` inline, `$$…$$` as a block.
+- **Table**: standard Markdown. A summary table without a header (`| | |`) at the start of the post, as in PaperFlux, works well for a project.
+- **Interactive KiCad schematic and PCB**:
   ```html
   <div class="kicad-embed">
-    <kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/<repo>/main/ecad/<nom>.kicad_sch" controls="full"></kicanvas-embed>
+    <kicanvas-embed src="https://raw.githubusercontent.com/albanpetit/<repo>/main/ecad/<name>.kicad_sch" controls="full"></kicanvas-embed>
   </div>
   ```
-  Deux blocs `kicad-embed` dans un `<div class="kicad-embed-pair">` s'affichent côte à côte.
-- **Vidéo YouTube** (jamais de vidéo dans le dépôt) :
+  Two `kicad-embed` blocks inside a `<div class="kicad-embed-pair">` are shown side by side.
+- **Interactive 3D model from a STEP file** (straight from the CAD repository):
+  ```html
+  <div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/<repo>/main/mcad/main/step/<name>.step" data-transparent="panel-plate">
+    <a href="https://github.com/albanpetit/<repo>/blob/main/mcad/main/step/<name>.step">STEP file on GitHub</a>
+  </div>
+  ```
+  `data-parts="macmini"` shows only the parts whose name contains that fragment; `data-transparent` draws the matching parts see-through. Both are optional, comma-separated. Write the link text in the post's language.
+- **YouTube video** (never a video in the repository):
   ```html
   <div class="youtube-embed">
     <iframe src="https://www.youtube-nocookie.com/embed/<ID>" title="…" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   ```
-  `youtube-embed youtube-embed--vertical` pour un Short ; deux vidéos dans un `<div class="media-row">` s'affichent côte à côte.
-- **Vidéo verticale à côté du texte d'intro** : l'embed dans `<div class="float-left">…</div>`, les paragraphes, puis `<div class="clearfix"></div>`.
-- **Carte de dépôt GitHub** : copie le bloc `<a class="repo-card" …>` au début de `content/posts/paperflux/index.fr.md` et change le dépôt et la description.
+  `youtube-embed youtube-embed--vertical` for a Short; two videos inside a `<div class="media-row">` are shown side by side.
+- **Vertical video next to the intro text**: the embed inside `<div class="float-left">…</div>`, the paragraphs, then `<div class="clearfix"></div>`.
+- **GitHub repository card**: copy the `<a class="repo-card" …>` block at the start of `content/posts/paperflux/index.fr.md` and change the repository and description.
 
-Laisse une ligne vide avant et après chaque bloc HTML, sinon le Markdown qui suit n'est pas interprété.
+Leave a blank line before and after every HTML block, otherwise the Markdown that follows is not parsed.
 
-## Médias
+## Media
 
-Suis la section « Médias » du skill `commit` (`.claude/skills/commit/SKILL.md`) dès l'ajout du fichier : 2 000 px au plus sur le plus grand côté, environ 500 Ko pour une photo ou une capture, 5 Mo au plus pour un PDF ou un STL, jamais de vidéo. Réduis sur place avec les commandes de ce skill, et dis à l'utilisateur quels fichiers tu as modifiés, avec leurs dimensions et poids avant et après.
+Follow the "Media" section of the `commit` skill (`.claude/skills/commit/SKILL.md`) as soon as the file is added: 2,000 px at most on the longest side, about 500 KB for a photo or a screenshot, 5 MB at most for a PDF or an STL, never a video. Shrink in place with that skill's commands, and tell the user which files you modified, with their dimensions and size before and after.
