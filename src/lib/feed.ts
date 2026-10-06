@@ -16,17 +16,19 @@ const FEEDS: Record<Language, { title: string; description: string }> = {
   },
 }
 
-// Links that replace what only renders with the site's scripts (Mermaid, KiCanvas, Chart.js)
-const PLACEHOLDERS: Record<Language, { diagram: string; kicad: string; chart: string }> = {
+// Links that replace what only renders with the site's scripts (Mermaid, KiCanvas, Chart.js, the STEP viewer)
+const PLACEHOLDERS: Record<Language, { diagram: string; kicad: string; chart: string; model: string }> = {
   en: {
     diagram: "View the diagram on the site",
     kicad: "Open the interactive KiCad viewer on the site",
     chart: "View the chart on the site",
+    model: "Open the 3D model on the site",
   },
   fr: {
     diagram: "Voir le diagramme sur le site",
     kicad: "Ouvrir la visionneuse KiCad interactive sur le site",
     chart: "Voir le graphique sur le site",
+    model: "Ouvrir le modèle 3D sur le site",
   },
 }
 
@@ -38,8 +40,8 @@ const absolutizeUrls = (html: string) =>
 
 /**
  * Fits the post HTML for feed readers, which run no script and resolve "#…" against the feed, not the post:
- * heading anchor icons go, in-page links point to the post, and diagrams, KiCad viewers and charts become links
- * to it (a chart's data table stays)
+ * heading anchor icons go, in-page links point to the post, and diagrams, KiCad viewers, charts and 3D models become
+ * links to it (a chart's data table stays, and so does a 3D model's link to its file)
  */
 const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
   const placeholder = (text: string) => `<p><a href="${postUrl}">${text}</a></p>`
@@ -49,6 +51,7 @@ const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
     .replace(/<pre class="mermaid"[^>]*>[\s\S]*?<\/pre>/g, placeholder(PLACEHOLDERS[lang].diagram))
     .replace(/<kicanvas-embed[^>]*>[\s\S]*?<\/kicanvas-embed>/g, placeholder(PLACEHOLDERS[lang].kicad))
     .replace(/<div class="chart-canvas">[\s\S]*?<\/script>/g, placeholder(PLACEHOLDERS[lang].chart))
+    .replace(/<div class="step-embed"[^>]*>/g, (div) => `${placeholder(PLACEHOLDERS[lang].model)}${div}`)
 }
 
 /** RSS feed of one language, with the full post HTML in content:encoded */
