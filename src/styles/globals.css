@@ -257,9 +257,10 @@
     font-style: italic;
   }
 
-  /* Table: wide tables scroll inside their own box on small screens */
+  /* Table: wide tables scroll inside their own box on small screens only. iOS Safari draws a scroll box in its own
+     layer, and the content after it in another one, which showed a stray 1px tile seam below the table on iPad */
   .prose table {
-    @apply block max-w-full overflow-x-auto md:table;
+    @apply block max-w-full overflow-x-auto md:table md:overflow-visible;
   }
   .prose thead {
     @apply border-b-2 border-border;
