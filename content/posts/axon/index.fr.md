@@ -3,6 +3,7 @@ title: "Axon : un fond de panier modulaire pour mes robots"
 slug: axon
 lang: fr
 date: 2026-09-28
+lastmod: 2026-10-07
 description: "Une plateforme modulaire pour mes robots : un fond de panier, des cartes filles enfichables et un microcontrôleur interchangeable. Présentation et étapes du projet."
 tags:
   - Électronique
@@ -33,10 +34,11 @@ La nomenclature s'inspire du neurone :
 | **Statut** | En conception, rien n'est encore fabriqué |
 | **Première version** | 4 Nodes et un emplacement pour le Soma |
 | **Soma** | ESP32-S3, interchangeable |
-| **Bus** | SPI, I²C (un canal par Node), CAN |
+| **Bus** | SPI, I²C (un canal par Node), CAN FD |
 | **Connecteur** | PCIe x4, avec un brochage propre à Axon |
 
 ## Les étapes du projet
 
 1. [Partie 1 : la conception](/fr/post/axon-design/). Ce qui existe déjà, les fausses bonnes idées, le choix du connecteur et l'architecture retenue.
-2. Partie 2 : le prototype sur breadboard, avec un ESP32-S3, un TCA9546A et une première carte stepper. À venir.
+2. [Partie 2 : l'électronique du fond de panier](/fr/post/axon-electronics/). Alimentation 24 V, protection de chaque Node, arrêt d'urgence, supervision et bus, avec les calculs.
+3. Partie 3 : le schéma et le premier prototype. À venir.

@@ -3,6 +3,7 @@ title: "Axon, part 1: designing a modular backplane for my robots"
 slug: axon-design
 lang: en
 date: 2026-09-28
+lastmod: 2026-10-07
 description: "Industrial backplanes, processor modules, maker ecosystems: what already exists, the false good ideas, and the architecture chosen for Axon."
 tags:
   - Electronics
@@ -243,4 +244,4 @@ Several steps remain before ordering the first PCB:
 3. Prototype on a breadboard with an ESP32-S3, a TCA9546A and one or two test boards, for example a stepper Effector based on the TMC5072 and a servo Effector based on the PCA9685.
 4. Draw the 4-Node backplane in KiCad.
 
-See you in part 2 for the prototype, the first measurements and, most likely, a few nasty surprises.
+[Part 2](/post/axon-electronics/) details the backplane electronics: power, Node protection, emergency stop and buses.

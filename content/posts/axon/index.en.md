@@ -3,6 +3,7 @@ title: "Axon: a modular backplane for my robots"
 slug: axon
 lang: en
 date: 2026-09-28
+lastmod: 2026-10-07
 description: "A modular platform for my robots: a backplane, plug-in daughter boards and a swappable microcontroller. Overview and stages of the project."
 tags:
   - Electronics
@@ -33,10 +34,11 @@ The naming is inspired by the neuron:
 | **Status** | In design, nothing has been built yet |
 | **First version** | 4 Nodes and a slot for the Soma |
 | **Soma** | ESP32-S3, swappable |
-| **Buses** | SPI, I²C (one channel per Node), CAN |
+| **Buses** | SPI, I²C (one channel per Node), CAN FD |
 | **Connector** | PCIe x4, with a pinout of Axon's own |
 
 ## Stages of the project
 
 1. [Part 1: the design](/post/axon-design/). What already exists, the false good ideas, the choice of connector and the architecture I settled on.
-2. Part 2: the breadboard prototype, with an ESP32-S3, a TCA9546A and a first stepper board. Coming soon.
+2. [Part 2: the backplane electronics](/post/axon-electronics/). 24 V power, per-Node protection, emergency stop, supervision and buses, with the calculations.
+3. Part 3: the schematic and the first prototype. Coming soon.

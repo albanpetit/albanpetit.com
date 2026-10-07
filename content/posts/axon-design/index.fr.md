@@ -3,6 +3,7 @@ title: "Axon, partie 1 : concevoir un fond de panier modulaire pour mes robots"
 slug: axon-design
 lang: fr
 date: 2026-09-28
+lastmod: 2026-10-07
 description: "Fonds de panier industriels, modules processeurs, écosystèmes maker : ce qui existe, les fausses bonnes idées, et l'architecture retenue pour Axon."
 tags:
   - Électronique
@@ -243,4 +244,4 @@ Il reste plusieurs étapes avant de commander le premier PCB :
 3. Prototyper sur breadboard avec un ESP32-S3, un TCA9546A et une ou deux cartes de test, par exemple une Effector stepper à base de TMC5072 et une Effector servos à base de PCA9685.
 4. Dessiner le fond de panier 4 Nodes dans KiCad.
 
-Rendez-vous dans la partie 2 pour le prototype, les premières mesures et, sans doute, quelques mauvaises surprises.
+La [partie 2](/fr/post/axon-electronics/) détaille l'électronique du fond de panier : alimentation, protection des Nodes, arrêt d'urgence et bus.
