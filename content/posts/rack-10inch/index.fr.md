@@ -3,6 +3,7 @@ title: "Mini Rack : fabriquer un rack 10 pouces pour mon home lab"
 slug: rack-10inch
 lang: fr
 date: 2026-10-03
+lastmod: 2026-10-07
 description: "Un rack 10 pouces fait maison pour héberger mon home lab : profilés aluminium 20x20, pièces imprimées en 3D, panneaux découpés au laser et modèle FreeCAD."
 tags:
   - Home lab
@@ -51,8 +52,6 @@ Mon cahier des charges :
 - **Accessible** : les panneaux latéraux doivent s'enlever sans outil, et l'intérieur rester visible.
 - **Transportable** : des poignées sur le dessus, pour le déplacer d'un bloc.
 
-<!-- À COMPLÉTER : la liste des services personnels et des serveurs publics que le rack héberge ou hébergera. -->
-
 ## La conception dans FreeCAD
 
 Tout le rack est modélisé dans FreeCAD, avec l'atelier Assembly : les profilés, les pièces imprimées, les panneaux, mais aussi les pièces achetées (ventilateurs, multiprise, vis, écrous en T). Modéliser les composants du commerce prend du temps, mais c'est ce qui permet de vérifier les jeux et les perçages avant de couper quoi que ce soit.
@@ -87,8 +86,6 @@ Dans une baie classique, les équipements se vissent sur des rails percés au pa
 
 ![Sachet d'écrous en T M5 pour rainure de 6 mm](t-nuts.jpg) ![Deux montants avec leurs écrous en T glissés dans la rainure](front-rails-t-nuts.jpg)
 
-<!-- PHOTO À AJOUTER : gros plan sur un rail avant terminé, avec les écrous en T et les entretoises bleues. -->
-
 ## Les pièces imprimées
 
 Les pièces imprimées font le lien entre le cadre et les panneaux. Elles sont toutes en PLA, imprimées sur ma Bambu Lab A1 : blanc mat pour la structure, bleu pour les pièces qu'on manipule ou qu'on doit repérer (poignées, entretoises, supports de la multiprise). Le projet 3MF du dépôt regroupe les cinq plateaux, en couches de 0,16 mm avec 15 % de remplissage.
@@ -101,15 +98,15 @@ La toute première pièce, imprimée en décembre 2024, est un prototype de la p
 
 Les panneaux arrière, latéraux et du bas sont découpés au laser dans des plaques transparentes, à partir des DXF exportés de FreeCAD. Les découpes d'angle et les perçages tombent pile sur les supports imprimés, puisque tout vient du même modèle.
 
-<!-- À COMPLÉTER : le matériau et l'épaisseur des plaques, et où elles ont été découpées. -->
+La vidéo ci-dessous montre la découpe laser des panneaux.
 
-<!-- PHOTO À AJOUTER : la découpe laser d'un panneau. -->
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/SossH15z6b4" title="Découpe laser des panneaux du rack 10 pouces" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Le panneau arrière porte deux ventilateurs **Corsair LL120** de 120 mm, montés dans un support imprimé en deux parties qui pincent le panneau. Ils renouvellent l'air à l'intérieur du rack.
 
 ![Panneau découpé au laser, encore protégé par son film](laser-cut-panel.jpg) ![Ventilateur Corsair LL120 monté dans son support imprimé, posé sur le panneau](fan-support.jpg)
-
-<!-- À COMPLÉTER : comment les ventilateurs sont alimentés et pilotés. -->
 
 ## Des panneaux latéraux aimantés
 

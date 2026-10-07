@@ -3,6 +3,7 @@ title: "Mini Rack: building a 10-inch rack for my home lab"
 slug: rack-10inch
 lang: en
 date: 2026-10-03
+lastmod: 2026-10-07
 description: "A homemade 10-inch rack to host my home lab: 20x20 aluminium extrusions, 3D printed parts, laser-cut panels and a complete FreeCAD model."
 tags:
   - Homelab
@@ -103,7 +104,11 @@ The rear, side and bottom panels are laser cut from clear sheets, using the DXF 
 
 <!-- TO COMPLETE: the material and thickness of the sheets, and where they were cut. -->
 
-<!-- PHOTO TO ADD: a panel being laser cut. -->
+The video below shows the panels being laser cut.
+
+<div class="youtube-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/SossH15z6b4" title="Laser cutting the panels of the 10-inch rack" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 The rear panel carries two 120 mm **Corsair LL120** fans, mounted in a two-part printed support that clamps the panel. They keep the air moving inside the rack.
 
