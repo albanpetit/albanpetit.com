@@ -52,8 +52,6 @@ My requirements:
 - **Accessible**: the side panels must come off without tools, and the inside must stay visible.
 - **Portable**: handles on top, to move it in one piece.
 
-<!-- TO COMPLETE: the list of personal services and public servers the rack hosts or will host. -->
-
 ## Designing it in FreeCAD
 
 The whole rack is modelled in FreeCAD, with the Assembly workbench: the extrusions, the printed parts, the panels, but also the parts I bought (fans, power strip, screws, T-nuts). Modelling off-the-shelf components takes time, but it is what lets me check clearances and holes before cutting anything.
@@ -88,8 +86,6 @@ In a standard rack, equipment screws onto rails drilled at the standard pitch. R
 
 ![Bag of M5 T-nuts for a 6 mm slot](t-nuts.jpg) ![Two uprights with their T-nuts slid into the slot](front-rails-t-nuts.jpg)
 
-<!-- PHOTO TO ADD: close-up of a finished front rail, with the T-nuts and the blue spacers. -->
-
 ## The printed parts
 
 The printed parts tie the frame and the panels together. They are all PLA, printed on my Bambu Lab A1: matte white for the structure, blue for the parts you handle or need to spot (handles, spacers, power strip brackets). The 3MF project in the repository holds the five plates, with 0.16 mm layers and 15% infill.
@@ -102,8 +98,6 @@ The very first part, printed in December 2024, is a prototype of the top handle.
 
 The rear, side and bottom panels are laser cut from clear sheets, using the DXF files exported from FreeCAD. The corner cutouts and the holes land right on the printed supports, since everything comes from the same model.
 
-<!-- TO COMPLETE: the material and thickness of the sheets, and where they were cut. -->
-
 The video below shows the panels being laser cut.
 
 <div class="youtube-embed">
@@ -113,8 +107,6 @@ The video below shows the panels being laser cut.
 The rear panel carries two 120 mm **Corsair LL120** fans, mounted in a two-part printed support that clamps the panel. They keep the air moving inside the rack.
 
 ![Laser-cut panel, still covered by its protective film](laser-cut-panel.jpg) ![Corsair LL120 fan mounted in its printed support, lying on the panel](fan-support.jpg)
-
-<!-- TO COMPLETE: how the fans are powered and controlled. -->
 
 ## Magnetic side panels
 

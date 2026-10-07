@@ -81,8 +81,6 @@ A few days later, the same idea served for a six-port 140 W USB-C charger: a 1U 
 
 ![Six-port USB-C charger mounted in its printed 1U mount](usb-charger-mount.jpg) ![Rack with the USB-C charger above the Mac mini](rack-mac-mini-charger.jpg)
 
-<!-- TO COMPLETE: add the charger mount model to the rack-10inch repository, then mention it here. -->
-
 ## What's next
 
 The rack now has its first machine and what it takes to power the next ones. Next step: installing the home lab services on it.

@@ -81,8 +81,6 @@ Quelques jours plus tard, le même principe m'a servi pour un chargeur USB-C six
 
 ![Chargeur USB-C six ports monté dans son support 1U imprimé](usb-charger-mount.jpg) ![Rack avec le chargeur USB-C au-dessus du Mac mini](rack-mac-mini-charger.jpg)
 
-<!-- À COMPLÉTER : ajouter le modèle du support de chargeur au dépôt rack-10inch, puis le mentionner ici. -->
-
 ## La suite
 
 Le rack a maintenant sa première machine et de quoi alimenter les suivantes. La prochaine étape : y installer les services du home lab.
