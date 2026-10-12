@@ -7,7 +7,7 @@ date: 2022-01-23
 
 Hi! I'm Alban Petit, a digital electronics teacher at [UniLaSalle Amiens](https://www.unilasalle.fr), an engineering school. I also mentor students through their multidisciplinary projects and support them as they compete in the French robotics championships.
 
-Before teaching, I spent several years in web and embedded development at Etoele and at [La Machinerie](https://lamachinerie.org), an Amiens association that hosts a Fablab, where I started as a volunteer and went on to manage a service pole dedicated to electronics, computing, and digital fabrication.
+Before teaching, I spent several years in web and embedded development at Etoele and at [La Machinerie](https://lamachinerie.org), an Amiens association that hosts a Fablab, where I started as a volunteer and went on to manage a service pole dedicated to electronics, computing, and digital fabrication, and then to lead the association as its director.
 
 These experiences revealed a genuine passion for software development, electronics, and prototyping, which I now share with my students.
 
@@ -25,11 +25,11 @@ These experiences revealed a genuine passion for software development, electroni
 
 - **2019 – 2021** · Web & Embedded Developer, Etoele, Amiens
 
-- **2022 – 2023** · Manufacture Pole Manager, Association La Machinerie, Amiens
+- **2022 – 2026** · Manufacture Pole Manager, then Director (2024 – 2026), Association La Machinerie, Amiens
 
-  I managed the Manufacture pole, helping professionals develop prototypes in electronics, furniture, functional parts, and connected objects.
+  I managed the Manufacture pole, helping professionals develop prototypes in electronics, furniture, functional parts, and connected objects. From 2024 to 2026, I also ran the organisation as its director.
 
-- **2026 – present** · Digital Electronics Teacher, UniLaSalle, Amiens <!-- TO COMPLETE: start year at UniLaSalle (2026 by default) -->
+- **2026 – present** · Digital Electronics Teacher, UniLaSalle, Amiens
 
   I teach digital electronics to engineering students, mentor them through their multidisciplinary projects, and support the teams competing in the French robotics championships.
 
