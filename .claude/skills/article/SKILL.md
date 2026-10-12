@@ -98,7 +98,7 @@ A project is nothing more than the posts that share the same `project`: there is
   ```
   ````
   `,`, `;` and tab delimiters and French decimals (`19,5`) are accepted; an empty cell is a gap. A typo in an option or a column name fails the build. After editing only a CSV, restart with `npm run dev -- --force` (Astro caches rendered posts).
-- **Diagram**: a ` ```mermaid ` block.
+- **Diagram**: a ` ```mermaid ` block, then `npm run diagrams` to render it to `src/diagrams/` (commit the new SVG). The build fails on a diagram that has no SVG yet. The SVG follows the light and dark themes; readers download no Mermaid JavaScript.
 - **Formulas**: `$…$` inline, `$$…$$` as a block.
 - **Table**: standard Markdown. A summary table without a header (`| | |`) at the start of the post, as in PaperFlux, works well for a project.
 - **Interactive KiCad schematic and PCB**:

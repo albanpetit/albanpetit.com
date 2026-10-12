@@ -1,6 +1,5 @@
 import { currentTheme, onThemeChange, type Theme } from "@/scripts/theme"
 import "@/scripts/chart"
-import "@/scripts/mermaid"
 import "@/scripts/step-embed"
 
 // Reading progress bar: scaled rather than resized, so scrolling never triggers a layout
