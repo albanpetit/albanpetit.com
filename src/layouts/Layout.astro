@@ -1,6 +1,7 @@
 ---
 import "@/styles/globals.css"
 import { ArrowUpRight, Moon, Rss, Search, Sun } from "lucide-react"
+import CircuitBackground from "@/components/CircuitBackground.astro"
 import MobileNav from "@/components/MobileNav"
 import Seo, { type Props as SeoProps } from "@/components/Seo.astro"
 import Separator from "@/components/Separator.astro"
@@ -15,9 +16,11 @@ interface Props {
   seo: Omit<SeoProps, "lang">
   /** Path of this page in the other language, without language prefix. Defaults to the current path. */
   alternatePath?: string
+  /** Keeps the circuit background out of the reading column and without motion (posts) */
+  quietBackground?: boolean
 }
 
-const { lang, seo, alternatePath } = Astro.props
+const { lang, seo, alternatePath, quietBackground = false } = Astro.props
 const t = getTranslations(lang)
 
 const homePath = localizedPath("/", lang)
@@ -66,6 +69,7 @@ const year = new Date().getFullYear()
       >
         {t("a11y.skipToContent")}
       </a>
+      <CircuitBackground quiet={quietBackground} />
       <div
         class="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10"
         style="background: linear-gradient(to bottom, hsl(49 93% 66% / 0.06), hsl(49 93% 66% / 0.02) 50%, transparent)"
