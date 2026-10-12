@@ -7,7 +7,7 @@ date: 2022-01-23
 
 Salut ! Je suis Alban Petit, enseignant en électronique numérique à [UniLaSalle Amiens](https://www.unilasalle.fr), une école d'ingénieurs. J'y accompagne aussi les étudiants dans leurs projets pluridisciplinaires, et je les soutiens dans leur participation aux championnats de France de robotique.
 
-Avant d'enseigner, j'ai passé plusieurs années entre le développement web et embarqué chez Etoele et [La Machinerie](https://lamachinerie.org), une association amiénoise qui héberge un Fablab, où j'ai commencé comme bénévole avant de prendre la responsabilité d'un pôle dédié à la prestation de services techniques : électronique, informatique et fabrication numérique.
+Avant d'enseigner, j'ai passé plusieurs années entre le développement web et embarqué chez Etoele et [La Machinerie](https://lamachinerie.org), une association amiénoise qui héberge un Fablab, où j'ai commencé comme bénévole avant de prendre la responsabilité d'un pôle dédié à la prestation de services techniques (électronique, informatique et fabrication numérique), puis la direction de l'association.
 
 Ces expériences m'ont révélé une véritable passion pour le développement informatique, l'électronique et le prototypage, que je partage aujourd'hui avec mes étudiants.
 
@@ -25,11 +25,11 @@ Ces expériences m'ont révélé une véritable passion pour le développement i
 
 - **2019 – 2021** · Développeur Web & Embarqué, Entreprise Etoele, Amiens
 
-- **2022 – 2023** · Responsable du pôle Manufacture, Association La Machinerie, Amiens
+- **2022 – 2026** · Responsable du pôle Manufacture, puis directeur (2024 – 2026), Association La Machinerie, Amiens
 
-  J'étais responsable du pôle Manufacture de La Machinerie, où nous aidions les professionnels à développer des prototypes dans des domaines tels que l'électronique, le mobilier, les pièces fonctionnelles et les objets connectés.
+  J'étais responsable du pôle Manufacture de La Machinerie, où nous aidions les professionnels à développer des prototypes dans des domaines tels que l'électronique, le mobilier, les pièces fonctionnelles et les objets connectés. De 2024 à 2026, j'ai aussi assuré la direction de la structure.
 
-- **2026 – aujourd'hui** · Enseignant en électronique numérique, UniLaSalle, Amiens <!-- À COMPLÉTER : année de début chez UniLaSalle (2026 par défaut) -->
+- **2026 – aujourd'hui** · Enseignant en électronique numérique, UniLaSalle, Amiens
 
   J'enseigne l'électronique numérique aux étudiants ingénieurs, je les accompagne dans leurs projets pluridisciplinaires et je soutiens les équipes qui participent aux championnats de France de robotique.
 
