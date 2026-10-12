@@ -10,6 +10,7 @@ tags:
   - Bash
   - Raspberry Pi
 category: Tutorials
+image: main.jpg
 ---
 
 Taper `http://music.local` plutôt que `http://192.168.1.42:8095` : c'est ce qu'on met en place ici, sans serveur DNS et sans rien configurer sur les clients.
