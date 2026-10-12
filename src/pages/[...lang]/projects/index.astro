@@ -1,22 +1,20 @@
 ---
-import { Card } from "@/components/ui/card"
-import ProjectStatus from "@/components/ProjectStatus.astro"
+import ProjectCard from "@/components/ProjectCard.astro"
 import Separator from "@/components/Separator.astro"
 import Layout from "@/layouts/Layout.astro"
-import { formatDate, getTranslations, type Language, languagePaths, localizedPath } from "@/lib/i18n"
-import { excerpt } from "@/lib/posts"
-import { getProjects } from "@/lib/projects"
+import { getTranslations, type Language, languagePaths, localizedPath } from "@/lib/i18n"
+import { getProjects, type ProjectStatus } from "@/lib/projects"
 
 export const getStaticPaths = languagePaths
 
 const { lang } = Astro.props as { lang: Language }
 const t = getTranslations(lang)
 
-const cards = (await getProjects(lang)).map((project) => {
-  // The overview presents the project once written; until then, its latest post tells where it stands
-  const lead = project.overview ?? project.posts[project.posts.length - 1]
-  return { project, description: lead.data.description ?? excerpt(lead, 160) }
-})
+const projects = await getProjects(lang)
+// What is being built right now first, then what is finished
+const groups = (["in-progress", "done"] as ProjectStatus[])
+  .map((status) => ({ status, projects: projects.filter((project) => project.status === status) }))
+  .filter(({ projects }) => projects.length > 0)
 ---
 
 <Layout
@@ -28,7 +26,7 @@ const cards = (await getProjects(lang)).map((project) => {
     alternatePaths: { en: "/projects/", fr: "/fr/projects/" },
   }}
 >
-  <div class="mx-auto max-w-3xl flex flex-col gap-8">
+  <div class="mx-auto max-w-5xl flex flex-col gap-8">
     <div>
       <h1 class="text-4xl font-bold tracking-tight">{t("projects.title")}</h1>
       <p class="mt-2 text-muted-foreground">{t("projects.subtitle")}</p>
@@ -37,29 +35,25 @@ const cards = (await getProjects(lang)).map((project) => {
     <Separator />
 
     {
-      cards.length > 0 ? (
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {cards.map(({ project, description }) => (
-            <Card className="relative flex flex-col gap-3 p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-md">
-              <div class="flex items-start justify-between gap-3">
-                <h2 class="text-lg font-semibold leading-snug">
-                  <a
-                    href={project.url}
-                    class="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
-                  >
-                    {project.name}
-                  </a>
-                </h2>
-                <ProjectStatus status={project.status} lang={lang} />
-              </div>
-              <p class="flex-1 text-sm text-muted-foreground">{description}</p>
-              <p class="text-xs text-muted-foreground">
-                {t("projects.updated", { date: formatDate(project.updated, lang) })} ·{" "}
-                {t("projects.postCount", { count: project.posts.length })}
-              </p>
-            </Card>
-          ))}
-        </div>
+      groups.length > 0 ? (
+        groups.map(({ status, projects }, index) => (
+          <section class="flex flex-col gap-5" aria-labelledby={`projects-${status}`}>
+            <div class="flex items-center gap-3">
+              <span class={status === "done" ? "h-5 w-1 rounded-full bg-secondary" : "h-5 w-1 rounded-full bg-primary"} />
+              <h2 id={`projects-${status}`} class="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                {t(`projects.groups.${status}`)}
+              </h2>
+              <span class="rounded-full border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                {projects.length}
+              </span>
+            </div>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {projects.map((project, position) => (
+                <ProjectCard project={project} lang={lang} eager={index === 0 && position < 2} />
+              ))}
+            </div>
+          </section>
+        ))
       ) : (
         <p class="py-16 text-center text-muted-foreground">{t("projects.empty")}</p>
       )

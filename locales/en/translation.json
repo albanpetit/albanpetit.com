@@ -66,7 +66,12 @@
     "updated": "Updated {{date}}",
     "postCount_one": "{{count}} post",
     "postCount_other": "{{count}} posts",
-    "badge": "Project"
+    "badge": "Project",
+    "groups": {
+      "in-progress": "In progress",
+      "done": "Completed"
+    },
+    "latest": "Latest post"
   },
   "about": {
     "role": "Teacher · Developer · Maker",
