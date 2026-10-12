@@ -3,6 +3,7 @@ import { Image } from "astro:assets"
 import { ArrowRight, Cpu, MapPin, Printer, Search } from "lucide-react"
 import { GithubIcon, XIcon } from "@/components/icons"
 import PostCard from "@/components/PostCard"
+import MakerstorageSpotlight from "@/components/MakerstorageSpotlight.astro"
 import ProjectStatus from "@/components/ProjectStatus.astro"
 import { badgeVariants } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
@@ -170,6 +171,8 @@ const sidebarTitle = "text-xs font-semibold uppercase tracking-widest text-muted
       </div>
     </div>
   </section>
+
+  <MakerstorageSpotlight lang={lang} />
 
   {
     posts.length > 0 && (

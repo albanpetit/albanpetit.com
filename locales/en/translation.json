@@ -112,5 +112,21 @@
     "subtitle": "Page not found",
     "description": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "makerstorage": {
+    "nav": "Makerstorage",
+    "newTab": "(opens in a new tab)",
+    "eyebrow": "My open-source project",
+    "headline": "Know where every part is.",
+    "description": "An open-source inventory manager for makerspaces and fablabs, built for electronic components. Track stock down to the drawer, scan barcodes with your phone, and reorder before you run out.",
+    "features": [
+      "Parts catalog with MPNs, datasheets and supplier prices",
+      "Nested locations, from the room down to the drawer",
+      "Barcode scanning with a phone or webcam",
+      "Low-stock alerts, purchase orders and project BOMs"
+    ],
+    "badges": ["Open source · AGPL-3.0", "Free hosted version", "Self-host with Docker"],
+    "cta": "Try Makerstorage",
+    "lowStock": "low"
   }
 }

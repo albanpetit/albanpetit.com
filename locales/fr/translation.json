@@ -112,5 +112,21 @@
     "subtitle": "Page introuvable",
     "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
     "backHome": "Retour à l'accueil"
+  },
+  "makerstorage": {
+    "nav": "Makerstorage",
+    "newTab": "(s'ouvre dans un nouvel onglet)",
+    "eyebrow": "Mon projet open source",
+    "headline": "Sachez où se trouve chaque composant.",
+    "description": "Un gestionnaire d'inventaire open source pour les makerspaces et les fablabs, pensé pour les composants électroniques. Suivez le stock jusqu'au tiroir, scannez les codes-barres avec votre téléphone et recommandez avant la rupture.",
+    "features": [
+      "Catalogue de pièces avec MPN, datasheets et prix fournisseurs",
+      "Emplacements imbriqués, de la salle jusqu'au tiroir",
+      "Scan des codes-barres avec un téléphone ou une webcam",
+      "Alertes de stock bas, bons de commande et nomenclatures de projet"
+    ],
+    "badges": ["Open source · AGPL-3.0", "Version hébergée gratuite", "Auto-hébergeable avec Docker"],
+    "cta": "Essayer Makerstorage",
+    "lowStock": "bas"
   }
 }
