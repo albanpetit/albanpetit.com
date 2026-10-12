@@ -1,0 +1,50 @@
+---
+// Decorative printed circuit behind the page: faint traces and chips, with a few pulses of current
+// running along the longest traces. Pure SVG + CSS (styles in globals.css), no JavaScript.
+import { buildCircuit, CIRCUIT_HEIGHT, CIRCUIT_WIDTH } from "@/lib/circuit"
+
+const { traces, chips, pulses } = buildCircuit()
+// Spread the pulses over time so they never all fire together
+const timing = pulses.map((_, i) => ({ duration: 7 + ((i * 5) % 9), delay: -((i * 3.7) % 11) }))
+---
+
+<div class="circuit-bg" aria-hidden="true">
+  <svg
+    viewBox={`0 0 ${CIRCUIT_WIDTH} ${CIRCUIT_HEIGHT}`}
+    preserveAspectRatio="xMidYMid slice"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <g class="circuit-traces">
+      {traces.map((t) => <path d={t.d} />)}
+      {
+        chips.map((c) => (
+          <>
+            <rect x={c.x} y={c.y} width={c.w} height={c.h} rx="3" />
+            {c.pins.map((p) => (
+              <line x1={p.x1} y1={p.y1} x2={p.x2} y2={p.y2} />
+            ))}
+          </>
+        ))
+      }
+    </g>
+    <g class="circuit-pads">
+      {traces.map((t) => t.start && <circle cx={t.start[0]} cy={t.start[1]} r="3.5" />)}
+      {traces.map((t) => <circle cx={t.end[0]} cy={t.end[1]} r="3.5" />)}
+    </g>
+    <g class="circuit-pulses">
+      {
+        pulses.map((i, n) => {
+          const style = `animation-duration:${timing[n].duration}s;animation-delay:${timing[n].delay}s`
+          return (
+            <>
+              <path class="circuit-glow" d={traces[i].d} pathLength="100" style={style} />
+              <path d={traces[i].d} pathLength="100" style={style} />
+            </>
+          )
+        })
+      }
+    </g>
+  </svg>
+</div>

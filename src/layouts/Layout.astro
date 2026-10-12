@@ -1,6 +1,7 @@
 ---
 import "@/styles/globals.css"
 import { ArrowUpRight, Moon, Rss, Search, Sun } from "lucide-react"
+import CircuitBackground from "@/components/CircuitBackground.astro"
 import MobileNav from "@/components/MobileNav"
 import Seo, { type Props as SeoProps } from "@/components/Seo.astro"
 import Separator from "@/components/Separator.astro"
@@ -66,6 +67,7 @@ const year = new Date().getFullYear()
       >
         {t("a11y.skipToContent")}
       </a>
+      <CircuitBackground />
       <div
         class="pointer-events-none fixed top-0 left-0 right-0 h-96 -z-10"
         style="background: linear-gradient(to bottom, hsl(49 93% 66% / 0.06), hsl(49 93% 66% / 0.02) 50%, transparent)"

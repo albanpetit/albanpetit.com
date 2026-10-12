@@ -75,8 +75,6 @@
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
-    background-image: radial-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px);
-    background-size: 28px 28px;
   }
 
   ::selection {
@@ -97,6 +95,86 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground/40;
+  }
+}
+
+/* Printed circuit behind the page (CircuitBackground.astro) */
+@layer components {
+  .circuit-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    color: hsl(var(--foreground));
+  }
+  .circuit-bg svg {
+    width: 100%;
+    height: 100%;
+  }
+  /* On phones the text spans the whole width: dim the board a little more */
+  @media (max-width: 767px) {
+    .circuit-bg {
+      opacity: 0.7;
+    }
+  }
+  /* From tablet width up, fade the board under the reading column so text sits on a calm background */
+  @media (min-width: 768px) {
+    .circuit-bg {
+      mask-image: linear-gradient(to right, #000 8%, rgb(0 0 0 / 0.3) 30%, rgb(0 0 0 / 0.3) 70%, #000 92%);
+    }
+  }
+  .circuit-traces {
+    stroke: currentColor;
+    stroke-opacity: 0.08;
+    stroke-width: 1.5;
+  }
+  .circuit-pads circle {
+    fill: hsl(var(--background));
+    stroke: currentColor;
+    stroke-opacity: 0.12;
+    stroke-width: 1.5;
+  }
+  .circuit-pulses path {
+    stroke: hsl(var(--secondary));
+    stroke-opacity: 0.55;
+    stroke-width: 2.5;
+    /* One short dash per trace (pathLength="100"), parked off the path between two runs */
+    stroke-dasharray: 10 200;
+    stroke-dashoffset: 12;
+    animation: circuit-pulse linear infinite;
+  }
+  /* Wide faint copy under each pulse: a soft glow without an SVG filter */
+  .circuit-pulses .circuit-glow {
+    stroke-opacity: 0.15;
+    stroke-width: 8;
+  }
+  .dark .circuit-traces {
+    stroke-opacity: 0.09;
+  }
+  .dark .circuit-pads circle {
+    stroke-opacity: 0.14;
+  }
+  .dark .circuit-pulses path {
+    stroke: hsl(var(--primary));
+    stroke-opacity: 0.6;
+  }
+  .dark .circuit-pulses .circuit-glow {
+    stroke-opacity: 0.15;
+  }
+  @keyframes circuit-pulse {
+    0% {
+      stroke-dashoffset: 12;
+    }
+    55%,
+    100% {
+      stroke-dashoffset: -100;
+    }
+  }
+  /* Readers who asked for less motion get the board without the pulses */
+  @media (prefers-reduced-motion: reduce) {
+    .circuit-pulses {
+      display: none;
+    }
   }
 }
 
