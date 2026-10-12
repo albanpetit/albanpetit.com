@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import { ArrowRight, Cpu, MapPin, Printer, Search } from "lucide-react"
+import { ArrowRight, GraduationCap, MapPin, Printer, Search } from "lucide-react"
 import { GithubIcon, XIcon } from "@/components/icons"
 import PostCard from "@/components/PostCard"
 import ProjectStatus from "@/components/ProjectStatus.astro"
@@ -34,7 +34,7 @@ const searchPath = localizedPath("/search/", lang)
 const projectsPath = localizedPath("/projects/", lang)
 const tutorialsPath = categoryPath("Tutorials", lang)
 
-// "… at <1>La Machinerie</1> and …": the i18next <Trans> markup of home.description
+// "… at <1>UniLaSalle Amiens</1> and …": the i18next <Trans> markup of home.description
 const [beforeLink, linkText, afterLink] = t("home.description").split(/<1>|<\/1>/)
 
 const description =
@@ -79,7 +79,7 @@ const sidebarTitle = "text-xs font-semibold uppercase tracking-widest text-muted
 
       <p class="text-base leading-relaxed text-foreground/75 max-w-sm">
         {beforeLink}<a
-          href="https://lamachinerie.org"
+          href="https://www.unilasalle.fr"
           class="text-link font-medium underline underline-offset-4 hover:text-link/80 transition-colors"
           target="_blank"
           rel="noopener noreferrer">{linkText}</a
@@ -92,9 +92,9 @@ const sidebarTitle = "text-xs font-semibold uppercase tracking-widest text-muted
           <span>{t("home.location")}</span>
         </div>
         <div class="flex items-center gap-2 text-muted-foreground">
-          <span class="text-primary"><Cpu className="h-3.5 w-3.5" /></span>
-          <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" class={infoLink}>
-            {t("home.fablab")}
+          <span class="text-primary"><GraduationCap className="h-3.5 w-3.5" /></span>
+          <a href="https://www.unilasalle.fr" target="_blank" rel="noopener noreferrer" class={infoLink}>
+            {t("home.work")}
           </a>
         </div>
         <div class="flex items-center gap-2 text-muted-foreground">

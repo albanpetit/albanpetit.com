@@ -22,8 +22,8 @@
   "home": {
     "greeting": "👋 Hello, I'm",
     "name": "Alban Petit",
-    "role": "Developer · Maker · FabManager",
-    "description": "I write about electronics, web development, and all things related to the maker world, tutorials, experiments, and projects built at <1>La Machinerie</1> and in my workshop.",
+    "role": "Teacher · Developer · Maker",
+    "description": "I teach digital electronics at <1>UniLaSalle Amiens</1> and write about electronics, web development, and all things related to the maker world, tutorials, experiments, and projects built in my workshop.",
     "readBlog": "Read the blog",
     "aboutMe": "About me",
     "latestPosts": "Latest posts",
@@ -34,7 +34,7 @@
     "allTutorials": "All tutorials",
     "tags": "Tags",
     "location": "France",
-    "fablab": "FabManager @ La Machinerie",
+    "work": "Teacher @ UniLaSalle Amiens",
     "skills": ["Electronics", "Web Development", "3D Printing", "Open Source"]
   },
   "blog": {
@@ -69,7 +69,7 @@
     "badge": "Project"
   },
   "about": {
-    "role": "Developer · Maker · FabManager",
+    "role": "Teacher · Developer · Maker",
     "skills": ["Web Development", "Electronics", "Maker", "Open Source"],
     "email": "Email",
     "twitter": "Twitter",

@@ -5,9 +5,11 @@ lang: fr
 date: 2022-01-23
 ---
 
-Salut ! Je suis Alban Petit, un développeur web français passionné travaillant au sein de [La Machinerie](https://lamachinerie.org), une structure qui héberge un Fablab. J'ai eu la chance de connaître cette organisation depuis 7 ans maintenant, commençant comme bénévole pour finalement devenir responsable d'un pôle dédié à la prestation de services dans divers domaines techniques tels que l'électronique, l'informatique et la fabrication numérique.
+Salut ! Je suis Alban Petit, enseignant en électronique numérique à [UniLaSalle Amiens](https://www.unilasalle.fr), une école d'ingénieurs. J'y accompagne aussi les étudiants dans leurs projets pluridisciplinaires, et je les soutiens dans leur participation aux championnats de France de robotique.
 
-Ces expériences professionnelles m'ont révélé une véritable passion pour le développement informatique, l'électronique et le prototypage en général.
+Avant d'enseigner, j'ai passé plusieurs années entre le développement web et embarqué chez Etoele et [La Machinerie](https://lamachinerie.org), une association amiénoise qui héberge un Fablab, où j'ai commencé comme bénévole avant de prendre la responsabilité d'un pôle dédié à la prestation de services techniques : électronique, informatique et fabrication numérique.
+
+Ces expériences m'ont révélé une véritable passion pour le développement informatique, l'électronique et le prototypage, que je partage aujourd'hui avec mes étudiants.
 
 ## Mes expériences
 
@@ -25,7 +27,11 @@ Ces expériences professionnelles m'ont révélé une véritable passion pour le
 
 - **2022 – 2023** · Responsable du pôle Manufacture, Association La Machinerie, Amiens
 
-  Je suis responsable du pôle Manufacture de La Machinerie, où nous aidons les professionnels à développer des prototypes dans des domaines tels que l'électronique, le mobilier, les pièces fonctionnelles et les objets connectés.
+  J'étais responsable du pôle Manufacture de La Machinerie, où nous aidions les professionnels à développer des prototypes dans des domaines tels que l'électronique, le mobilier, les pièces fonctionnelles et les objets connectés.
+
+- **2026 – aujourd'hui** · Enseignant en électronique numérique, UniLaSalle, Amiens <!-- À COMPLÉTER : année de début chez UniLaSalle (2026 par défaut) -->
+
+  J'enseigne l'électronique numérique aux étudiants ingénieurs, je les accompagne dans leurs projets pluridisciplinaires et je soutiens les équipes qui participent aux championnats de France de robotique.
 
 ## La Machinerie
 
@@ -38,11 +44,11 @@ Aujourd'hui, La Machinerie regroupe 4 grands pôles d'activités :
 - Un Fablab
 - Une Manufacture : un service orienté vers les professionnels désireux de développer et de produire des prototypes divers (électronique, mobilier, pièce fonctionnelle, objet connecté)
 
-Le Fablab, situé en plein cœur d'Amiens près de la gare, accueille régulièrement des visiteurs que j'assiste lors de sessions libres dans leurs différents projets techniques.
+Le Fablab, situé en plein cœur d'Amiens près de la gare, accueille régulièrement des visiteurs, que j'ai longtemps accompagnés lors de sessions libres dans leurs projets techniques.
 
 ## Projets personnels
 
-En plus de mes activités au sein de La Machinerie, je profite de ce site pour documenter mes projets personnels réalisés à la fois dans le Fablab de La Machinerie et dans mon atelier personnel.
+En parallèle de l'enseignement, je profite de ce site pour documenter mes projets personnels, réalisés dans mon atelier et, pour les plus anciens, au Fablab de La Machinerie.
 
 ## Contact
 

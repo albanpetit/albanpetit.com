@@ -22,8 +22,8 @@
   "home": {
     "greeting": "👋 Bonjour, je suis",
     "name": "Alban Petit",
-    "role": "Développeur · Maker · FabManager",
-    "description": "J'écris sur l'électronique, le développement web, et tout ce qui touche au monde des makers, tutoriels, expériences, et projets réalisés à <1>La Machinerie</1> et dans mon atelier.",
+    "role": "Enseignant · Développeur · Maker",
+    "description": "J'enseigne l'électronique numérique à <1>UniLaSalle Amiens</1> et j'écris sur l'électronique, le développement web, et tout ce qui touche au monde des makers, tutoriels, expériences, et projets réalisés dans mon atelier.",
     "readBlog": "Lire les articles",
     "aboutMe": "À propos",
     "latestPosts": "Derniers articles",
@@ -34,7 +34,7 @@
     "allTutorials": "Tous les tutoriels",
     "tags": "Tags",
     "location": "France",
-    "fablab": "FabManager @ La Machinerie",
+    "work": "Enseignant @ UniLaSalle Amiens",
     "skills": ["Électronique", "Développement Web", "Impression 3D", "Open Source"]
   },
   "blog": {
@@ -69,7 +69,7 @@
     "badge": "Projet"
   },
   "about": {
-    "role": "Développeur · Maker · FabManager",
+    "role": "Enseignant · Développeur · Maker",
     "skills": ["Développement Web", "Électronique", "Maker", "Open Source"],
     "email": "Email",
     "twitter": "Twitter",
