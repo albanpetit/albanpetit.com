@@ -3,7 +3,7 @@ title: Arrêt propre d'un Raspberry sur coupure de courant
 slug: raspberry-power-loss-shutdown
 lang: fr
 date: 2026-10-12
-description: "Éteindre proprement un Raspberry Pi quand le courant saute : un UPS à supercondensateurs, la détection de la coupure sur un GPIO et un service systemd qui lance l'arrêt."
+description: "Éteindre proprement un Raspberry Pi quand le courant saute : un UPS à supercondensateurs, la coupure détectée sur un GPIO et un service systemd pour l'arrêt."
 tags:
   - Bash
   - Python
