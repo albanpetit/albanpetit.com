@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "type-check": "astro check",
     "lint": "biome check .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "diagrams": "node scripts/render-diagrams.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.2",
@@ -28,7 +29,6 @@
     "fuse.js": "^7.5.0",
     "katex": "^0.19.0",
     "lucide-react": "^1.52.0",
-    "mermaid": "^12.1.0",
     "occt-import-js": "^0.0.23",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
@@ -50,6 +50,8 @@
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.186.0",
     "autoprefixer": "^10.0.0",
+    "mermaid": "^12.1.0",
+    "playwright": "^1.56.0",
     "postcss": "^8.5.29",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.0.0"
