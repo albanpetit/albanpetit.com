@@ -1,4 +1,5 @@
 ---
+import { Check } from "lucide-react"
 import { getTranslations, type Language } from "@/lib/i18n"
 import type { ProjectStatus } from "@/lib/projects"
 import { cn } from "@/lib/utils"
@@ -6,17 +7,35 @@ import { cn } from "@/lib/utils"
 interface Props {
   status: ProjectStatus
   lang: Language
+  class?: string
 }
 
-const { status, lang } = Astro.props
+const { status, lang, class: className } = Astro.props
 const t = getTranslations(lang)
 
+// Solid fills: they stay readable over a cover photo and pass 4.5:1 in both themes (the tinted blue was 4.34:1)
 const styles: Record<ProjectStatus, string> = {
-  "in-progress": "border-primary/60 bg-primary/15 text-foreground",
-  done: "border-link/40 bg-link/10 text-link",
+  "in-progress": "bg-primary text-primary-foreground",
+  done: "bg-secondary text-secondary-foreground",
 }
 ---
 
-<span class={cn("inline-flex shrink-0 items-center rounded-full border px-2.5 py-0.5 text-xs font-medium", styles[status])}>
+<span
+  class={cn(
+    "inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold shadow-sm",
+    styles[status],
+    className
+  )}
+>
+  {
+    status === "in-progress" ? (
+      <span class="relative flex h-2 w-2" aria-hidden="true">
+        <span class="absolute inline-flex h-full w-full rounded-full bg-primary-foreground/60 motion-safe:animate-ping" />
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-primary-foreground" />
+      </span>
+    ) : (
+      <Check className="h-3 w-3" strokeWidth={3} aria-hidden="true" />
+    )
+  }
   {t(`projects.status.${status}`)}
 </span>

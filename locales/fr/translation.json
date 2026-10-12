@@ -66,7 +66,12 @@
     "updated": "Mis à jour le {{date}}",
     "postCount_one": "{{count}} article",
     "postCount_other": "{{count}} articles",
-    "badge": "Projet"
+    "badge": "Projet",
+    "groups": {
+      "in-progress": "En cours",
+      "done": "Terminés"
+    },
+    "latest": "Dernier article"
   },
   "about": {
     "role": "Développeur · Maker · FabManager",
