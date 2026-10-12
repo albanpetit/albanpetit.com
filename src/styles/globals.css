@@ -123,6 +123,17 @@
       mask-image: linear-gradient(to right, #000 8%, rgb(0 0 0 / 0.3) 30%, rgb(0 0 0 / 0.3) 70%, #000 92%);
     }
   }
+  /* Posts: nothing behind the article column (max-w-5xl plus its gutter), the board only shows in wide margins */
+  .circuit-bg.circuit-bg-quiet {
+    opacity: 0.8;
+    mask-image: linear-gradient(
+      to right,
+      #000 calc(50% - 620px),
+      transparent calc(50% - 540px),
+      transparent calc(50% + 540px),
+      #000 calc(50% + 620px)
+    );
+  }
   .circuit-traces {
     stroke: currentColor;
     stroke-opacity: 0.08;
