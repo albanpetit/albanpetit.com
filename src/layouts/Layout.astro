@@ -1,13 +1,13 @@
 ---
 import "@/styles/globals.css"
-import { Moon, Rss, Search, Sun } from "lucide-react"
+import { ArrowUpRight, Moon, Rss, Search, Sun } from "lucide-react"
 import MobileNav from "@/components/MobileNav"
 import Seo, { type Props as SeoProps } from "@/components/Seo.astro"
 import Separator from "@/components/Separator.astro"
 import { buttonVariants } from "@/components/ui/button"
 import { type Language, localizedPath, otherLanguage, unlocalizedPath, getTranslations } from "@/lib/i18n"
 import { categoryPath } from "@/lib/tag"
-import { GITHUB_URL, TWITTER_URL } from "@/lib/site"
+import { GITHUB_URL, MAKERSTORAGE_URL, TWITTER_URL } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 interface Props {
@@ -32,6 +32,7 @@ const navLinks = [
   { to: localizedPath("/projects/", lang), label: t("nav.projects") },
   { to: categoryPath("Tutorials", lang), label: t("nav.tutorials") },
   { to: localizedPath("/about/", lang), label: t("nav.about") },
+  { to: MAKERSTORAGE_URL, label: t("makerstorage.nav"), external: true },
 ]
 
 const ghostIcon = buttonVariants({ variant: "ghost", size: "icon" })
@@ -83,11 +84,24 @@ const year = new Date().getFullYear()
           {/* Desktop nav */}
           <nav class="hidden md:flex items-center gap-6 text-sm" aria-label={t("a11y.mainNav")}>
             {
-              navLinks.map(({ to, label }) => (
-                <a href={to} class="text-muted-foreground transition-colors hover:text-foreground">
-                  {label}
-                </a>
-              ))
+              navLinks.map(({ to, label, external }) =>
+                external ? (
+                  <a
+                    href={to}
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-0.5 text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {label}
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span class="sr-only">{t("makerstorage.newTab")}</span>
+                  </a>
+                ) : (
+                  <a href={to} class="text-muted-foreground transition-colors hover:text-foreground">
+                    {label}
+                  </a>
+                )
+              )
             }
             <a
               href={switchPath}
@@ -133,6 +147,7 @@ const year = new Date().getFullYear()
                 menu: t("a11y.menu"),
                 nav: t("a11y.mobileNav"),
                 close: t("a11y.close"),
+                newTab: t("makerstorage.newTab"),
               }}
             />
           </div>
