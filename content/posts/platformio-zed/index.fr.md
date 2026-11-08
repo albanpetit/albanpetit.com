@@ -34,7 +34,7 @@ echo 'export PATH="$HOME/.platformio/penv/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-Sur Linux, `pipx install platformio` fait l'affaire. Dans tous les cas, les toolchains et les frameworks sont téléchargés dans `~/.platformio/packages/` à la première compilation : c'est ce dossier qu'on donnera à clangd plus loin.
+Sur Linux, `pipx install platformio` fait l'affaire. Dans tous les cas, les toolchains et les frameworks sont téléchargés dans `~/.platformio/packages/` à la première compilation : c'est là que clangd ira chercher les en-têtes du framework et de la toolchain.
 
 ## Ce qui existe côté Zed
 
@@ -62,29 +62,9 @@ compile_commands.json
 
 ## Brancher clangd sur la toolchain
 
-La compilation passe par le GCC fourni par PlatformIO (`xtensa-esp32-elf-g++`, `riscv32-esp-elf-g++`…), pas par Clang. Pour que clangd trouve les en-têtes système de cette toolchain et la bonne architecture cible, il faut l'autoriser à interroger ce compilateur avec `--query-driver`. Comme cette option fait exécuter le binaire, on la restreint aux toolchains de PlatformIO.
+La compilation passe par le GCC fourni par PlatformIO (`xtensa-esp32-elf-g++`, `riscv32-esp-elf-g++`…), pas par Clang. clangd a besoin de connaître les en-têtes système de cette toolchain (newlib, la bibliothèque C++…), sinon il bute dès le premier include, par exemple sur `'sys/reent.h' file not found`.
 
-Dans les réglages utilisateur de Zed (`zed: open settings`, fichier `~/.config/zed/settings.json`) :
-
-```json
-{
-  "lsp": {
-    "clangd": {
-      "binary": {
-        "path": "/opt/homebrew/opt/llvm/bin/clangd",
-        "arguments": [
-          "--background-index",
-          "--query-driver=/Users/moi/.platformio/packages/toolchain-*/bin/*"
-        ]
-      }
-    }
-  }
-}
-```
-
-Remplacez `/Users/moi` par votre dossier personnel : les chemins doivent être absolus, sans `~`. Sur macOS, clangd s'installe avec `brew install llvm` ; sur Linux, c'est souvent `/usr/bin/clangd` après un `apt install clangd`. `which clangd` vous donnera le bon chemin. Je règle `path` explicitement pour être sûr que les `arguments` sont bien pris en compte.
-
-Si vous ne voulez pas toucher aux arguments de clangd, PlatformIO peut aussi écrire les chemins de la toolchain directement dans `compile_commands.json`, via un script ajouté au projet. C'est plus verbeux, mais tout reste dans le dépôt :
+On voit souvent conseiller l'option `--query-driver` de clangd pour ça, mais elle ne fonctionne pas ici : PlatformIO écrit le compilateur sans son chemin dans `compile_commands.json` (`"command": "riscv32-esp-elf-gcc …"`), et clangd ne sait ni où le trouver ni le faire correspondre au motif. Le plus fiable est de demander à PlatformIO d'écrire lui-même les chemins de la toolchain dans la base, avec un petit script à la racine du projet :
 
 ```python
 # extra_script.py
@@ -97,6 +77,8 @@ env.Replace(COMPILATIONDB_INCLUDE_TOOLCHAIN=True)
 [env:esp32-c3]
 extra_scripts = pre:extra_script.py
 ```
+
+Puis on régénère la base avec `pio run -t compiledb`. Les `-I` vers la toolchain y sont maintenant, et Clang déduit l'architecture cible du nom du compilateur (`riscv32-esp-elf-gcc`). Aucun réglage n'est nécessaire côté Zed : le clangd qu'il utilise par défaut suffit.
 
 ## Faire taire les options GCC inconnues
 
@@ -112,7 +94,7 @@ CompileFlags:
     - -mtext-section-literals
 ```
 
-Sur un ESP32-C3 (RISC-V), `-march=*` est indispensable : le GCC d'Espressif écrit l'architecture `rv32imc_zicsr_zifencei`, une syntaxe que Clang refuse (`Unsupported argument 'rv32imc_zicsr_zifencei' to option '-march='`). La ligne de compilation entière est alors rejetée, et même `Arduino.h` devient introuvable. Le `*` final retire toutes les variantes de l'option, et clangd retrouve l'architecture grâce à `--query-driver`.
+Sur un ESP32-C3 (RISC-V), `-march=*` est indispensable : le GCC d'Espressif écrit l'architecture `rv32imc_zicsr_zifencei`, une syntaxe que Clang refuse (`Unsupported argument 'rv32imc_zicsr_zifencei' to option '-march='`). La ligne de compilation entière est alors rejetée, et même `Arduino.h` devient introuvable. Le `*` final retire toutes les variantes de l'option, et l'architecture reste déduite du nom du compilateur.
 
 La liste dépend de la puce et du framework : ajoutez-y les options que clangd signale. Pour les appliquer à tous vos projets, le même contenu peut aller dans `~/.config/clangd/config.yaml` (`~/Library/Preferences/clangd/config.yaml` sur macOS).
 

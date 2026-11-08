@@ -34,7 +34,7 @@ echo 'export PATH="$HOME/.platformio/penv/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-On Linux, `pipx install platformio` does the job. Either way, toolchains and frameworks are downloaded into `~/.platformio/packages/` on the first build: that is the folder we will hand to clangd later on.
+On Linux, `pipx install platformio` does the job. Either way, toolchains and frameworks are downloaded into `~/.platformio/packages/` on the first build: that is where clangd will find the framework and toolchain headers.
 
 ## What Zed offers
 
@@ -62,29 +62,9 @@ compile_commands.json
 
 ## Pointing clangd at the toolchain
 
-The build uses the GCC shipped by PlatformIO (`xtensa-esp32-elf-g++`, `riscv32-esp-elf-g++`…), not Clang. For clangd to find that toolchain's system headers and the right target architecture, it must be allowed to query this compiler with `--query-driver`. Since this option makes clangd run the binary, we restrict it to PlatformIO's toolchains.
+The build uses the GCC shipped by PlatformIO (`xtensa-esp32-elf-g++`, `riscv32-esp-elf-g++`…), not Clang. clangd needs to know that toolchain's system headers (newlib, the C++ library…), otherwise it stumbles on the first include, for example on `'sys/reent.h' file not found`.
 
-In Zed's user settings (`zed: open settings`, file `~/.config/zed/settings.json`):
-
-```json
-{
-  "lsp": {
-    "clangd": {
-      "binary": {
-        "path": "/opt/homebrew/opt/llvm/bin/clangd",
-        "arguments": [
-          "--background-index",
-          "--query-driver=/Users/moi/.platformio/packages/toolchain-*/bin/*"
-        ]
-      }
-    }
-  }
-}
-```
-
-Replace `/Users/moi` with your home folder: paths must be absolute, without `~`. On macOS, clangd comes with `brew install llvm`; on Linux, it is often `/usr/bin/clangd` after an `apt install clangd`. `which clangd` gives you the right path. I set `path` explicitly to make sure the `arguments` are taken into account.
-
-If you would rather not touch clangd's arguments, PlatformIO can also write the toolchain paths straight into `compile_commands.json`, through a script added to the project. It is more verbose, but everything stays in the repository:
+clangd's `--query-driver` option is often recommended for this, but it does not work here: PlatformIO writes the compiler without its path in `compile_commands.json` (`"command": "riscv32-esp-elf-gcc …"`), so clangd can neither find it nor match it against the pattern. The most reliable way is to have PlatformIO write the toolchain paths into the database itself, with a small script at the project root:
 
 ```python
 # extra_script.py
@@ -97,6 +77,8 @@ env.Replace(COMPILATIONDB_INCLUDE_TOOLCHAIN=True)
 [env:esp32-c3]
 extra_scripts = pre:extra_script.py
 ```
+
+Then regenerate the database with `pio run -t compiledb`. The `-I` flags pointing to the toolchain are now in it, and Clang infers the target architecture from the compiler's name (`riscv32-esp-elf-gcc`). Nothing needs to be set in Zed: the clangd it uses by default is enough.
 
 ## Silencing unknown GCC flags
 
@@ -112,7 +94,7 @@ CompileFlags:
     - -mtext-section-literals
 ```
 
-On an ESP32-C3 (RISC-V), `-march=*` is essential: Espressif's GCC spells the architecture `rv32imc_zicsr_zifencei`, a syntax Clang rejects (`Unsupported argument 'rv32imc_zicsr_zifencei' to option '-march='`). The whole compile command is then dropped, and even `Arduino.h` can no longer be found. The trailing `*` removes every variant of the flag, and clangd gets the architecture back through `--query-driver`.
+On an ESP32-C3 (RISC-V), `-march=*` is essential: Espressif's GCC spells the architecture `rv32imc_zicsr_zifencei`, a syntax Clang rejects (`Unsupported argument 'rv32imc_zicsr_zifencei' to option '-march='`). The whole compile command is then dropped, and even `Arduino.h` can no longer be found. The trailing `*` removes every variant of the flag, and the architecture is still inferred from the compiler's name.
 
 The list depends on the chip and the framework: add the flags clangd reports. To apply them to all your projects, the same content can go into `~/.config/clangd/config.yaml` (`~/Library/Preferences/clangd/config.yaml` on macOS).
 
