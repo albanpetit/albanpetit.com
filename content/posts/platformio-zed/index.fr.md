@@ -105,11 +105,14 @@ clangd lit les mêmes options que GCC, et certaines lui sont inconnues : sur ESP
 ```yaml
 CompileFlags:
   Remove:
+    - -march=*
     - -mlongcalls
     - -fstrict-volatile-bitfields
     - -fno-tree-switch-conversion
     - -mtext-section-literals
 ```
+
+Sur un ESP32-C3 (RISC-V), `-march=*` est indispensable : le GCC d'Espressif écrit l'architecture `rv32imc_zicsr_zifencei`, une syntaxe que Clang refuse (`Unsupported argument 'rv32imc_zicsr_zifencei' to option '-march='`). La ligne de compilation entière est alors rejetée, et même `Arduino.h` devient introuvable. Le `*` final retire toutes les variantes de l'option, et clangd retrouve l'architecture grâce à `--query-driver`.
 
 La liste dépend de la puce et du framework : ajoutez-y les options que clangd signale. Pour les appliquer à tous vos projets, le même contenu peut aller dans `~/.config/clangd/config.yaml` (`~/Library/Preferences/clangd/config.yaml` sur macOS).
 

@@ -105,11 +105,14 @@ clangd reads the same flags as GCC, and some of them are unknown to it: on ESP32
 ```yaml
 CompileFlags:
   Remove:
+    - -march=*
     - -mlongcalls
     - -fstrict-volatile-bitfields
     - -fno-tree-switch-conversion
     - -mtext-section-literals
 ```
+
+On an ESP32-C3 (RISC-V), `-march=*` is essential: Espressif's GCC spells the architecture `rv32imc_zicsr_zifencei`, a syntax Clang rejects (`Unsupported argument 'rv32imc_zicsr_zifencei' to option '-march='`). The whole compile command is then dropped, and even `Arduino.h` can no longer be found. The trailing `*` removes every variant of the flag, and clangd gets the architecture back through `--query-driver`.
 
 The list depends on the chip and the framework: add the flags clangd reports. To apply them to all your projects, the same content can go into `~/.config/clangd/config.yaml` (`~/Library/Preferences/clangd/config.yaml` on macOS).
 
