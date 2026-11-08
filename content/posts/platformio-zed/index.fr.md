@@ -16,7 +16,25 @@ PlatformIO est surtout connu comme extension de VS Code, mais tout le travail es
 - **clangd**, le serveur de langage C/C++ que Zed utilise déjà, nourri par un fichier `compile_commands.json` généré par PlatformIO ;
 - des **tâches** Zed qui appellent `pio` pour compiler, flasher et ouvrir le moniteur série.
 
-Comptez une dizaine de minutes. On part d'un projet PlatformIO existant (un `platformio.ini` à la racine) et de `pio` installé et accessible dans le `PATH`.
+Comptez une dizaine de minutes. On part d'un projet PlatformIO existant (un `platformio.ini` à la racine).
+
+## Installer la ligne de commande pio
+
+Sur Mac, le plus simple est Homebrew :
+
+```bash
+brew install platformio
+pio --version
+```
+
+Si vous avez déjà utilisé l'extension PlatformIO de VS Code, `pio` est déjà là, dans `~/.platformio/penv/bin/`. Inutile de le réinstaller : il suffit d'ajouter ce dossier au `PATH`.
+
+```bash
+echo 'export PATH="$HOME/.platformio/penv/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+Sur Linux, `pipx install platformio` fait l'affaire. Dans tous les cas, les toolchains et les frameworks sont téléchargés dans `~/.platformio/packages/` à la première compilation : c'est ce dossier qu'on donnera à clangd plus loin.
 
 ## Ce qui existe côté Zed
 
