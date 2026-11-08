@@ -68,6 +68,8 @@ clangd's `--query-driver` option is often recommended for this, but it does not 
 
 ```python
 # extra_script.py
+# ruff: noqa: F821
+# pyright: reportUndefinedVariable=false
 Import("env")
 env.Replace(COMPILATIONDB_INCLUDE_TOOLCHAIN=True)
 ```
@@ -77,6 +79,8 @@ env.Replace(COMPILATIONDB_INCLUDE_TOOLCHAIN=True)
 [env:esp32-c3]
 extra_scripts = pre:extra_script.py
 ```
+
+`Import` and `env` are provided by SCons, PlatformIO's build engine, when it runs the script: the two comments at the top keep Zed's Python analyzer from flagging them as undefined.
 
 Then regenerate the database with `pio run -t compiledb`. The `-I` flags pointing to the toolchain are now in it, and Clang infers the target architecture from the compiler's name (`riscv32-esp-elf-gcc`). Nothing needs to be set in Zed: the clangd it uses by default is enough.
 
