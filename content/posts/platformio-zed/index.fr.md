@@ -163,7 +163,7 @@ Pour les tâches les plus fréquentes, un raccourci dans `keymap.json` (`zed: op
 ]
 ```
 
-![Zed ouvert sur le firmware PaperFlux : main.cpp sans erreur clangd, l'arborescence avec .clangd, extra_script.py et .zed/tasks.json, et la tâche PIO: Build terminée avec succès dans le terminal](main.jpg)
+![Zed ouvert sur le firmware PaperFlux : main.cpp sans erreur clangd, l'arborescence avec .clangd, extra_script.py et .zed/tasks.json, et la tâche PIO: Build terminée avec succès dans le terminal](zed-build.jpg)
 
 ## Ce qui manque encore
 
@@ -172,3 +172,5 @@ Pour les tâches les plus fréquentes, un raccourci dans `keymap.json` (`zed: op
 - **Les fichiers `.ino`** : clangd ne les comprend pas. Mieux vaut un `src/main.cpp` avec `#include <Arduino.h>`, ce qui est de toute façon la structure par défaut d'un projet PlatformIO.
 
 Pour le reste, c'est un éditeur rapide, une complétion qui connaît le framework et trois raccourcis pour compiler, flasher et lire la sortie série : tout ce dont j'ai besoin au quotidien sur un firmware.
+
+*Image de couverture : logos PlatformIO et Zed, marques de leurs propriétaires respectifs, tracés issus de [Simple Icons](https://simpleicons.org) (CC0).*

@@ -163,7 +163,7 @@ For the most frequent tasks, a shortcut in `keymap.json` (`zed: open keymap`) ev
 ]
 ```
 
-![Zed open on the PaperFlux firmware: main.cpp with no clangd errors, the file tree with .clangd, extra_script.py and .zed/tasks.json, and the PIO: Build task finished successfully in the terminal](main.jpg)
+![Zed open on the PaperFlux firmware: main.cpp with no clangd errors, the file tree with .clangd, extra_script.py and .zed/tasks.json, and the PIO: Build task finished successfully in the terminal](zed-build.jpg)
 
 ## What is still missing
 
@@ -172,3 +172,5 @@ For the most frequent tasks, a shortcut in `keymap.json` (`zed: open keymap`) ev
 - **`.ino` files**: clangd does not understand them. A `src/main.cpp` with `#include <Arduino.h>` works better, and it is the default layout of a PlatformIO project anyway.
 
 Apart from that, you get a fast editor, completion that knows the framework and three shortcuts to build, flash and read the serial output: everything I need day to day on a firmware.
+
+*Cover image: PlatformIO and Zed logos, trademarks of their respective owners, paths from [Simple Icons](https://simpleicons.org) (CC0).*
