@@ -9,6 +9,7 @@ tags:
   - ESP32
   - PlatformIO
 category: Tutorials
+image: main.jpg
 ---
 
 PlatformIO is best known as a VS Code extension, but all the work is done by its command line, `pio`. Zed has no official PlatformIO extension: it only needs two things to be comfortable on an ESP32 firmware such as the one in [PaperFlux](/post/paperflux/):
@@ -162,7 +163,7 @@ For the most frequent tasks, a shortcut in `keymap.json` (`zed: open keymap`) ev
 ]
 ```
 
-<!-- TO COMPLETE: screenshot of Zed with clangd completion and the Upload & Monitor task open (will also serve as main.jpg) -->
+![Zed open on the PaperFlux firmware: main.cpp with no clangd errors, the file tree with .clangd, extra_script.py and .zed/tasks.json, and the PIO: Build task finished successfully in the terminal](main.jpg)
 
 ## What is still missing
 
