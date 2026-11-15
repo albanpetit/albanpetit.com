@@ -18,10 +18,10 @@ Il lui faut donc un support. Celui-ci tient en **1 U**, s'imprime d'une seule pi
 
 <!-- À COMPLÉTER : le rôle du Mac mini dans le home lab (services hébergés, système, etc.). -->
 
-<a class="repo-card" href="https://github.com/albanpetit/rack-10inch" target="_blank" rel="noopener noreferrer">
+<a class="repo-card" href="https://github.com/albanpetit/homelab" target="_blank" rel="noopener noreferrer">
   <svg class="repo-card-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
   <span class="repo-card-body">
-    <span class="repo-card-name">albanpetit/rack-10inch</span>
+    <span class="repo-card-name">albanpetit/homelab</span>
     <span class="repo-card-desc">Modèle FreeCAD et exports STEP, STL, DXF et 3MF</span>
   </span>
   <svg class="repo-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
@@ -41,10 +41,10 @@ Sur un Mac mini, toute la connectique est à l'arrière : alimentation, Ethernet
 
 Derrière la façade, un bac reçoit le Mac mini. Son fond est ajouré en cercle, au droit de l'entrée d'air située sous la machine, pour ne pas l'étouffer.
 
-Le support a son propre modèle FreeCAD, dans le [dossier `mac-m1-rack-mount`](https://github.com/albanpetit/rack-10inch/tree/main/mcad/mac-m1-rack-mount) du dépôt du rack, avec ses exports STEP, STL et 3MF. La visionneuse ci-dessous affiche son fichier STEP.
+Le support a son propre modèle FreeCAD, dans le [dossier `mac-m1-rack-mount`](https://github.com/albanpetit/homelab/tree/main/mcad/mac-m1-rack-mount) du dépôt du rack, avec ses exports STEP, STL et 3MF. La visionneuse ci-dessous affiche son fichier STEP.
 
-<div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/rack-10inch/main/mcad/mac-m1-rack-mount/step/assembly.step">
-  <a href="https://github.com/albanpetit/rack-10inch/blob/main/mcad/mac-m1-rack-mount/step/assembly.step">Fichier STEP du support sur GitHub</a>
+<div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/homelab/main/mcad/mac-m1-rack-mount/step/assembly.step">
+  <a href="https://github.com/albanpetit/homelab/blob/main/mcad/mac-m1-rack-mount/step/assembly.step">Fichier STEP du support sur GitHub</a>
 </div>
 
 ## L'impression

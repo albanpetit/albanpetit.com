@@ -20,10 +20,10 @@ Depuis longtemps, je voulais un vrai **home lab** à la maison : un endroit où 
 
 La solution m'est venue des vidéos de [Jeff Geerling](https://www.youtube.com/@JeffGeerling) et de son [Project MINI RACK](https://mini-rack.jeffgeerling.com/), qui recense des home labs construits dans des **racks 10 pouces** : le même principe qu'une baie de datacenter, en deux fois plus étroit. Plutôt que d'acheter un rack tout fait, j'ai voulu concevoir le mien, à partir de profilés aluminium, de pièces imprimées en 3D et de panneaux découpés au laser.
 
-<a class="repo-card" href="https://github.com/albanpetit/rack-10inch" target="_blank" rel="noopener noreferrer">
+<a class="repo-card" href="https://github.com/albanpetit/homelab" target="_blank" rel="noopener noreferrer">
   <svg class="repo-card-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
   <span class="repo-card-body">
-    <span class="repo-card-name">albanpetit/rack-10inch</span>
+    <span class="repo-card-name">albanpetit/homelab</span>
     <span class="repo-card-desc">Modèle FreeCAD et exports STEP, STL, DXF et 3MF</span>
   </span>
   <svg class="repo-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
@@ -58,11 +58,11 @@ Tout le rack est modélisé dans FreeCAD, avec l'atelier Assembly : les profilé
 
 Le modèle complet est consultable ci-dessous, directement depuis le fichier STEP du dépôt. Les panneaux sont affichés en transparence pour laisser voir l'intérieur.
 
-<div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/rack-10inch/main/mcad/main/step/assembly.step" data-transparent="panel-plate">
-  <a href="https://github.com/albanpetit/rack-10inch/blob/main/mcad/main/step/assembly.step">Fichier STEP de l'assemblage sur GitHub</a>
+<div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/homelab/main/mcad/main/step/assembly.step" data-transparent="panel-plate">
+  <a href="https://github.com/albanpetit/homelab/blob/main/mcad/main/step/assembly.step">Fichier STEP de l'assemblage sur GitHub</a>
 </div>
 
-Le dépôt contient aussi tous les exports nécessaires pour le refaire : les [STL](https://github.com/albanpetit/rack-10inch/tree/main/mcad/main/stl) des pièces imprimées, le projet d'impression 3MF avec ses plateaux, et les [DXF](https://github.com/albanpetit/rack-10inch/tree/main/mcad/main/dxf) des panneaux pour la découpe laser.
+Le dépôt contient aussi tous les exports nécessaires pour le refaire : les [STL](https://github.com/albanpetit/homelab/tree/main/mcad/main/stl) des pièces imprimées, le projet d'impression 3MF avec ses plateaux, et les [DXF](https://github.com/albanpetit/homelab/tree/main/mcad/main/dxf) des panneaux pour la découpe laser.
 
 ## Le cadre en profilés 20x20
 

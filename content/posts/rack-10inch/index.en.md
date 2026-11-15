@@ -20,10 +20,10 @@ For a long time, I had wanted a real **home lab**: a place to run my personal se
 
 The answer came from [Jeff Geerling](https://www.youtube.com/@JeffGeerling)'s videos and his [Project MINI RACK](https://mini-rack.jeffgeerling.com/), which collects home labs built in **10-inch racks**: the same principle as a datacenter rack, at half the width. Rather than buying a ready-made rack, I wanted to design my own, from aluminium extrusions, 3D printed parts and laser-cut panels.
 
-<a class="repo-card" href="https://github.com/albanpetit/rack-10inch" target="_blank" rel="noopener noreferrer">
+<a class="repo-card" href="https://github.com/albanpetit/homelab" target="_blank" rel="noopener noreferrer">
   <svg class="repo-card-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
   <span class="repo-card-body">
-    <span class="repo-card-name">albanpetit/rack-10inch</span>
+    <span class="repo-card-name">albanpetit/homelab</span>
     <span class="repo-card-desc">FreeCAD model and STEP, STL, DXF and 3MF exports</span>
   </span>
   <svg class="repo-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
@@ -58,11 +58,11 @@ The whole rack is modelled in FreeCAD, with the Assembly workbench: the extrusio
 
 The complete model can be explored below, straight from the STEP file in the repository. The panels are shown see-through to reveal the inside.
 
-<div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/rack-10inch/main/mcad/main/step/assembly.step" data-transparent="panel-plate">
-  <a href="https://github.com/albanpetit/rack-10inch/blob/main/mcad/main/step/assembly.step">STEP file of the assembly on GitHub</a>
+<div class="step-embed" data-src="https://raw.githubusercontent.com/albanpetit/homelab/main/mcad/main/step/assembly.step" data-transparent="panel-plate">
+  <a href="https://github.com/albanpetit/homelab/blob/main/mcad/main/step/assembly.step">STEP file of the assembly on GitHub</a>
 </div>
 
-The repository also holds every export needed to build it again: the [STL](https://github.com/albanpetit/rack-10inch/tree/main/mcad/main/stl) files of the printed parts, the 3MF print project with its plates, and the [DXF](https://github.com/albanpetit/rack-10inch/tree/main/mcad/main/dxf) files of the panels for laser cutting.
+The repository also holds every export needed to build it again: the [STL](https://github.com/albanpetit/homelab/tree/main/mcad/main/stl) files of the printed parts, the 3MF print project with its plates, and the [DXF](https://github.com/albanpetit/homelab/tree/main/mcad/main/dxf) files of the panels for laser cutting.
 
 ## The frame in 20x20 extrusions
 
