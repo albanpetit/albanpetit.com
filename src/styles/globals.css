@@ -30,6 +30,13 @@
     /* blue focus ring: the yellow primary is ~1.4:1 on white */
     --ring: 213 47% 47%;
     --radius: 0.625rem;
+    /* Section colors of the pre-rendered Mermaid timelines (scripts/render-diagrams.ts) */
+    --diagram-1: 240 80% 87%;
+    --diagram-2: 55 85% 78%;
+    --diagram-3: 90 60% 80%;
+    --diagram-4: 280 70% 87%;
+    --diagram-5: 320 75% 88%;
+    --diagram-6: 180 55% 80%;
   }
 
   .dark {
@@ -55,6 +62,12 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 49 93% 66%;
+    --diagram-1: 240 30% 30%;
+    --diagram-2: 55 35% 25%;
+    --diagram-3: 90 30% 24%;
+    --diagram-4: 280 28% 30%;
+    --diagram-5: 320 30% 29%;
+    --diagram-6: 180 30% 24%;
   }
 }
 
@@ -75,8 +88,6 @@
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
-    background-image: radial-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px);
-    background-size: 28px 28px;
   }
 
   ::selection {
@@ -97,6 +108,97 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground/40;
+  }
+}
+
+/* Printed circuit behind the page (CircuitBackground.astro) */
+@layer components {
+  .circuit-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    color: hsl(var(--foreground));
+  }
+  .circuit-bg svg {
+    width: 100%;
+    height: 100%;
+  }
+  /* On phones the text spans the whole width: dim the board a little more */
+  @media (max-width: 767px) {
+    .circuit-bg {
+      opacity: 0.7;
+    }
+  }
+  /* From tablet width up, fade the board under the reading column so text sits on a calm background */
+  @media (min-width: 768px) {
+    .circuit-bg {
+      mask-image: linear-gradient(to right, #000 8%, rgb(0 0 0 / 0.3) 30%, rgb(0 0 0 / 0.3) 70%, #000 92%);
+    }
+  }
+  /* Posts: nothing behind the article column (max-w-5xl plus its gutter), the board only shows in wide margins */
+  .circuit-bg.circuit-bg-quiet {
+    opacity: 0.8;
+    mask-image: linear-gradient(
+      to right,
+      #000 calc(50% - 620px),
+      transparent calc(50% - 540px),
+      transparent calc(50% + 540px),
+      #000 calc(50% + 620px)
+    );
+  }
+  .circuit-traces {
+    stroke: currentColor;
+    stroke-opacity: 0.08;
+    stroke-width: 1.5;
+  }
+  .circuit-pads circle {
+    fill: hsl(var(--background));
+    stroke: currentColor;
+    stroke-opacity: 0.12;
+    stroke-width: 1.5;
+  }
+  .circuit-pulses path {
+    stroke: hsl(var(--secondary));
+    stroke-opacity: 0.55;
+    stroke-width: 2.5;
+    /* One short dash per trace (pathLength="100"), parked off the path between two runs */
+    stroke-dasharray: 10 200;
+    stroke-dashoffset: 12;
+    animation: circuit-pulse linear infinite;
+  }
+  /* Wide faint copy under each pulse: a soft glow without an SVG filter */
+  .circuit-pulses .circuit-glow {
+    stroke-opacity: 0.15;
+    stroke-width: 8;
+  }
+  .dark .circuit-traces {
+    stroke-opacity: 0.09;
+  }
+  .dark .circuit-pads circle {
+    stroke-opacity: 0.14;
+  }
+  .dark .circuit-pulses path {
+    stroke: hsl(var(--primary));
+    stroke-opacity: 0.6;
+  }
+  .dark .circuit-pulses .circuit-glow {
+    stroke-opacity: 0.15;
+  }
+  @keyframes circuit-pulse {
+    0% {
+      stroke-dashoffset: 12;
+    }
+    55%,
+    100% {
+      stroke-dashoffset: -100;
+    }
+  }
+  /* Readers who asked for less motion get the board without the pulses */
+  @media (prefers-reduced-motion: reduce) {
+    .circuit-pulses {
+      display: none;
+    }
   }
 }
 
@@ -340,12 +442,13 @@
     @apply mt-2 block text-sm text-muted-foreground;
   }
 
-  /* Mermaid diagram: centers the SVG mermaid.js renders into this container */
-  .prose pre.mermaid {
+  /* Mermaid diagram: centers the SVG pre-rendered by scripts/render-diagrams.ts (remark-mermaid.ts) */
+  .prose figure.diagram {
     @apply my-6 flex justify-center overflow-x-auto rounded-lg border border-border bg-card p-4;
   }
-  .prose pre.mermaid svg {
+  .prose figure.diagram svg {
     max-width: 100%;
+    height: auto;
   }
 
   /* Chart from a CSV (remark-chart.ts): canvas drawn by src/scripts/chart.ts, data table below */

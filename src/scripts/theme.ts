@@ -1,5 +1,5 @@
 // The .dark class on <html> is the source of truth: set before first paint by the inline script in
-// Layout.astro, toggled here, and watched by everything that needs to follow it (Giscus, Mermaid, KiCanvas)
+// Layout.astro, toggled here, and watched by everything that needs to follow it (Giscus, KiCanvas)
 
 export type Theme = "light" | "dark"
 

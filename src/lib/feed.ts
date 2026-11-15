@@ -16,7 +16,7 @@ const FEEDS: Record<Language, { title: string; description: string }> = {
   },
 }
 
-// Links that replace what only renders with the site's scripts (Mermaid, KiCanvas, Chart.js, the STEP viewer)
+// Links that replace what only renders with the site's scripts and styles (diagrams, KiCanvas, Chart.js, the STEP viewer)
 const PLACEHOLDERS: Record<Language, { diagram: string; kicad: string; chart: string; model: string }> = {
   en: {
     diagram: "View the diagram on the site",
@@ -48,7 +48,7 @@ const forFeedReaders = (html: string, postUrl: string, lang: Language) => {
   return html
     .replace(/<a class="anchor before"[^>]*>[\s\S]*?<\/a>/g, "")
     .replace(/(\shref=")#/g, `$1${postUrl}#`)
-    .replace(/<pre class="mermaid"[^>]*>[\s\S]*?<\/pre>/g, placeholder(PLACEHOLDERS[lang].diagram))
+    .replace(/<figure class="diagram">[\s\S]*?<\/figure>/g, placeholder(PLACEHOLDERS[lang].diagram))
     .replace(/<kicanvas-embed[^>]*>[\s\S]*?<\/kicanvas-embed>/g, placeholder(PLACEHOLDERS[lang].kicad))
     .replace(/<div class="chart-canvas">[\s\S]*?<\/script>/g, placeholder(PLACEHOLDERS[lang].chart))
     .replace(/<div class="step-embed"[^>]*>/g, (div) => `${placeholder(PLACEHOLDERS[lang].model)}${div}`)

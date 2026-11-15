@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!public", "!dist", "!.astro"]
+    "includes": ["**", "!public", "!dist", "!.astro", "!src/diagrams"]
   },
   "formatter": {
     "enabled": true,

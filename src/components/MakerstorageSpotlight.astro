@@ -1,0 +1,114 @@
+---
+import { ArrowUpRight, BellRing, Boxes, ScanBarcode, Warehouse } from "lucide-react"
+import { buttonVariants } from "@/components/ui/button"
+import { getTranslations, type Language } from "@/lib/i18n"
+import { MAKERSTORAGE_URL } from "@/lib/site"
+import { cn } from "@/lib/utils"
+
+interface Props {
+  lang: Language
+}
+
+const { lang } = Astro.props
+const t = getTranslations(lang)
+
+const featureIcons = [Boxes, Warehouse, ScanBarcode, BellRing]
+const features = t.list("makerstorage.features").map((label, i) => ({ label, Icon: featureIcons[i] ?? Boxes }))
+
+// Decorative parts cabinet: plain markup, no image to load
+const drawers = [
+  { part: "10kΩ", count: 412 },
+  { part: "100nF", count: 238 },
+  { part: "ESP32-C3", count: 3, low: true },
+  { part: "LM358", count: 57 },
+  { part: "1N4148", count: 190 },
+  { part: "M3×8", count: 640 },
+]
+---
+
+<section aria-labelledby="makerstorage-title" class="py-12">
+  <div class="relative overflow-hidden rounded-2xl border bg-card">
+    <div
+      class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-link/10"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative grid grid-cols-1 lg:grid-cols-5 gap-10 p-6 sm:p-10">
+      <div class="lg:col-span-3 flex flex-col gap-5">
+        <p class="text-sm font-semibold uppercase tracking-widest text-amber-700 dark:text-primary">
+          {t("makerstorage.eyebrow")}
+        </p>
+        <div>
+          <h2 id="makerstorage-title" class="text-3xl sm:text-4xl font-black tracking-tight">Makerstorage</h2>
+          <p class="mt-2 text-lg font-medium text-link">{t("makerstorage.headline")}</p>
+        </div>
+        <p class="text-base leading-relaxed text-foreground/75 max-w-prose">{t("makerstorage.description")}</p>
+
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          {
+            features.map(({ label, Icon }) => (
+              <li class="flex items-start gap-2.5">
+                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/20 text-foreground">
+                  <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+                <span>{label}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <ul class="flex flex-wrap gap-2">
+          {
+            t.list("makerstorage.badges").map((badge) => (
+              <li class="rounded-full border border-primary/40 bg-primary/5 px-2.5 py-0.5 text-xs font-medium">
+                {badge}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div>
+          <a
+            href={MAKERSTORAGE_URL}
+            target="_blank"
+            rel="noopener"
+            class={cn(buttonVariants({ size: "lg" }), "font-semibold")}
+          >
+            {t("makerstorage.cta")}
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            <span class="sr-only">{t("makerstorage.newTab")}</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Parts cabinet illustration */}
+      <div class="lg:col-span-2 flex items-center justify-center" aria-hidden="true">
+        <div class="w-full max-w-xs rounded-xl border bg-background/80 p-3 shadow-lg">
+          <div class="grid grid-cols-2 gap-2">
+            {
+              drawers.map(({ part, count, low }) => (
+                <div
+                  class={cn(
+                    "flex flex-col gap-1 rounded-md border bg-card px-3 py-2",
+                    low && "border-amber-500/70 bg-amber-500/10"
+                  )}
+                >
+                  <span class="mx-auto h-1 w-8 rounded-full bg-muted-foreground/30" />
+                  <span class="font-mono text-xs font-semibold">{part}</span>
+                  <span class="flex items-center justify-between text-[11px] text-muted-foreground">
+                    <span>×{count}</span>
+                    {low && (
+                      <span class="rounded bg-amber-500/20 px-1 font-medium text-amber-800 dark:text-amber-300">
+                        {t("makerstorage.lowStock")}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

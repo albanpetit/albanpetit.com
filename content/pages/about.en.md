@@ -5,9 +5,11 @@ lang: en
 date: 2022-01-23
 ---
 
-Hi! I'm Alban Petit, a French web developer passionate about technology, working at [La Machinerie](https://lamachinerie.org), an association that hosts a Fablab and coworking space in Amiens. I've been involved with this organisation for over 7 years, starting as a volunteer and eventually becoming manager of a service pole dedicated to electronics, computing, and digital fabrication.
+Hi! I'm Alban Petit, a digital electronics teacher at [UniLaSalle Amiens](https://www.unilasalle.fr), an engineering school. I also mentor students through their multidisciplinary projects and support them as they compete in the French robotics championships.
 
-These experiences revealed a genuine passion for software development, electronics, and prototyping in general.
+Before teaching, I spent several years in web and embedded development at Etoele and at [La Machinerie](https://lamachinerie.org), an Amiens association that hosts a Fablab, where I started as a volunteer and went on to manage a service pole dedicated to electronics, computing, and digital fabrication, and then to lead the association as its director.
+
+These experiences revealed a genuine passion for software development, electronics, and prototyping, which I now share with my students.
 
 ## Experience
 
@@ -23,9 +25,13 @@ These experiences revealed a genuine passion for software development, electroni
 
 - **2019 – 2021** · Web & Embedded Developer, Etoele, Amiens
 
-- **2022 – 2023** · Manufacture Pole Manager, Association La Machinerie, Amiens
+- **2022 – 2026** · Manufacture Pole Manager, then Director (2024 – 2026), Association La Machinerie, Amiens
 
-  I managed the Manufacture pole, helping professionals develop prototypes in electronics, furniture, functional parts, and connected objects.
+  I managed the Manufacture pole, helping professionals develop prototypes in electronics, furniture, functional parts, and connected objects. From 2024 to 2026, I also ran the organisation as its director.
+
+- **2026 – present** · Digital Electronics Teacher, UniLaSalle, Amiens
+
+  I teach digital electronics to engineering students, mentor them through their multidisciplinary projects, and support the teams competing in the French robotics championships.
 
 ## La Machinerie
 
@@ -38,11 +44,11 @@ Today La Machinerie comprises 4 major activity poles:
 - A Fablab
 - A Manufacture: a service aimed at professionals developing and producing prototypes (electronics, furniture, functional parts, connected objects)
 
-The Fablab, located in the heart of Amiens near the train station, regularly welcomes visitors I assist during open sessions with their technical projects.
+The Fablab, located in the heart of Amiens near the train station, regularly welcomes visitors, whom I long helped with their technical projects during open sessions.
 
 ## Personal Projects
 
-Beyond La Machinerie, I use this site to document personal projects built both in the Fablab and in my personal workshop.
+Alongside teaching, I use this site to document my personal projects, built in my workshop and, for the older ones, at La Machinerie's Fablab.
 
 ## Contact
 

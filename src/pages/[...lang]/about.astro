@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets"
 import { getEntry, render } from "astro:content"
-import { Cpu, Mail, MapPin, Printer } from "lucide-react"
+import { GraduationCap, Mail, MapPin, Printer } from "lucide-react"
 import { GithubIcon, XIcon } from "@/components/icons"
 import Separator from "@/components/Separator.astro"
 import { badgeVariants } from "@/components/ui/badge"
@@ -38,8 +38,8 @@ const outlineSmall = buttonVariants({ variant: "outline", size: "sm" })
   seo={{
     title: isEN ? "About · Alban Petit" : "À propos · Alban Petit",
     description: isEN
-      ? "About Alban Petit, developer, maker, and FabManager at La Machinerie."
-      : "À propos d'Alban Petit, développeur, maker et FabManager à La Machinerie.",
+      ? "About Alban Petit, digital electronics teacher at UniLaSalle Amiens, developer, and maker."
+      : "À propos d'Alban Petit, enseignant en électronique numérique à UniLaSalle Amiens, développeur et maker.",
     canonicalPath: localizedPath("/about/", lang),
     alternatePaths: { en: "/about/", fr: "/fr/about/" },
   }}
@@ -62,9 +62,9 @@ const outlineSmall = buttonVariants({ variant: "outline", size: "sm" })
             <span>{t("home.location")}</span>
           </div>
           <div class="flex items-center gap-2 text-muted-foreground">
-            <Cpu className="h-4 w-4 shrink-0 text-primary" />
-            <a href="https://lamachinerie.org" target="_blank" rel="noopener noreferrer" class={infoLink}>
-              {t("home.fablab")}
+            <GraduationCap className="h-4 w-4 shrink-0 text-primary" />
+            <a href="https://www.unilasalle.fr" target="_blank" rel="noopener noreferrer" class={infoLink}>
+              {t("home.work")}
             </a>
           </div>
           <div class="flex items-center gap-2 text-muted-foreground">

@@ -22,8 +22,8 @@
   "home": {
     "greeting": "👋 Hello, I'm",
     "name": "Alban Petit",
-    "role": "Developer · Maker · FabManager",
-    "description": "I write about electronics, web development, and all things related to the maker world, tutorials, experiments, and projects built at <1>La Machinerie</1> and in my workshop.",
+    "role": "Teacher · Developer · Maker",
+    "description": "I teach digital electronics at <1>UniLaSalle Amiens</1> and write about electronics, web development, and all things related to the maker world, tutorials, experiments, and projects built in my workshop.",
     "readBlog": "Read the blog",
     "aboutMe": "About me",
     "latestPosts": "Latest posts",
@@ -34,7 +34,7 @@
     "allTutorials": "All tutorials",
     "tags": "Tags",
     "location": "France",
-    "fablab": "FabManager @ La Machinerie",
+    "work": "Teacher @ UniLaSalle Amiens",
     "skills": ["Electronics", "Web Development", "3D Printing", "Open Source"]
   },
   "blog": {
@@ -66,10 +66,15 @@
     "updated": "Updated {{date}}",
     "postCount_one": "{{count}} post",
     "postCount_other": "{{count}} posts",
-    "badge": "Project"
+    "badge": "Project",
+    "groups": {
+      "in-progress": "In progress",
+      "done": "Completed"
+    },
+    "latest": "Latest post"
   },
   "about": {
-    "role": "Developer · Maker · FabManager",
+    "role": "Teacher · Developer · Maker",
     "skills": ["Web Development", "Electronics", "Maker", "Open Source"],
     "email": "Email",
     "twitter": "Twitter",
@@ -112,5 +117,21 @@
     "subtitle": "Page not found",
     "description": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "makerstorage": {
+    "nav": "Makerstorage",
+    "newTab": "(opens in a new tab)",
+    "eyebrow": "My open-source project",
+    "headline": "Know where every part is.",
+    "description": "An open-source inventory manager for makerspaces and fablabs, built for electronic components. Track stock down to the drawer, scan barcodes with your phone, and reorder before you run out.",
+    "features": [
+      "Parts catalog with MPNs, datasheets and supplier prices",
+      "Nested locations, from the room down to the drawer",
+      "Barcode scanning with a phone or webcam",
+      "Low-stock alerts, purchase orders and project BOMs"
+    ],
+    "badges": ["Open source · AGPL-3.0", "Free hosted version", "Self-host with Docker"],
+    "cta": "Try Makerstorage",
+    "lowStock": "low"
   }
 }
