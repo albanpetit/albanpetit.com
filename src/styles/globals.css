@@ -252,6 +252,14 @@
     content: none;
   }
 
+  /* KaTeX never wraps a block formula: a long one scrolls in its own box instead of widening the page on
+     mobile. The vertical padding keeps fractions and exponents clear of the clipping edge */
+  .prose .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-block: 0.25em;
+  }
+
   .prose img {
     @apply mx-auto my-6 block rounded-lg shadow-sm;
   }
