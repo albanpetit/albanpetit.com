@@ -23,7 +23,10 @@ const TableOfContents = ({ headings, title }: { headings: Heading[]; title: stri
   }, [headings])
 
   return (
-    <nav className="sticky top-20 rounded-xl border bg-card p-4 text-sm" aria-label={title}>
+    <nav
+      className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border bg-card p-4 text-sm"
+      aria-label={title}
+    >
       <p className="font-semibold mb-3 text-foreground">{title}</p>
       <ul className="flex flex-col gap-1.5">
         {headings.map((h) => (

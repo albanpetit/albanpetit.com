@@ -108,16 +108,16 @@ const articleData = {
       items={[{ label: t("breadcrumb.home"), href: homePath }, { label: t("nav.blog"), href: blogPath }, { label: title }]}
     />
 
-    <div class={hasToc ? "grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-10 items-start" : undefined}>
+    <div class={hasToc ? "grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-10 items-start" : undefined}>
       {
         hasToc && (
           // Sidebar on large screens only: in the single-column layout it pushed the title ~400px down
-          <div class="hidden lg:block lg:order-2">
+          <div class="hidden lg:block lg:order-2 lg:self-stretch">
             <TableOfContents client:media="(min-width: 1024px)" headings={tocHeadings} title={t("post.toc")} />
           </div>
         )
       }
-      <article class={hasToc ? "lg:order-1" : undefined}>
+      <article class={hasToc ? "min-w-0 lg:order-1" : undefined}>
         <header class="flex flex-col gap-5 mb-10">
           <div class="flex items-center gap-2 flex-wrap">
             {
